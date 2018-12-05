@@ -23,9 +23,7 @@ public class TextImageToast extends BaseDialogFragment {
     private int mContentTextSize;
 
     public TextImageToast(){
-        mLayoutBackground = view.findViewById(R.id.background);
-        mIvImage = view.findViewById(R.id.iv_image);
-        mTvContent = view.findViewById(R.id.tv_content);
+
     }
 
     public static TextImageToast newTextToast(TextAndImageToastConfigBean configBean){
@@ -63,6 +61,10 @@ public class TextImageToast extends BaseDialogFragment {
 
     @Override
     protected void initEventAndData() {
+        mLayoutBackground = view.findViewById(R.id.background);
+        mIvImage = view.findViewById(R.id.iv_image);
+        mTvContent = view.findViewById(R.id.tv_content);
+
         mLayoutBackground.setBackgroundResource(mBackground);
         setCancelable(isCancelable);
         setShade(hasShade);

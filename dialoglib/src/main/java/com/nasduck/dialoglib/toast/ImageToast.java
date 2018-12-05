@@ -18,8 +18,7 @@ public class ImageToast extends BaseDialogFragment {
     private int mImage;
 
     public ImageToast() {
-        mLayoutBackground = view.findViewById(R.id.background);
-        mIvImage = view.findViewById(R.id.iv_image);
+
     }
 
     public static ImageToast newImageToast(ImageToastConfigBean configBean){
@@ -51,6 +50,9 @@ public class ImageToast extends BaseDialogFragment {
 
     @Override
     protected void initEventAndData() {
+        mLayoutBackground = view.findViewById(R.id.background);
+        mIvImage = view.findViewById(R.id.iv_image);
+
         mLayoutBackground.setBackgroundResource(mBackground);
         setShade(hasShade);
         setCancelable(isCancelable);

@@ -35,8 +35,8 @@ public class DuckDialog {
         ImageToastConfigBean configBean = new ImageToastConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
-                .setHasShade(true);
-//                .setImage(R.mipmap.ic_launcher);
+                .setHasShade(true)
+                .setImage(R.drawable.ic_launcher);
         return configBean;
     }
 
@@ -50,7 +50,7 @@ public class DuckDialog {
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
-//                .setImage(R.mipmap.ic_launcher)
+                .setImage(R.drawable.ic_launcher)
                 .setContentText(contentText)
                 .setContentTextSize(16)
                 .setContentTextColor(R.color.colorDefaultContentText);
