@@ -1,7 +1,9 @@
 package com.nasduck.duckandroiddialog;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
 
@@ -21,23 +23,30 @@ public class TestActivity extends AppCompatActivity {
     public void onTextToast() {
         DuckDialog.assignTextToast("hello world!!")
                 .setCancelable(true)
-                .buildTextToast()
-                .show(getSupportFragmentManager(), "");
+                .show(this);
     }
 
     @OnClick(R.id.btn_toast_image)
     public void onImageToast() {
         DuckDialog.assignImageToast()
-                .setCancelable(true)
-                .buildImageToast()
-                .show(getSupportFragmentManager(), "");
+                .setCancelable(false)
+                .setHasShade(true)
+                .show(this, "image");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("111111", "11");
+                DuckDialog.hide(TestActivity.this, "image");
+            }
+        }, 5000);
     }
 
     @OnClick(R.id.btn_toast_text_image)
     public void onTextImageToast() {
         DuckDialog.assignTextAndImageToast("hello world!!")
                 .setCancelable(true)
-                .buildTextImageToast()
-                .show(getSupportFragmentManager(), "");
+                .show(this);
+
     }
 }

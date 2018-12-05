@@ -1,5 +1,8 @@
 package com.nasduck.dialoglib.config;
 
+import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
+
 import com.nasduck.dialoglib.toast.TextToast;
 
 /**
@@ -43,10 +46,10 @@ public class TextToastConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例  *******************************************************************************/
+    /**  创建实例并显示  *************************************************************************/
 
-    public TextToast buildTextToast() {
-        return TextToast.newTextToast(this);
+    public void show(FragmentActivity activity) {
+        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), "");
     }
 
     /**  get方法  ********************************************************************************/

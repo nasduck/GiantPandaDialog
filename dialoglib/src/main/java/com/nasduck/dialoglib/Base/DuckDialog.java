@@ -1,5 +1,10 @@
 package com.nasduck.dialoglib.Base;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ImageToastConfigBean;
 import com.nasduck.dialoglib.config.TextAndImageToastConfigBean;
@@ -9,6 +14,21 @@ import com.nasduck.dialoglib.config.TextToastConfigBean;
  * 默认参数设置
  */
 public class DuckDialog {
+
+    /**
+     * 控制 dialog 消失，根据fragment的tag
+     * @param activity
+     * @param tag
+     */
+    public static void hide(FragmentActivity activity, String tag) {
+        FragmentManager manager = activity.getSupportFragmentManager();
+        Fragment fragment = manager.findFragmentByTag(tag);
+        if (fragment != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.remove(fragment);
+            transaction.commitAllowingStateLoss();
+        }
+    }
 
     /**
      * 设置 TextToast 参数

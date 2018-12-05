@@ -1,5 +1,7 @@
 package com.nasduck.dialoglib.config;
 
+import android.support.v4.app.FragmentActivity;
+
 import com.nasduck.dialoglib.toast.ImageToast;
 
 public class ImageToastConfigBean extends BaseConfigBean {
@@ -30,8 +32,8 @@ public class ImageToastConfigBean extends BaseConfigBean {
 
     /**  创建实例  *******************************************************************************/
 
-    public ImageToast buildImageToast() {
-        return ImageToast.newImageToast(this);
+    public void show(FragmentActivity activity, String tag) {
+        ImageToast.newImageToast(this).show(activity.getSupportFragmentManager(), tag);
     }
 
     /**  get方法  ********************************************************************************/
