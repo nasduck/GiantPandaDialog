@@ -7,6 +7,10 @@ public class BaseConfigBean {
     protected boolean isCancelable;
     protected boolean hasShade;
 
+    /**  set方法  ********************************************************************************/
+
+
+
     /**  get方法  ********************************************************************************/
 
     public int getBackground() {

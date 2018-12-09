@@ -12,6 +12,24 @@
         android:text="Text Toast"/>
 
     <Button
+        android:id="@+id/btn_toast_image_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image Toast Success"/>
+
+    <Button
+        android:id="@+id/btn_toast_image_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image Toast Warning"/>
+
+    <Button
+        android:id="@+id/btn_toast_image_failure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Image Toast Failure"/>
+
+    <Button
         android:id="@+id/btn_toast_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

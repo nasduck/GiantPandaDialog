@@ -4,6 +4,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
 
@@ -29,17 +30,24 @@ public class TestActivity extends AppCompatActivity {
     @OnClick(R.id.btn_toast_image)
     public void onImageToast() {
         DuckDialog.assignImageToast()
-                .setCancelable(false)
+                .setCancelable(true)
                 .setHasShade(true)
                 .show(this, "image");
+    }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("111111", "11");
-                DuckDialog.hide(TestActivity.this, "image");
-            }
-        }, 5000);
+    @OnClick(R.id.btn_toast_image_success)
+    public void onImageToastSuccess() {
+        DuckDialog.assignImageToast(DuckDialog.SUCCESS).show(this);
+    }
+
+    @OnClick(R.id.btn_toast_image_warning)
+    public void onImageToastWarning() {
+        DuckDialog.assignImageToast(DuckDialog.WARNING).show(this);
+    }
+
+    @OnClick(R.id.btn_toast_image_failure)
+    public void onImageToastFailure() {
+        DuckDialog.assignImageToast(DuckDialog.FAILURE).show(this);
     }
 
     @OnClick(R.id.btn_toast_text_image)
