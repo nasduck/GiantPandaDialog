@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.nasduck.dialoglib.Base.ConfigName;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.NoTitleTipDialogConfigBean;
+import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
 
 public class NoTitleTipDialog extends BaseDialogFragment {
@@ -35,7 +35,7 @@ public class NoTitleTipDialog extends BaseDialogFragment {
 
     }
 
-    public static NoTitleTipDialog newTextToast(NoTitleTipDialogConfigBean configBean){
+    public static NoTitleTipDialog newTextToast(DialogTipNoTitleConfigBean configBean){
         NoTitleTipDialog fragment = new NoTitleTipDialog();
         Bundle args = new Bundle();
         args.putInt(ConfigName.BACKGROUND, configBean.getBackground());

@@ -53,4 +53,16 @@
         android:layout_height="wrap_content"
         android:text="Title Tip Dialog"/>
 
+    <Button
+        android:id="@+id/btn_select_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Dialog"/>
+
+    <Button
+        android:id="@+id/btn_title_select_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title Select Dialog"/>
+
 </LinearLayout>

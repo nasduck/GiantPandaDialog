@@ -2,14 +2,9 @@ package com.nasduck.dialoglib.config;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.dialog.TitleTipDialog;
+import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 
-public class TitleTipDialogConfigBean extends BaseConfigBean {
-
-    // title
-    private String titleText;
-    private int titleTextColor;
-    private int titleTextSize;
+public class DialogTipNoTitleConfigBean extends BaseConfigBean {
 
     // content
     private String contentText;
@@ -22,71 +17,56 @@ public class TitleTipDialogConfigBean extends BaseConfigBean {
     private int buttonTextSize;
 
     // 按钮点击事件监听
-    private TitleTipDialog.onSureClickListener listener;
+    private NoTitleTipDialog.onSureClickListener listener;
 
     /**  set方法  *******************************************************************************/
 
-    public TitleTipDialogConfigBean setBackground(int background) {
+    public DialogTipNoTitleConfigBean setBackground(int background) {
         this.background = background;
         return this;
     }
 
-    public TitleTipDialogConfigBean setCancelable(boolean cancelable) {
+    public DialogTipNoTitleConfigBean setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
-    public TitleTipDialogConfigBean setHasShade(boolean hasShade) {
+    public DialogTipNoTitleConfigBean setHasShade(boolean hasShade) {
         this.hasShade = hasShade;
         return this;
     }
 
-    public TitleTipDialogConfigBean setContentText(String contentText) {
+    public DialogTipNoTitleConfigBean setContentText(String contentText) {
         this.contentText = contentText;
         return this;
     }
 
-    public TitleTipDialogConfigBean setContentTextColor(int contentTextColor) {
+    public DialogTipNoTitleConfigBean setContentTextColor(int contentTextColor) {
         this.contentTextColor = contentTextColor;
         return this;
     }
 
-    public TitleTipDialogConfigBean setContentTextSize(int contentTextSize) {
+    public DialogTipNoTitleConfigBean setContentTextSize(int contentTextSize) {
         this.contentTextSize = contentTextSize;
         return this;
     }
 
-    public TitleTipDialogConfigBean setButtonText(String buttonText) {
+    public DialogTipNoTitleConfigBean setButtonText(String buttonText) {
         this.buttonText = buttonText;
         return this;
     }
 
-    public TitleTipDialogConfigBean setButtonTextColor(int buttonTextColor) {
+    public DialogTipNoTitleConfigBean setButtonTextColor(int buttonTextColor) {
         this.buttonTextColor = buttonTextColor;
         return this;
     }
 
-    public TitleTipDialogConfigBean setButtonTextSize(int buttonTextSize) {
+    public DialogTipNoTitleConfigBean setButtonTextSize(int buttonTextSize) {
         this.buttonTextSize = buttonTextSize;
         return this;
     }
 
-    public TitleTipDialogConfigBean setTitleText(String titleText) {
-        this.titleText = titleText;
-        return this;
-    }
-
-    public TitleTipDialogConfigBean setTitleTextColor(int titleTextColor) {
-        this.titleTextColor = titleTextColor;
-        return this;
-    }
-
-    public TitleTipDialogConfigBean setTitleTextSize(int titleTextSize) {
-        this.titleTextSize = titleTextSize;
-        return this;
-    }
-
-    public TitleTipDialogConfigBean setListener(TitleTipDialog.onSureClickListener listener) {
+    public DialogTipNoTitleConfigBean setListener(NoTitleTipDialog.onSureClickListener listener) {
         this.listener = listener;
         return this;
     }
@@ -94,24 +74,12 @@ public class TitleTipDialogConfigBean extends BaseConfigBean {
     /**  创建实例并显示  *************************************************************************/
 
     public void show(FragmentActivity activity, String tag) {
-        TitleTipDialog.newTextToast(this)
+        NoTitleTipDialog.newTextToast(this)
                 .setOnSureClickListener(getListener())
                 .show(activity.getSupportFragmentManager(), tag);
     }
 
     /**  get方法  ********************************************************************************/
-
-    public String getTitleText() {
-        return titleText;
-    }
-
-    public int getTitleTextColor() {
-        return titleTextColor;
-    }
-
-    public int getTitleTextSize() {
-        return titleTextSize;
-    }
 
     public String getContentText() {
         return contentText;
@@ -137,7 +105,7 @@ public class TitleTipDialogConfigBean extends BaseConfigBean {
         return buttonTextSize;
     }
 
-    public TitleTipDialog.onSureClickListener getListener() {
+    public NoTitleTipDialog.onSureClickListener getListener() {
         return listener;
     }
 }

@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.toast.TextImageToast;
 
-public class TextAndImageToastConfigBean extends BaseConfigBean {
+public class ToastTextAndImageConfigBean extends BaseConfigBean {
 
     private int image;
 
@@ -14,37 +14,37 @@ public class TextAndImageToastConfigBean extends BaseConfigBean {
 
     /**  set方法  *******************************************************************************/
 
-    public TextAndImageToastConfigBean setBackground(int background) {
+    public ToastTextAndImageConfigBean setBackground(int background) {
         this.background = background;
         return this;
     }
 
-    public TextAndImageToastConfigBean setCancelable(boolean cancelable) {
+    public ToastTextAndImageConfigBean setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
-    public TextAndImageToastConfigBean setHasShade(boolean hasShade) {
+    public ToastTextAndImageConfigBean setHasShade(boolean hasShade) {
         this.hasShade = hasShade;
         return this;
     }
 
-    public TextAndImageToastConfigBean setContentText(String contentText) {
+    public ToastTextAndImageConfigBean setContentText(String contentText) {
         this.contentText = contentText;
         return this;
     }
 
-    public TextAndImageToastConfigBean setContentTextColor(int contentTextColor) {
+    public ToastTextAndImageConfigBean setContentTextColor(int contentTextColor) {
         this.contentTextColor = contentTextColor;
         return this;
     }
 
-    public TextAndImageToastConfigBean setContentTextSize(int contentTextSize) {
+    public ToastTextAndImageConfigBean setContentTextSize(int contentTextSize) {
         this.contentTextSize = contentTextSize;
         return this;
     }
 
-    public TextAndImageToastConfigBean setImage(int image) {
+    public ToastTextAndImageConfigBean setImage(int image) {
         this.image = image;
         return this;
     }

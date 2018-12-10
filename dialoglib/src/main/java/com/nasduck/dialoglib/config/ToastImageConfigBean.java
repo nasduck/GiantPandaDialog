@@ -2,12 +2,11 @@ package com.nasduck.dialoglib.config;
 
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
 import com.nasduck.dialoglib.toast.ImageToast;
 
-public class ImageToastConfigBean extends BaseConfigBean {
+public class ToastImageConfigBean extends BaseConfigBean {
 
     private int image;
 
@@ -15,22 +14,22 @@ public class ImageToastConfigBean extends BaseConfigBean {
      * set方法
      *******************************************************************************/
 
-    public ImageToastConfigBean setBackground(int background) {
+    public ToastImageConfigBean setBackground(int background) {
         this.background = background;
         return this;
     }
 
-    public ImageToastConfigBean setCancelable(boolean cancelable) {
+    public ToastImageConfigBean setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
-    public ImageToastConfigBean setHasShade(boolean hasShade) {
+    public ToastImageConfigBean setHasShade(boolean hasShade) {
         this.hasShade = hasShade;
         return this;
     }
 
-    public ImageToastConfigBean setImage(int image) {
+    public ToastImageConfigBean setImage(int image) {
         this.image = image;
         return this;
     }

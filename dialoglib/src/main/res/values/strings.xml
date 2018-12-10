@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DialogLib</string>
+
+    <string name="sure_button_text">确定</string>
+    <string name="positive_button_text">确定</string>
+    <string name="negative_button_text">取消</string>
 </resources>

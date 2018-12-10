@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.nasduck.dialoglib.Base.ConfigName;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.TextAndImageToastConfigBean;
+import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
 
 public class TextImageToast extends BaseDialogFragment {
@@ -26,7 +26,7 @@ public class TextImageToast extends BaseDialogFragment {
 
     }
 
-    public static TextImageToast newTextToast(TextAndImageToastConfigBean configBean){
+    public static TextImageToast newTextToast(ToastTextAndImageConfigBean configBean){
         TextImageToast fragment = new TextImageToast();
         Bundle args = new Bundle();
         args.putInt(ConfigName.BACKGROUND, configBean.getBackground());

@@ -4,15 +4,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ImageToastConfigBean;
-import com.nasduck.dialoglib.config.NoTitleTipDialogConfigBean;
-import com.nasduck.dialoglib.config.TextAndImageToastConfigBean;
-import com.nasduck.dialoglib.config.TextToastConfigBean;
-import com.nasduck.dialoglib.config.TitleTipDialogConfigBean;
+import com.nasduck.dialoglib.config.DialogSelectNoTitleConfigBean;
+import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
+import com.nasduck.dialoglib.config.ToastImageConfigBean;
+import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
+import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
+import com.nasduck.dialoglib.config.ToastTextConfigBean;
+import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
+import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
+import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
@@ -45,8 +48,8 @@ public class DuckDialog {
      * @param contentText
      * @return
      */
-    public static TextToastConfigBean assignTextToast(String contentText) {
-        TextToastConfigBean configBean = new TextToastConfigBean();
+    public static ToastTextConfigBean assignTextToast(String contentText) {
+        ToastTextConfigBean configBean = new ToastTextConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
@@ -61,8 +64,8 @@ public class DuckDialog {
      * @return
      * todo 不同的样式选择：提示、警告……
      */
-    public static ImageToastConfigBean assignImageToast() {
-        ImageToastConfigBean configBean = new ImageToastConfigBean();
+    public static ToastImageConfigBean assignImageToast() {
+        ToastImageConfigBean configBean = new ToastImageConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
@@ -70,9 +73,9 @@ public class DuckDialog {
         return configBean;
     }
 
-    public static ImageToastConfigBean assignImageToast(int type) {
+    public static ToastImageConfigBean assignImageToast(int type) {
         ToastType toastType = ToastType.getType(type);
-        ImageToastConfigBean configBean = new ImageToastConfigBean();
+        ToastImageConfigBean configBean = new ToastImageConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true);
@@ -98,8 +101,8 @@ public class DuckDialog {
      * @return
      * todo 不同的样式选择：提示、警告……
      */
-    public static TextAndImageToastConfigBean assignTextAndImageToast(String contentText) {
-        TextAndImageToastConfigBean configBean = new TextAndImageToastConfigBean();
+    public static ToastTextAndImageConfigBean assignTextAndImageToast(String contentText) {
+        ToastTextAndImageConfigBean configBean = new ToastTextAndImageConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
@@ -113,19 +116,18 @@ public class DuckDialog {
     /**
      * 设置 NoTitleTipDialog 参数
      * @param contentText
-     * @param buttonText
      * @return
      */
-    public static NoTitleTipDialogConfigBean assignNoTitleTipDialog(String contentText
-            , String buttonText, NoTitleTipDialog.onSureClickListener listener) {
-        NoTitleTipDialogConfigBean configBean = new NoTitleTipDialogConfigBean();
+    public static DialogTipNoTitleConfigBean assignNoTitleTipDialog(String contentText
+            , NoTitleTipDialog.onSureClickListener listener) {
+        DialogTipNoTitleConfigBean configBean = new DialogTipNoTitleConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
                 .setContentTextColor(R.color.colorDefaultContentText)
-                .setButtonText(buttonText)
+                .setButtonText("确定")
                 .setButtonTextSize(18)
                 .setButtonTextColor(R.color.colorDefaultContentText)
                 .setListener(listener);
@@ -135,25 +137,74 @@ public class DuckDialog {
     /**
      * 设置 TitleTipDialog 参数
      * @param contentText
-     * @param buttonText
      * @return
      */
-    public static TitleTipDialogConfigBean assignTitleTipDialog(String titletext
-            , String contentText, String buttonText
-            , TitleTipDialog.onSureClickListener listener) {
-        TitleTipDialogConfigBean configBean = new TitleTipDialogConfigBean();
+    public static DialogTipTitleConfigBean assignTitleTipDialog(String titleText
+            , String contentText, TitleTipDialog.onSureClickListener listener) {
+        DialogTipTitleConfigBean configBean = new DialogTipTitleConfigBean();
         configBean.setBackground(R.drawable.bg_default)
                 .setCancelable(false)
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
                 .setContentTextColor(R.color.colorDefaultContentText)
-                .setButtonText(buttonText)
+                .setButtonText("确定")
                 .setButtonTextSize(18)
                 .setButtonTextColor(R.color.colorDefaultContentText)
+                .setTitleText(titleText)
+                .setTitleTextSize(18)
+                .setTitleTextColor(R.color.colorDefaultContentText)
+                .setListener(listener);
+        return configBean;
+    }
+
+    /**
+     * 设置 NoTitleSelectDialog 参数
+     * @param contentText
+     * @return
+     */
+    public static DialogSelectNoTitleConfigBean assignNoTitleSelectDialog(String contentText
+            , NoTitleSelectDialog.onSelectClickListener listener) {
+        DialogSelectNoTitleConfigBean configBean = new DialogSelectNoTitleConfigBean();
+        configBean.setBackground(R.drawable.bg_default)
+                .setCancelable(false)
+                .setHasShade(true)
+                .setContentText(contentText)
+                .setContentTextSize(16)
+                .setContentTextColor(R.color.colorDefaultContentText)
+                .setPositiveButtonText("确定")
+                .setPositiveButtonTextSize(18)
+                .setPositiveButtonTextColor(R.color.colorDefaultContentText)
+                .setNegativeButtonText("取消")
+                .setNegativeButtonTextSize(18)
+                .setNegativeButtonTextColor(R.color.colorDefaultContentText)
+                .setListener(listener);
+        return configBean;
+    }
+
+    /**
+     * 设置 TitleSelectDialog 参数
+     * @param contentText
+     * @return
+     */
+    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titletext
+            , String contentText, TitleSelectDialog.onSelectClickListener listener) {
+        DialogSelectTitleConfigBean configBean = new DialogSelectTitleConfigBean();
+        configBean.setBackground(R.drawable.bg_default)
+                .setCancelable(false)
+                .setHasShade(true)
                 .setTitleText(titletext)
                 .setTitleTextSize(18)
                 .setTitleTextColor(R.color.colorDefaultContentText)
+                .setContentText(contentText)
+                .setContentTextSize(16)
+                .setContentTextColor(R.color.colorDefaultContentText)
+                .setPositiveButtonText("确定")
+                .setPositiveButtonTextSize(18)
+                .setPositiveButtonTextColor(R.color.colorDefaultContentText)
+                .setNegativeButtonText("取消")
+                .setNegativeButtonTextSize(18)
+                .setNegativeButtonTextColor(R.color.colorDefaultContentText)
                 .setListener(listener);
         return configBean;
     }

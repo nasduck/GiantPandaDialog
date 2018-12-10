@@ -1,6 +1,5 @@
 package com.nasduck.dialoglib.config;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.toast.TextToast;
@@ -8,7 +7,7 @@ import com.nasduck.dialoglib.toast.TextToast;
 /**
  * TextToast需要配置的参数
  */
-public class TextToastConfigBean extends BaseConfigBean {
+public class ToastTextConfigBean extends BaseConfigBean {
 
     private String contentText;
     private int contentTextColor;
@@ -16,32 +15,32 @@ public class TextToastConfigBean extends BaseConfigBean {
 
     /**  set方法  *******************************************************************************/
 
-    public TextToastConfigBean setBackground(int background) {
+    public ToastTextConfigBean setBackground(int background) {
         this.background = background;
         return this;
     }
 
-    public TextToastConfigBean setCancelable(boolean cancelable) {
+    public ToastTextConfigBean setCancelable(boolean cancelable) {
         isCancelable = cancelable;
         return this;
     }
 
-    public TextToastConfigBean setHasShade(boolean hasShade) {
+    public ToastTextConfigBean setHasShade(boolean hasShade) {
         this.hasShade = hasShade;
         return this;
     }
 
-    public TextToastConfigBean setContentText(String contentText) {
+    public ToastTextConfigBean setContentText(String contentText) {
         this.contentText = contentText;
         return this;
     }
 
-    public TextToastConfigBean setContentTextColor(int contentTextColor) {
+    public ToastTextConfigBean setContentTextColor(int contentTextColor) {
         this.contentTextColor = contentTextColor;
         return this;
     }
 
-    public TextToastConfigBean setContentTextSize(int contentTextSize) {
+    public ToastTextConfigBean setContentTextSize(int contentTextSize) {
         this.contentTextSize = contentTextSize;
         return this;
     }

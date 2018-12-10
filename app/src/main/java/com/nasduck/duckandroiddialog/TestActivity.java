@@ -1,13 +1,13 @@
 package com.nasduck.duckandroiddialog;
 
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
+import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
+import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 
 import butterknife.ButterKnife;
@@ -61,7 +61,7 @@ public class TestActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_tip_dialog)
     public void onTipDialog() {
-        DuckDialog.assignNoTitleTipDialog("hello world!!", "确定",
+        DuckDialog.assignNoTitleTipDialog("hello world!!",
                 new NoTitleTipDialog.onSureClickListener() {
                     @Override
                     public void onSureClick() {
@@ -74,14 +74,49 @@ public class TestActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_title_tip_dialog)
     public void onTitleTipDialog() {
-        DuckDialog.assignTitleTipDialog("title", "hello world!!", "确定"
-                , new TitleTipDialog.onSureClickListener() {
+        DuckDialog.assignTitleTipDialog("title", "hello world!!",
+                new TitleTipDialog.onSureClickListener() {
                     @Override
                     public void onSureClick() {
                         Log.d("111111", "确定了！！！");
                     }
                 })
                 .setCancelable(true)
+                .show(this, "");
+    }
+
+    @OnClick(R.id.btn_select_dialog)
+    public void onSelectDialog() {
+        DuckDialog.assignNoTitleSelectDialog("hello world!!",
+                new NoTitleSelectDialog.onSelectClickListener() {
+                    @Override
+                    public void onPositiveClick() {
+                        Log.d("111111", "确定了！！！");
+                    }
+
+                    @Override
+                    public void onNegativeClick() {
+                        Log.d("111111", "取消了！！！");
+                    }
+                })
+                .setCancelable(true)
+                .show(this, "");
+    }
+
+    @OnClick(R.id.btn_title_select_dialog)
+    public void onTitleSelectDialog() {
+        DuckDialog.assignTitleSelectDialog("title", "hello world!!"
+                , new TitleSelectDialog.onSelectClickListener() {
+                    @Override
+                    public void onPositiveClick() {
+                        Log.d("111111", "确定了！！！");
+                    }
+
+                    @Override
+                    public void onNegativeClick() {
+                        Log.d("111111", "取消了！！！");
+                    }
+                })
                 .show(this, "");
     }
 }
