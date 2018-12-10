@@ -6,13 +6,15 @@ import com.nasduck.dialoglib.toast.TextImageToast;
 
 public class ToastTextAndImageConfigBean extends BaseConfigBean {
 
+    // image
     private int image;
 
+    // content
     private String contentText;
     private int contentTextColor;
     private int contentTextSize;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  *******************************************************************************/
 
     public ToastTextAndImageConfigBean setBackground(int background) {
         this.background = background;
@@ -49,13 +51,13 @@ public class ToastTextAndImageConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例  *******************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
-    public void show(FragmentActivity activity) {
-        TextImageToast.newTextToast(this).show(activity.getSupportFragmentManager(), "");
+    public void show(FragmentActivity activity, String tag) {
+        TextImageToast.newTextToast(this).show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way  ********************************************************************************/
 
     public int getImage() {
         return image;

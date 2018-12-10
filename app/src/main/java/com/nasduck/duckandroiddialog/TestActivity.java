@@ -26,7 +26,7 @@ public class TestActivity extends AppCompatActivity {
     public void onTextToast() {
         DuckDialog.assignTextToast("hello world!!")
                 .setCancelable(true)
-                .show(this);
+                .show(this, "");
     }
 
     @OnClick(R.id.btn_toast_image)
@@ -56,7 +56,7 @@ public class TestActivity extends AppCompatActivity {
     public void onTextImageToast() {
         DuckDialog.assignTextAndImageToast("hello world!!")
                 .setCancelable(true)
-                .show(this);
+                .show(this, "");
     }
 
     @OnClick(R.id.btn_tip_dialog)

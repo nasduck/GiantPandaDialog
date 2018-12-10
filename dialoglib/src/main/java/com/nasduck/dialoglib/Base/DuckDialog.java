@@ -20,7 +20,7 @@ import com.nasduck.dialoglib.dialog.TitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
 /**
- * 默认参数设置
+ * default config
  */
 public class DuckDialog {
 
@@ -29,7 +29,7 @@ public class DuckDialog {
     public static final int FAILURE = 2;
 
     /**
-     * 控制 dialog 消失，根据fragment的tag
+     * Fragment tag to control dialog disappear.
      * @param activity
      * @param tag
      */
@@ -44,7 +44,7 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 TextToast 参数
+     * TextToast config
      * @param contentText
      * @return
      */
@@ -60,9 +60,8 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 ImageToast 参数
+     * ImageToast config
      * @return
-     * todo 不同的样式选择：提示、警告……
      */
     public static ToastImageConfigBean assignImageToast() {
         ToastImageConfigBean configBean = new ToastImageConfigBean();
@@ -73,6 +72,12 @@ public class DuckDialog {
         return configBean;
     }
 
+    /**
+     * special image toast(SUCCESS\WARNING\FAILURE)
+     * @param type
+     * @return
+     * todo more types
+     */
     public static ToastImageConfigBean assignImageToast(int type) {
         ToastType toastType = ToastType.getType(type);
         ToastImageConfigBean configBean = new ToastImageConfigBean();
@@ -96,10 +101,10 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 TextAndImageToast 参数
+     * TextAndImageToast config
      * @param contentText
      * @return
-     * todo 不同的样式选择：提示、警告……
+     * todo special toast
      */
     public static ToastTextAndImageConfigBean assignTextAndImageToast(String contentText) {
         ToastTextAndImageConfigBean configBean = new ToastTextAndImageConfigBean();
@@ -114,7 +119,7 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 NoTitleTipDialog 参数
+     * NoTitleTipDialog config
      * @param contentText
      * @return
      */
@@ -135,7 +140,7 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 TitleTipDialog 参数
+     * TitleTipDialog config
      * @param contentText
      * @return
      */
@@ -159,7 +164,7 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 NoTitleSelectDialog 参数
+     * NoTitleSelectDialog config
      * @param contentText
      * @return
      */
@@ -183,7 +188,7 @@ public class DuckDialog {
     }
 
     /**
-     * 设置 TitleSelectDialog 参数
+     * TitleSelectDialog config
      * @param contentText
      * @return
      */

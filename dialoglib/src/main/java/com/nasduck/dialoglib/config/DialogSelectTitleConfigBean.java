@@ -28,7 +28,7 @@ public class DialogSelectTitleConfigBean extends BaseConfigBean {
 
     private TitleSelectDialog.onSelectClickListener listener;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public DialogSelectTitleConfigBean setBackground(int background) {
         this.background = background;
@@ -110,7 +110,7 @@ public class DialogSelectTitleConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例并显示  *************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
     public void show(FragmentActivity activity, String tag) {
         TitleSelectDialog.newTitleTipDialog(this)
@@ -118,7 +118,7 @@ public class DialogSelectTitleConfigBean extends BaseConfigBean {
                 .show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way  ********************************************************************************/
 
     public String getContentText() {
         return contentText;

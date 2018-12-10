@@ -8,11 +8,10 @@ import com.nasduck.dialoglib.toast.ImageToast;
 
 public class ToastImageConfigBean extends BaseConfigBean {
 
+    // image
     private int image;
 
-    /**
-     * set方法
-     *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public ToastImageConfigBean setBackground(int background) {
         this.background = background;
@@ -34,7 +33,7 @@ public class ToastImageConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /** 创建实例 *********************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
     public void show(FragmentActivity activity, String tag) {
         ImageToast.newImageToast(this).show(activity.getSupportFragmentManager(), tag);
@@ -52,7 +51,7 @@ public class ToastImageConfigBean extends BaseConfigBean {
 
     }
 
-    /** get方法 **********************************************************************************/
+    /** get way **********************************************************************************/
 
     public int getImage() {
         return image;

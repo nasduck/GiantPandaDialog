@@ -21,10 +21,10 @@ public class DialogTipTitleConfigBean extends BaseConfigBean {
     private int buttonTextColor;
     private int buttonTextSize;
 
-    // 按钮点击事件监听
+    // click listener
     private TitleTipDialog.onSureClickListener listener;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public DialogTipTitleConfigBean setBackground(int background) {
         this.background = background;
@@ -91,7 +91,7 @@ public class DialogTipTitleConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例并显示  *************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
     public void show(FragmentActivity activity, String tag) {
         TitleTipDialog.newTitleTipDialog(this)
@@ -99,7 +99,7 @@ public class DialogTipTitleConfigBean extends BaseConfigBean {
                 .show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way  ********************************************************************************/
 
     public String getTitleText() {
         return titleText;

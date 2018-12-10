@@ -24,10 +24,10 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        // 绑定View
+        // bind view
         view = inflater.inflate(getLayoutId(), container);
 
-        // 去除对话框默认标题栏
+        // Removes the dialog box's default title bar
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         return view;
@@ -37,7 +37,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // 初始化事件和获取数据
         initEventAndData();
     }
 
@@ -54,7 +53,7 @@ public abstract class BaseDialogFragment extends DialogFragment {
     }
 
     /**
-     * 设置阴影
+     * set shade
      * @param hasShade
      */
     public void setShade(boolean hasShade) {
@@ -66,18 +65,18 @@ public abstract class BaseDialogFragment extends DialogFragment {
     }
 
     /**
-     * 获取Dialog页面视图
+     * get dialog layout
      * @return
      */
     protected abstract int getLayoutId();
 
     /**
-     * 初始化Dialog事件和数据
+     * init event and data
      */
     protected abstract void initEventAndData();
 
     /**
-     * 隐藏Dialog
+     * hide dialog
      */
     protected abstract void hide();
 

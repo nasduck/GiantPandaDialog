@@ -23,7 +23,7 @@ public class DialogSelectNoTitleConfigBean extends BaseConfigBean {
 
     private NoTitleSelectDialog.onSelectClickListener listener;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public DialogSelectNoTitleConfigBean setBackground(int background) {
         this.background = background;
@@ -90,7 +90,7 @@ public class DialogSelectNoTitleConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例并显示  *************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
     public void show(FragmentActivity activity, String tag) {
         NoTitleSelectDialog.newNoTitleTipDialog(this)
@@ -98,7 +98,7 @@ public class DialogSelectNoTitleConfigBean extends BaseConfigBean {
                 .show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way  ********************************************************************************/
 
     public String getContentText() {
         return contentText;

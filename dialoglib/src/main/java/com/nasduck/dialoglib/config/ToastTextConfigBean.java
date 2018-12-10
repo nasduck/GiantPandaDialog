@@ -4,16 +4,14 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.toast.TextToast;
 
-/**
- * TextToast需要配置的参数
- */
 public class ToastTextConfigBean extends BaseConfigBean {
 
+    // content
     private String contentText;
     private int contentTextColor;
     private int contentTextSize;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public ToastTextConfigBean setBackground(int background) {
         this.background = background;
@@ -45,13 +43,13 @@ public class ToastTextConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例并显示  *************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
-    public void show(FragmentActivity activity) {
-        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), "");
+    public void show(FragmentActivity activity, String tag) {
+        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way *********************************************************************************/
 
     public String getContentText() {
         return contentText;

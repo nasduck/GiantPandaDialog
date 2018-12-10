@@ -16,10 +16,10 @@ public class DialogTipNoTitleConfigBean extends BaseConfigBean {
     private int buttonTextColor;
     private int buttonTextSize;
 
-    // 按钮点击事件监听
+    // click listener
     private NoTitleTipDialog.onSureClickListener listener;
 
-    /**  set方法  *******************************************************************************/
+    /**  set way  ********************************************************************************/
 
     public DialogTipNoTitleConfigBean setBackground(int background) {
         this.background = background;
@@ -71,7 +71,7 @@ public class DialogTipNoTitleConfigBean extends BaseConfigBean {
         return this;
     }
 
-    /**  创建实例并显示  *************************************************************************/
+    /**  Create an instance and display it  ******************************************************/
 
     public void show(FragmentActivity activity, String tag) {
         NoTitleTipDialog.newTextToast(this)
@@ -79,7 +79,7 @@ public class DialogTipNoTitleConfigBean extends BaseConfigBean {
                 .show(activity.getSupportFragmentManager(), tag);
     }
 
-    /**  get方法  ********************************************************************************/
+    /**  get way  ********************************************************************************/
 
     public String getContentText() {
         return contentText;

@@ -2,16 +2,16 @@ package com.nasduck.dialoglib.config;
 
 public class BaseConfigBean {
 
-    // 背景
+    // background
     protected int background;
     protected boolean isCancelable;
     protected boolean hasShade;
 
-    /**  set方法  ********************************************************************************/
+    /**  set way *********************************************************************************/
 
 
 
-    /**  get方法  ********************************************************************************/
+    /**  get way *********************************************************************************/
 
     public int getBackground() {
         return background;
