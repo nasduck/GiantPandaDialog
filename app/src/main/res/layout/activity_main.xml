@@ -41,4 +41,10 @@
         android:layout_height="wrap_content"
         android:text="Text And Image Toast"/>
 
+    <Button
+        android:id="@+id/btn_tip_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tip Dialog"/>
+
 </LinearLayout>

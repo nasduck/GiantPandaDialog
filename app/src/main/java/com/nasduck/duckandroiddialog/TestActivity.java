@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
+import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -55,6 +56,17 @@ public class TestActivity extends AppCompatActivity {
         DuckDialog.assignTextAndImageToast("hello world!!")
                 .setCancelable(true)
                 .show(this);
+    }
 
+    @OnClick(R.id.btn_tip_dialog)
+    public void onTipDialog() {
+        DuckDialog.assignNoTitleTipDialog("hello world!!", "确定",
+                new NoTitleTipDialog.onSureClickListener() {
+                    @Override
+                    public void onSureClick() {
+                        Log.d("111111", "确定了！！！");
+                    }
+                }).setCancelable(true)
+                .show(this, "");
     }
 }

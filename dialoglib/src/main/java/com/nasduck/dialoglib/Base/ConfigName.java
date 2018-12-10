@@ -15,4 +15,9 @@ public class ConfigName {
     // 图片内容
     public static final String IMAGE = "image";
 
+    // 提示按钮
+    public static final String TIP_BUTTON_TEXT = "tipButtonText";
+    public static final String TIP_BUTTON_TEXT_COLOR = "tipButtonTextColor";
+    public static final String TIP_BUTTON_TEXT_SIZE = "tipButtonTextSize";
+
 }

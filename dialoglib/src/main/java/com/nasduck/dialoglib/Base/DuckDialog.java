@@ -8,8 +8,10 @@ import android.util.Log;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ImageToastConfigBean;
+import com.nasduck.dialoglib.config.NoTitleTipDialogConfigBean;
 import com.nasduck.dialoglib.config.TextAndImageToastConfigBean;
 import com.nasduck.dialoglib.config.TextToastConfigBean;
+import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
 /**
@@ -90,6 +92,7 @@ public class DuckDialog {
 
     /**
      * 设置 TextAndImageToast 参数
+     * @param contentText
      * @return
      * todo 不同的样式选择：提示、警告……
      */
@@ -103,5 +106,28 @@ public class DuckDialog {
                 .setContentTextSize(16)
                 .setContentTextColor(R.color.colorDefaultContentText);
         return configBean;
+    }
+
+    /**
+     * 设置 NoTitleTipDialog 参数
+     * @param contentText
+     * @param buttonText
+     * @return
+     */
+    public static NoTitleTipDialogConfigBean assignNoTitleTipDialog(String contentText
+            , String buttonText, NoTitleTipDialog.onSureClickListener listener) {
+        NoTitleTipDialogConfigBean configBean = new NoTitleTipDialogConfigBean();
+        configBean.setBackground(R.drawable.bg_default)
+                .setCancelable(false)
+                .setHasShade(true)
+                .setContentText(contentText)
+                .setContentTextSize(16)
+                .setContentTextColor(R.color.colorDefaultContentText)
+                .setButtonText(buttonText)
+                .setButtonTextSize(18)
+                .setButtonTextColor(R.color.colorDefaultContentText)
+                .setListener(listener);
+        return configBean;
+
     }
 }
