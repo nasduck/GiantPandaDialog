@@ -12,6 +12,11 @@ public class ConfigName {
     public static final String CONTENT_TEXT_COLOR = "contentTextColor";
     public static final String CONTENT_TEXT_SIZE = "contentTextSize";
 
+    // 标题内容
+    public static final String TITLE_TEXT = "titleText";
+    public static final String TITLE_TEXT_COLOR = "titleTextColor";
+    public static final String TITLE_TEXT_SIZE = "titleTextSize";
+
     // 图片内容
     public static final String IMAGE = "image";
 

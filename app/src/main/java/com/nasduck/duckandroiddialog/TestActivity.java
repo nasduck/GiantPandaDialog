@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.nasduck.dialoglib.Base.DuckDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
+import com.nasduck.dialoglib.dialog.TitleTipDialog;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -66,7 +67,21 @@ public class TestActivity extends AppCompatActivity {
                     public void onSureClick() {
                         Log.d("111111", "确定了！！！");
                     }
-                }).setCancelable(true)
+                })
+                .setCancelable(true)
+                .show(this, "");
+    }
+
+    @OnClick(R.id.btn_title_tip_dialog)
+    public void onTitleTipDialog() {
+        DuckDialog.assignTitleTipDialog("title", "hello world!!", "确定"
+                , new TitleTipDialog.onSureClickListener() {
+                    @Override
+                    public void onSureClick() {
+                        Log.d("111111", "确定了！！！");
+                    }
+                })
+                .setCancelable(true)
                 .show(this, "");
     }
 }

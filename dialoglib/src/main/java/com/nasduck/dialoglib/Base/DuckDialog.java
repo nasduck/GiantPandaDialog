@@ -11,7 +11,9 @@ import com.nasduck.dialoglib.config.ImageToastConfigBean;
 import com.nasduck.dialoglib.config.NoTitleTipDialogConfigBean;
 import com.nasduck.dialoglib.config.TextAndImageToastConfigBean;
 import com.nasduck.dialoglib.config.TextToastConfigBean;
+import com.nasduck.dialoglib.config.TitleTipDialogConfigBean;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
+import com.nasduck.dialoglib.dialog.TitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
 /**
@@ -128,6 +130,31 @@ public class DuckDialog {
                 .setButtonTextColor(R.color.colorDefaultContentText)
                 .setListener(listener);
         return configBean;
+    }
 
+    /**
+     * 设置 TitleTipDialog 参数
+     * @param contentText
+     * @param buttonText
+     * @return
+     */
+    public static TitleTipDialogConfigBean assignTitleTipDialog(String titletext
+            , String contentText, String buttonText
+            , TitleTipDialog.onSureClickListener listener) {
+        TitleTipDialogConfigBean configBean = new TitleTipDialogConfigBean();
+        configBean.setBackground(R.drawable.bg_default)
+                .setCancelable(false)
+                .setHasShade(true)
+                .setContentText(contentText)
+                .setContentTextSize(16)
+                .setContentTextColor(R.color.colorDefaultContentText)
+                .setButtonText(buttonText)
+                .setButtonTextSize(18)
+                .setButtonTextColor(R.color.colorDefaultContentText)
+                .setTitleText(titletext)
+                .setTitleTextSize(18)
+                .setTitleTextColor(R.color.colorDefaultContentText)
+                .setListener(listener);
+        return configBean;
     }
 }
