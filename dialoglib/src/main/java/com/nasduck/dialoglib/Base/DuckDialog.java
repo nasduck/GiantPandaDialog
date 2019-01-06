@@ -204,21 +204,21 @@ public class DuckDialog {
      * @param contentText
      * @return
      */
-    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titletext
+    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titleText
             , String contentText, TitleSelectDialog.onSelectClickListener listener) {
         DialogSelectTitleConfigBean configBean = new DialogSelectTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
+        configBean.setBackground(R.drawable.bg_dialog_white)
                 .setCancelable(false)
                 .setHasShade(true)
-                .setTitleText(titletext)
+                .setTitleText(titleText)
                 .setTitleTextSize(18)
                 .setTitleTextColor(R.color.text_black)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black)
+                .setContentTextColor(R.color.text_black_light)
                 .setPositiveButtonText("确定")
                 .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.text_black)
+                .setPositiveButtonTextColor(R.color.text_blue)
                 .setNegativeButtonText("取消")
                 .setNegativeButtonTextSize(18)
                 .setNegativeButtonTextColor(R.color.text_black)
