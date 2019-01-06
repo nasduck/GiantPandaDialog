@@ -11,6 +11,9 @@ import com.nasduck.dialoglib.Base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
+import com.nasduck.dialoglib.utils.DensityUtils;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class TitleSelectDialog extends BaseDialogFragment {
 
@@ -79,9 +82,15 @@ public class TitleSelectDialog extends BaseDialogFragment {
             mPositiveButtonTextColor = getArguments().getInt(ConfigName.POSITIVE_BUTTON_TEXT_COLOR);
             mPositiveButtonTextSize = getArguments().getInt(ConfigName.POSITIVE_BUTTON_TEXT_SIZE);
             mNegativeButtonText = getArguments().getString(ConfigName.NEGATIVE_BUTTON_TEXT);
-            mNegativeButtonTextColor = getArguments().getInt(ConfigName.POSITIVE_BUTTON_TEXT_COLOR);
-            mNegativeButtonTextSize = getArguments().getInt(ConfigName.POSITIVE_BUTTON_TEXT_SIZE);
+            mNegativeButtonTextColor = getArguments().getInt(ConfigName.NEGATIVE_BUTTON_TEXT_COLOR);
+            mNegativeButtonTextSize = getArguments().getInt(ConfigName.NEGATIVE_BUTTON_TEXT_SIZE);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDialog().getWindow().setLayout(DensityUtils.dp2px(mContext, 280), WRAP_CONTENT);
     }
 
     @Override

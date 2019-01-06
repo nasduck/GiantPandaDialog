@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#ffffff</color>
-    
-    <color name="colorDefaultContentText">#232323</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="black_alpha_60">#99000000</color>
+
+    <color name="line_gray">#E6E6E6</color>
+
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_black">#1A1A1A</color>
+    <color name="text_black_light">#4D4D4D</color>
+    <color name="text_blue">#038EF0</color>
 </resources>

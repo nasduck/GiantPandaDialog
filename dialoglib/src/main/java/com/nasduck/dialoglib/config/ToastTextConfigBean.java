@@ -1,7 +1,11 @@
 package com.nasduck.dialoglib.config;
 
+import android.os.Handler;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 
+import com.nasduck.dialoglib.Base.DuckDialog;
+import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.TextToast;
 
 public class ToastTextConfigBean extends BaseConfigBean {
@@ -15,16 +19,6 @@ public class ToastTextConfigBean extends BaseConfigBean {
 
     public ToastTextConfigBean setBackground(int background) {
         this.background = background;
-        return this;
-    }
-
-    public ToastTextConfigBean setCancelable(boolean cancelable) {
-        isCancelable = cancelable;
-        return this;
-    }
-
-    public ToastTextConfigBean setHasShade(boolean hasShade) {
-        this.hasShade = hasShade;
         return this;
     }
 
@@ -45,8 +39,26 @@ public class ToastTextConfigBean extends BaseConfigBean {
 
     /**  Create an instance and display it  ******************************************************/
 
-    public void show(FragmentActivity activity, String tag) {
-        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), tag);
+    public void show(final FragmentActivity activity) {
+        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), "default");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DuckDialog.hide(activity, "default");
+            }
+        }, 1000);
+    }
+
+    public void show(final FragmentActivity activity, int delayMillis) {
+        TextToast.newTextToast(this).show(activity.getSupportFragmentManager(), "default");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DuckDialog.hide(activity, "default");
+            }
+        }, delayMillis);
     }
 
     /**  get way *********************************************************************************/

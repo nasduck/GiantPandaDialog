@@ -51,11 +51,23 @@ public class DuckDialog {
     public static ToastTextConfigBean assignTextToast(String contentText) {
         ToastTextConfigBean configBean = new ToastTextConfigBean();
         configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText);
+                .setContentTextColor(R.color.text_black);
+        return configBean;
+    }
+
+    public static ToastTextConfigBean assignTextToast(DuckDialogType toastType, String contentText) {
+        ToastTextConfigBean configBean = new ToastTextConfigBean();
+        DuckDialogType type = DuckDialogType.getType(toastType.getDialogType());
+        switch (type) {
+            case TOAST_BLACK:
+                configBean.setBackground(R.drawable.bg_toast_black)
+                        .setContentText(contentText)
+                        .setContentTextSize(14)
+                        .setContentTextColor(R.color.text_white);
+                break;
+        }
         return configBean;
     }
 
@@ -114,7 +126,7 @@ public class DuckDialog {
                 .setImage(R.drawable.ic_launcher)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText);
+                .setContentTextColor(R.color.text_black);
         return configBean;
     }
 
@@ -131,10 +143,10 @@ public class DuckDialog {
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText)
+                .setContentTextColor(R.color.text_black)
                 .setButtonText("确定")
                 .setButtonTextSize(18)
-                .setButtonTextColor(R.color.colorDefaultContentText)
+                .setButtonTextColor(R.color.text_black)
                 .setListener(listener);
         return configBean;
     }
@@ -152,13 +164,13 @@ public class DuckDialog {
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText)
+                .setContentTextColor(R.color.text_black)
                 .setButtonText("确定")
                 .setButtonTextSize(18)
-                .setButtonTextColor(R.color.colorDefaultContentText)
+                .setButtonTextColor(R.color.text_black)
                 .setTitleText(titleText)
                 .setTitleTextSize(18)
-                .setTitleTextColor(R.color.colorDefaultContentText)
+                .setTitleTextColor(R.color.text_black)
                 .setListener(listener);
         return configBean;
     }
@@ -176,13 +188,13 @@ public class DuckDialog {
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText)
+                .setContentTextColor(R.color.text_black)
                 .setPositiveButtonText("确定")
                 .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.colorDefaultContentText)
+                .setPositiveButtonTextColor(R.color.text_black)
                 .setNegativeButtonText("取消")
                 .setNegativeButtonTextSize(18)
-                .setNegativeButtonTextColor(R.color.colorDefaultContentText)
+                .setNegativeButtonTextColor(R.color.text_black)
                 .setListener(listener);
         return configBean;
     }
@@ -192,24 +204,24 @@ public class DuckDialog {
      * @param contentText
      * @return
      */
-    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titletext
+    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titleText
             , String contentText, TitleSelectDialog.onSelectClickListener listener) {
         DialogSelectTitleConfigBean configBean = new DialogSelectTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
+        configBean.setBackground(R.drawable.bg_dialog_white)
                 .setCancelable(false)
                 .setHasShade(true)
-                .setTitleText(titletext)
+                .setTitleText(titleText)
                 .setTitleTextSize(18)
-                .setTitleTextColor(R.color.colorDefaultContentText)
+                .setTitleTextColor(R.color.text_black)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.colorDefaultContentText)
+                .setContentTextColor(R.color.text_black_light)
                 .setPositiveButtonText("确定")
                 .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.colorDefaultContentText)
+                .setPositiveButtonTextColor(R.color.text_blue)
                 .setNegativeButtonText("取消")
                 .setNegativeButtonTextSize(18)
-                .setNegativeButtonTextColor(R.color.colorDefaultContentText)
+                .setNegativeButtonTextColor(R.color.text_black)
                 .setListener(listener);
         return configBean;
     }
