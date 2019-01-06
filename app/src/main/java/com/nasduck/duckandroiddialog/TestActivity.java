@@ -1,5 +1,6 @@
 package com.nasduck.duckandroiddialog;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,23 +11,39 @@ import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.Unbinder;
 
 public class TestActivity extends AppCompatActivity {
+
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mUnbinder != null && mUnbinder != Unbinder.EMPTY) {
+            mUnbinder.unbind();
+        }
+    }
+
+    @OnClick(R.id.btn_toast_default_type)
+    public void onToastDefaultTypeClick() {
+        Intent intentToToastDefaultType = new Intent(this, ToastActivity.class);
+        startActivity(intentToToastDefaultType);
     }
 
     @OnClick(R.id.btn_toast_text)
     public void onTextToast() {
-        DuckDialog.assignTextToast("hello world!!")
-                .setCancelable(true)
-                .show(this, "");
+        DuckDialog.assignTextToast("hello world!!").show(this);
     }
 
     @OnClick(R.id.btn_toast_image)

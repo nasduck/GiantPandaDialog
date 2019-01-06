@@ -2,6 +2,7 @@ package com.nasduck.dialoglib.toast;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -27,8 +28,6 @@ public class TextToast extends BaseDialogFragment {
         TextToast fragment = new TextToast();
         Bundle args = new Bundle();
         args.putInt(ConfigName.BACKGROUND, configBean.getBackground());
-        args.putBoolean(ConfigName.IS_CANCELABLE, configBean.isCancelable());
-        args.putBoolean(ConfigName.HAS_SHADE, configBean.isHasShade());
         args.putString(ConfigName.CONTENT_TEXT, configBean.getContentText());
         args.putInt(ConfigName.CONTENT_TEXT_COLOR, configBean.getContentTextColor());
         args.putInt(ConfigName.CONTENT_TEXT_SIZE, configBean.getContentTextSize());
@@ -39,10 +38,9 @@ public class TextToast extends BaseDialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(DialogFragment.STYLE_NORMAL, R.style.Fragment_dialog_style);
         if (getArguments() != null) {
             mBackground = getArguments().getInt(ConfigName.BACKGROUND);
-            isCancelable = getArguments().getBoolean(ConfigName.IS_CANCELABLE);
-            hasShade = getArguments().getBoolean(ConfigName.HAS_SHADE);
             mContentText = getArguments().getString(ConfigName.CONTENT_TEXT);
             mContentTextColor = getArguments().getInt(ConfigName.CONTENT_TEXT_COLOR);
             mContentTextSize = getArguments().getInt(ConfigName.CONTENT_TEXT_SIZE);
@@ -60,8 +58,6 @@ public class TextToast extends BaseDialogFragment {
         mLayoutBackground = view.findViewById(R.id.background);
 
         mLayoutBackground.setBackgroundResource(mBackground);
-        setCancelable(isCancelable);
-        setShade(hasShade);
         mTvContent.setText(mContentText);
         mTvContent.setTextColor(getResources().getColor(mContentTextColor));
         mTvContent.setTextSize(mContentTextSize);

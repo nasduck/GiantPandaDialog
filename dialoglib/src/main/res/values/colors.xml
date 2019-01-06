@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#ffffff</color>
-    
-    <color name="colorDefaultContentText">#232323</color>
+    <color name="black">#000000</color>
+
+    <color name="black_alpha_60">#99000000</color>
+
+    <color name="text_white">#ffffff</color>
+    <color name="text_black">#232323</color>
 </resources>
