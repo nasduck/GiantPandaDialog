@@ -5,13 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.nasduck.dialoglib.Base.DuckDialog;
+import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;

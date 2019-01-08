@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.Base;
+package com.nasduck.dialoglib.base;
 
 public enum DuckDialogType {
 

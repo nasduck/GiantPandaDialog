@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.Base;
+package com.nasduck.dialoglib.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;

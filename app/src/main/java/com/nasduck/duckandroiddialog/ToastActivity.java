@@ -3,8 +3,8 @@ package com.nasduck.duckandroiddialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.nasduck.dialoglib.Base.DuckDialog;
-import com.nasduck.dialoglib.Base.DuckDialogType;
+import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.base.DuckDialogType;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nasduck.dialoglib.Base.ConfigName;
+import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;

@@ -1,11 +1,9 @@
 package com.nasduck.dialoglib.config;
 
 import android.os.Handler;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.Base.DuckDialog;
-import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.toast.TextToast;
 
 public class ToastTextConfigBean extends BaseConfigBean {

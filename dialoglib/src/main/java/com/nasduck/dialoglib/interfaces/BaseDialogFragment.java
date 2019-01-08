@@ -49,7 +49,6 @@ public abstract class BaseDialogFragment extends DialogFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
     }
 
     /**

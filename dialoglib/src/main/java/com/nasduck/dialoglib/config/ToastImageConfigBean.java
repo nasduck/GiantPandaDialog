@@ -3,7 +3,7 @@ package com.nasduck.dialoglib.config;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.Base.DuckDialog;
+import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.toast.ImageToast;
 
 public class ToastImageConfigBean extends BaseConfigBean {

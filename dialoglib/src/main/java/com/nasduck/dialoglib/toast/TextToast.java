@@ -6,7 +6,7 @@ import android.support.v4.app.DialogFragment;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.nasduck.dialoglib.Base.ConfigName;
+import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastTextConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
