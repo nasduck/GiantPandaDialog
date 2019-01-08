@@ -11,6 +11,9 @@ import com.nasduck.dialoglib.Base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
+import com.nasduck.dialoglib.utils.DensityUtils;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class TitleTipDialog extends BaseDialogFragment {
 
@@ -75,6 +78,12 @@ public class TitleTipDialog extends BaseDialogFragment {
             mTitleTextColor = getArguments().getInt(ConfigName.TITLE_TEXT_COLOR);
             mTitleTextSize = getArguments().getInt(ConfigName.TITLE_TEXT_SIZE);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDialog().getWindow().setLayout(DensityUtils.dp2px(mContext, 280), WRAP_CONTENT);
     }
 
     @Override

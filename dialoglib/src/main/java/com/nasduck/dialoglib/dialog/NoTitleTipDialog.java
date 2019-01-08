@@ -11,6 +11,9 @@ import com.nasduck.dialoglib.Base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
 import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
+import com.nasduck.dialoglib.utils.DensityUtils;
+
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class NoTitleTipDialog extends BaseDialogFragment {
 
@@ -65,6 +68,12 @@ public class NoTitleTipDialog extends BaseDialogFragment {
             mButtonTextSize = getArguments().getInt(ConfigName.TIP_BUTTON_TEXT_SIZE);
             mButtonTextColor = getArguments().getInt(ConfigName.TIP_BUTTON_TEXT_COLOR);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDialog().getWindow().setLayout(DensityUtils.dp2px(mContext, 280), WRAP_CONTENT);
     }
 
     @Override

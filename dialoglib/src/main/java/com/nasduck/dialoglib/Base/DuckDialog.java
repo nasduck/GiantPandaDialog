@@ -138,15 +138,15 @@ public class DuckDialog {
     public static DialogTipNoTitleConfigBean assignNoTitleTipDialog(String contentText
             , NoTitleTipDialog.onSureClickListener listener) {
         DialogTipNoTitleConfigBean configBean = new DialogTipNoTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
+        configBean.setBackground(R.drawable.bg_dialog_white)
                 .setCancelable(false)
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black)
+                .setContentTextColor(R.color.text_black_light)
                 .setButtonText("确定")
                 .setButtonTextSize(18)
-                .setButtonTextColor(R.color.text_black)
+                .setButtonTextColor(R.color.text_blue)
                 .setListener(listener);
         return configBean;
     }
@@ -159,18 +159,18 @@ public class DuckDialog {
     public static DialogTipTitleConfigBean assignTitleTipDialog(String titleText
             , String contentText, TitleTipDialog.onSureClickListener listener) {
         DialogTipTitleConfigBean configBean = new DialogTipTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
+        configBean.setBackground(R.drawable.bg_dialog_white)
                 .setCancelable(false)
                 .setHasShade(true)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black)
-                .setButtonText("确定")
-                .setButtonTextSize(18)
-                .setButtonTextColor(R.color.text_black)
                 .setTitleText(titleText)
                 .setTitleTextSize(18)
                 .setTitleTextColor(R.color.text_black)
+                .setContentText(contentText)
+                .setContentTextSize(16)
+                .setContentTextColor(R.color.text_black_light)
+                .setButtonText("确定")
+                .setButtonTextSize(18)
+                .setButtonTextColor(R.color.text_blue)
                 .setListener(listener);
         return configBean;
     }
@@ -183,15 +183,15 @@ public class DuckDialog {
     public static DialogSelectNoTitleConfigBean assignNoTitleSelectDialog(String contentText
             , NoTitleSelectDialog.onSelectClickListener listener) {
         DialogSelectNoTitleConfigBean configBean = new DialogSelectNoTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
+        configBean.setBackground(R.drawable.bg_dialog_white)
                 .setCancelable(false)
                 .setHasShade(true)
                 .setContentText(contentText)
                 .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black)
+                .setContentTextColor(R.color.text_black_light)
                 .setPositiveButtonText("确定")
                 .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.text_black)
+                .setPositiveButtonTextColor(R.color.text_blue)
                 .setNegativeButtonText("取消")
                 .setNegativeButtonTextSize(18)
                 .setNegativeButtonTextColor(R.color.text_black)

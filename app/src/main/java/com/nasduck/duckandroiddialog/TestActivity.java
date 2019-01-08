@@ -85,7 +85,6 @@ public class TestActivity extends AppCompatActivity {
                         Log.d("111111", "确定了！！！");
                     }
                 })
-                .setCancelable(true)
                 .show(this, "");
     }
 
@@ -98,7 +97,6 @@ public class TestActivity extends AppCompatActivity {
                         Log.d("111111", "确定了！！！");
                     }
                 })
-                .setCancelable(true)
                 .show(this, "");
     }
 
@@ -116,7 +114,6 @@ public class TestActivity extends AppCompatActivity {
                         Log.d("111111", "取消了！！！");
                     }
                 })
-                .setCancelable(true)
                 .show(this, "");
     }
 
