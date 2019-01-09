@@ -19,4 +19,6 @@ public interface IDialogFragment {
      * @param savedInstanceState
      */
     void initData(@Nullable Bundle savedInstanceState);
+
+    void hide();
 }

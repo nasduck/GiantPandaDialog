@@ -5,12 +5,13 @@ import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastImageConfigBean;
 import com.nasduck.dialoglib.base.BaseDialogFragment;
 
-public class ImageToast extends BaseDialogFragment {
+public class ImageToast extends BaseToast {
 
     private FrameLayout mLayoutBackground;
     private ImageView mIvImage;
@@ -57,10 +58,5 @@ public class ImageToast extends BaseDialogFragment {
         setShade(hasShade);
         setCancelable(isCancelable);
         mIvImage.setImageDrawable(getResources().getDrawable(mImage));
-    }
-
-    @Override
-    protected void hide() {
-        this.dismiss();
     }
 }

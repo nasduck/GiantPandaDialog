@@ -108,7 +108,7 @@ public class NoTitleTipDialog extends BaseDialogFragment {
     }
 
     @Override
-    protected void hide() {
+    public void hide() {
         this.dismiss();
     }
 

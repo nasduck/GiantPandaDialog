@@ -63,9 +63,4 @@ public abstract class BaseDialogFragment extends DialogFragment implements IDial
         }
     }
 
-    /**
-     * hide dialog
-     */
-    protected abstract void hide();
-
 }

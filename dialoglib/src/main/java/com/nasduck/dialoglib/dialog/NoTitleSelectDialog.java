@@ -131,7 +131,7 @@ public class NoTitleSelectDialog extends BaseDialogFragment {
     }
 
     @Override
-    protected void hide() {
+    public void hide() {
         this.dismiss();
     }
 

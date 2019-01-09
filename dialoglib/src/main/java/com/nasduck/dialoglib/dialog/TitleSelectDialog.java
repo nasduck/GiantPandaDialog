@@ -142,7 +142,7 @@ public class TitleSelectDialog extends BaseDialogFragment {
     }
 
     @Override
-    protected void hide() {
+    public void hide() {
         this.dismiss();
     }
 

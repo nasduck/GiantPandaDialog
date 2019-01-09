@@ -6,12 +6,13 @@ import android.support.v4.app.DialogFragment;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastTextConfigBean;
 import com.nasduck.dialoglib.base.BaseDialogFragment;
 
-public class TextToast extends BaseDialogFragment {
+public class TextToast extends BaseToast {
 
     private TextView mTvContent;
     private FrameLayout mLayoutBackground;
@@ -20,9 +21,7 @@ public class TextToast extends BaseDialogFragment {
     private int mContentTextColor;
     private int mContentTextSize;
 
-    public TextToast(){
-
-    }
+    public TextToast() {}
 
     public static TextToast newTextToast(ToastTextConfigBean configBean){
         TextToast fragment = new TextToast();
@@ -38,7 +37,6 @@ public class TextToast extends BaseDialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NORMAL, R.style.Fragment_dialog_style);
         if (getArguments() != null) {
             mBackground = getArguments().getInt(ConfigName.BACKGROUND);
             mContentText = getArguments().getString(ConfigName.CONTENT_TEXT);
@@ -62,11 +60,5 @@ public class TextToast extends BaseDialogFragment {
         mTvContent.setTextColor(getResources().getColor(mContentTextColor));
         mTvContent.setTextSize(mContentTextSize);
     }
-
-    @Override
-    protected void hide() {
-        this.dismiss();
-    }
-
 
 }

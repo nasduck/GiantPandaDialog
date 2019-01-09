@@ -6,12 +6,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
 import com.nasduck.dialoglib.base.BaseDialogFragment;
 
-public class TextImageToast extends BaseDialogFragment {
+public class TextImageToast extends BaseToast {
 
     private LinearLayout mLayoutBackground;
     private ImageView mIvImage;
@@ -73,9 +74,5 @@ public class TextImageToast extends BaseDialogFragment {
         mTvContent.setTextSize(mContentTextSize);
         mIvImage.setImageDrawable(getResources().getDrawable(mImage));
     }
-
-    @Override
-    protected void hide() {
-        this.dismiss();
-    }
+    
 }
