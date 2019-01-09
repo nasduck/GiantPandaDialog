@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
-import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
+import com.nasduck.dialoglib.base.BaseDialogFragment;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -77,12 +77,12 @@ public class NoTitleTipDialog extends BaseDialogFragment {
     }
 
     @Override
-    protected int getLayoutId() {
+    public int initView(@Nullable Bundle savedInstanceState) {
         return R.layout.dialog_tip_no_title;
     }
 
     @Override
-    protected void initEventAndData() {
+    public void initData(@Nullable Bundle savedInstanceState) {
         mLayoutBackground = view.findViewById(R.id.background);
         mTvContent = view.findViewById(R.id.tv_content);
         mBtnSure = view.findViewById(R.id.btn_sure);

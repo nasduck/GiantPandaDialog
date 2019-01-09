@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
-import com.nasduck.dialoglib.interfaces.BaseDialogFragment;
+import com.nasduck.dialoglib.base.BaseDialogFragment;
 
 public class TextImageToast extends BaseDialogFragment {
 
@@ -55,12 +55,12 @@ public class TextImageToast extends BaseDialogFragment {
     }
 
     @Override
-    protected int getLayoutId() {
+    public int initView(@Nullable Bundle savedInstanceState) {
         return R.layout.toast_text_image;
     }
 
     @Override
-    protected void initEventAndData() {
+    public void initData(@Nullable Bundle savedInstanceState) {
         mLayoutBackground = view.findViewById(R.id.background);
         mIvImage = view.findViewById(R.id.iv_image);
         mTvContent = view.findViewById(R.id.tv_content);
