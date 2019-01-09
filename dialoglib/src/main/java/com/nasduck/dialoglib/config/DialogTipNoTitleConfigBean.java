@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 
-public class DialogTipNoTitleConfigBean extends BaseConfigBean {
+public class DialogTipNoTitleConfigBean extends BaseConfig {
 
     // content
     private String contentText;

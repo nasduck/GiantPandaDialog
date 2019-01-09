@@ -1,35 +1,28 @@
 package com.nasduck.dialoglib.toast;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.nasduck.dialoglib.base.BaseToast;
-import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ToastTextConfigBean;
-import com.nasduck.dialoglib.base.BaseDialogFragment;
+import com.nasduck.dialoglib.config.ToastConfig;
 
 public class TextToast extends BaseToast {
 
     private TextView mTvContent;
     private FrameLayout mLayoutBackground;
 
-    private String mContentText;
-    private int mContentTextColor;
-    private int mContentTextSize;
+    private ToastConfig mConfig;
 
     public TextToast() {}
 
-    public static TextToast newTextToast(ToastTextConfigBean configBean){
+    public static TextToast create(ToastConfig config) {
         TextToast fragment = new TextToast();
         Bundle args = new Bundle();
-        args.putInt(ConfigName.BACKGROUND, configBean.getBackground());
-        args.putString(ConfigName.CONTENT_TEXT, configBean.getContentText());
-        args.putInt(ConfigName.CONTENT_TEXT_COLOR, configBean.getContentTextColor());
-        args.putInt(ConfigName.CONTENT_TEXT_SIZE, configBean.getContentTextSize());
+        args.putParcelable("config", config);
         fragment.setArguments(args);
         return fragment;
     }
@@ -38,10 +31,7 @@ public class TextToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mBackground = getArguments().getInt(ConfigName.BACKGROUND);
-            mContentText = getArguments().getString(ConfigName.CONTENT_TEXT);
-            mContentTextColor = getArguments().getInt(ConfigName.CONTENT_TEXT_COLOR);
-            mContentTextSize = getArguments().getInt(ConfigName.CONTENT_TEXT_SIZE);
+            mConfig = getArguments().getParcelable("config");
         }
     }
 
@@ -52,13 +42,24 @@ public class TextToast extends BaseToast {
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+
         mTvContent = view.findViewById(R.id.tv_content);
         mLayoutBackground = view.findViewById(R.id.background);
 
-        mLayoutBackground.setBackgroundResource(mBackground);
-        mTvContent.setText(mContentText);
-        mTvContent.setTextColor(getResources().getColor(mContentTextColor));
-        mTvContent.setTextSize(mContentTextSize);
+        // Corner Radius && Background Color
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(mConfig.getCornerRadius());
+        drawable.setColor(mContext.getResources().getColor(mBackground));
+        mLayoutBackground.setBackground(drawable);
+
+        // Text
+        mTvContent.setText(mConfig.getText());
+
+        // Text Size
+        mTvContent.setTextSize(mConfig.getTextSize());
+
+        // Text Color
+        mTvContent.setTextColor(getResources().getColor(mConfig.getTextColor()));
     }
 
 }

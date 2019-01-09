@@ -5,9 +5,9 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_toast_black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Toast Black"/>
+        android:onClick="onToastDefaultClick"
+        android:text="Toast Default"/>
 
 </LinearLayout>

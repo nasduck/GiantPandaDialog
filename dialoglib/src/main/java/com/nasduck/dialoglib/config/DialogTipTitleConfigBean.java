@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 
-public class DialogTipTitleConfigBean extends BaseConfigBean {
+public class DialogTipTitleConfigBean extends BaseConfig {
 
     // title
     private String titleText;

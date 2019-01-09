@@ -42,7 +42,9 @@ public class TestActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_toast_text)
     public void onTextToast() {
-        DuckDialog.assignTextToast("hello world!!").show(this);
+        DuckDialog.showToast(this, "hello world!!");
+        //DuckDialog.assignTextToast("hello world!!")
+        //        .show(this);
     }
 
     @OnClick(R.id.btn_toast_image)

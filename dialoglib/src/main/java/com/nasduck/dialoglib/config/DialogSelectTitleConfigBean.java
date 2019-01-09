@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 
-public class DialogSelectTitleConfigBean extends BaseConfigBean {
+public class DialogSelectTitleConfigBean extends BaseConfig {
 
     // title
     private String titleText;

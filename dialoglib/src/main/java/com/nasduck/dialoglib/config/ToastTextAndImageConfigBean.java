@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.toast.TextImageToast;
 
-public class ToastTextAndImageConfigBean extends BaseConfigBean {
+public class ToastTextAndImageConfigBean extends BaseConfig {
 
     // image
     private int image;

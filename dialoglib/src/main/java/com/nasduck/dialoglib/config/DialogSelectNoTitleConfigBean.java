@@ -4,7 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 
-public class DialogSelectNoTitleConfigBean extends BaseConfigBean {
+public class DialogSelectNoTitleConfigBean extends BaseConfig {
 
     // content
     private String contentText;

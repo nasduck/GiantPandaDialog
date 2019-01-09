@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.toast.ImageToast;
 
-public class ToastImageConfigBean extends BaseConfigBean {
+public class ToastImageConfigBean extends BaseConfig {
 
     // image
     private int image;

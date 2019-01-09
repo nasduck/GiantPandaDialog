@@ -1,17 +1,19 @@
 package com.nasduck.dialoglib.base;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.builder.ToastBuilder;
 import com.nasduck.dialoglib.config.DialogSelectNoTitleConfigBean;
 import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
 import com.nasduck.dialoglib.config.ToastImageConfigBean;
 import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
 import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
-import com.nasduck.dialoglib.config.ToastTextConfigBean;
+import com.nasduck.dialoglib.config.ToastConfig;
 import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
@@ -43,32 +45,10 @@ public class DuckDialog {
         }
     }
 
-    /**
-     * TextToast config
-     * @param contentText
-     * @return
-     */
-    public static ToastTextConfigBean assignTextToast(String contentText) {
-        ToastTextConfigBean configBean = new ToastTextConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black);
-        return configBean;
-    }
-
-    public static ToastTextConfigBean assignTextToast(DuckDialogType toastType, String contentText) {
-        ToastTextConfigBean configBean = new ToastTextConfigBean();
-        DuckDialogType type = DuckDialogType.getType(toastType.getDialogType());
-        switch (type) {
-            case TOAST_BLACK:
-                configBean.setBackground(R.drawable.bg_toast_black)
-                        .setContentText(contentText)
-                        .setContentTextSize(14)
-                        .setContentTextColor(R.color.text_white);
-                break;
-        }
-        return configBean;
+    public static void showToast(final FragmentActivity activity, String contentText) {
+        ToastBuilder.create()
+                .setText(contentText)
+                .show(activity);
     }
 
     /**
