@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastConfig;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextToast extends BaseToast {
 
@@ -49,7 +50,7 @@ public class TextToast extends BaseToast {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(mConfig.getCornerRadius());
-        drawable.setColor(mContext.getResources().getColor(mBackground));
+        drawable.setColor(mContext.getResources().getColor(mConfig.getBackgroundColor()));
         mLayoutBackground.setBackground(drawable);
 
         // Text
@@ -60,6 +61,12 @@ public class TextToast extends BaseToast {
 
         // Text Color
         mTvContent.setTextColor(getResources().getColor(mConfig.getTextColor()));
+
+        // Padding
+        mLayoutBackground.setPadding(mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical(),
+                mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical());
+
+
     }
 
 }

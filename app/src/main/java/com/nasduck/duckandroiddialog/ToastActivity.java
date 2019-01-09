@@ -23,4 +23,17 @@ public class ToastActivity extends AppCompatActivity {
     public void onToastDefaultClick(View view) {
         DuckDialog.showToast(this, "Toast Default");
     }
+
+    public void onToastCustomClick(View view) {
+        ToastBuilder.create()
+                .setText("Toast Customized")
+                .setTextSize(16)
+                .setTextColor(android.R.color.holo_orange_dark)
+                .setBackgroundColor(android.R.color.holo_green_light)
+                .setCornerRadius(10)
+                .setPaddingHorizontal(64)
+                .setPaddingVertical(32)
+                .setDelay(3000)
+                .show(this);
+    }
 }

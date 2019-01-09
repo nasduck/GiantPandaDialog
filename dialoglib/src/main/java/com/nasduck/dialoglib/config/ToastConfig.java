@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class ToastConfig implements Parcelable {
 
@@ -13,15 +12,15 @@ public class ToastConfig implements Parcelable {
     private Integer textSize;  // 16
     private Integer bgColor ;  // 99000000
     private Integer cornerRadius; // 3
+    private Integer delay;     // 1000
+    private Integer paddingHorizontal; // 32
+    private Integer paddingVertical;   // 6
 
-    private static ToastConfig DEFAULT;
-
-    public static ToastConfig getConfig() {
-        if (DEFAULT == null) {
-            DEFAULT = new ToastConfig();
-        }
-        return DEFAULT;
+    public static ToastConfig getInstance() {
+        return new ToastConfig();
     }
+
+    //** Setter **********************************************************************************//
 
     public ToastConfig setBackgroundColor(int backgroundColor) {
         this.bgColor = backgroundColor;
@@ -49,7 +48,22 @@ public class ToastConfig implements Parcelable {
         return this;
     }
 
-    /**  get way *********************************************************************************/
+    public ToastConfig setDelay(Integer delay) {
+        this.delay = delay;
+        return this;
+    }
+
+    public ToastConfig setPaddingHorizontal(Integer paddingHorizontal) {
+        this.paddingHorizontal = paddingHorizontal;
+        return this;
+    }
+
+    public ToastConfig setPaddingVertical(Integer paddingVertical) {
+        this.paddingVertical = paddingVertical;
+        return this;
+    }
+
+    //** Getter **********************************************************************************//
 
     public String getText() {
         if (text == null || text.equals("")) {
@@ -85,6 +99,30 @@ public class ToastConfig implements Parcelable {
         }
         return cornerRadius;
     }
+
+    public Integer getDelay() {
+        if (delay == null) {
+            delay = 1000;
+        }
+        return delay;
+    }
+
+    public Integer getPaddingHorizontal() {
+        if (paddingHorizontal == null) {
+            paddingHorizontal = 32;
+        }
+        return paddingHorizontal;
+    }
+
+    public Integer getPaddingVertical() {
+        if (paddingVertical == null) {
+            paddingVertical = 6;
+        }
+        return paddingVertical;
+    }
+
+
+    //** Parcelable ******************************************************************************//
 
     @Override
     public int describeContents() {

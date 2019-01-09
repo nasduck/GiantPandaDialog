@@ -15,14 +15,14 @@ public class ToastBuilder {
         this.mConfig = config;
     }
 
-    public static ToastBuilder create() { return create(ToastConfig.getConfig()); }
+    public static ToastBuilder create() { return create(ToastConfig.getInstance()); }
 
     public static ToastBuilder create(ToastConfig config) {
         return new ToastBuilder(config);
     }
 
     public void show(final FragmentActivity activity) {
-        show(activity, 1000);
+        show(activity, getDelay());
     }
 
     public void show(final FragmentActivity activity, int delayMillis) {
@@ -46,12 +46,75 @@ public class ToastBuilder {
         return this;
     }
 
+    public int getTextSize() {
+        return mConfig.getTextSize();
+    }
+
+    public ToastBuilder setTextSize(int textSize) {
+        mConfig.setTextSize(textSize);
+        return this;
+    }
+
+    public int getTextColor() {
+        return mConfig.getTextColor();
+    }
+
+    public ToastBuilder setTextColor(int color) {
+        mConfig.setTextColor(color);
+        return this;
+    }
+
+    public int getBackgroundColor() {
+        return mConfig.getBackgroundColor();
+    }
+
+    public ToastBuilder setBackgroundColor(int color) {
+        mConfig.setBackgroundColor(color);
+        return this;
+    }
+
+    public int getCornerRadius() {
+        return mConfig.getCornerRadius();
+    }
+
+    public ToastBuilder setCornerRadius(int cornerRadius) {
+        mConfig.setCornerRadius(cornerRadius);
+        return this;
+    }
+
     public ToastConfig getConfig() {
         return mConfig;
     }
 
     public ToastBuilder setConfig(ToastConfig config) {
         this.mConfig = config;
+        return this;
+    }
+
+    public int getPaddingHorizontal() {
+        return mConfig.getPaddingHorizontal();
+    }
+
+    public ToastBuilder setPaddingHorizontal(Integer paddingHorizontal) {
+        mConfig.setPaddingHorizontal(paddingHorizontal);
+        return this;
+    }
+
+    public int getPaddingVertical() {
+        return mConfig.getPaddingVertical();
+    }
+
+    public ToastBuilder setPaddingVertical(Integer paddingVertical) {
+        mConfig.setPaddingVertical(paddingVertical);
+        return this;
+    }
+
+    public int getDelay() {
+        return mConfig.getDelay();
+    }
+
+    public ToastBuilder setDelay(Integer delay) {
+        mConfig.setDelay(delay);
         return this;
     }
 }
