@@ -1,7 +1,8 @@
 package com.nasduck.dialoglib.builder;
 
-import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 
 import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.config.ToastConfig;
@@ -9,30 +10,47 @@ import com.nasduck.dialoglib.toast.TextToast;
 
 public class ToastBuilder {
 
+    private final static String TAG = "toast";
     private ToastConfig mConfig;
+    private FragmentActivity mActivity;
 
-    private ToastBuilder(ToastConfig config) {
+    private static ToastHandler mHandler = new ToastHandler();
+
+    private ToastBuilder(FragmentActivity activity, ToastConfig config) {
         this.mConfig = config;
+        this.mActivity = activity;
+        this.mHandler.set(this);
     }
 
-    public static ToastBuilder create() { return create(ToastConfig.getInstance()); }
+    public static ToastBuilder create(FragmentActivity activity) { return create(activity, ToastConfig.getInstance()); }
 
-    public static ToastBuilder create(ToastConfig config) {
-        return new ToastBuilder(config);
+    public static ToastBuilder create(FragmentActivity activity, ToastConfig config) {
+        return new ToastBuilder(activity, config);
     }
 
-    public void show(final FragmentActivity activity) {
-        show(activity, getDelay());
+    public void show() {
+        show(getDelay());
     }
 
-    public void show(final FragmentActivity activity, int delayMillis) {
-        TextToast.create(mConfig).show(activity.getSupportFragmentManager(), "toast");
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                DuckDialog.hide(activity, "toast");
-            }
-        }, delayMillis);
+    public void show(int delayMillis) {
+        mHandler.removeMessages(ToastHandler.MSG_SHOW);
+
+        FragmentManager manager = this.mActivity.getSupportFragmentManager();
+        Fragment fragment = manager.findFragmentByTag(TAG);
+        if (fragment != null) {
+            // Update Toast existing
+            ((TextToast)fragment).updateUI(this.mConfig);
+        } else {
+            // Show Toast
+            TextToast.create(this.mConfig).show(this.mActivity.getSupportFragmentManager(), TAG);
+        }
+
+        // Send msg to dismiss dialog with delay
+        mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, delayMillis);
+    }
+
+    public void hide() {
+        DuckDialog.hide(mActivity, TAG);
     }
 
     //* Getter & Setter **************************************************************************//

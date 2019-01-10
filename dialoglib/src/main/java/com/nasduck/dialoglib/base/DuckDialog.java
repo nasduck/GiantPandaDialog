@@ -46,9 +46,9 @@ public class DuckDialog {
     }
 
     public static void showToast(final FragmentActivity activity, String contentText) {
-        ToastBuilder.create()
+        ToastBuilder.create(activity)
                 .setText(contentText)
-                .show(activity);
+                .show();
     }
 
     /**

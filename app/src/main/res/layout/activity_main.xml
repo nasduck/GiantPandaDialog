@@ -20,12 +20,6 @@
                 android:text="Toast Type"/>
 
             <Button
-                android:id="@+id/btn_toast_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Text Toast"/>
-
-            <Button
                 android:id="@+id/btn_toast_image_success"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -12,7 +12,7 @@ public class ToastConfig implements Parcelable {
     private Integer textSize;  // 16
     private Integer bgColor ;  // 99000000
     private Integer cornerRadius; // 3
-    private Integer delay;     // 1000
+    private Integer delay;     // 1500
     private Integer paddingHorizontal; // 32
     private Integer paddingVertical;   // 6
 
@@ -102,7 +102,7 @@ public class ToastConfig implements Parcelable {
 
     public Integer getDelay() {
         if (delay == null) {
-            delay = 1000;
+            delay = 1500;
         }
         return delay;
     }

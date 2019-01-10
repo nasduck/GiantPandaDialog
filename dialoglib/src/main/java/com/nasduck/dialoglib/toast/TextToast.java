@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.ToastConfig;
-import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextToast extends BaseToast {
 
@@ -47,26 +46,28 @@ public class TextToast extends BaseToast {
         mTvContent = view.findViewById(R.id.tv_content);
         mLayoutBackground = view.findViewById(R.id.background);
 
+        updateUI(this.mConfig);
+    }
+
+    public void updateUI(ToastConfig config) {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadius(mConfig.getCornerRadius());
-        drawable.setColor(mContext.getResources().getColor(mConfig.getBackgroundColor()));
+        drawable.setCornerRadius(config.getCornerRadius());
+        drawable.setColor(mContext.getResources().getColor(config.getBackgroundColor()));
         mLayoutBackground.setBackground(drawable);
 
         // Text
-        mTvContent.setText(mConfig.getText());
+        mTvContent.setText(config.getText());
 
         // Text Size
-        mTvContent.setTextSize(mConfig.getTextSize());
+        mTvContent.setTextSize(config.getTextSize());
 
         // Text Color
-        mTvContent.setTextColor(getResources().getColor(mConfig.getTextColor()));
+        mTvContent.setTextColor(getResources().getColor(config.getTextColor()));
 
         // Padding
-        mLayoutBackground.setPadding(mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical(),
-                mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical());
-
-
+        mLayoutBackground.setPadding(config.getPaddingHorizontal(), config.getPaddingVertical(),
+                config.getPaddingHorizontal(), config.getPaddingVertical());
     }
 
 }

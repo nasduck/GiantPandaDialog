@@ -25,7 +25,7 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onToastCustomClick(View view) {
-        ToastBuilder.create()
+        ToastBuilder.create(this)
                 .setText("Toast Customized")
                 .setTextSize(16)
                 .setTextColor(android.R.color.holo_orange_dark)
@@ -34,6 +34,6 @@ public class ToastActivity extends AppCompatActivity {
                 .setPaddingHorizontal(64)
                 .setPaddingVertical(32)
                 .setDelay(3000)
-                .show(this);
+                .show();
     }
 }
