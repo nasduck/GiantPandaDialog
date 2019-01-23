@@ -14,7 +14,7 @@ public class ToastConfig implements Parcelable {
     private Integer cornerRadius; // 3
     private Integer delay;     // 1500
     private Integer paddingHorizontal; // 32
-    private Integer paddingVertical;   // 6
+    private Integer paddingVertical;   // 20
 
     public static ToastConfig getInstance() {
         return new ToastConfig();
@@ -116,7 +116,7 @@ public class ToastConfig implements Parcelable {
 
     public Integer getPaddingVertical() {
         if (paddingVertical == null) {
-            paddingVertical = 6;
+            paddingVertical = 20;
         }
         return paddingVertical;
     }
