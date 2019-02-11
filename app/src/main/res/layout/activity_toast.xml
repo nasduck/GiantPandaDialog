@@ -19,6 +19,18 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onImageToastFailureClick"
+        android:text="Image Toast Failure"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onImageToastWarningClick"
+        android:text="Image Toast Warning"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="onToastCustomClick"
         android:text="Toast Customized"/>
 

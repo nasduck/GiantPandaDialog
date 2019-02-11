@@ -68,7 +68,7 @@ public class ToastImageConfig implements Parcelable {
 
     public Integer getCornerRadius() {
         if (cornerRadius == null) {
-            cornerRadius = 3;
+            cornerRadius = 6;
         }
         return cornerRadius;
     }
@@ -89,7 +89,7 @@ public class ToastImageConfig implements Parcelable {
 
     public Integer getPaddingVertical() {
         if (paddingVertical == null) {
-            paddingVertical = 20;
+            paddingVertical = 32;
         }
         return paddingVertical;
     }

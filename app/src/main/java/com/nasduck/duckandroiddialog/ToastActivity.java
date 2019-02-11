@@ -28,6 +28,14 @@ public class ToastActivity extends AppCompatActivity {
         DuckDialog.showSuccessToast(this);
     }
 
+    public void onImageToastFailureClick(View view) {
+        DuckDialog.showFailureToast(this);
+    }
+
+    public void onImageToastWarningClick(View view) {
+        DuckDialog.showWarningToast(this);
+    }
+
     public void onToastCustomClick(View view) {
         ToastBuilder.create(this)
                 .setText("Toast Customized")

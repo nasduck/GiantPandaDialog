@@ -115,39 +115,82 @@ public class ToastBuilder {
     //* Getter & Setter **************************************************************************//
 
     public String getText() {
-        return mToastTextConfig.getText();
+        switch (mType) {
+            case TEXT_TOAST:
+                return mToastTextConfig.getText();
+            default:
+                return mToastTextConfig.getText();
+        }
     }
 
     public ToastBuilder setText(String text) {
-        mToastTextConfig.setText(text);
-        return this;
+        switch (mType) {
+            case TEXT_TOAST:
+                mToastTextConfig.setText(text);
+                return this;
+            default:
+                mToastTextConfig.setText(text);
+                return this;
+        }
     }
 
     public int getTextSize() {
-        return mToastTextConfig.getTextSize();
+        switch (mType) {
+            case TEXT_TOAST:
+                return mToastTextConfig.getTextSize();
+            default:
+                return mToastTextConfig.getTextSize();
+        }
     }
 
     public ToastBuilder setTextSize(int textSize) {
-        mToastTextConfig.setTextSize(textSize);
-        return this;
+        switch (mType) {
+            case TEXT_TOAST:
+                mToastTextConfig.setTextSize(textSize);
+                return this;
+            default:
+                mToastTextConfig.setTextSize(textSize);
+                return this;
+        }
     }
 
     public int getTextColor() {
-        return mToastTextConfig.getTextColor();
+        switch (mType) {
+            case TEXT_TOAST:
+                return mToastTextConfig.getTextColor();
+            default:
+                return mToastTextConfig.getTextColor();
+        }
     }
 
     public ToastBuilder setTextColor(int color) {
-        mToastTextConfig.setTextColor(color);
-        return this;
+        switch (mType) {
+            case TEXT_TOAST:
+                mToastTextConfig.setTextColor(color);
+                return this;
+            default:
+                mToastTextConfig.setTextColor(color);
+                return this;
+        }
     }
 
     public int getImageId() {
-        return mToastImageConfig.getImage();
+        switch (mType) {
+            case IMAGE_TOAST:
+                return mToastImageConfig.getImage();
+            default:
+                return 0;
+        }
     }
 
     public ToastBuilder setImageId(int imageId) {
-        mToastImageConfig.setImage(imageId);
-        return this;
+        switch (mType) {
+            case IMAGE_TOAST:
+                mToastImageConfig.setImage(imageId);
+                return this;
+            default:
+                return this;
+        }
     }
 
     public int getBackgroundColor() {

@@ -52,6 +52,18 @@ public class DuckDialog {
                 .show();
     }
 
+    public static void showWarningToast(final FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_warning)
+                .show();
+    }
+
+    public static void showFailureToast(final FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_failure)
+                .show();
+    }
+
     /**
      * TextAndImageToast config
      * @param contentText
