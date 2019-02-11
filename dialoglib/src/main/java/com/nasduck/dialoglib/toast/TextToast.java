@@ -8,21 +8,21 @@ import android.widget.TextView;
 
 import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ToastConfig;
+import com.nasduck.dialoglib.config.ToastTextConfig;
 
 public class TextToast extends BaseToast {
 
     private TextView mTvContent;
     private FrameLayout mLayoutBackground;
 
-    private ToastConfig mConfig;
+    private ToastTextConfig mConfig;
 
     public TextToast() {}
 
-    public static TextToast create(ToastConfig config) {
+    public static TextToast create(ToastTextConfig config) {
         TextToast fragment = new TextToast();
         Bundle args = new Bundle();
-        args.putParcelable("config", config);
+        args.putParcelable("textToastConfig", config);
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,7 +31,7 @@ public class TextToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mConfig = getArguments().getParcelable("config");
+            mConfig = getArguments().getParcelable("textToastConfig");
         }
     }
 
@@ -49,7 +49,7 @@ public class TextToast extends BaseToast {
         updateUI(this.mConfig);
     }
 
-    public void updateUI(ToastConfig config) {
+    public void updateUI(ToastTextConfig config) {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(config.getCornerRadius());

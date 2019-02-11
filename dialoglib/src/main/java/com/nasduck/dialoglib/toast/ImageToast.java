@@ -1,34 +1,31 @@
 package com.nasduck.dialoglib.toast;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.nasduck.dialoglib.base.BaseToast;
-import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ToastImageConfigBean;
-import com.nasduck.dialoglib.base.BaseDialogFragment;
+import com.nasduck.dialoglib.config.ToastImageConfig;
+import com.nasduck.dialoglib.config.ToastTextConfig;
 
 public class ImageToast extends BaseToast {
 
     private FrameLayout mLayoutBackground;
     private ImageView mIvImage;
 
-    private int mImage;
+    private ToastImageConfig mConfig;
 
     public ImageToast() {
 
     }
 
-    public static ImageToast newImageToast(ToastImageConfigBean configBean){
+    public static ImageToast create(ToastImageConfig config){
         ImageToast fragment = new ImageToast();
         Bundle args = new Bundle();
-        args.putInt(ConfigName.BACKGROUND, configBean.getBackground());
-        args.putBoolean(ConfigName.IS_CANCELABLE, configBean.isCancelable());
-        args.putBoolean(ConfigName.HAS_SHADE, configBean.isHasShade());
-        args.putInt(ConfigName.IMAGE, configBean.getImage());
+        args.putParcelable("imageToastConfig", config);
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,10 +34,7 @@ public class ImageToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mBackground = getArguments().getInt(ConfigName.BACKGROUND);
-            isCancelable = getArguments().getBoolean(ConfigName.IS_CANCELABLE);
-            hasShade = getArguments().getBoolean(ConfigName.HAS_SHADE);
-            mImage = getArguments().getInt(ConfigName.IMAGE);
+            mConfig = getArguments().getParcelable("imageToastConfig");
         }
     }
 
@@ -54,9 +48,21 @@ public class ImageToast extends BaseToast {
         mLayoutBackground = view.findViewById(R.id.background);
         mIvImage = view.findViewById(R.id.iv_image);
 
-        mLayoutBackground.setBackgroundResource(mBackground);
-        setShade(hasShade);
-        setCancelable(isCancelable);
-        mIvImage.setImageDrawable(getResources().getDrawable(mImage));
+        updateUI(this.mConfig);
+    }
+
+    public void updateUI(ToastImageConfig config) {
+        // Corner Radius && Background Color
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(config.getCornerRadius());
+        drawable.setColor(mContext.getResources().getColor(config.getBackgroundColor()));
+        mLayoutBackground.setBackground(drawable);
+
+        // Image
+        mIvImage.setImageResource(config.getImage());
+
+        // Padding
+        mLayoutBackground.setPadding(config.getPaddingHorizontal(), config.getPaddingVertical(),
+                config.getPaddingHorizontal(), config.getPaddingVertical());
     }
 }

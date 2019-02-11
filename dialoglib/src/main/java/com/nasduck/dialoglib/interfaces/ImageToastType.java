@@ -1,12 +1,12 @@
 package com.nasduck.dialoglib.interfaces;
 
-public enum ToastType {
+public enum ImageToastType {
 
-    TEXT_TOAST(0), IMAGE_TOAST(1), TEXT_AND_IMAGE_TOAST(2);
+    SUCCESS(0), WARNING(1), FAILURE(2);
 
     private int type;
 
-    ToastType(int type) {
+    ImageToastType(int type) {
         this.type = type;
     }
 
@@ -14,8 +14,8 @@ public enum ToastType {
         return type;
     }
 
-    public static ToastType getType(int toastType) {
-        for (ToastType enums : ToastType.values()) {
+    public static ImageToastType getType(int toastType) {
+        for (ImageToastType enums : ImageToastType.values()) {
             if (enums.type == toastType) {
                 return enums;
             }

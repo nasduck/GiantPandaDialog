@@ -5,85 +5,58 @@ import android.os.Parcelable;
 
 import com.nasduck.dialoglib.R;
 
-public class ToastConfig implements Parcelable {
+public class ToastImageConfig implements Parcelable {
 
-    private String text;       // content no set
-    private Integer textColor; // 1A1A1A
-    private Integer textSize;  // 16
+    private Integer image;   // R.drawable.ic_launcher
     private Integer bgColor ;  // 99000000
     private Integer cornerRadius; // 3
     private Integer delay;     // 1500
     private Integer paddingHorizontal; // 32
     private Integer paddingVertical;   // 20
 
-    public static ToastConfig getInstance() {
-        return new ToastConfig();
+    public static ToastImageConfig getInstance() {
+        return new ToastImageConfig();
     }
 
     //** Setter **********************************************************************************//
 
-    public ToastConfig setBackgroundColor(int backgroundColor) {
+    public ToastImageConfig setBackgroundColor(int backgroundColor) {
         this.bgColor = backgroundColor;
         return this;
     }
 
-    public ToastConfig setText(String text) {
-        this.text = text;
+    public ToastImageConfig setImage(Integer image) {
+        this.image = image;
         return this;
     }
 
-    public ToastConfig setTextSize(int textSize) {
-        this.textSize = textSize;
-        return this;
-    }
-
-    public ToastConfig setTextColor(int textColor) {
-        this.textColor = textColor;
-        return this;
-    }
-
-
-    public ToastConfig setCornerRadius(Integer cornerRadius) {
+    public ToastImageConfig setCornerRadius(Integer cornerRadius) {
         this.cornerRadius = cornerRadius;
         return this;
     }
 
-    public ToastConfig setDelay(Integer delay) {
+    public ToastImageConfig setDelay(Integer delay) {
         this.delay = delay;
         return this;
     }
 
-    public ToastConfig setPaddingHorizontal(Integer paddingHorizontal) {
+    public ToastImageConfig setPaddingHorizontal(Integer paddingHorizontal) {
         this.paddingHorizontal = paddingHorizontal;
         return this;
     }
 
-    public ToastConfig setPaddingVertical(Integer paddingVertical) {
+    public ToastImageConfig setPaddingVertical(Integer paddingVertical) {
         this.paddingVertical = paddingVertical;
         return this;
     }
 
     //** Getter **********************************************************************************//
 
-    public String getText() {
-        if (text == null || text.equals("")) {
-            text = "content no set";
+    public Integer getImage() {
+        if (image == null || image.equals("")) {
+            image = R.drawable.ic_launcher;
         }
-        return text;
-    }
-
-    public int getTextColor() {
-        if (textColor == null) {
-            textColor = R.color.white;
-        }
-        return textColor;
-    }
-
-    public int getTextSize() {
-        if (textSize == null) {
-            textSize = 14;
-        }
-        return textSize;
+        return image;
     }
 
     public int getBackgroundColor() {
@@ -131,33 +104,35 @@ public class ToastConfig implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.text);
-        dest.writeValue(this.textColor);
-        dest.writeValue(this.textSize);
+        dest.writeValue(this.image);
         dest.writeValue(this.bgColor);
         dest.writeValue(this.cornerRadius);
+        dest.writeValue(this.delay);
+        dest.writeValue(this.paddingVertical);
+        dest.writeValue(this.paddingHorizontal);
     }
 
-    public ToastConfig() {
+    public ToastImageConfig() {
     }
 
-    protected ToastConfig(Parcel in) {
-        this.text = in.readString();
-        this.textColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.textSize = (Integer) in.readValue(Integer.class.getClassLoader());
+    protected ToastImageConfig(Parcel in) {
+        this.image = (Integer) in.readValue(Integer.class.getClassLoader());
         this.bgColor = (Integer) in.readValue(Integer.class.getClassLoader());
         this.cornerRadius = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.delay = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.paddingHorizontal = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.paddingVertical = (Integer) in.readValue(Integer.class.getClassLoader());
     }
 
-    public static final Creator<ToastConfig> CREATOR = new Creator<ToastConfig>() {
+    public static final Creator<ToastImageConfig> CREATOR = new Creator<ToastImageConfig>() {
         @Override
-        public ToastConfig createFromParcel(Parcel source) {
-            return new ToastConfig(source);
+        public ToastImageConfig createFromParcel(Parcel source) {
+            return new ToastImageConfig(source);
         }
 
         @Override
-        public ToastConfig[] newArray(int size) {
-            return new ToastConfig[size];
+        public ToastImageConfig[] newArray(int size) {
+            return new ToastImageConfig[size];
         }
     };
 }

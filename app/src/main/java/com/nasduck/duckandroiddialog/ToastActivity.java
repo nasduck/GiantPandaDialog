@@ -24,6 +24,10 @@ public class ToastActivity extends AppCompatActivity {
         DuckDialog.showToast(this, "Toast Default");
     }
 
+    public void onImageToastSuccessClick(View view) {
+        DuckDialog.showSuccessToast(this);
+    }
+
     public void onToastCustomClick(View view) {
         ToastBuilder.create(this)
                 .setText("Toast Customized")

@@ -1,6 +1,5 @@
 package com.nasduck.dialoglib.base;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -10,25 +9,21 @@ import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.builder.ToastBuilder;
 import com.nasduck.dialoglib.config.DialogSelectNoTitleConfigBean;
 import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
-import com.nasduck.dialoglib.config.ToastImageConfigBean;
+import com.nasduck.dialoglib.config.ToastImageConfig;
 import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
 import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
-import com.nasduck.dialoglib.config.ToastConfig;
 import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
+import com.nasduck.dialoglib.interfaces.ImageToastType;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
 /**
  * default config
  */
 public class DuckDialog {
-
-    public static final int SUCCESS = 0;
-    public static final int WARNING = 1;
-    public static final int FAILURE = 2;
 
     /**
      * Fragment tag to control dialog disappear.
@@ -51,45 +46,10 @@ public class DuckDialog {
                 .show();
     }
 
-    /**
-     * ImageToast config
-     * @return
-     */
-    public static ToastImageConfigBean assignImageToast() {
-        ToastImageConfigBean configBean = new ToastImageConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setImage(R.drawable.ic_launcher);
-        return configBean;
-    }
-
-    /**
-     * special image toast(SUCCESS\WARNING\FAILURE)
-     * @param type
-     * @return
-     * todo more types
-     */
-    public static ToastImageConfigBean assignImageToast(int type) {
-        ToastType toastType = ToastType.getType(type);
-        ToastImageConfigBean configBean = new ToastImageConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true);
-        switch (toastType) {
-            case SUCCESS:
-                configBean.setImage(R.drawable.ic_toast_success);
-                return configBean;
-            case WARNING:
-                configBean.setImage(R.drawable.ic_toast_warning);
-                return configBean;
-            case FAILURE:
-                configBean.setImage(R.drawable.ic_toast_failure);
-                return configBean;
-            default:
-                configBean.setImage(R.drawable.ic_launcher);
-                return configBean;
-        }
+    public static void showSuccessToast(final FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_success)
+                .show();
     }
 
     /**
