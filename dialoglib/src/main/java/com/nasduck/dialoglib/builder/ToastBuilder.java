@@ -7,18 +7,22 @@ import android.util.Log;
 
 import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.config.ToastImageConfig;
+import com.nasduck.dialoglib.config.ToastTextAndImageConfig;
 import com.nasduck.dialoglib.config.ToastTextConfig;
 import com.nasduck.dialoglib.interfaces.ToastType;
 import com.nasduck.dialoglib.toast.ImageToast;
+import com.nasduck.dialoglib.toast.TextImageToast;
 import com.nasduck.dialoglib.toast.TextToast;
 
 public class ToastBuilder {
 
     private final static String TEXT_TOAST = "textToast";
     private final static String IMAGE_TOAST = "imageToast";
+    private final static String TEXT_AND_IMAGE_TOAST = "textAndImageToast";
     private static ToastType mType;
     private ToastTextConfig mToastTextConfig;
     private ToastImageConfig mToastImageConfig;
+    private ToastTextAndImageConfig mToastTextAndImageConfig;
     private FragmentActivity mActivity;
 
     private static ToastHandler mHandler = new ToastHandler();
@@ -35,6 +39,12 @@ public class ToastBuilder {
         this.mHandler.set(this);
     }
 
+    private ToastBuilder(FragmentActivity activity, ToastTextAndImageConfig config) {
+        this.mToastTextAndImageConfig = config;
+        this.mActivity = activity;
+        this.mHandler.set(this);
+    }
+
     public static ToastBuilder create(FragmentActivity activity) {
         mType = ToastType.TEXT_TOAST;
         return create(activity, ToastTextConfig.getInstance());
@@ -42,12 +52,13 @@ public class ToastBuilder {
 
     public static ToastBuilder create(FragmentActivity activity, ToastType toastType) {
         mType = toastType;
-        Log.d("111111", "mType: " + mType);
         switch (mType) {
             case TEXT_TOAST:
                 return create(activity, ToastTextConfig.getInstance());
             case IMAGE_TOAST:
                 return create(activity, ToastImageConfig.getInstance());
+            case TEXT_AND_IMAGE_TOAST:
+                return create(activity, ToastTextAndImageConfig.getInstance());
             default:
                 return create(activity);
         }
@@ -58,6 +69,10 @@ public class ToastBuilder {
     }
 
     public static ToastBuilder create(FragmentActivity activity, ToastImageConfig config) {
+        return new ToastBuilder(activity, config);
+    }
+
+    public static ToastBuilder create(FragmentActivity activity, ToastTextAndImageConfig config) {
         return new ToastBuilder(activity, config);
     }
 
@@ -79,6 +94,9 @@ public class ToastBuilder {
                     if (manager.findFragmentByTag(IMAGE_TOAST) != null) {
                         DuckDialog.hide(mActivity, IMAGE_TOAST);
                     }
+                    if (manager.findFragmentByTag(TEXT_AND_IMAGE_TOAST) != null) {
+                        DuckDialog.hide(mActivity, TEXT_AND_IMAGE_TOAST);
+                    }
                     // Show Toast
                     TextToast.create(this.mToastTextConfig).show(this.mActivity.getSupportFragmentManager(), TEXT_TOAST);
                 }
@@ -92,10 +110,28 @@ public class ToastBuilder {
                     if (manager.findFragmentByTag(TEXT_TOAST) != null) {
                         DuckDialog.hide(mActivity, TEXT_TOAST);
                     }
+                    if (manager.findFragmentByTag(TEXT_AND_IMAGE_TOAST) != null) {
+                        DuckDialog.hide(mActivity, TEXT_AND_IMAGE_TOAST);
+                    }
                     // Show Toast
                     ImageToast.create(this.mToastImageConfig).show(this.mActivity.getSupportFragmentManager(), IMAGE_TOAST);
                 }
                 break;
+            case TEXT_AND_IMAGE_TOAST:
+                fragment = manager.findFragmentByTag(TEXT_AND_IMAGE_TOAST);
+                if (fragment != null) {
+                    // Update Toast existing
+                    ((TextImageToast)fragment).updateUI(this.mToastTextAndImageConfig);
+                } else {
+                    if (manager.findFragmentByTag(TEXT_TOAST) != null) {
+                        DuckDialog.hide(mActivity, TEXT_TOAST);
+                    }
+                    if (manager.findFragmentByTag(IMAGE_TOAST) != null) {
+                        DuckDialog.hide(mActivity, IMAGE_TOAST);
+                    }
+                    // Show Toast
+                    TextImageToast.create(this.mToastTextAndImageConfig).show(this.mActivity.getSupportFragmentManager(), TEXT_AND_IMAGE_TOAST);
+                }
         }
         // Send msg to dismiss dialog with delay
         mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, delayMillis);
@@ -107,6 +143,8 @@ public class ToastBuilder {
                 DuckDialog.hide(mActivity, TEXT_TOAST);
             case IMAGE_TOAST:
                 DuckDialog.hide(mActivity, IMAGE_TOAST);
+            case TEXT_AND_IMAGE_TOAST:
+                DuckDialog.hide(mActivity, TEXT_AND_IMAGE_TOAST);
             default:
                 DuckDialog.hide(mActivity, TEXT_TOAST);
         }
@@ -118,6 +156,8 @@ public class ToastBuilder {
         switch (mType) {
             case TEXT_TOAST:
                 return mToastTextConfig.getText();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getText();
             default:
                 return mToastTextConfig.getText();
         }
@@ -127,6 +167,9 @@ public class ToastBuilder {
         switch (mType) {
             case TEXT_TOAST:
                 mToastTextConfig.setText(text);
+                return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setText(text);
                 return this;
             default:
                 mToastTextConfig.setText(text);
@@ -138,6 +181,8 @@ public class ToastBuilder {
         switch (mType) {
             case TEXT_TOAST:
                 return mToastTextConfig.getTextSize();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getTextSize();
             default:
                 return mToastTextConfig.getTextSize();
         }
@@ -148,6 +193,8 @@ public class ToastBuilder {
             case TEXT_TOAST:
                 mToastTextConfig.setTextSize(textSize);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setTextSize(textSize);
             default:
                 mToastTextConfig.setTextSize(textSize);
                 return this;
@@ -158,6 +205,8 @@ public class ToastBuilder {
         switch (mType) {
             case TEXT_TOAST:
                 return mToastTextConfig.getTextColor();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getTextColor();
             default:
                 return mToastTextConfig.getTextColor();
         }
@@ -168,6 +217,8 @@ public class ToastBuilder {
             case TEXT_TOAST:
                 mToastTextConfig.setTextColor(color);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setTextColor(color);
             default:
                 mToastTextConfig.setTextColor(color);
                 return this;
@@ -178,6 +229,8 @@ public class ToastBuilder {
         switch (mType) {
             case IMAGE_TOAST:
                 return mToastImageConfig.getImage();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getImage();
             default:
                 return 0;
         }
@@ -187,6 +240,9 @@ public class ToastBuilder {
         switch (mType) {
             case IMAGE_TOAST:
                 mToastImageConfig.setImage(imageId);
+                return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setImage(imageId);
                 return this;
             default:
                 return this;
@@ -199,6 +255,8 @@ public class ToastBuilder {
                 return mToastTextConfig.getBackgroundColor();
             case IMAGE_TOAST:
                 return mToastImageConfig.getBackgroundColor();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getBackgroundColor();
             default:
                 return mToastTextConfig.getBackgroundColor();
         }
@@ -212,6 +270,9 @@ public class ToastBuilder {
             case IMAGE_TOAST:
                 mToastImageConfig.setBackgroundColor(color);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setBackgroundColor(color);
+                return this;
             default:
                 mToastTextConfig.setBackgroundColor(color);
                 return this;
@@ -224,6 +285,8 @@ public class ToastBuilder {
                 return mToastTextConfig.getCornerRadius();
             case IMAGE_TOAST:
                 return mToastImageConfig.getCornerRadius();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getCornerRadius();
             default:
                 return mToastTextConfig.getCornerRadius();
         }
@@ -237,6 +300,8 @@ public class ToastBuilder {
             case IMAGE_TOAST:
                 mToastImageConfig.setCornerRadius(cornerRadius);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setCornerRadius(cornerRadius);
             default:
                 mToastTextConfig.setCornerRadius(cornerRadius);
                 return this;
@@ -249,6 +314,8 @@ public class ToastBuilder {
                 return mToastTextConfig.getPaddingHorizontal();
             case IMAGE_TOAST:
                 return mToastImageConfig.getPaddingHorizontal();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getPaddingHorizontal();
             default:
                 return mToastTextConfig.getPaddingHorizontal();
         }
@@ -262,6 +329,8 @@ public class ToastBuilder {
             case IMAGE_TOAST:
                 mToastImageConfig.setPaddingHorizontal(paddingHorizontal);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setPaddingHorizontal(paddingHorizontal);
             default:
                 mToastTextConfig.setPaddingHorizontal(paddingHorizontal);
                 return this;
@@ -274,6 +343,8 @@ public class ToastBuilder {
                 return mToastTextConfig.getPaddingVertical();
             case IMAGE_TOAST:
                 return mToastImageConfig.getPaddingVertical();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getPaddingVertical();
             default:
                 return mToastTextConfig.getPaddingVertical();
         }
@@ -287,6 +358,8 @@ public class ToastBuilder {
             case IMAGE_TOAST:
                 mToastImageConfig.setPaddingVertical(paddingVertical);
                 return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setPaddingVertical(paddingVertical);
             default:
                 mToastTextConfig.setPaddingVertical(paddingVertical);
                 return this;
@@ -299,6 +372,8 @@ public class ToastBuilder {
                 return mToastTextConfig.getDelay();
             case IMAGE_TOAST:
                 return mToastImageConfig.getDelay();
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getDelay();
             default:
                 return mToastTextConfig.getDelay();
         }
@@ -311,6 +386,9 @@ public class ToastBuilder {
                 return this;
             case IMAGE_TOAST:
                 mToastImageConfig.setDelay(delay);
+                return this;
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setDelay(delay);
                 return this;
             default:
                 mToastTextConfig.setDelay(delay);
@@ -333,6 +411,15 @@ public class ToastBuilder {
 
     public ToastBuilder setImageToastConfig(ToastImageConfig config) {
         this.mToastImageConfig = config;
+        return this;
+    }
+
+    public ToastTextAndImageConfig getTextAndImageToastConfig() {
+        return mToastTextAndImageConfig;
+    }
+
+    public ToastBuilder setTextAndImageToastConfig(ToastTextAndImageConfig config) {
+        this.mToastTextAndImageConfig = config;
         return this;
     }
 }

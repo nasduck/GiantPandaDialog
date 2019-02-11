@@ -1,5 +1,6 @@
 package com.nasduck.dialoglib.toast;
 
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -9,8 +10,8 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.base.ConfigName;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
-import com.nasduck.dialoglib.base.BaseDialogFragment;
+import com.nasduck.dialoglib.config.ToastTextAndImageConfig;
+import com.nasduck.dialoglib.config.ToastTextConfig;
 
 public class TextImageToast extends BaseToast {
 
@@ -18,25 +19,16 @@ public class TextImageToast extends BaseToast {
     private ImageView mIvImage;
     private TextView mTvContent;
 
-    private int mImage;
-    private String mContentText;
-    private int mContentTextColor;
-    private int mContentTextSize;
+    private ToastTextAndImageConfig mConfig;
 
     public TextImageToast(){
 
     }
 
-    public static TextImageToast newTextToast(ToastTextAndImageConfigBean configBean){
+    public static TextImageToast create(ToastTextAndImageConfig config){
         TextImageToast fragment = new TextImageToast();
         Bundle args = new Bundle();
-        args.putInt(ConfigName.BACKGROUND, configBean.getBackground());
-        args.putBoolean(ConfigName.IS_CANCELABLE, configBean.isCancelable());
-        args.putBoolean(ConfigName.HAS_SHADE, configBean.isHasShade());
-        args.putInt(ConfigName.IMAGE, configBean.getImage());
-        args.putString(ConfigName.CONTENT_TEXT, configBean.getContentText());
-        args.putInt(ConfigName.CONTENT_TEXT_COLOR, configBean.getContentTextColor());
-        args.putInt(ConfigName.CONTENT_TEXT_SIZE, configBean.getContentTextSize());
+        args.putParcelable("textAndImageToastConfig", config);
         fragment.setArguments(args);
         return fragment;
     }
@@ -45,13 +37,7 @@ public class TextImageToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mBackground = getArguments().getInt(ConfigName.BACKGROUND);
-            isCancelable = getArguments().getBoolean(ConfigName.IS_CANCELABLE);
-            hasShade = getArguments().getBoolean(ConfigName.HAS_SHADE);
-            mImage = getArguments().getInt(ConfigName.IMAGE);
-            mContentText = getArguments().getString(ConfigName.CONTENT_TEXT);
-            mContentTextColor = getArguments().getInt(ConfigName.CONTENT_TEXT_COLOR);
-            mContentTextSize = getArguments().getInt(ConfigName.CONTENT_TEXT_SIZE);
+            mConfig = getArguments().getParcelable("textAndImageToastConfig");
         }
     }
 
@@ -66,13 +52,30 @@ public class TextImageToast extends BaseToast {
         mIvImage = view.findViewById(R.id.iv_image);
         mTvContent = view.findViewById(R.id.tv_content);
 
-        mLayoutBackground.setBackgroundResource(mBackground);
-        setCancelable(isCancelable);
-        setShade(hasShade);
-        mTvContent.setText(mContentText);
-        mTvContent.setTextColor(getResources().getColor(mContentTextColor));
-        mTvContent.setTextSize(mContentTextSize);
-        mIvImage.setImageDrawable(getResources().getDrawable(mImage));
+        updateUI(this.mConfig);
     }
-    
+
+    public void updateUI(ToastTextAndImageConfig config) {
+        // Corner Radius && Background Color
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(config.getCornerRadius());
+        drawable.setColor(mContext.getResources().getColor(config.getBackgroundColor()));
+        mLayoutBackground.setBackground(drawable);
+
+        // Text
+        mTvContent.setText(config.getText());
+
+        // Text Size
+        mTvContent.setTextSize(config.getTextSize());
+
+        // Text Color
+        mTvContent.setTextColor(getResources().getColor(config.getTextColor()));
+
+        // Image
+        mIvImage.setImageResource(config.getImage());
+
+        // Padding
+        mLayoutBackground.setPadding(config.getPaddingHorizontal(), config.getPaddingVertical(),
+                config.getPaddingHorizontal(), config.getPaddingVertical());
+    }
 }

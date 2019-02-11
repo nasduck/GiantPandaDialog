@@ -40,13 +40,6 @@ public class TestActivity extends AppCompatActivity {
         startActivity(intentToToastDefaultType);
     }
 
-    @OnClick(R.id.btn_toast_text_image)
-    public void onTextImageToast() {
-        DuckDialog.assignTextAndImageToast("hello world!!")
-                .setCancelable(true)
-                .show(this, "");
-    }
-
     @OnClick(R.id.btn_tip_dialog)
     public void onTipDialog() {
         DuckDialog.assignNoTitleTipDialog("hello world!!",

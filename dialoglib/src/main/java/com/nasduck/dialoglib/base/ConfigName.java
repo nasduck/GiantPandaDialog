@@ -4,7 +4,7 @@ public class ConfigName {
 
     // background
     public static final String BACKGROUND = "background";
-    public static final String IS_CANCELABLE =  "isCancelable";
+    public static final String IS_CANCELABLE = "isCancelable";
     public static final String HAS_SHADE = "has_shade";
 
     // content

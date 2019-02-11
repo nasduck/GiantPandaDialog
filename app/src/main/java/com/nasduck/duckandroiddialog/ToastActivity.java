@@ -5,12 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.base.DuckDialog;
-import com.nasduck.dialoglib.base.DuckDialogType;
 import com.nasduck.dialoglib.builder.ToastBuilder;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -34,6 +29,18 @@ public class ToastActivity extends AppCompatActivity {
 
     public void onImageToastWarningClick(View view) {
         DuckDialog.showWarningToast(this);
+    }
+
+    public void onTextAndImageToastSuccessClick(View view) {
+        DuckDialog.showSuccessTextToast(this);
+    }
+
+    public void onTextAndImageToastFailureClick(View view) {
+        DuckDialog.showFailureTextToast(this);
+    }
+
+    public void onTextAndImageToastWarningClick(View view) {
+        DuckDialog.showWarningTextToast(this);
     }
 
     public void onToastCustomClick(View view) {
