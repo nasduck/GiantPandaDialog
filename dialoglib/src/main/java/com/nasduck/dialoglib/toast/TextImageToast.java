@@ -3,6 +3,8 @@ package com.nasduck.dialoglib.toast;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -73,6 +75,12 @@ public class TextImageToast extends BaseToast {
 
         // Image
         mIvImage.setImageResource(config.getImage());
+
+        // Image Animation
+        if (config.getAnim() != 0) {
+            Animation animation = AnimationUtils.loadAnimation(mContext, config.getAnim());
+            mIvImage.setAnimation(animation);
+        }
 
         // Padding
         mLayoutBackground.setPadding(config.getPaddingHorizontal(), config.getPaddingVertical(),

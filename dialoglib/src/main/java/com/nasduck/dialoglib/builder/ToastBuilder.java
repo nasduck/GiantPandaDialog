@@ -25,6 +25,8 @@ public class ToastBuilder {
     private ToastTextAndImageConfig mToastTextAndImageConfig;
     private FragmentActivity mActivity;
 
+    private static int lastAnim;
+
     private static ToastHandler mHandler = new ToastHandler();
 
     private ToastBuilder(FragmentActivity activity, ToastTextConfig config) {
@@ -76,12 +78,19 @@ public class ToastBuilder {
         return new ToastBuilder(activity, config);
     }
 
-    public void show() {
-        show(getDelay());
+    public void show(boolean isAutoStop) {
+        if (isAutoStop) {
+            mHandler.removeMessages(ToastHandler.MSG_SHOW);
+            show();
+            // Send msg to dismiss dialog with delay
+            mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, getDelay());
+        } else {
+            mHandler.removeMessages(ToastHandler.MSG_SHOW);
+            show();
+        }
     }
 
-    public void show(int delayMillis) {
-        mHandler.removeMessages(ToastHandler.MSG_SHOW);
+    private void show() {
         FragmentManager manager = this.mActivity.getSupportFragmentManager();
         Fragment fragment;
         switch (mType) {
@@ -120,9 +129,22 @@ public class ToastBuilder {
             case TEXT_AND_IMAGE_TOAST:
                 fragment = manager.findFragmentByTag(TEXT_AND_IMAGE_TOAST);
                 if (fragment != null) {
-                    // Update Toast existing
-                    ((TextImageToast)fragment).updateUI(this.mToastTextAndImageConfig);
+                    if (this.mToastTextAndImageConfig.getAnim() == lastAnim) {
+                        // Update Toast existing
+                        ((TextImageToast)fragment).updateUI(this.mToastTextAndImageConfig);
+                    } else {
+                        if (manager.findFragmentByTag(TEXT_TOAST) != null) {
+                            DuckDialog.hide(mActivity, TEXT_TOAST);
+                        }
+                        if (manager.findFragmentByTag(IMAGE_TOAST) != null) {
+                            DuckDialog.hide(mActivity, IMAGE_TOAST);
+                        }
+                        DuckDialog.hide(mActivity, TEXT_AND_IMAGE_TOAST);
+                        TextImageToast.create(this.mToastTextAndImageConfig).show(this.mActivity.getSupportFragmentManager(), TEXT_AND_IMAGE_TOAST);
+                    }
+                    lastAnim = this.mToastTextAndImageConfig.getAnim();
                 } else {
+                    lastAnim = this.mToastTextAndImageConfig.getAnim();
                     if (manager.findFragmentByTag(TEXT_TOAST) != null) {
                         DuckDialog.hide(mActivity, TEXT_TOAST);
                     }
@@ -133,8 +155,6 @@ public class ToastBuilder {
                     TextImageToast.create(this.mToastTextAndImageConfig).show(this.mActivity.getSupportFragmentManager(), TEXT_AND_IMAGE_TOAST);
                 }
         }
-        // Send msg to dismiss dialog with delay
-        mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, delayMillis);
     }
 
     public void hide() {
@@ -249,6 +269,24 @@ public class ToastBuilder {
         }
     }
 
+    public int getAnimationId() {
+        switch (mType) {
+            case TEXT_AND_IMAGE_TOAST:
+                return mToastTextAndImageConfig.getAnim();
+            default:
+                return 0;
+        }
+    }
+
+    public ToastBuilder setAnimationId(int animationId) {
+        switch (mType) {
+            case TEXT_AND_IMAGE_TOAST:
+                mToastTextAndImageConfig.setAnimation(animationId);
+                return this;
+            default:
+                return this;
+        }
+    }
     public int getBackgroundColor() {
         switch (mType) {
             case TEXT_TOAST:

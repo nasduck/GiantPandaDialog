@@ -1,5 +1,6 @@
 package com.nasduck.dialoglib.base;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,8 @@ import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
+
+import static com.nasduck.dialoglib.interfaces.ToastType.TEXT_AND_IMAGE_TOAST;
 
 /**
  * default config
@@ -41,46 +44,58 @@ public class DuckDialog {
     public static void showToast(final FragmentActivity activity, String contentText) {
         ToastBuilder.create(activity)
                 .setText(contentText)
-                .show();
+                .show(true);
     }
 
     public static void showSuccessToast(FragmentActivity activity) {
         ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_success)
-                .show();
+                .show(true);
     }
 
     public static void showWarningToast(FragmentActivity activity) {
         ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_warning)
-                .show();
+                .show(true);
     }
 
     public static void showFailureToast(FragmentActivity activity) {
         ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_failure)
-                .show();
+                .show(true);
     }
 
-    public static void showSuccessTextToast(FragmentActivity activity) {
-        ToastBuilder.create(activity, ToastType.TEXT_AND_IMAGE_TOAST)
+    public static void showSuccessTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_success)
-                .setText("Success")
-                .show();
+                .setText(text)
+                .show(true);
     }
 
-    public static void showWarningTextToast(FragmentActivity activity) {
-        ToastBuilder.create(activity, ToastType.TEXT_AND_IMAGE_TOAST)
+    public static void showWarningTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_warning)
-                .setText("Warning")
-                .show();
+                .setText(text)
+                .show(true);
     }
 
-    public static void showFailureTextToast(FragmentActivity activity) {
-        ToastBuilder.create(activity, ToastType.TEXT_AND_IMAGE_TOAST)
+    public static void showFailureTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
                 .setImageId(R.drawable.ic_toast_failure)
-                .setText("Failure")
-                .show();
+                .setText(text)
+                .show(true);
+    }
+
+    public static void showLoadingTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_loading)
+                .setText(text)
+                .setAnimationId(R.anim.anim_loading_rotate)
+                .show(false);
+    }
+
+    public static void hideLoadingTextToast(FragmentActivity activity) {
+        DuckDialog.hide(activity, "textAndImageToast");
     }
 
     /**

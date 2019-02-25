@@ -8,6 +8,7 @@ import com.nasduck.dialoglib.R;
 public class ToastTextAndImageConfig implements Parcelable {
     
     private Integer image;   // R.drawable.ic_launcher
+    private Integer anim;
     private String text;       // content no set
     private Integer textColor; // 1A1A1A
     private Integer textSize;  // 16
@@ -38,8 +39,13 @@ public class ToastTextAndImageConfig implements Parcelable {
         return this;
     }
 
-    public ToastTextAndImageConfig setImage(Integer image) {
+    public ToastTextAndImageConfig setImage(int image) {
         this.image = image;
+        return this;
+    }
+
+    public ToastTextAndImageConfig setAnimation(int animId) {
+        this.anim = animId;
         return this;
     }
 
@@ -98,6 +104,13 @@ public class ToastTextAndImageConfig implements Parcelable {
         return image;
     }
 
+    public Integer getAnim() {
+        if (anim == null || anim.equals("")) {
+            anim = 0;
+        }
+        return anim;
+    }
+
     public int getBackgroundColor() {
         if (bgColor == null) {
             bgColor = R.color.black_alpha_60;
@@ -147,6 +160,7 @@ public class ToastTextAndImageConfig implements Parcelable {
         dest.writeValue(this.textColor);
         dest.writeValue(this.textSize);
         dest.writeValue(this.image);
+        dest.writeValue(this.anim);
         dest.writeValue(this.bgColor);
         dest.writeValue(this.cornerRadius);
         dest.writeValue(this.delay);
@@ -162,6 +176,7 @@ public class ToastTextAndImageConfig implements Parcelable {
         this.textColor = (Integer) in.readValue(Integer.class.getClassLoader());
         this.textSize = (Integer) in.readValue(Integer.class.getClassLoader());
         this.image = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.anim = (Integer) in.readValue(Integer.class.getClassLoader());
         this.bgColor = (Integer) in.readValue(Integer.class.getClassLoader());
         this.cornerRadius = (Integer) in.readValue(Integer.class.getClassLoader());
         this.delay = (Integer) in.readValue(Integer.class.getClassLoader());

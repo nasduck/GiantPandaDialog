@@ -1,5 +1,6 @@
 package com.nasduck.duckandroiddialog;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,15 +33,26 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onTextAndImageToastSuccessClick(View view) {
-        DuckDialog.showSuccessTextToast(this);
+        DuckDialog.showSuccessTextToast(this, "success");
     }
 
     public void onTextAndImageToastFailureClick(View view) {
-        DuckDialog.showFailureTextToast(this);
+        DuckDialog.showFailureTextToast(this, "failure");
     }
 
     public void onTextAndImageToastWarningClick(View view) {
-        DuckDialog.showWarningTextToast(this);
+        DuckDialog.showWarningTextToast(this, "warning");
+    }
+
+    public void onTextAndImageToastLoadingClick(View view) {
+        DuckDialog.showLoadingTextToast(this, "loading");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DuckDialog.hideLoadingTextToast(ToastActivity.this);
+            }
+        }, 2000);
     }
 
     public void onToastCustomClick(View view) {
@@ -53,6 +65,6 @@ public class ToastActivity extends AppCompatActivity {
                 .setPaddingHorizontal(64)
                 .setPaddingVertical(32)
                 .setDelay(3000)
-                .show();
+                .show(true);
     }
 }
