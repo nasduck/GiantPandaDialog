@@ -1,16 +1,12 @@
 package com.nasduck.duckandroiddialog;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.base.DuckDialog;
-import com.nasduck.dialoglib.base.DuckDialogType;
 import com.nasduck.dialoglib.builder.ToastBuilder;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -24,6 +20,41 @@ public class ToastActivity extends AppCompatActivity {
         DuckDialog.showToast(this, "Toast Default");
     }
 
+    public void onImageToastSuccessClick(View view) {
+        DuckDialog.showSuccessToast(this);
+    }
+
+    public void onImageToastFailureClick(View view) {
+        DuckDialog.showFailureToast(this);
+    }
+
+    public void onImageToastWarningClick(View view) {
+        DuckDialog.showWarningToast(this);
+    }
+
+    public void onTextAndImageToastSuccessClick(View view) {
+        DuckDialog.showSuccessTextToast(this, "success");
+    }
+
+    public void onTextAndImageToastFailureClick(View view) {
+        DuckDialog.showFailureTextToast(this, "failure");
+    }
+
+    public void onTextAndImageToastWarningClick(View view) {
+        DuckDialog.showWarningTextToast(this, "warning");
+    }
+
+    public void onTextAndImageToastLoadingClick(View view) {
+        DuckDialog.showLoadingTextToast(this, "loading");
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DuckDialog.hideLoadingTextToast(ToastActivity.this);
+            }
+        }, 2000);
+    }
+
     public void onToastCustomClick(View view) {
         ToastBuilder.create(this)
                 .setText("Toast Customized")
@@ -34,6 +65,6 @@ public class ToastActivity extends AppCompatActivity {
                 .setPaddingHorizontal(64)
                 .setPaddingVertical(32)
                 .setDelay(3000)
-                .show();
+                .show(true);
     }
 }

@@ -2,7 +2,7 @@ package com.nasduck.dialoglib.interfaces;
 
 public enum ToastType {
 
-    SUCCESS(0), WARNING(1), FAILURE(2);
+    TEXT_TOAST(0), IMAGE_TOAST(1), TEXT_AND_IMAGE_TOAST(2);
 
     private int type;
 

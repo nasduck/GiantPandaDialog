@@ -5,8 +5,10 @@ import android.os.Parcelable;
 
 import com.nasduck.dialoglib.R;
 
-public class ToastConfig implements Parcelable {
-
+public class ToastTextAndImageConfig implements Parcelable {
+    
+    private Integer image;   // R.drawable.ic_launcher
+    private Integer anim;
     private String text;       // content no set
     private Integer textColor; // 1A1A1A
     private Integer textSize;  // 16
@@ -14,51 +16,60 @@ public class ToastConfig implements Parcelable {
     private Integer cornerRadius; // 3
     private Integer delay;     // 1500
     private Integer paddingHorizontal; // 32
-    private Integer paddingVertical;   // 20
+    private Integer paddingVertical;   // 32
 
-    public static ToastConfig getInstance() {
-        return new ToastConfig();
+    public static ToastTextAndImageConfig getInstance() {
+        return new ToastTextAndImageConfig();
     }
 
     //** Setter **********************************************************************************//
 
-    public ToastConfig setBackgroundColor(int backgroundColor) {
-        this.bgColor = backgroundColor;
-        return this;
-    }
-
-    public ToastConfig setText(String text) {
+    public ToastTextAndImageConfig setText(String text) {
         this.text = text;
         return this;
     }
 
-    public ToastConfig setTextSize(int textSize) {
+    public ToastTextAndImageConfig setTextSize(int textSize) {
         this.textSize = textSize;
         return this;
     }
 
-    public ToastConfig setTextColor(int textColor) {
+    public ToastTextAndImageConfig setTextColor(int textColor) {
         this.textColor = textColor;
         return this;
     }
 
+    public ToastTextAndImageConfig setImage(int image) {
+        this.image = image;
+        return this;
+    }
 
-    public ToastConfig setCornerRadius(Integer cornerRadius) {
+    public ToastTextAndImageConfig setAnimation(int animId) {
+        this.anim = animId;
+        return this;
+    }
+
+    public ToastTextAndImageConfig setBackgroundColor(int backgroundColor) {
+        this.bgColor = backgroundColor;
+        return this;
+    }
+
+    public ToastTextAndImageConfig setCornerRadius(Integer cornerRadius) {
         this.cornerRadius = cornerRadius;
         return this;
     }
 
-    public ToastConfig setDelay(Integer delay) {
+    public ToastTextAndImageConfig setDelay(Integer delay) {
         this.delay = delay;
         return this;
     }
 
-    public ToastConfig setPaddingHorizontal(Integer paddingHorizontal) {
+    public ToastTextAndImageConfig setPaddingHorizontal(Integer paddingHorizontal) {
         this.paddingHorizontal = paddingHorizontal;
         return this;
     }
 
-    public ToastConfig setPaddingVertical(Integer paddingVertical) {
+    public ToastTextAndImageConfig setPaddingVertical(Integer paddingVertical) {
         this.paddingVertical = paddingVertical;
         return this;
     }
@@ -86,6 +97,20 @@ public class ToastConfig implements Parcelable {
         return textSize;
     }
 
+    public Integer getImage() {
+        if (image == null || image.equals("")) {
+            image = R.drawable.ic_launcher;
+        }
+        return image;
+    }
+
+    public Integer getAnim() {
+        if (anim == null || anim.equals("")) {
+            anim = 0;
+        }
+        return anim;
+    }
+
     public int getBackgroundColor() {
         if (bgColor == null) {
             bgColor = R.color.black_alpha_60;
@@ -95,7 +120,7 @@ public class ToastConfig implements Parcelable {
 
     public Integer getCornerRadius() {
         if (cornerRadius == null) {
-            cornerRadius = 3;
+            cornerRadius = 6;
         }
         return cornerRadius;
     }
@@ -116,7 +141,7 @@ public class ToastConfig implements Parcelable {
 
     public Integer getPaddingVertical() {
         if (paddingVertical == null) {
-            paddingVertical = 20;
+            paddingVertical = 32;
         }
         return paddingVertical;
     }
@@ -134,30 +159,40 @@ public class ToastConfig implements Parcelable {
         dest.writeString(this.text);
         dest.writeValue(this.textColor);
         dest.writeValue(this.textSize);
+        dest.writeValue(this.image);
+        dest.writeValue(this.anim);
         dest.writeValue(this.bgColor);
         dest.writeValue(this.cornerRadius);
+        dest.writeValue(this.delay);
+        dest.writeValue(this.paddingVertical);
+        dest.writeValue(this.paddingHorizontal);
     }
 
-    public ToastConfig() {
+    public ToastTextAndImageConfig() {
     }
 
-    protected ToastConfig(Parcel in) {
+    protected ToastTextAndImageConfig(Parcel in) {
         this.text = in.readString();
         this.textColor = (Integer) in.readValue(Integer.class.getClassLoader());
         this.textSize = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.image = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.anim = (Integer) in.readValue(Integer.class.getClassLoader());
         this.bgColor = (Integer) in.readValue(Integer.class.getClassLoader());
         this.cornerRadius = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.delay = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.paddingHorizontal = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.paddingVertical = (Integer) in.readValue(Integer.class.getClassLoader());
     }
 
-    public static final Creator<ToastConfig> CREATOR = new Creator<ToastConfig>() {
+    public static final Parcelable.Creator<ToastTextAndImageConfig> CREATOR = new Parcelable.Creator<ToastTextAndImageConfig>() {
         @Override
-        public ToastConfig createFromParcel(Parcel source) {
-            return new ToastConfig(source);
+        public ToastTextAndImageConfig createFromParcel(Parcel source) {
+            return new ToastTextAndImageConfig(source);
         }
 
         @Override
-        public ToastConfig[] newArray(int size) {
-            return new ToastConfig[size];
+        public ToastTextAndImageConfig[] newArray(int size) {
+            return new ToastTextAndImageConfig[size];
         }
     };
 }

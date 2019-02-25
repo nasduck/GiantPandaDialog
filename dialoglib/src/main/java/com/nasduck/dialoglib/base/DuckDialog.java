@@ -10,10 +10,8 @@ import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.builder.ToastBuilder;
 import com.nasduck.dialoglib.config.DialogSelectNoTitleConfigBean;
 import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
-import com.nasduck.dialoglib.config.ToastImageConfigBean;
 import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
-import com.nasduck.dialoglib.config.ToastTextAndImageConfigBean;
-import com.nasduck.dialoglib.config.ToastConfig;
+import com.nasduck.dialoglib.config.ToastTextAndImageConfig;
 import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
@@ -21,14 +19,12 @@ import com.nasduck.dialoglib.dialog.TitleSelectDialog;
 import com.nasduck.dialoglib.dialog.TitleTipDialog;
 import com.nasduck.dialoglib.interfaces.ToastType;
 
+import static com.nasduck.dialoglib.interfaces.ToastType.TEXT_AND_IMAGE_TOAST;
+
 /**
  * default config
  */
 public class DuckDialog {
-
-    public static final int SUCCESS = 0;
-    public static final int WARNING = 1;
-    public static final int FAILURE = 2;
 
     /**
      * Fragment tag to control dialog disappear.
@@ -48,66 +44,58 @@ public class DuckDialog {
     public static void showToast(final FragmentActivity activity, String contentText) {
         ToastBuilder.create(activity)
                 .setText(contentText)
-                .show();
+                .show(true);
     }
 
-    /**
-     * ImageToast config
-     * @return
-     */
-    public static ToastImageConfigBean assignImageToast() {
-        ToastImageConfigBean configBean = new ToastImageConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setImage(R.drawable.ic_launcher);
-        return configBean;
+    public static void showSuccessToast(FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_success)
+                .show(true);
     }
 
-    /**
-     * special image toast(SUCCESS\WARNING\FAILURE)
-     * @param type
-     * @return
-     * todo more types
-     */
-    public static ToastImageConfigBean assignImageToast(int type) {
-        ToastType toastType = ToastType.getType(type);
-        ToastImageConfigBean configBean = new ToastImageConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true);
-        switch (toastType) {
-            case SUCCESS:
-                configBean.setImage(R.drawable.ic_toast_success);
-                return configBean;
-            case WARNING:
-                configBean.setImage(R.drawable.ic_toast_warning);
-                return configBean;
-            case FAILURE:
-                configBean.setImage(R.drawable.ic_toast_failure);
-                return configBean;
-            default:
-                configBean.setImage(R.drawable.ic_launcher);
-                return configBean;
-        }
+    public static void showWarningToast(FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_warning)
+                .show(true);
     }
 
-    /**
-     * TextAndImageToast config
-     * @param contentText
-     * @return
-     * todo special toast
-     */
-    public static ToastTextAndImageConfigBean assignTextAndImageToast(String contentText) {
-        ToastTextAndImageConfigBean configBean = new ToastTextAndImageConfigBean();
-        configBean.setBackground(R.drawable.bg_default)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setImage(R.drawable.ic_launcher)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black);
-        return configBean;
+    public static void showFailureToast(FragmentActivity activity) {
+        ToastBuilder.create(activity, ToastType.IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_failure)
+                .show(true);
+    }
+
+    public static void showSuccessTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_success)
+                .setText(text)
+                .show(true);
+    }
+
+    public static void showWarningTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_warning)
+                .setText(text)
+                .show(true);
+    }
+
+    public static void showFailureTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_failure)
+                .setText(text)
+                .show(true);
+    }
+
+    public static void showLoadingTextToast(FragmentActivity activity, String text) {
+        ToastBuilder.create(activity, TEXT_AND_IMAGE_TOAST)
+                .setImageId(R.drawable.ic_toast_loading)
+                .setText(text)
+                .setAnimationId(R.anim.anim_loading_rotate)
+                .show(false);
+    }
+
+    public static void hideLoadingTextToast(FragmentActivity activity) {
+        DuckDialog.hide(activity, "textAndImageToast");
     }
 
     /**
