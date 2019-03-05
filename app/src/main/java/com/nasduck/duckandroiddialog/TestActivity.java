@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.controller.DuckDialog;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
