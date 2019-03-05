@@ -8,21 +8,20 @@ import android.widget.ImageView;
 
 import com.nasduck.dialoglib.base.BaseToast;
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.ToastImageConfig;
-import com.nasduck.dialoglib.config.ToastTextConfig;
+import com.nasduck.dialoglib.config.ToastConfig;
 
 public class ImageToast extends BaseToast {
 
     private FrameLayout mLayoutBackground;
     private ImageView mIvImage;
 
-    private ToastImageConfig mConfig;
+    private ToastConfig mConfig;
 
     public ImageToast() {
 
     }
 
-    public static ImageToast create(ToastImageConfig config){
+    public static ImageToast create(ToastConfig config){
         ImageToast fragment = new ImageToast();
         Bundle args = new Bundle();
         args.putParcelable("imageToastConfig", config);
@@ -51,11 +50,11 @@ public class ImageToast extends BaseToast {
         updateUI(this.mConfig);
     }
 
-    public void updateUI(ToastImageConfig config) {
+    public void updateUI(ToastConfig config) {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(config.getCornerRadius());
-        drawable.setColor(mContext.getResources().getColor(config.getBackgroundColor()));
+        drawable.setColor(mContext.getResources().getColor(config.getBgColor()));
         mLayoutBackground.setBackground(drawable);
 
         // Image

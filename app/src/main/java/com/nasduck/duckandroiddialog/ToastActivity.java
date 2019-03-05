@@ -1,12 +1,13 @@
 package com.nasduck.duckandroiddialog;
 
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nasduck.dialoglib.base.DuckDialog;
-import com.nasduck.dialoglib.builder.ToastBuilder;
+import com.nasduck.dialoglib.controller.DuckDialog;
+import com.nasduck.dialoglib.controller.DuckToast;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -14,6 +15,9 @@ public class ToastActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toast);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                ;
     }
 
     public void onToastDefaultClick(View view) {
@@ -56,15 +60,23 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onToastCustomClick(View view) {
-        ToastBuilder.create(this)
-                .setText("Toast Customized")
-                .setTextSize(16)
-                .setTextColor(android.R.color.holo_orange_dark)
-                .setBackgroundColor(android.R.color.holo_green_light)
-                .setCornerRadius(10)
-                .setPaddingHorizontal(64)
-                .setPaddingVertical(32)
-                .setDelay(3000)
-                .show(true);
+//        ToastBuilder.create(this)
+//                .setText("Toast Customized")
+//                .setTextSize(16)
+//                .setTextColor(android.R.color.holo_orange_dark)
+//                .setBackgroundColor(android.R.color.holo_green_light)
+//                .setCornerRadius(10)
+//                .setPaddingHorizontal(64)
+//                .setPaddingVertical(32)
+//                .setDelay(3000)
+//                .show(true);
+
+//        ToastConfig config = new TextToastBuilder().build();
+//        TextToast.create(config).show(this.getSupportFragmentManager(), "");
+
+        DuckToast.createTextToast(this)
+                .setText("hello world!")
+                .show(5000);
+
     }
 }
