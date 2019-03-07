@@ -3,9 +3,9 @@ package com.nasduck.dialoglib.config;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.nasduck.dialoglib.builder.ImageAndTextToastBuilder;
-import com.nasduck.dialoglib.builder.ImageToastBuilder;
-import com.nasduck.dialoglib.builder.TextToastBuilder;
+import com.nasduck.dialoglib.builder.toast.ImageAndTextToastBuilder;
+import com.nasduck.dialoglib.builder.toast.ImageToastBuilder;
+import com.nasduck.dialoglib.builder.toast.TextToastBuilder;
 
 public class ToastConfig implements Parcelable {
 

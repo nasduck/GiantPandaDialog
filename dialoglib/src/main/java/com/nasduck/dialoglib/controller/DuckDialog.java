@@ -1,19 +1,20 @@
 package com.nasduck.dialoglib.controller;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.DialogSelectNoTitleConfigBean;
-import com.nasduck.dialoglib.config.DialogSelectTitleConfigBean;
-import com.nasduck.dialoglib.config.DialogTipNoTitleConfigBean;
-import com.nasduck.dialoglib.config.DialogTipTitleConfigBean;
-import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
-import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
-import com.nasduck.dialoglib.dialog.TitleSelectDialog;
-import com.nasduck.dialoglib.dialog.TitleTipDialog;
+import com.nasduck.dialoglib.base.IDialogView;
+import com.nasduck.dialoglib.builder.dialog.OneButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.TextBodyBuilder;
+import com.nasduck.dialoglib.builder.dialog.TextHeaderBuilder;
+import com.nasduck.dialoglib.builder.dialog.ThreeButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.TwoButtonFooterBuilder;
+import com.nasduck.dialoglib.dialog.BaseDialog;
 
 /**
  * default config
@@ -36,151 +37,71 @@ public class DuckDialog {
     }
 
     public static void showToast(FragmentActivity activity, String contentText) {
-        DuckToast.createTextToast(activity)
+        ToastController.createTextToast(activity)
                 .setText(contentText)
                 .show();
     }
 
     public static void showSuccessToast(FragmentActivity activity) {
-        DuckToast.createImageToast(activity)
+        ToastController.createImageToast(activity)
                 .setImage(R.drawable.ic_toast_success)
                 .show();
     }
 
     public static void showWarningToast(FragmentActivity activity) {
-        DuckToast.createImageToast(activity)
+        ToastController.createImageToast(activity)
                 .setImage(R.drawable.ic_toast_warning)
                 .show();
     }
 
     public static void showFailureToast(FragmentActivity activity) {
-        DuckToast.createImageToast(activity)
+        ToastController.createImageToast(activity)
                 .setImage(R.drawable.ic_toast_failure)
                 .show();
     }
 
     public static void showSuccessTextToast(FragmentActivity activity, String text) {
-        DuckToast.createImageAndTextToast(activity)
+        ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_toast_success)
                 .setText(text)
                 .show();
     }
 
     public static void showWarningTextToast(FragmentActivity activity, String text) {
-        DuckToast.createImageAndTextToast(activity)
+        ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_toast_warning)
                 .setText(text)
                 .show();
     }
 
     public static void showFailureTextToast(FragmentActivity activity, String text) {
-        DuckToast.createImageAndTextToast(activity)
+        ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_toast_failure)
                 .setText(text)
                 .show();
     }
 
-    public static void showLoadingTextToast(FragmentActivity activity, String text) {
+    public static void showTitleTipDialog(FragmentActivity activity) {
+        BaseDialog.create()
+                .setDialogView(new IDialogView() {
+                    @Override
+                    public View getViewHeader(Context context) {
+                        return TextHeaderBuilder.create()
+                                .getView(context);
+                    }
 
-    }
+                    @Override
+                    public View getBodyLayout(Context context) {
+                        return TextBodyBuilder.create()
+                                .getView(context);
+                    }
 
-    public static void hideLoadingTextToast(FragmentActivity activity) {
-        DuckDialog.hide(activity, "textAndImageToast");
-    }
-
-    /**
-     * NoTitleTipDialog config
-     * @param contentText
-     * @return
-     */
-    public static DialogTipNoTitleConfigBean assignNoTitleTipDialog(String contentText
-            , NoTitleTipDialog.onSureClickListener listener) {
-        DialogTipNoTitleConfigBean configBean = new DialogTipNoTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_dialog_white)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black_light)
-                .setButtonText("确定")
-                .setButtonTextSize(18)
-                .setButtonTextColor(R.color.text_blue)
-                .setListener(listener);
-        return configBean;
-    }
-
-    /**
-     * TitleTipDialog config
-     * @param contentText
-     * @return
-     */
-    public static DialogTipTitleConfigBean assignTitleTipDialog(String titleText
-            , String contentText, TitleTipDialog.onSureClickListener listener) {
-        DialogTipTitleConfigBean configBean = new DialogTipTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_dialog_white)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setTitleText(titleText)
-                .setTitleTextSize(18)
-                .setTitleTextColor(R.color.text_black)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black_light)
-                .setButtonText("确定")
-                .setButtonTextSize(18)
-                .setButtonTextColor(R.color.text_blue)
-                .setListener(listener);
-        return configBean;
-    }
-
-    /**
-     * NoTitleSelectDialog config
-     * @param contentText
-     * @return
-     */
-    public static DialogSelectNoTitleConfigBean assignNoTitleSelectDialog(String contentText
-            , NoTitleSelectDialog.onSelectClickListener listener) {
-        DialogSelectNoTitleConfigBean configBean = new DialogSelectNoTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_dialog_white)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black_light)
-                .setPositiveButtonText("确定")
-                .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.text_blue)
-                .setNegativeButtonText("取消")
-                .setNegativeButtonTextSize(18)
-                .setNegativeButtonTextColor(R.color.text_black)
-                .setListener(listener);
-        return configBean;
-    }
-
-    /**
-     * TitleSelectDialog config
-     * @param contentText
-     * @return
-     */
-    public static DialogSelectTitleConfigBean assignTitleSelectDialog(String titleText
-            , String contentText, TitleSelectDialog.onSelectClickListener listener) {
-        DialogSelectTitleConfigBean configBean = new DialogSelectTitleConfigBean();
-        configBean.setBackground(R.drawable.bg_dialog_white)
-                .setCancelable(false)
-                .setHasShade(true)
-                .setTitleText(titleText)
-                .setTitleTextSize(18)
-                .setTitleTextColor(R.color.text_black)
-                .setContentText(contentText)
-                .setContentTextSize(16)
-                .setContentTextColor(R.color.text_black_light)
-                .setPositiveButtonText("确定")
-                .setPositiveButtonTextSize(18)
-                .setPositiveButtonTextColor(R.color.text_blue)
-                .setNegativeButtonText("取消")
-                .setNegativeButtonTextSize(18)
-                .setNegativeButtonTextColor(R.color.text_black)
-                .setListener(listener);
-        return configBean;
+                    @Override
+                    public View getFooterLayout(Context context) {
+                        return ThreeButtonFooterBuilder.create()
+                                .getView(context);
+                    }
+                })
+                .show(activity.getSupportFragmentManager(), "");
     }
 }

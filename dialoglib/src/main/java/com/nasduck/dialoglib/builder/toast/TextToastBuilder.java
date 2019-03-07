@@ -1,23 +1,23 @@
-package com.nasduck.dialoglib.builder;
+package com.nasduck.dialoglib.builder.toast;
 
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.base.BaseToastBuilder;
 import com.nasduck.dialoglib.config.ToastConfig;
-import com.nasduck.dialoglib.interfaces.ToastType;
+import com.nasduck.dialoglib.enums.ToastType;
 
 public class TextToastBuilder extends BaseToastBuilder {
 
     private FragmentActivity mActivity;
 
-    private String text;       // content no set
-    private Integer textColor; // 1A1A1A
-    private Integer textSize;  // 16
-    private Integer bgColor ;  // 99000000
-    private Integer cornerRadius; // 3
-    private Integer paddingHorizontal; // 32
-    private Integer paddingVertical;   // 20
+    private String text;
+    private Integer textColor;
+    private Integer textSize;
+    private Integer bgColor ;
+    private Integer cornerRadius;
+    private Integer paddingHorizontal;
+    private Integer paddingVertical;
 
     public TextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);

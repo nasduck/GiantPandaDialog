@@ -1,13 +1,12 @@
 package com.nasduck.duckandroiddialog;
 
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.controller.DuckToast;
+import com.nasduck.dialoglib.controller.ToastController;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -49,14 +48,14 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onTextAndImageToastLoadingClick(View view) {
-        DuckDialog.showLoadingTextToast(this, "loading");
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                DuckDialog.hideLoadingTextToast(ToastActivity.this);
-            }
-        }, 2000);
+//        DuckDialog.showLoadingTextToast(this, "loading");
+//
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                DuckDialog.hideLoadingTextToast(ToastActivity.this);
+//            }
+//        }, 2000);
     }
 
     public void onToastCustomClick(View view) {
@@ -74,7 +73,7 @@ public class ToastActivity extends AppCompatActivity {
 //        ToastConfig config = new TextToastBuilder().build();
 //        TextToast.create(config).show(this.getSupportFragmentManager(), "");
 
-        DuckToast.createTextToast(this)
+        ToastController.createTextToast(this)
                 .setText("hello world!")
                 .show(5000);
 
