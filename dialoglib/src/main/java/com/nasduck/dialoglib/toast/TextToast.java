@@ -22,7 +22,7 @@ public class TextToast extends BaseToast {
     public static TextToast create(ToastConfig config) {
         TextToast fragment = new TextToast();
         Bundle args = new Bundle();
-        args.putParcelable("config", config);
+        args.putParcelable("textToastConfig", config);
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,7 +31,7 @@ public class TextToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mConfig = getArguments().getParcelable("config");
+            mConfig = getArguments().getParcelable("textToastConfig");
         }
     }
 
@@ -53,7 +53,7 @@ public class TextToast extends BaseToast {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(config.getCornerRadius());
-        drawable.setColor(mContext.getResources().getColor(config.getBackgroundColor()));
+        drawable.setColor(mContext.getResources().getColor(config.getBgColor()));
         mLayoutBackground.setBackground(drawable);
 
         // Text

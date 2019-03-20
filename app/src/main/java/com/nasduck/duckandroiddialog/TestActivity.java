@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.controller.DuckDialog;
 import com.nasduck.dialoglib.dialog.NoTitleSelectDialog;
 import com.nasduck.dialoglib.dialog.NoTitleTipDialog;
 import com.nasduck.dialoglib.dialog.TitleSelectDialog;
@@ -38,36 +38,6 @@ public class TestActivity extends AppCompatActivity {
     public void onToastDefaultTypeClick() {
         Intent intentToToastDefaultType = new Intent(this, ToastActivity.class);
         startActivity(intentToToastDefaultType);
-    }
-
-    @OnClick(R.id.btn_toast_image)
-    public void onImageToast() {
-        DuckDialog.assignImageToast()
-                .setCancelable(true)
-                .setHasShade(true)
-                .show(this, "image");
-    }
-
-    @OnClick(R.id.btn_toast_image_success)
-    public void onImageToastSuccess() {
-        DuckDialog.assignImageToast(DuckDialog.SUCCESS).show(this);
-    }
-
-    @OnClick(R.id.btn_toast_image_warning)
-    public void onImageToastWarning() {
-        DuckDialog.assignImageToast(DuckDialog.WARNING).show(this);
-    }
-
-    @OnClick(R.id.btn_toast_image_failure)
-    public void onImageToastFailure() {
-        DuckDialog.assignImageToast(DuckDialog.FAILURE).show(this);
-    }
-
-    @OnClick(R.id.btn_toast_text_image)
-    public void onTextImageToast() {
-        DuckDialog.assignTextAndImageToast("hello world!!")
-                .setCancelable(true)
-                .show(this, "");
     }
 
     @OnClick(R.id.btn_tip_dialog)
