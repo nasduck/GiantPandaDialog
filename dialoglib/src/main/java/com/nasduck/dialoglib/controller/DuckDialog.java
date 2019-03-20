@@ -1,20 +1,17 @@
 package com.nasduck.dialoglib.controller;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.IDialogView;
-import com.nasduck.dialoglib.builder.dialog.OneButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.TextBodyBuilder;
-import com.nasduck.dialoglib.builder.dialog.TextHeaderBuilder;
-import com.nasduck.dialoglib.builder.dialog.ThreeButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.TwoButtonFooterBuilder;
-import com.nasduck.dialoglib.dialog.BaseDialog;
+import com.nasduck.dialoglib.builder.dialog.footer.OneButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.body.TextBodyBuilder;
+import com.nasduck.dialoglib.builder.dialog.header.TextHeaderBuilder;
+import com.nasduck.dialoglib.enums.DialogType;
+import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 
 /**
  * default config
@@ -81,27 +78,35 @@ public class DuckDialog {
                 .show();
     }
 
-    public static void showTitleTipDialog(FragmentActivity activity) {
-        BaseDialog.create()
-                .setDialogView(new IDialogView() {
-                    @Override
-                    public View getViewHeader(Context context) {
-                        return TextHeaderBuilder.create()
-                                .getView(context);
-                    }
+    public static void showTitleTipDialog(FragmentActivity activity, String title, String content, OnNormalClickListener listener) {
+        TextHeaderBuilder headerBuilder = new TextHeaderBuilder();
+        headerBuilder.setTitle(title)
+                .setTitleSize(16)
+                .setTitleColor(R.color.text_black)
+                .setGravityWay(GravityWay.CENTER_HORIZONTAL)
+                .setPaddingTop(30)
+                .setPaddingBottom(20);
 
-                    @Override
-                    public View getBodyLayout(Context context) {
-                        return TextBodyBuilder.create()
-                                .getView(context);
-                    }
+        TextBodyBuilder bodyBuilder = new TextBodyBuilder();
+        bodyBuilder.setContentText(content)
+                .setContentTextSize(14)
+                .setContentTextColor(R.color.text_black_light)
+                .setGravityWay(GravityWay.CENTER_HORIZONTAL)
+                .setPaddingLeft(43)
+                .setPaddingRight(43)
+                .setPaddingBottom(30);
 
-                    @Override
-                    public View getFooterLayout(Context context) {
-                        return ThreeButtonFooterBuilder.create()
-                                .getView(context);
-                    }
-                })
-                .show(activity.getSupportFragmentManager(), "");
+        OneButtonFooterBuilder footerBuilder = new OneButtonFooterBuilder();
+        footerBuilder.setNormalButtonText("我知道了")
+                .setNormalButtonTextSize(16)
+                .setNormalButtonTextColor(R.color.text_blue)
+                .setNormalClickListener(listener);
+
+        DialogController.create(activity)
+                .createHeader(headerBuilder)
+                .createBody(bodyBuilder)
+                .createFooter(footerBuilder)
+                .setDialogTag(DialogType.TITLE_TIP_DIALOG.getDialogTag())
+                .show();
     }
 }

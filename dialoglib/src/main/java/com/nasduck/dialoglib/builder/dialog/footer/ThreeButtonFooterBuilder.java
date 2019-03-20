@@ -1,17 +1,18 @@
-package com.nasduck.dialoglib.builder.dialog;
+package com.nasduck.dialoglib.builder.dialog.footer;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.interfaces.IDialogFooter;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.dialog.footer.OneButtonFooter;
 import com.nasduck.dialoglib.dialog.footer.ThreeButtonFooter;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
 
-public class ThreeButtonFooterBuilder {
+public class ThreeButtonFooterBuilder implements IDialogFooter {
 
     private OnNormalClickListener normalClickListener;
     private OnPositiveClickListener positiveClickListener;
@@ -50,12 +51,9 @@ public class ThreeButtonFooterBuilder {
         return new ThreeButtonFooterBuilder();
     }
 
-    public View getView(Context context) {
-        return ThreeButtonFooter.create(context, new DialogConfig(ThreeButtonFooterBuilder.this));
-    }
-
-    public DialogConfig build() {
-        return new DialogConfig(ThreeButtonFooterBuilder.this);
+    @Override
+    public View getView(FragmentActivity activity, Context context, String tag) {
+        return ThreeButtonFooter.create(activity, context, new DialogConfig(ThreeButtonFooterBuilder.this), tag);
     }
 
     /**********************************************************************************************/

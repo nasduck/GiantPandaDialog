@@ -1,6 +1,7 @@
 package com.nasduck.dialoglib.dialog.footer;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +9,18 @@ import android.widget.RelativeLayout;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogConfig;
+import com.nasduck.dialoglib.controller.DuckDialog;
 
 public class ThreeButtonFooter extends RelativeLayout {
 
+    private static FragmentActivity mActivity;
     private static DialogConfig mConfig;
+    private static String mTag;
 
-    public static ThreeButtonFooter create(Context context, DialogConfig config) {
+    public static ThreeButtonFooter create(FragmentActivity activity, Context context, DialogConfig config, String tag) {
+        mActivity = activity;
         mConfig = config;
+        mTag = tag;
         return new ThreeButtonFooter(context);
     }
 
@@ -38,7 +44,7 @@ public class ThreeButtonFooter extends RelativeLayout {
                 if (mConfig.getNormalClickListener() != null) {
                     mConfig.getNormalClickListener().onNormalClick();
                 }
-                // todo hide
+                DuckDialog.hide(mActivity, mTag);
             }
         });
 
@@ -51,7 +57,7 @@ public class ThreeButtonFooter extends RelativeLayout {
                 if (mConfig.getNegativeClickListener() != null) {
                     mConfig.getNegativeClickListener().onNegativeClick();
                 }
-                // todo hide
+                DuckDialog.hide(mActivity, mTag);
             }
         });
 
@@ -64,7 +70,7 @@ public class ThreeButtonFooter extends RelativeLayout {
                 if (mConfig.getPositiveClickListener() != null) {
                     mConfig.getPositiveClickListener().onPositiveClick();
                 }
-                // todo hide
+                DuckDialog.hide(mActivity, mTag);
             }
         });
     }

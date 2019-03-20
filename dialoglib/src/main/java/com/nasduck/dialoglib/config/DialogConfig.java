@@ -3,11 +3,11 @@ package com.nasduck.dialoglib.config;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.nasduck.dialoglib.builder.dialog.OneButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.TextBodyBuilder;
-import com.nasduck.dialoglib.builder.dialog.TextHeaderBuilder;
-import com.nasduck.dialoglib.builder.dialog.ThreeButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.TwoButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.footer.OneButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.body.TextBodyBuilder;
+import com.nasduck.dialoglib.builder.dialog.header.TextHeaderBuilder;
+import com.nasduck.dialoglib.builder.dialog.footer.ThreeButtonFooterBuilder;
+import com.nasduck.dialoglib.builder.dialog.footer.TwoButtonFooterBuilder;
 import com.nasduck.dialoglib.enums.GravityWay;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
@@ -15,22 +15,35 @@ import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
 
 public class DialogConfig implements Parcelable {
 
-    private Integer background;
+    /****  Dialog Common Config *******************************************************************/
+
+    private Integer dialogBackground;
     private Boolean isCancelable;
     private Boolean hasShade;
+
+    /****  Dialog Item Common Config **************************************************************/
+
+    private GravityWay gravityWay;
+    private Integer paddingTop;
+    private Integer paddingBottom;
+    private Integer paddingLeft;
+    private Integer paddingRight;
+
+    /****  Dialog Header Config *******************************************************************/
+
     // title
     private String titleText;
     private Integer titleTextColor;
     private Integer titleTextSize;
 
-    private GravityWay gravityWay;
-    private Integer paddingHorizontal;
-    private Integer paddingVertical;
+    /****  Dialog Body Config *********************************************************************/
 
     // content
     private String contentText;
     private Integer contentTextColor;
     private Integer contentTextSize;
+
+    /****  Dialog Footer Config *******************************************************************/
 
     // listener
     private OnNormalClickListener normalClickListener;
@@ -56,8 +69,10 @@ public class DialogConfig implements Parcelable {
         this.titleTextSize = builder.getTitleSize();
         this.titleTextColor = builder.getTitleColor();
         this.gravityWay = builder.getGravityWay();
-        this.paddingHorizontal = builder.getPaddingHorizontal();
-        this.paddingVertical = builder.getPaddingVertical();
+        this.paddingTop = builder.getPaddingTop();
+        this.paddingBottom = builder.getPaddingBottom();
+        this.paddingLeft = builder.getPaddingLeft();
+        this.paddingRight = builder.getPaddingRight();
     }
 
     public DialogConfig(TextBodyBuilder builder) {
@@ -65,8 +80,10 @@ public class DialogConfig implements Parcelable {
         this.contentTextSize = builder.getContentTextSize();
         this.contentTextColor = builder.getContentTextColor();
         this.gravityWay = builder.getGravityWay();
-        this.paddingHorizontal = builder.getPaddingHorizontal();
-        this.paddingVertical = builder.getPaddingVertical();
+        this.paddingTop = builder.getPaddingTop();
+        this.paddingBottom = builder.getPaddingBottom();
+        this.paddingLeft = builder.getPaddingLeft();
+        this.paddingRight = builder.getPaddingRight();
     }
 
     public DialogConfig(OneButtonFooterBuilder builder) {
@@ -116,8 +133,8 @@ public class DialogConfig implements Parcelable {
         return negativeClickListener;
     }
 
-    public Integer getBackground() {
-        return background;
+    public Integer getDialogBackground() {
+        return dialogBackground;
     }
 
     public Boolean getCancelable() {
@@ -144,12 +161,20 @@ public class DialogConfig implements Parcelable {
         return gravityWay;
     }
 
-    public Integer getPaddingHorizontal() {
-        return paddingHorizontal;
+    public Integer getPaddingTop() {
+        return paddingTop;
     }
 
-    public Integer getPaddingVertical() {
-        return paddingVertical;
+    public Integer getPaddingBottom() {
+        return paddingBottom;
+    }
+
+    public Integer getPaddingLeft() {
+        return paddingLeft;
+    }
+
+    public Integer getPaddingRight() {
+        return paddingRight;
     }
 
     public String getContentText() {
@@ -209,7 +234,7 @@ public class DialogConfig implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(this.background);
+        dest.writeValue(this.dialogBackground);
         dest.writeValue(this.isCancelable);
         dest.writeValue(this.hasShade);
         dest.writeString(this.titleText);
@@ -233,7 +258,7 @@ public class DialogConfig implements Parcelable {
     }
 
     protected DialogConfig(Parcel in) {
-        this.background = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.dialogBackground = (Integer) in.readValue(Integer.class.getClassLoader());
         this.isCancelable = (Boolean) in.readValue(Integer.class.getClassLoader());
         this.hasShade = (Boolean) in.readValue(Integer.class.getClassLoader());
         this.titleText = in.readString();

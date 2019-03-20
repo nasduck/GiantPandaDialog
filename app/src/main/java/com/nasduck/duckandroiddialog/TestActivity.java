@@ -1,17 +1,12 @@
 package com.nasduck.duckandroiddialog;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 
-import com.nasduck.dialoglib.builder.dialog.OneButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.TextBodyBuilder;
 import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.dialog.BaseDialog;
-import com.nasduck.dialoglib.base.IDialogView;
-import com.nasduck.dialoglib.builder.dialog.TextHeaderBuilder;
+import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -44,7 +39,13 @@ public class TestActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_tip_dialog)
     public void onTipDialog() {
-        DuckDialog.showTitleTipDialog(this);
+        DuckDialog.showTitleTipDialog(this, "hello world", "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
+                new OnNormalClickListener() {
+                    @Override
+                    public void onNormalClick() {
+                        Log.d("111111", "onNormalClick: ");
+                    }
+                });
     }
 
     @OnClick(R.id.btn_title_tip_dialog)

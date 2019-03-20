@@ -1,15 +1,16 @@
-package com.nasduck.dialoglib.builder.dialog;
+package com.nasduck.dialoglib.builder.dialog.footer;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.interfaces.IDialogFooter;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.controller.DuckDialog;
 import com.nasduck.dialoglib.dialog.footer.OneButtonFooter;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 
-public class OneButtonFooterBuilder {
+public class OneButtonFooterBuilder implements IDialogFooter {
 
     private OnNormalClickListener normalClickListener;
 
@@ -28,12 +29,9 @@ public class OneButtonFooterBuilder {
         return new OneButtonFooterBuilder();
     }
 
-    public View getView(Context context) {
-        return OneButtonFooter.create(context, new DialogConfig(OneButtonFooterBuilder.this));
-    }
-
-    public DialogConfig build() {
-        return new DialogConfig(OneButtonFooterBuilder.this);
+    @Override
+    public View getView(FragmentActivity activity, Context context, String tag) {
+        return OneButtonFooter.create(activity, context, new DialogConfig(OneButtonFooterBuilder.this), tag);
     }
 
     /**********************************************************************************************/

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogConfig;
 import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextBody extends RelativeLayout {
 
@@ -33,10 +34,12 @@ public class TextBody extends RelativeLayout {
 
         tvContent.setText(mConfig.getContentText());
         tvContent.setTextSize(mConfig.getContentTextSize());
-        tvContent.setTextColor(mConfig.getContentTextColor());
+        tvContent.setTextColor(getResources().getColor(mConfig.getContentTextColor()));
         tvContent.setLayoutParams(setLayoutGravity(mConfig.getGravityWay()));
-        layoutBackground.setPadding(mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical(),
-                mConfig.getPaddingHorizontal(), mConfig.getPaddingVertical());
+        layoutBackground.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
+                DensityUtils.dp2px(context, mConfig.getPaddingTop()),
+                DensityUtils.dp2px(context, mConfig.getPaddingRight()),
+                DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
 
     }
 
