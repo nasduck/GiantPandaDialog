@@ -1,11 +1,11 @@
-package com.nasduck.dialoglib.builder;
+package com.nasduck.dialoglib.builder.toast;
 
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.base.BaseToastBuilder;
 import com.nasduck.dialoglib.config.ToastConfig;
-import com.nasduck.dialoglib.interfaces.ToastType;
+import com.nasduck.dialoglib.enums.ToastType;
 
 public class ImageAndTextToastBuilder extends BaseToastBuilder {
 
