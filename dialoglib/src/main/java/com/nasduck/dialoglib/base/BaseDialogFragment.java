@@ -16,10 +16,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements IDial
     protected Context mContext;
     protected View view;
 
-    protected int mBackground;
-    protected boolean isCancelable;
-    protected boolean hasShade;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

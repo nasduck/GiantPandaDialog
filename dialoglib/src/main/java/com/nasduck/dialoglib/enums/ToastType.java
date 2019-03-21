@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.interfaces;
+package com.nasduck.dialoglib.enums;
 
 public enum ToastType {
 

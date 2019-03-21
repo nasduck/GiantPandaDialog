@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.interfaces.ToastType;
+import com.nasduck.dialoglib.enums.ToastType;
 import com.nasduck.dialoglib.toast.ImageAndTextToast;
 import com.nasduck.dialoglib.toast.ImageToast;
 import com.nasduck.dialoglib.toast.TextToast;

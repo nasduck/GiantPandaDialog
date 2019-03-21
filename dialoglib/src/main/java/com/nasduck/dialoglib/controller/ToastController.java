@@ -2,11 +2,11 @@ package com.nasduck.dialoglib.controller;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.builder.ImageAndTextToastBuilder;
-import com.nasduck.dialoglib.builder.ImageToastBuilder;
-import com.nasduck.dialoglib.builder.TextToastBuilder;
+import com.nasduck.dialoglib.builder.toast.ImageAndTextToastBuilder;
+import com.nasduck.dialoglib.builder.toast.ImageToastBuilder;
+import com.nasduck.dialoglib.builder.toast.TextToastBuilder;
 
-public class DuckToast {
+public class ToastController {
 
     public static TextToastBuilder createTextToast(FragmentActivity activity) {
         return new TextToastBuilder(activity);
