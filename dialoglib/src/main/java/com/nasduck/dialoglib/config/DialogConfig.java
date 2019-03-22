@@ -13,35 +13,33 @@ import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
 
-public class DialogConfig implements Parcelable {
-
-    /****  Dialog Common Config *******************************************************************/
-
-    private Integer dialogBackground;
-    private Boolean isCancelable;
-    private Boolean hasShade;
-
+public class DialogConfig {
+    
     /****  Dialog Item Common Config **************************************************************/
 
     private GravityWay gravityWay;
-    private Integer paddingTop;
-    private Integer paddingBottom;
-    private Integer paddingLeft;
-    private Integer paddingRight;
+    private int paddingTop;
+    private int paddingBottom;
+    private int paddingLeft;
+    private int paddingRight;
+
+    private int clickBackgroundColor;
+    private int backgroundColor;
+    private float cornerRadius;
 
     /****  Dialog Header Config *******************************************************************/
 
     // title
     private String titleText;
-    private Integer titleTextColor;
-    private Integer titleTextSize;
+    private int titleTextColor;
+    private int titleTextSize;
 
     /****  Dialog Body Config *********************************************************************/
 
     // content
     private String contentText;
-    private Integer contentTextColor;
-    private Integer contentTextSize;
+    private int contentTextColor;
+    private int contentTextSize;
 
     /****  Dialog Footer Config *******************************************************************/
 
@@ -51,20 +49,22 @@ public class DialogConfig implements Parcelable {
     private OnNegativeClickListener negativeClickListener;
     // positive button
     private String positiveButtonText;
-    private Integer positiveButtonTextColor;
-    private Integer positiveButtonTextSize;
+    private int positiveButtonTextColor;
+    private int positiveButtonTextSize;
     // negative button
     private String negativeButtonText;
-    private Integer negativeButtonTextColor;
-    private Integer negativeButtonTextSize;
+    private int negativeButtonTextColor;
+    private int negativeButtonTextSize;
     // normal button
     private String normalButtonText;
-    private Integer normalButtonTextColor;
-    private Integer normalButtonTextSize;
+    private int normalButtonTextColor;
+    private int normalButtonTextSize;
 
     /**********************************************************************************************/
 
     public DialogConfig(TextHeaderBuilder builder) {
+        this.backgroundColor = builder.getBackgroundColor();
+        this.cornerRadius = builder.getCornerRadius();
         this.titleText = builder.getTitle();
         this.titleTextSize = builder.getTitleSize();
         this.titleTextColor = builder.getTitleColor();
@@ -87,6 +87,9 @@ public class DialogConfig implements Parcelable {
     }
 
     public DialogConfig(OneButtonFooterBuilder builder) {
+        this.cornerRadius = builder.getCornerRadius();
+        this.backgroundColor = builder.getBackgroundColor();
+        this.clickBackgroundColor = builder.getClickBackgroundColor();
         this.normalButtonText = builder.getNormalButtonText();
         this.normalButtonTextSize = builder.getNormalButtonTextSize();
         this.normalButtonTextColor = builder.getNormalButtonTextColor();
@@ -94,6 +97,9 @@ public class DialogConfig implements Parcelable {
     }
 
     public DialogConfig(TwoButtonFooterBuilder builder) {
+        this.cornerRadius = builder.getCornerRadius();
+        this.backgroundColor = builder.getBackgroundColor();
+        this.clickBackgroundColor = builder.getClickBackgroundColor();
         this.positiveButtonText = builder.getPositiveButtonText();
         this.positiveButtonTextSize = builder.getPositiveButtonTextSize();
         this.positiveButtonTextColor = builder.getPositiveButtonTextColor();
@@ -105,6 +111,9 @@ public class DialogConfig implements Parcelable {
     }
 
     public DialogConfig(ThreeButtonFooterBuilder builder) {
+        this.cornerRadius = builder.getCornerRadius();
+        this.backgroundColor = builder.getBackgroundColor();
+        this.clickBackgroundColor = builder.getClickBackgroundColor();
         this.positiveButtonText = builder.getPositiveButtonText();
         this.positiveButtonTextSize = builder.getPositiveButtonTextSize();
         this.positiveButtonTextColor = builder.getPositiveButtonTextColor();
@@ -133,27 +142,27 @@ public class DialogConfig implements Parcelable {
         return negativeClickListener;
     }
 
-    public Integer getDialogBackground() {
-        return dialogBackground;
+    public int getClickBackgroundColor() {
+        return clickBackgroundColor;
     }
 
-    public Boolean getCancelable() {
-        return isCancelable;
+    public int getBackgroundColor() {
+        return backgroundColor;
     }
 
-    public Boolean getHasShade() {
-        return hasShade;
+    public float getCornerRadius() {
+        return cornerRadius;
     }
 
     public String getTitleText() {
         return titleText;
     }
 
-    public Integer getTitleTextColor() {
+    public int getTitleTextColor() {
         return titleTextColor;
     }
 
-    public Integer getTitleTextSize() {
+    public int getTitleTextSize() {
         return titleTextSize;
     }
 
@@ -161,19 +170,19 @@ public class DialogConfig implements Parcelable {
         return gravityWay;
     }
 
-    public Integer getPaddingTop() {
+    public int getPaddingTop() {
         return paddingTop;
     }
 
-    public Integer getPaddingBottom() {
+    public int getPaddingBottom() {
         return paddingBottom;
     }
 
-    public Integer getPaddingLeft() {
+    public int getPaddingLeft() {
         return paddingLeft;
     }
 
-    public Integer getPaddingRight() {
+    public int getPaddingRight() {
         return paddingRight;
     }
 
@@ -181,11 +190,11 @@ public class DialogConfig implements Parcelable {
         return contentText;
     }
 
-    public Integer getContentTextColor() {
+    public int getContentTextColor() {
         return contentTextColor;
     }
 
-    public Integer getContentTextSize() {
+    public int getContentTextSize() {
         return contentTextSize;
     }
 
@@ -193,11 +202,11 @@ public class DialogConfig implements Parcelable {
         return positiveButtonText;
     }
 
-    public Integer getPositiveButtonTextColor() {
+    public int getPositiveButtonTextColor() {
         return positiveButtonTextColor;
     }
 
-    public Integer getPositiveButtonTextSize() {
+    public int getPositiveButtonTextSize() {
         return positiveButtonTextSize;
     }
 
@@ -205,11 +214,11 @@ public class DialogConfig implements Parcelable {
         return negativeButtonText;
     }
 
-    public Integer getNegativeButtonTextColor() {
+    public int getNegativeButtonTextColor() {
         return negativeButtonTextColor;
     }
 
-    public Integer getNegativeButtonTextSize() {
+    public int getNegativeButtonTextSize() {
         return negativeButtonTextSize;
     }
 
@@ -217,77 +226,13 @@ public class DialogConfig implements Parcelable {
         return normalButtonText;
     }
 
-    public Integer getNormalButtonTextColor() {
+    public int getNormalButtonTextColor() {
         return normalButtonTextColor;
     }
 
-    public Integer getNormalButtonTextSize() {
+    public int getNormalButtonTextSize() {
         return normalButtonTextSize;
     }
 
-    /**********************************************************************************************/
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(this.dialogBackground);
-        dest.writeValue(this.isCancelable);
-        dest.writeValue(this.hasShade);
-        dest.writeString(this.titleText);
-        dest.writeValue(this.titleTextColor);
-        dest.writeValue(this.titleTextSize);
-        dest.writeString(this.contentText);
-        dest.writeValue(this.contentTextColor);
-        dest.writeValue(this.contentTextSize);
-        dest.writeString(this.positiveButtonText);
-        dest.writeValue(this.positiveButtonTextColor);
-        dest.writeValue(this.positiveButtonTextSize);
-        dest.writeString(this.negativeButtonText);
-        dest.writeValue(this.negativeButtonTextColor);
-        dest.writeValue(this.negativeButtonTextSize);
-        dest.writeString(this.normalButtonText);
-        dest.writeValue(this.normalButtonTextColor);
-        dest.writeValue(this.normalButtonTextSize);
-    }
-
-    public DialogConfig() {
-    }
-
-    protected DialogConfig(Parcel in) {
-        this.dialogBackground = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.isCancelable = (Boolean) in.readValue(Integer.class.getClassLoader());
-        this.hasShade = (Boolean) in.readValue(Integer.class.getClassLoader());
-        this.titleText = in.readString();
-        this.titleTextColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.titleTextSize = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.contentText = in.readString();
-        this.contentTextColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.contentTextSize = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.positiveButtonText = in.readString();
-        this.positiveButtonTextColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.positiveButtonTextSize = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.negativeButtonText = in.readString();
-        this.negativeButtonTextColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.negativeButtonTextSize = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.normalButtonText = in.readString();
-        this.normalButtonTextColor = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.normalButtonTextSize = (Integer) in.readValue(Integer.class.getClassLoader());
-
-    }
-
-    public static final Creator<DialogConfig> CREATOR = new Creator<DialogConfig>() {
-        @Override
-        public DialogConfig createFromParcel(Parcel source) {
-            return new DialogConfig(source);
-        }
-
-        @Override
-        public DialogConfig[] newArray(int size) {
-            return new DialogConfig[size];
-        }
-    };
 }

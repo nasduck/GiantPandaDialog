@@ -103,10 +103,11 @@ public class DuckDialog {
                 .setNormalClickListener(listener);
 
         DialogController.create(activity)
-                .createHeader(headerBuilder)
-                .createBody(bodyBuilder)
-                .createFooter(footerBuilder)
+                .setHeader(headerBuilder)
+                .setBody(bodyBuilder)
+                .setFooter(footerBuilder)
                 .setDialogTag(DialogType.TITLE_TIP_DIALOG.getDialogTag())
+                .setCornerRadius(20)
                 .show();
     }
 }

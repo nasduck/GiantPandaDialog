@@ -16,15 +16,22 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
     private OnPositiveClickListener positiveClickListener;
     private OnNegativeClickListener negativeClickListener;
 
+    private float cornerRadius;
+    private int backgroundColor;
+    private int clickBackgroundColor;
+
     private String positiveButtonText;
-    private Integer positiveButtonTextColor;
-    private Integer positiveButtonTextSize;
+    private int positiveButtonTextColor;
+    private int positiveButtonTextSize;
 
     private String negativeButtonText;
-    private Integer negativeButtonTextColor;
-    private Integer negativeButtonTextSize;
+    private int negativeButtonTextColor;
+    private int negativeButtonTextSize;
 
     public TwoButtonFooterBuilder() {
+        cornerRadius = 0f;
+        clickBackgroundColor = R.color.gray_light;
+
         positiveButtonText = "确定";
         positiveButtonTextColor = R.color.text_black;
         positiveButtonTextSize = 16;
@@ -45,7 +52,22 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         return TwoButtonFooter.create(activity, context, new DialogConfig(TwoButtonFooterBuilder.this), tag);
     }
 
+    @Override
+    public void getCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
+    @Override
+    public void getNormalStatusColor(int color) {
+        this.backgroundColor = color;
+    }
+
     /**********************************************************************************************/
+
+    public TwoButtonFooterBuilder setClickBackgroundColor(int clickBackgroundColor) {
+        this.clickBackgroundColor = clickBackgroundColor;
+        return this;
+    }
 
     public TwoButtonFooterBuilder setPositiveClickListener(OnPositiveClickListener positiveClickListener) {
         this.positiveClickListener = positiveClickListener;
@@ -62,12 +84,12 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         return this;
     }
 
-    public TwoButtonFooterBuilder setPositiveButtonTextColor(Integer positiveButtonTextColor) {
+    public TwoButtonFooterBuilder setPositiveButtonTextColor(int positiveButtonTextColor) {
         this.positiveButtonTextColor = positiveButtonTextColor;
         return this;
     }
 
-    public TwoButtonFooterBuilder setPositiveButtonTextSize(Integer positiveButtonTextSize) {
+    public TwoButtonFooterBuilder setPositiveButtonTextSize(int positiveButtonTextSize) {
         this.positiveButtonTextSize = positiveButtonTextSize;
         return this;
     }
@@ -77,17 +99,29 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         return this;
     }
 
-    public TwoButtonFooterBuilder setNegativeButtonTextColor(Integer negativeButtonTextColor) {
+    public TwoButtonFooterBuilder setNegativeButtonTextColor(int negativeButtonTextColor) {
         this.negativeButtonTextColor = negativeButtonTextColor;
         return this;
     }
 
-    public TwoButtonFooterBuilder setNegativeButtonTextSize(Integer negativeButtonTextSize) {
+    public TwoButtonFooterBuilder setNegativeButtonTextSize(int negativeButtonTextSize) {
         this.negativeButtonTextSize = negativeButtonTextSize;
         return this;
     }
 
     /**********************************************************************************************/
+
+    public float getCornerRadius() {
+        return cornerRadius;
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public int getClickBackgroundColor() {
+        return clickBackgroundColor;
+    }
 
     public OnPositiveClickListener getPositiveClickListener() {
         return positiveClickListener;
@@ -101,11 +135,11 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         return positiveButtonText;
     }
 
-    public Integer getPositiveButtonTextColor() {
+    public int getPositiveButtonTextColor() {
         return positiveButtonTextColor;
     }
 
-    public Integer getPositiveButtonTextSize() {
+    public int getPositiveButtonTextSize() {
         return positiveButtonTextSize;
     }
 
@@ -113,11 +147,11 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         return negativeButtonText;
     }
 
-    public Integer getNegativeButtonTextColor() {
+    public int getNegativeButtonTextColor() {
         return negativeButtonTextColor;
     }
 
-    public Integer getNegativeButtonTextSize() {
+    public int getNegativeButtonTextSize() {
         return negativeButtonTextSize;
     }
 }

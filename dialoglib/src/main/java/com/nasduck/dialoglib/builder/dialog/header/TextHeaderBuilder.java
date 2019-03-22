@@ -10,23 +10,28 @@ import com.nasduck.dialoglib.dialog.header.TextHeader;
 import com.nasduck.dialoglib.enums.GravityWay;
 
 public class TextHeaderBuilder implements IDialogHeader {
-    
+
+    private int backgroundColor;
+    private float cornerRadius;
+
     private String title;
     private int titleColor;
     private int titleSize;
 
     private GravityWay gravityWay;
-    private Integer paddingTop;
-    private Integer paddingBottom;
-    private Integer paddingLeft;
-    private Integer paddingRight;
+    private int paddingTop;
+    private int paddingBottom;
+    private int paddingLeft;
+    private int paddingRight;
 
     public TextHeaderBuilder() {
+        backgroundColor = R.color.white;
+        cornerRadius = 0f;
         title = "hello world";
         titleSize = 16;
         titleColor = R.color.text_black;
         gravityWay = GravityWay.CENTER;
-        paddingTop=  0;
+        paddingTop = 0;
         paddingBottom = 0;
         paddingLeft = 0;
         paddingRight = 0;
@@ -37,7 +42,17 @@ public class TextHeaderBuilder implements IDialogHeader {
         return TextHeader.create(context, new DialogConfig(TextHeaderBuilder.this));
     }
 
+    @Override
+    public void getCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
     /**********************************************************************************************/
+
+    public TextHeaderBuilder setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+        return this;
+    }
 
     public TextHeaderBuilder setTitle(String title) {
         this.title = title;
@@ -59,28 +74,36 @@ public class TextHeaderBuilder implements IDialogHeader {
         return this;
     }
 
-    public TextHeaderBuilder setPaddingTop(Integer paddingTop) {
+    public TextHeaderBuilder setPaddingTop(int paddingTop) {
         this.paddingTop = paddingTop;
         return this;
     }
 
-    public TextHeaderBuilder setPaddingBottom(Integer paddingBottom) {
+    public TextHeaderBuilder setPaddingBottom(int paddingBottom) {
         this.paddingBottom = paddingBottom;
         return this;
     }
 
-    public TextHeaderBuilder setPaddingLeft(Integer paddingLeft) {
+    public TextHeaderBuilder setPaddingLeft(int paddingLeft) {
         this.paddingLeft = paddingLeft;
         return this;
     }
 
-    public TextHeaderBuilder setPaddingRight(Integer paddingRight) {
+    public TextHeaderBuilder setPaddingRight(int paddingRight) {
         this.paddingRight = paddingRight;
         return this;
     }
 
     /**********************************************************************************************/
-    
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public float getCornerRadius() {
+        return cornerRadius;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -97,19 +120,19 @@ public class TextHeaderBuilder implements IDialogHeader {
         return gravityWay;
     }
 
-    public Integer getPaddingTop() {
+    public int getPaddingTop() {
         return paddingTop;
     }
 
-    public Integer getPaddingBottom() {
+    public int getPaddingBottom() {
         return paddingBottom;
     }
 
-    public Integer getPaddingLeft() {
+    public int getPaddingLeft() {
         return paddingLeft;
     }
 
-    public Integer getPaddingRight() {
+    public int getPaddingRight() {
         return paddingRight;
     }
 }

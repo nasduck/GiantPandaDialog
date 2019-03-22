@@ -1,6 +1,7 @@
 package com.nasduck.dialoglib.dialog.header;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,11 +34,23 @@ public class TextHeader extends RelativeLayout {
         TextView TvTitle = view.findViewById(R.id.tv_title);
         FrameLayout layoutBackground = view.findViewById(R.id.layout);
 
+        // set text style
         TvTitle.setText(mConfig.getTitleText());
         TvTitle.setTextSize(mConfig.getTitleTextSize());
         TvTitle.setTextColor(getResources().getColor(mConfig.getTitleTextColor()));
         TvTitle.setLayoutParams(setLayoutGravity(mConfig.getGravityWay()));
 
+        // set background
+        float radius = mConfig.getCornerRadius();
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(getContext(), radius),
+                DensityUtils.dp2px(getContext(), radius),
+                DensityUtils.dp2px(getContext(), radius),
+                DensityUtils.dp2px(getContext(), radius), 0, 0, 0, 0});
+        drawable.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+        layoutBackground.setBackground(drawable);
+
+        // set text location
         layoutBackground.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
                 DensityUtils.dp2px(context, mConfig.getPaddingTop()),
                 DensityUtils.dp2px(context, mConfig.getPaddingRight()),

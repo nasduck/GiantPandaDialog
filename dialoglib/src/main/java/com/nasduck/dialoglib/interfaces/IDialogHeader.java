@@ -6,4 +6,6 @@ import android.view.View;
 public interface IDialogHeader {
 
     View getView(Context context);
+
+    void getCornerRadius(float cornerRadius);
 }

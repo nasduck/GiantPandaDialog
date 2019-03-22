@@ -20,48 +20,69 @@ public class DialogController {
     private IDialogFooter footerBuilder;
 
     private int mBackgroundColorId;
-    private int mCornerRadius;
+    private float mCornerRadius;
+    private boolean mTouchOutsideCancelable;
+    private boolean mTouchBackCancelable;
+    private boolean mHasShade;
 
     private String mDialogTag;
 
     public DialogController(FragmentActivity activity) {
         mActivity = activity;
         mBackgroundColorId = R.color.white;
-        mCornerRadius = 10;
+        mCornerRadius = 0f;
         mDialogTag = "dialog";
+        mTouchOutsideCancelable = false;
+        mTouchBackCancelable = false;
+        mHasShade = true;
     }
 
     public static DialogController create(FragmentActivity activity) {
         return new DialogController(activity);
     }
 
-    public DialogController createHeader(IDialogHeader builder) {
-        headerBuilder = builder;
+    public DialogController setHeader(IDialogHeader builder) {
+        this.headerBuilder = builder;
         return this;
     }
 
-    public DialogController createBody(IDialogBody builder) {
-        bodyBuilder = builder;
+    public DialogController setBody(IDialogBody builder) {
+        this.bodyBuilder = builder;
         return this;
     }
 
-    public DialogController createFooter(IDialogFooter builder) {
-        footerBuilder = builder;
+    public DialogController setFooter(IDialogFooter builder) {
+        this.footerBuilder = builder;
         return this;
     }
 
     public DialogController setDialogTag(String tag) {
-        mDialogTag = tag;
+        this.mDialogTag = tag;
         return this;
     }
 
     public DialogController setBackgroundColor(int colorId) {
-        mBackgroundColorId = colorId;
+        this.mBackgroundColorId = colorId;
         return this;
     }
 
-    public DialogController setCornerRadius(int radius) {
-        mCornerRadius = radius;
+    public DialogController setCornerRadius(float radius) {
+        this.mCornerRadius = radius;
+        return this;
+    }
+
+    public DialogController setTouchOutsideCancelable(boolean cancelable) {
+        this.mTouchOutsideCancelable = cancelable;
+        return this;
+    }
+
+    public DialogController setCancelOnTouchBack(boolean cancelable) {
+        this.mTouchBackCancelable = cancelable;
+        return this;
+    }
+
+    public DialogController setHasShade(boolean hasShade) {
+        this.mHasShade = hasShade;
         return this;
     }
 
@@ -71,6 +92,7 @@ public class DialogController {
                     @Override
                     public View getViewHeader(Context context) {
                         if (headerBuilder != null) {
+                            headerBuilder.getCornerRadius(mCornerRadius);
                             return headerBuilder.getView(context);
                         } else {
                             return null;
@@ -91,6 +113,8 @@ public class DialogController {
                     @Override
                     public View getFooterLayout(Context context) {
                         if (footerBuilder != null) {
+                            footerBuilder.getCornerRadius(mCornerRadius);
+                            footerBuilder.getNormalStatusColor(mBackgroundColorId);
                             return footerBuilder.getView(mActivity, context, mDialogTag);
                         } else {
                             return null;
@@ -99,6 +123,9 @@ public class DialogController {
                 })
                 .setBackgroundColor(mBackgroundColorId)
                 .setCornerRadius(mCornerRadius)
+                .setCanceledOnTouchOutside(mTouchOutsideCancelable)
+                .setCancelOnTouchBack(mTouchBackCancelable)
+                .setHasShade(mHasShade)
                 .show(mActivity.getSupportFragmentManager(), mDialogTag);
     }
 

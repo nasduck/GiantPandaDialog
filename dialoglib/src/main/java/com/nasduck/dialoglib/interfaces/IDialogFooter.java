@@ -7,4 +7,8 @@ import android.view.View;
 public interface IDialogFooter {
 
     View getView(FragmentActivity activity, Context context, String tag);
+
+    void getCornerRadius(float cornerRadius);
+
+    void getNormalStatusColor(int color);
 }

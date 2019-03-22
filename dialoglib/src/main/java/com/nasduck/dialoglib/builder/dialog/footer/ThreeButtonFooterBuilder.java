@@ -18,20 +18,27 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
     private OnPositiveClickListener positiveClickListener;
     private OnNegativeClickListener negativeClickListener;
 
+    private float cornerRadius;
+    private int backgroundColor;
+    private int clickBackgroundColor;
+
     private String normalButtonText;
-    private Integer normalButtonTextColor;
-    private Integer normalButtonTextSize;
+    private int normalButtonTextColor;
+    private int normalButtonTextSize;
 
     private String positiveButtonText;
-    private Integer positiveButtonTextColor;
-    private Integer positiveButtonTextSize;
+    private int positiveButtonTextColor;
+    private int positiveButtonTextSize;
 
     private String negativeButtonText;
-    private Integer negativeButtonTextColor;
-    private Integer negativeButtonTextSize;
+    private int negativeButtonTextColor;
+    private int negativeButtonTextSize;
 
     public ThreeButtonFooterBuilder() {
-        normalButtonText = "中间件";
+        cornerRadius = 0f;
+        clickBackgroundColor = R.color.gray_light;
+        
+        normalButtonText = "中间键";
         normalButtonTextColor = R.color.text_black;
         normalButtonTextSize = 16;
         normalClickListener = null;
@@ -56,7 +63,22 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return ThreeButtonFooter.create(activity, context, new DialogConfig(ThreeButtonFooterBuilder.this), tag);
     }
 
+    @Override
+    public void getCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
+    @Override
+    public void getNormalStatusColor(int color) {
+        this.backgroundColor = backgroundColor;
+    }
+
     /**********************************************************************************************/
+
+    public ThreeButtonFooterBuilder setClickBackgroundColor(int clickBackgroundColor) {
+        this.clickBackgroundColor = clickBackgroundColor;
+        return this;
+    }
 
     public ThreeButtonFooterBuilder setNormalClickListener(OnNormalClickListener normalClickListener) {
         this.normalClickListener = normalClickListener;
@@ -68,12 +90,12 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNormalButtonTextColor(Integer normalButtonTextColor) {
+    public ThreeButtonFooterBuilder setNormalButtonTextColor(int normalButtonTextColor) {
         this.normalButtonTextColor = normalButtonTextColor;
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNormalButtonTextSize(Integer normalButtonTextSize) {
+    public ThreeButtonFooterBuilder setNormalButtonTextSize(int normalButtonTextSize) {
         this.normalButtonTextSize = normalButtonTextSize;
         return this;
     }
@@ -93,12 +115,12 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return this;
     }
 
-    public ThreeButtonFooterBuilder setPositiveButtonTextColor(Integer positiveButtonTextColor) {
+    public ThreeButtonFooterBuilder setPositiveButtonTextColor(int positiveButtonTextColor) {
         this.positiveButtonTextColor = positiveButtonTextColor;
         return this;
     }
 
-    public ThreeButtonFooterBuilder setPositiveButtonTextSize(Integer positiveButtonTextSize) {
+    public ThreeButtonFooterBuilder setPositiveButtonTextSize(int positiveButtonTextSize) {
         this.positiveButtonTextSize = positiveButtonTextSize;
         return this;
     }
@@ -108,17 +130,29 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNegativeButtonTextColor(Integer negativeButtonTextColor) {
+    public ThreeButtonFooterBuilder setNegativeButtonTextColor(int negativeButtonTextColor) {
         this.negativeButtonTextColor = negativeButtonTextColor;
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNegativeButtonTextSize(Integer negativeButtonTextSize) {
+    public ThreeButtonFooterBuilder setNegativeButtonTextSize(int negativeButtonTextSize) {
         this.negativeButtonTextSize = negativeButtonTextSize;
         return this;
     }
 
     /**********************************************************************************************/
+
+    public float getCornerRadius() {
+        return cornerRadius;
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public int getClickBackgroundColor() {
+        return clickBackgroundColor;
+    }
 
     public OnNormalClickListener getNormalClickListener() {
         return normalClickListener;
@@ -128,11 +162,11 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return normalButtonText;
     }
 
-    public Integer getNormalButtonTextColor() {
+    public int getNormalButtonTextColor() {
         return normalButtonTextColor;
     }
 
-    public Integer getNormalButtonTextSize() {
+    public int getNormalButtonTextSize() {
         return normalButtonTextSize;
     }
 
@@ -148,11 +182,11 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return positiveButtonText;
     }
 
-    public Integer getPositiveButtonTextColor() {
+    public int getPositiveButtonTextColor() {
         return positiveButtonTextColor;
     }
 
-    public Integer getPositiveButtonTextSize() {
+    public int getPositiveButtonTextSize() {
         return positiveButtonTextSize;
     }
 
@@ -160,11 +194,11 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         return negativeButtonText;
     }
 
-    public Integer getNegativeButtonTextColor() {
+    public int getNegativeButtonTextColor() {
         return negativeButtonTextColor;
     }
 
-    public Integer getNegativeButtonTextSize() {
+    public int getNegativeButtonTextSize() {
         return negativeButtonTextSize;
     }
 }
