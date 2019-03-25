@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.footer;
+package com.nasduck.dialoglib.dialog.composition.footer;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
@@ -14,28 +14,30 @@ import com.nasduck.dialoglib.config.DialogConfig;
 import com.nasduck.dialoglib.controller.DuckDialog;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
-public class TwoButtonFooter extends RelativeLayout {
+public class ThreeButtonFooter extends RelativeLayout {
 
     private static FragmentActivity mActivity;
     private static DialogConfig mConfig;
     private static String mTag;
 
-    public static TwoButtonFooter create(FragmentActivity activity, Context context, DialogConfig config, String tag) {
+    public static ThreeButtonFooter create(FragmentActivity activity, Context context, DialogConfig config, String tag) {
         mActivity = activity;
         mConfig = config;
         mTag = tag;
-        return new TwoButtonFooter(context);
+        return new ThreeButtonFooter(context);
     }
 
-    public TwoButtonFooter(Context context) {
+    public ThreeButtonFooter(Context context) {
         super(context);
         init(context);
     }
 
     private void init(Context context) {
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_footer_button_two, this);
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_footer_button_three, this);
+        Button btnNormal = view.findViewById(R.id.btn_normal);
         Button btnNegative = view.findViewById(R.id.btn_negative);
         Button btnPositive = view.findViewById(R.id.btn_positive);
+
         float radius = mConfig.getCornerRadius();
 
         /** btnNegative ***************************************************************************/
@@ -60,7 +62,7 @@ public class TwoButtonFooter extends RelativeLayout {
 
         // button text style
         btnNegative.setText(mConfig.getNegativeButtonText());
-        btnNegative.setTextColor(mConfig.getNegativeButtonTextColor());
+        btnNegative.setTextColor(getResources().getColor(mConfig.getNegativeButtonTextColor()));
         btnNegative.setTextSize(mConfig.getNegativeButtonTextSize());
 
         // button click
@@ -69,6 +71,36 @@ public class TwoButtonFooter extends RelativeLayout {
             public void onClick(View v) {
                 if (mConfig.getNegativeClickListener() != null) {
                     mConfig.getNegativeClickListener().onNegativeClick();
+                }
+                DuckDialog.hide(mActivity, mTag);
+            }
+        });
+
+        /** btnNormal ***************************************************************************/
+        // button click effect
+        GradientDrawable drawablePressedNormal = new GradientDrawable();
+        drawablePressedNormal.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
+
+        GradientDrawable drawableNormalNormal = new GradientDrawable();
+        drawableNormalNormal.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+
+        StateListDrawable drawableListNormal= new StateListDrawable();
+        drawableListNormal.addState(new int[]{android.R.attr.state_pressed}, drawablePressedNormal);
+        drawableListNormal.addState(new int[]{}, drawableNormalNormal);
+
+        btnNormal.setBackground(drawableListNormal);
+
+        // button text style
+        btnNormal.setText(mConfig.getNormalButtonText());
+        btnNormal.setTextColor(getResources().getColor(mConfig.getNormalButtonTextColor()));
+        btnNormal.setTextSize(mConfig.getNormalButtonTextSize());
+
+        // button click
+        btnNormal.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mConfig.getNormalClickListener() != null) {
+                    mConfig.getNormalClickListener().onNormalClick();
                 }
                 DuckDialog.hide(mActivity, mTag);
             }
@@ -92,11 +124,11 @@ public class TwoButtonFooter extends RelativeLayout {
         drawableListPositive.addState(new int[]{android.R.attr.state_pressed}, drawablePressedPositive);
         drawableListPositive.addState(new int[]{}, drawableNormalPositive);
 
-        btnPositive.setBackground(drawableListNegative);
+        btnPositive.setBackground(drawableListPositive);
 
         // button text style
         btnPositive.setText(mConfig.getPositiveButtonText());
-        btnPositive.setTextColor(mConfig.getPositiveButtonTextColor());
+        btnPositive.setTextColor(getResources().getColor(mConfig.getPositiveButtonTextColor()));
         btnPositive.setTextSize(mConfig.getPositiveButtonTextSize());
 
         // button click

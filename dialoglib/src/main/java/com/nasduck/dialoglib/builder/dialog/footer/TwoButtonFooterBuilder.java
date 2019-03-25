@@ -7,7 +7,7 @@ import android.view.View;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.interfaces.IDialogFooter;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.dialog.footer.TwoButtonFooter;
+import com.nasduck.dialoglib.dialog.composition.footer.TwoButtonFooter;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
 
@@ -32,12 +32,12 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
         cornerRadius = 0f;
         clickBackgroundColor = R.color.gray_light;
 
-        positiveButtonText = "确定";
+        positiveButtonText = "confirm";
         positiveButtonTextColor = R.color.text_black;
         positiveButtonTextSize = 16;
         positiveClickListener = null;
 
-        negativeButtonText = "取消";
+        negativeButtonText = "cancel";
         negativeButtonTextColor = R.color.text_black;
         negativeButtonTextSize = 16;
         negativeClickListener = null;
@@ -64,48 +64,66 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
 
     /**********************************************************************************************/
 
-    public TwoButtonFooterBuilder setClickBackgroundColor(int clickBackgroundColor) {
-        this.clickBackgroundColor = clickBackgroundColor;
+    public TwoButtonFooterBuilder setClickBackgroundColor(Integer clickBackgroundColor) {
+        if (clickBackgroundColor != null) {
+            this.clickBackgroundColor = clickBackgroundColor;
+        }
         return this;
     }
 
     public TwoButtonFooterBuilder setPositiveClickListener(OnPositiveClickListener positiveClickListener) {
-        this.positiveClickListener = positiveClickListener;
+        if (positiveClickListener != null) {
+            this.positiveClickListener = positiveClickListener;
+        }
         return this;
     }
 
     public TwoButtonFooterBuilder setNegativeClickListener(OnNegativeClickListener negativeClickListener) {
-        this.negativeClickListener = negativeClickListener;
+        if (negativeClickListener != null) {
+            this.negativeClickListener = negativeClickListener;
+        }
         return this;
     }
 
     public TwoButtonFooterBuilder setPositiveButtonText(String positiveButtonText) {
-        this.positiveButtonText = positiveButtonText;
+        if (positiveButtonText != null) {
+            this.positiveButtonText = positiveButtonText;
+        }
         return this;
     }
 
-    public TwoButtonFooterBuilder setPositiveButtonTextColor(int positiveButtonTextColor) {
-        this.positiveButtonTextColor = positiveButtonTextColor;
+    public TwoButtonFooterBuilder setPositiveButtonTextColor(Integer positiveButtonTextColor) {
+        if (positiveButtonTextColor != null) {
+            this.positiveButtonTextColor = positiveButtonTextColor;
+        }
         return this;
     }
 
-    public TwoButtonFooterBuilder setPositiveButtonTextSize(int positiveButtonTextSize) {
-        this.positiveButtonTextSize = positiveButtonTextSize;
+    public TwoButtonFooterBuilder setPositiveButtonTextSize(Integer positiveButtonTextSize) {
+        if (positiveButtonTextSize != null) {
+            this.positiveButtonTextSize = positiveButtonTextSize;
+        }
         return this;
     }
 
     public TwoButtonFooterBuilder setNegativeButtonText(String negativeButtonText) {
-        this.negativeButtonText = negativeButtonText;
+        if (negativeButtonText != null) {
+            this.negativeButtonText = negativeButtonText;
+        }
         return this;
     }
 
-    public TwoButtonFooterBuilder setNegativeButtonTextColor(int negativeButtonTextColor) {
-        this.negativeButtonTextColor = negativeButtonTextColor;
+    public TwoButtonFooterBuilder setNegativeButtonTextColor(Integer negativeButtonTextColor) {
+        if (negativeButtonTextColor != null) {
+            this.negativeButtonTextColor = negativeButtonTextColor;
+        }
         return this;
     }
 
-    public TwoButtonFooterBuilder setNegativeButtonTextSize(int negativeButtonTextSize) {
-        this.negativeButtonTextSize = negativeButtonTextSize;
+    public TwoButtonFooterBuilder setNegativeButtonTextSize(Integer negativeButtonTextSize) {
+        if (negativeButtonTextSize != null) {
+            this.negativeButtonTextSize = negativeButtonTextSize;
+        }
         return this;
     }
 

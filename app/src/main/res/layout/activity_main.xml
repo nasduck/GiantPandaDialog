@@ -19,8 +19,6 @@
                 android:layout_height="wrap_content"
                 android:text="Toast Type"/>
 
-
-
             <Button
                 android:id="@+id/btn_toast_text_image"
                 android:layout_width="match_parent"
@@ -51,10 +49,14 @@
                 android:layout_height="wrap_content"
                 android:text="Title Select Dialog"/>
 
+            <Button
+                android:id="@+id/btn_custom_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Dialog"/>
+
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.body;
+package com.nasduck.dialoglib.dialog.composition.body;
 
 import android.content.Context;
 import android.view.Gravity;
@@ -46,11 +46,11 @@ public class TextBody extends RelativeLayout {
     private FrameLayout.LayoutParams setLayoutGravity(GravityWay way) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         switch (way) {
-            case LEFT:
-                params.gravity = Gravity.LEFT;
+            case START:
+                params.gravity = Gravity.START;
                 return params;
-            case RIGHT:
-                params.gravity = Gravity.RIGHT;
+            case END:
+                params.gravity = Gravity.END;
                 return params;
             case CENTER:
                 params.gravity = Gravity.CENTER;

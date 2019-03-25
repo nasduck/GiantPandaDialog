@@ -1,8 +1,7 @@
-package com.nasduck.dialoglib.dialog.header;
+package com.nasduck.dialoglib.dialog.composition.header;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,11 +60,11 @@ public class TextHeader extends RelativeLayout {
     private FrameLayout.LayoutParams setLayoutGravity(GravityWay way) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
         switch (way) {
-            case LEFT:
-                params.gravity = Gravity.LEFT;
+            case START:
+                params.gravity = Gravity.START;
                 return params;
-            case RIGHT:
-                params.gravity = Gravity.RIGHT;
+            case END:
+                params.gravity = Gravity.END;
                 return params;
             case CENTER:
                 params.gravity = Gravity.CENTER;

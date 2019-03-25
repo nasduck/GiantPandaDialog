@@ -7,7 +7,7 @@ import android.view.View;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.interfaces.IDialogFooter;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.dialog.footer.ThreeButtonFooter;
+import com.nasduck.dialoglib.dialog.composition.footer.ThreeButtonFooter;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
@@ -38,17 +38,17 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
         cornerRadius = 0f;
         clickBackgroundColor = R.color.gray_light;
         
-        normalButtonText = "中间键";
+        normalButtonText = "normal";
         normalButtonTextColor = R.color.text_black;
         normalButtonTextSize = 16;
         normalClickListener = null;
 
-        positiveButtonText = "确定";
+        positiveButtonText = "confirm";
         positiveButtonTextColor = R.color.text_black;
         positiveButtonTextSize = 16;
         positiveClickListener = null;
 
-        negativeButtonText = "取消";
+        negativeButtonText = "cancel";
         negativeButtonTextColor = R.color.text_black;
         negativeButtonTextSize = 16;
         negativeClickListener = null;
@@ -75,68 +75,94 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
 
     /**********************************************************************************************/
 
-    public ThreeButtonFooterBuilder setClickBackgroundColor(int clickBackgroundColor) {
-        this.clickBackgroundColor = clickBackgroundColor;
+    public ThreeButtonFooterBuilder setClickBackgroundColor(Integer clickBackgroundColor) {
+        if (clickBackgroundColor != null) {
+            this.clickBackgroundColor = clickBackgroundColor;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setNormalClickListener(OnNormalClickListener normalClickListener) {
-        this.normalClickListener = normalClickListener;
+        if (normalClickListener != null) {
+            this.normalClickListener = normalClickListener;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setNormalButtonText(String normalButtonText) {
-        this.normalButtonText = normalButtonText;
+        if (normalButtonText != null) {
+            this.normalButtonText = normalButtonText;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNormalButtonTextColor(int normalButtonTextColor) {
-        this.normalButtonTextColor = normalButtonTextColor;
+    public ThreeButtonFooterBuilder setNormalButtonTextColor(Integer normalButtonTextColor) {
+        if (normalButtonTextColor != null) {
+            this.normalButtonTextColor = normalButtonTextColor;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNormalButtonTextSize(int normalButtonTextSize) {
-        this.normalButtonTextSize = normalButtonTextSize;
+    public ThreeButtonFooterBuilder setNormalButtonTextSize(Integer normalButtonTextSize) {
+        if (normalButtonTextSize != null) {
+            this.normalButtonTextSize = normalButtonTextSize;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setPositiveClickListener(OnPositiveClickListener positiveClickListener) {
-        this.positiveClickListener = positiveClickListener;
+        if (positiveClickListener != null) {
+            this.positiveClickListener = positiveClickListener;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setNegativeClickListener(OnNegativeClickListener negativeClickListener) {
-        this.negativeClickListener = negativeClickListener;
+        if (negativeClickListener != null) {
+            this.negativeClickListener = negativeClickListener;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setPositiveButtonText(String positiveButtonText) {
-        this.positiveButtonText = positiveButtonText;
+        if (positiveButtonText != null) {
+            this.positiveButtonText = positiveButtonText;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setPositiveButtonTextColor(int positiveButtonTextColor) {
-        this.positiveButtonTextColor = positiveButtonTextColor;
+    public ThreeButtonFooterBuilder setPositiveButtonTextColor(Integer positiveButtonTextColor) {
+        if (positiveButtonTextColor != null) {
+            this.positiveButtonTextColor = positiveButtonTextColor;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setPositiveButtonTextSize(int positiveButtonTextSize) {
-        this.positiveButtonTextSize = positiveButtonTextSize;
+    public ThreeButtonFooterBuilder setPositiveButtonTextSize(Integer positiveButtonTextSize) {
+        if (positiveButtonTextSize != null) {
+            this.positiveButtonTextSize = positiveButtonTextSize;
+        }
         return this;
     }
 
     public ThreeButtonFooterBuilder setNegativeButtonText(String negativeButtonText) {
-        this.negativeButtonText = negativeButtonText;
+        if (negativeButtonText != null) {
+            this.negativeButtonText = negativeButtonText;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNegativeButtonTextColor(int negativeButtonTextColor) {
-        this.negativeButtonTextColor = negativeButtonTextColor;
+    public ThreeButtonFooterBuilder setNegativeButtonTextColor(Integer negativeButtonTextColor) {
+        if (negativeButtonTextColor != null) {
+            this.negativeButtonTextColor = negativeButtonTextColor;
+        }
         return this;
     }
 
-    public ThreeButtonFooterBuilder setNegativeButtonTextSize(int negativeButtonTextSize) {
-        this.negativeButtonTextSize = negativeButtonTextSize;
+    public ThreeButtonFooterBuilder setNegativeButtonTextSize(Integer negativeButtonTextSize) {
+        if (negativeButtonTextSize != null) {
+            this.negativeButtonTextSize = negativeButtonTextSize;
+        }
         return this;
     }
 
