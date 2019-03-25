@@ -6,23 +6,23 @@ import android.view.View;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.interfaces.IDialogBody;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.dialog.body.TextBody;
+import com.nasduck.dialoglib.dialog.composition.body.TextBody;
 import com.nasduck.dialoglib.enums.GravityWay;
 
 public class TextBodyBuilder implements IDialogBody {
 
     private String contentText;
-    private Integer contentTextColor;
-    private Integer contentTextSize;
+    private int contentTextColor;
+    private int contentTextSize;
 
     private GravityWay gravityWay;
-    private Integer paddingTop;
-    private Integer paddingBottom;
-    private Integer paddingLeft;
-    private Integer paddingRight;
+    private int paddingTop;
+    private int paddingBottom;
+    private int paddingLeft;
+    private int paddingRight;
 
     public TextBodyBuilder() {
-        contentText = "hello worlddsfasgsdglkasdhfhfhsdfhasdhfjadshffjsdhjshgjshgjhsdjkfhshfsnfjsadfkjsdhf";
+        contentText = "dialog content";
         contentTextSize = 16;
         contentTextColor = R.color.text_black;
         gravityWay = GravityWay.CENTER;
@@ -40,42 +40,58 @@ public class TextBodyBuilder implements IDialogBody {
     /**********************************************************************************************/
 
     public TextBodyBuilder setContentText(String contentText) {
-        this.contentText = contentText;
+        if (contentText != null) {
+            this.contentText = contentText;
+        }
         return this;
     }
 
     public TextBodyBuilder setContentTextColor(Integer contentTextColor) {
-        this.contentTextColor = contentTextColor;
+        if (contentTextColor != null) {
+            this.contentTextColor = contentTextColor;
+        }
         return this;
     }
 
     public TextBodyBuilder setContentTextSize(Integer contentTextSize) {
-        this.contentTextSize = contentTextSize;
+        if (contentTextSize != null) {
+            this.contentTextSize = contentTextSize;
+        }
         return this;
     }
 
     public TextBodyBuilder setGravityWay(GravityWay gravityWay) {
-        this.gravityWay = gravityWay;
+        if (gravityWay != null) {
+            this.gravityWay = gravityWay;
+        }
         return this;
     }
 
     public TextBodyBuilder setPaddingTop(Integer paddingTop) {
-        this.paddingTop = paddingTop;
+        if (paddingTop != null) {
+            this.paddingTop = paddingTop;
+        }
         return this;
     }
 
     public TextBodyBuilder setPaddingBottom(Integer paddingBottom) {
-        this.paddingBottom = paddingBottom;
+        if (paddingBottom != null) {
+            this.paddingBottom = paddingBottom;
+        }
         return this;
     }
 
     public TextBodyBuilder setPaddingLeft(Integer paddingLeft) {
-        this.paddingLeft = paddingLeft;
+        if (paddingLeft != null) {
+            this.paddingLeft = paddingLeft;
+        }
         return this;
     }
 
     public TextBodyBuilder setPaddingRight(Integer paddingRight) {
-        this.paddingRight = paddingRight;
+        if (paddingRight != null) {
+            this.paddingRight = paddingRight;
+        }
         return this;
     }
 
@@ -85,11 +101,11 @@ public class TextBodyBuilder implements IDialogBody {
         return contentText;
     }
 
-    public Integer getContentTextColor() {
+    public int getContentTextColor() {
         return contentTextColor;
     }
 
-    public Integer getContentTextSize() {
+    public int getContentTextSize() {
         return contentTextSize;
     }
 
@@ -97,19 +113,19 @@ public class TextBodyBuilder implements IDialogBody {
         return gravityWay;
     }
 
-    public Integer getPaddingTop() {
+    public int getPaddingTop() {
         return paddingTop;
     }
 
-    public Integer getPaddingBottom() {
+    public int getPaddingBottom() {
         return paddingBottom;
     }
 
-    public Integer getPaddingLeft() {
+    public int getPaddingLeft() {
         return paddingLeft;
     }
 
-    public Integer getPaddingRight() {
+    public int getPaddingRight() {
         return paddingRight;
     }
 }

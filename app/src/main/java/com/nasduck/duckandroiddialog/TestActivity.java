@@ -5,8 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.nasduck.dialoglib.controller.DialogController;
 import com.nasduck.dialoglib.controller.DuckDialog;
+import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
+import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,27 +42,65 @@ public class TestActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_tip_dialog)
     public void onTipDialog() {
-        DuckDialog.showTitleTipDialog(this, "hello world", "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试",
+        DuckDialog.showNoTitleTipDialog(this, "content", "确定",
                 new OnNormalClickListener() {
                     @Override
                     public void onNormalClick() {
-                        Log.d("111111", "onNormalClick: ");
+                        DuckDialog.showToast(TestActivity.this, "我被点击了");
                     }
                 });
     }
 
     @OnClick(R.id.btn_title_tip_dialog)
     public void onTitleTipDialog() {
-
+        DuckDialog.showTitleTipDialog(this, "title", "content", "确定",
+                new OnNormalClickListener() {
+                    @Override
+                    public void onNormalClick() {
+                        DuckDialog.showToast(TestActivity.this, "我被点击了");
+                    }
+                });
     }
 
     @OnClick(R.id.btn_select_dialog)
     public void onSelectDialog() {
-
+        DuckDialog.showNoTitleSelectDialog(this,
+                "content", "确定", "取消"
+                , new OnPositiveClickListener() {
+                    @Override
+                    public void onPositiveClick() {
+                        DuckDialog.showToast(TestActivity.this, "确定");
+                    }
+                }, new OnNegativeClickListener() {
+                    @Override
+                    public void onNegativeClick() {
+                        DuckDialog.showToast(TestActivity.this, "取消");
+                    }
+                });
     }
 
     @OnClick(R.id.btn_title_select_dialog)
     public void onTitleSelectDialog() {
-
+        DuckDialog.showTitleSelectDialog(this,
+                "title", "content", "确定", "取消"
+                , new OnPositiveClickListener() {
+                    @Override
+                    public void onPositiveClick() {
+                        DuckDialog.showToast(TestActivity.this, "确定");
+                    }
+                }, new OnNegativeClickListener() {
+                    @Override
+                    public void onNegativeClick() {
+                        DuckDialog.showToast(TestActivity.this, "取消");
+                    }
+                });
     }
+
+    @OnClick(R.id.btn_custom_dialog)
+    public void onCustomDialog() {
+        DialogController.createTextDialog(this)
+                .setTitle("1111")
+                .show();
+    }
+
 }

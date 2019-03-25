@@ -6,9 +6,24 @@ import android.view.ViewGroup;
 
 public interface IDialogView {
 
-    View getViewHeader(Context context);
+    /**
+     * get dialog header view
+     * @param context
+     * @return
+     */
+    View getHeaderLayout(Context context);
 
+    /**
+     * get dialog body view
+     * @param context
+     * @return
+     */
     View getBodyLayout(Context context);
 
+    /**
+     * get dialog footer view
+     * @param context
+     * @return
+     */
     View getFooterLayout(Context context);
 }

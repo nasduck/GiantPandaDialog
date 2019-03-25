@@ -1,9 +1,8 @@
-package com.nasduck.dialoglib.dialog.footer;
+package com.nasduck.dialoglib.dialog.composition.footer;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;

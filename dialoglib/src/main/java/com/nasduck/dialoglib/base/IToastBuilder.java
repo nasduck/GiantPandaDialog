@@ -13,5 +13,9 @@ public interface IToastBuilder {
 
     void hide();
 
+    /**
+     * get toast type
+     * @return
+     */
     ToastType getType();
 }

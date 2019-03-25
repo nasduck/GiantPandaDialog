@@ -6,7 +6,7 @@ import android.view.View;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.interfaces.IDialogHeader;
 import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.dialog.header.TextHeader;
+import com.nasduck.dialoglib.dialog.composition.header.TextHeader;
 import com.nasduck.dialoglib.enums.GravityWay;
 
 public class TextHeaderBuilder implements IDialogHeader {
@@ -27,7 +27,7 @@ public class TextHeaderBuilder implements IDialogHeader {
     public TextHeaderBuilder() {
         backgroundColor = R.color.white;
         cornerRadius = 0f;
-        title = "hello world";
+        title = "This is a title";
         titleSize = 16;
         titleColor = R.color.text_black;
         gravityWay = GravityWay.CENTER;
@@ -49,48 +49,66 @@ public class TextHeaderBuilder implements IDialogHeader {
 
     /**********************************************************************************************/
 
-    public TextHeaderBuilder setBackgroundColor(int backgroundColor) {
-        this.backgroundColor = backgroundColor;
+    public TextHeaderBuilder setBackgroundColor(Integer backgroundColor) {
+        if (backgroundColor != null) {
+            this.backgroundColor = backgroundColor;
+        }
         return this;
     }
 
     public TextHeaderBuilder setTitle(String title) {
-        this.title = title;
+        if (title != null) {
+            this.title = title;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setTitleColor(int titleColor) {
-        this.titleColor = titleColor;
+    public TextHeaderBuilder setTitleColor(Integer titleColor) {
+        if (titleColor != null) {
+            this.titleColor = titleColor;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setTitleSize(int titleSize) {
-        this.titleSize = titleSize;
+    public TextHeaderBuilder setTitleSize(Integer titleSize) {
+        if (titleSize != null) {
+            this.titleSize = titleSize;
+        }
         return this;
     }
 
     public TextHeaderBuilder setGravityWay(GravityWay gravityWay) {
-        this.gravityWay = gravityWay;
+        if (gravityWay != null) {
+            this.gravityWay = gravityWay;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setPaddingTop(int paddingTop) {
-        this.paddingTop = paddingTop;
+    public TextHeaderBuilder setPaddingTop(Integer paddingTop) {
+        if (paddingTop != null) {
+            this.paddingTop = paddingTop;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setPaddingBottom(int paddingBottom) {
-        this.paddingBottom = paddingBottom;
+    public TextHeaderBuilder setPaddingBottom(Integer paddingBottom) {
+        if (paddingBottom != null) {
+            this.paddingBottom = paddingBottom;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setPaddingLeft(int paddingLeft) {
-        this.paddingLeft = paddingLeft;
+    public TextHeaderBuilder setPaddingLeft(Integer paddingLeft) {
+        if (paddingLeft != null) {
+            this.paddingLeft = paddingLeft;
+        }
         return this;
     }
 
-    public TextHeaderBuilder setPaddingRight(int paddingRight) {
-        this.paddingRight = paddingRight;
+    public TextHeaderBuilder setPaddingRight(Integer paddingRight) {
+        if (paddingRight != null) {
+            this.paddingRight = paddingRight;
+        }
         return this;
     }
 
