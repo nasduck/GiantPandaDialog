@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.nasduck.dialoglib.base.utils.DensityUtils;
 import com.nasduck.dialoglib.toast.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
@@ -53,7 +54,7 @@ public class ImageToast extends BaseToast {
     public void updateUI(ToastConfig config) {
         // Corner Radius && Background Color
         GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadius(config.getCornerRadius());
+        drawable.setCornerRadius(DensityUtils.dp2px(getContext(), config.getCornerRadius()));
         drawable.setColor(mContext.getResources().getColor(config.getBgColor()));
         mLayoutBackground.setBackground(drawable);
 
@@ -61,7 +62,9 @@ public class ImageToast extends BaseToast {
         mIvImage.setImageResource(config.getImage());
 
         // Padding
-        mLayoutBackground.setPadding(config.getPaddingHorizontal(), config.getPaddingVertical(),
-                config.getPaddingHorizontal(), config.getPaddingVertical());
+        mLayoutBackground.setPadding(DensityUtils.dp2px(getContext(), config.getPaddingHorizontal()),
+                DensityUtils.dp2px(getContext(), config.getPaddingVertical()),
+                DensityUtils.dp2px(getContext(), config.getPaddingHorizontal()),
+                DensityUtils.dp2px(getContext(), config.getPaddingVertical()));
     }
 }

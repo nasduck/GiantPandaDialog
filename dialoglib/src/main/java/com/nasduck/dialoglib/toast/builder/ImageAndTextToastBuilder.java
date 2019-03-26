@@ -12,27 +12,27 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
     private FragmentActivity mActivity;
 
     private Integer image;
-    private String text;       // content no set
-    private Integer textColor; // 1A1A1A
-    private Integer textSize;  // 16
-    private Integer bgColor ;  // 99000000
-    private Integer cornerRadius; // 3
-    private Integer paddingHorizontal; // 32
-    private Integer paddingVertical;   // 20
+    private String text;
+    private Integer textColor;
+    private Integer textSize;
+    private Integer bgColor ;
+    private Integer cornerRadius;
+    private Integer paddingHorizontal;
+    private Integer paddingVertical;
 
     public ImageAndTextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 1500;
+        delay = 2000;
         mActivity = activity;
 
         image = 0;
         text = "";
         textColor = R.color.text_white;
-        textSize = 16;
-        bgColor = R.color.black_alpha_60;
-        cornerRadius = 3;
-        paddingHorizontal = 32;
-        paddingVertical = 20;
+        textSize = 14;
+        bgColor = R.color.black_alpha_50;
+        cornerRadius = 4;
+        paddingHorizontal = 15;
+        paddingVertical = 12;
     }
 
     @Override

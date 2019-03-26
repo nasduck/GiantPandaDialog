@@ -46,39 +46,39 @@ public class DuckDialog {
 
     public static void showSuccessToast(FragmentActivity activity) {
         ToastController.createImageToast(activity)
-                .setImage(R.drawable.ic_toast_success)
+                .setImage(R.drawable.ic_success)
                 .show();
     }
 
     public static void showWarningToast(FragmentActivity activity) {
         ToastController.createImageToast(activity)
-                .setImage(R.drawable.ic_toast_warning)
+                .setImage(R.drawable.ic_warning)
                 .show();
     }
 
     public static void showFailureToast(FragmentActivity activity) {
         ToastController.createImageToast(activity)
-                .setImage(R.drawable.ic_toast_failure)
+                .setImage(R.drawable.ic_failure)
                 .show();
     }
 
     public static void showSuccessTextToast(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
-                .setImage(R.drawable.ic_toast_success)
+                .setImage(R.drawable.ic_success)
                 .setText(text)
                 .show();
     }
 
     public static void showWarningTextToast(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
-                .setImage(R.drawable.ic_toast_warning)
+                .setImage(R.drawable.ic_warning)
                 .setText(text)
                 .show();
     }
 
     public static void showFailureTextToast(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
-                .setImage(R.drawable.ic_toast_failure)
+                .setImage(R.drawable.ic_failure)
                 .setText(text)
                 .show();
     }

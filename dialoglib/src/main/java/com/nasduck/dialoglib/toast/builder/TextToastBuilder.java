@@ -21,16 +21,16 @@ public class TextToastBuilder extends BaseToastBuilder {
 
     public TextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 1500;
+        delay = 2000;
         mActivity = activity;
 
         text = "";
         textColor = R.color.text_white;
-        textSize = 16;
-        bgColor = R.color.black_alpha_60;
-        cornerRadius = 3;
-        paddingHorizontal = 32;
-        paddingVertical = 20;
+        textSize = 14;
+        bgColor = R.color.black_alpha_50;
+        cornerRadius = 4;
+        paddingHorizontal = 20;
+        paddingVertical = 8;
     }
 
     @Override

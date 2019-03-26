@@ -19,14 +19,14 @@ public class ImageToastBuilder extends BaseToastBuilder {
 
     public ImageToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 1500;
+        delay = 2000;
         mActivity = activity;
         
         image = 0;
-        bgColor = R.color.black_alpha_60;
-        cornerRadius = 3;
-        paddingHorizontal = 32;
-        paddingVertical = 20;
+        bgColor = R.color.black_alpha_50;
+        cornerRadius = 4;
+        paddingHorizontal = 15;
+        paddingVertical = 12;
     }
 
     @Override
