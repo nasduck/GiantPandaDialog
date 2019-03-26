@@ -41,15 +41,15 @@ public class TwoButtonFooter extends RelativeLayout {
         /** btnNegative ***************************************************************************/
         // button click effect
         GradientDrawable drawablePressedNegative = new GradientDrawable();
-        drawablePressedNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
+        drawablePressedNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius), 0, 0});
+                DensityUtils.dp2px(getContext(), radius)});
         drawablePressedNegative.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
 
         GradientDrawable drawableNormalNegative = new GradientDrawable();
-        drawableNormalNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
+        drawableNormalNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius), 0, 0});
+                DensityUtils.dp2px(getContext(), radius)});
         drawableNormalNegative.setColor(getResources().getColor(mConfig.getBackgroundColor()));
 
         StateListDrawable drawableListNegative = new StateListDrawable();
@@ -77,15 +77,15 @@ public class TwoButtonFooter extends RelativeLayout {
         /** btnPositive ***************************************************************************/
         // button click effect
         GradientDrawable drawablePressedPositive = new GradientDrawable();
-        drawablePressedPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
+        drawablePressedPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(getContext(), radius), 0f, 0f});
         drawablePressedPositive.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
 
         GradientDrawable drawableNormalPositive = new GradientDrawable();
-        drawableNormalPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
+        drawableNormalPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(getContext(), radius), 0f, 0f});
         drawableNormalPositive.setColor(getResources().getColor(mConfig.getBackgroundColor()));
 
         StateListDrawable drawableListPositive = new StateListDrawable();

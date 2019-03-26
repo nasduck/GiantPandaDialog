@@ -20,7 +20,7 @@ public class DialogBuilder {
     private IDialogFooter footerBuilder;
 
     private int mBackgroundColorId;
-    private float mCornerRadius;
+    private int mCornerRadius;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
@@ -30,7 +30,7 @@ public class DialogBuilder {
     public DialogBuilder(FragmentActivity activity) {
         mActivity = activity;
         mBackgroundColorId = R.color.white;
-        mCornerRadius = 0f;
+        mCornerRadius = 0;
         mDialogTag = "dialog";
         mTouchOutsideCancelable = false;
         mTouchBackCancelable = false;
@@ -70,7 +70,7 @@ public class DialogBuilder {
         return this;
     }
 
-    public DialogBuilder setCornerRadius(Float radius) {
+    public DialogBuilder setCornerRadius(Integer radius) {
         if (radius != null) {
             this.mCornerRadius = radius;
         }

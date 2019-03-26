@@ -99,7 +99,7 @@ public class TestActivity extends AppCompatActivity {
     @OnClick(R.id.btn_custom_dialog)
     public void onCustomDialog() {
         DialogController.createTextDialog(this)
-                .setTitle("1111")
+//                .setTitle("1111")
                 .show();
     }
 

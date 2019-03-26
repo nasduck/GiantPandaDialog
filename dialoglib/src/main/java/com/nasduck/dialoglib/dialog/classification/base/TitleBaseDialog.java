@@ -11,6 +11,7 @@ import com.nasduck.dialoglib.dialog.classification.TextDialog;
 import com.nasduck.dialoglib.dialog.classification.base.ITitleBaseDialog;
 import com.nasduck.dialoglib.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.enums.TextStyle;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
@@ -21,12 +22,13 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
 
     private String tag;
     private Integer backgroundColorId;
-    private Float cornerRadius;
+    private Integer cornerRadius;
     private Boolean touchOutsideCancelable;
     private Boolean touchBackCancelable;
     private Boolean hasShade;
 
     private String title;
+    private TextStyle textStyle;
     private Integer titleSize;
     private Integer titleColor;
     private GravityWay gravityWay;
@@ -66,6 +68,7 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         } else {
             headerBuilder = new TextHeaderBuilder();
             headerBuilder.setTitle(title)
+                    .setTextStyle(textStyle)
                     .setTitleSize(titleSize)
                     .setTitleColor(titleColor)
                     .setGravityWay(gravityWay)
@@ -139,7 +142,7 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         return (T)this;
     }
 
-    public T setCornerRadius(Float cornerRadius) {
+    public T setCornerRadius(Integer cornerRadius) {
         this.cornerRadius = cornerRadius;
         return (T)this;
     }
@@ -161,6 +164,11 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
 
     public T setTitle(String title) {
         this.title = title;
+        return (T)this;
+    }
+
+    public T setTextStyle(TextStyle textStyle) {
+        this.textStyle = textStyle;
         return (T)this;
     }
 

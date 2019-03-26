@@ -9,6 +9,7 @@ import com.nasduck.dialoglib.builder.dialog.header.TextHeaderBuilder;
 import com.nasduck.dialoglib.builder.dialog.footer.ThreeButtonFooterBuilder;
 import com.nasduck.dialoglib.builder.dialog.footer.TwoButtonFooterBuilder;
 import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.enums.TextStyle;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
@@ -25,11 +26,12 @@ public class DialogConfig {
 
     private int clickBackgroundColor;
     private int backgroundColor;
-    private float cornerRadius;
+    private int cornerRadius;
 
     /****  Dialog Header Config *******************************************************************/
 
     // title
+    private TextStyle textStyle;
     private String titleText;
     private int titleTextColor;
     private int titleTextSize;
@@ -65,6 +67,7 @@ public class DialogConfig {
     public DialogConfig(TextHeaderBuilder builder) {
         this.backgroundColor = builder.getBackgroundColor();
         this.cornerRadius = builder.getCornerRadius();
+        this.textStyle = builder.getTextStyle();
         this.titleText = builder.getTitle();
         this.titleTextSize = builder.getTitleSize();
         this.titleTextColor = builder.getTitleColor();
@@ -150,8 +153,12 @@ public class DialogConfig {
         return backgroundColor;
     }
 
-    public float getCornerRadius() {
+    public int getCornerRadius() {
         return cornerRadius;
+    }
+
+    public TextStyle getTextStyle() {
+        return textStyle;
     }
 
     public String getTitleText() {

@@ -14,7 +14,7 @@ public class OneButtonFooterBuilder implements IDialogFooter {
 
     private OnNormalClickListener normalClickListener;
 
-    private float cornerRadius;
+    private int cornerRadius;
     private int backgroundColor;
     private int clickBackgroundColor;
 
@@ -23,10 +23,10 @@ public class OneButtonFooterBuilder implements IDialogFooter {
     private int normalButtonTextSize;
 
     public OneButtonFooterBuilder() {
-        cornerRadius = 0f;
+        cornerRadius = 0;
         clickBackgroundColor = R.color.gray_light;
         normalButtonText = "confirm";
-        normalButtonTextColor = R.color.text_black;
+        normalButtonTextColor = R.color.text_blue;
         normalButtonTextSize = 16;
         normalClickListener = null;
     }
@@ -41,7 +41,7 @@ public class OneButtonFooterBuilder implements IDialogFooter {
     }
 
     @Override
-    public void getCornerRadius(float cornerRadius) {
+    public void getCornerRadius(int cornerRadius) {
         this.cornerRadius = cornerRadius;
     }
 
@@ -89,7 +89,7 @@ public class OneButtonFooterBuilder implements IDialogFooter {
 
     /**********************************************************************************************/
 
-    public float getCornerRadius() {
+    public int getCornerRadius() {
         return cornerRadius;
     }
 

@@ -22,7 +22,7 @@ public class BaseDialog extends DialogFragment {
 
     private IDialogView mDialogView;
     private int mBackgroundColorId;
-    private float mCornerRadius;
+    private int mCornerRadius;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
@@ -96,7 +96,7 @@ public class BaseDialog extends DialogFragment {
         return this;
     }
 
-    public BaseDialog setCornerRadius(float cornerRadius) {
+    public BaseDialog setCornerRadius(int cornerRadius) {
         this.mCornerRadius = cornerRadius;
         return this;
     }

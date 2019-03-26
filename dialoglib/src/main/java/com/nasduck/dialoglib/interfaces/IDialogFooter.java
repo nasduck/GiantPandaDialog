@@ -19,7 +19,7 @@ public interface IDialogFooter {
      * get dialog background radius
      * @param cornerRadius
      */
-    void getCornerRadius(float cornerRadius);
+    void getCornerRadius(int cornerRadius);
 
     /**
      * get button not click color

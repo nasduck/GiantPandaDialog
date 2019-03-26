@@ -23,13 +23,13 @@ public class TextBodyBuilder implements IDialogBody {
 
     public TextBodyBuilder() {
         contentText = "dialog content";
-        contentTextSize = 16;
-        contentTextColor = R.color.text_black;
+        contentTextSize = 14;
+        contentTextColor = R.color.text_black_light;
         gravityWay = GravityWay.CENTER;
-        paddingTop=  0;
-        paddingBottom = 0;
-        paddingLeft = 0;
-        paddingRight = 0;
+        paddingTop = 20;
+        paddingBottom = 20;
+        paddingLeft = 26;
+        paddingRight = 26;
     }
 
     @Override

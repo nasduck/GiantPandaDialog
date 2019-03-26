@@ -18,7 +18,7 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
     private OnPositiveClickListener positiveClickListener;
     private OnNegativeClickListener negativeClickListener;
 
-    private float cornerRadius;
+    private int cornerRadius;
     private int backgroundColor;
     private int clickBackgroundColor;
 
@@ -35,7 +35,7 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
     private int negativeButtonTextSize;
 
     public ThreeButtonFooterBuilder() {
-        cornerRadius = 0f;
+        cornerRadius = 0;
         clickBackgroundColor = R.color.gray_light;
         
         normalButtonText = "normal";
@@ -64,7 +64,7 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
     }
 
     @Override
-    public void getCornerRadius(float cornerRadius) {
+    public void getCornerRadius(int cornerRadius) {
         this.cornerRadius = cornerRadius;
     }
 
@@ -168,7 +168,7 @@ public class ThreeButtonFooterBuilder implements IDialogFooter {
 
     /**********************************************************************************************/
 
-    public float getCornerRadius() {
+    public int getCornerRadius() {
         return cornerRadius;
     }
 

@@ -16,5 +16,5 @@ public interface IDialogHeader {
      * get dialog background radius
      * @param cornerRadius
      */
-    void getCornerRadius(float cornerRadius);
+    void getCornerRadius(int cornerRadius);
 }

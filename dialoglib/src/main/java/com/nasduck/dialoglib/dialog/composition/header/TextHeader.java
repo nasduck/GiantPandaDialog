@@ -1,6 +1,7 @@
 package com.nasduck.dialoglib.dialog.composition.header;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.config.DialogConfig;
 import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.enums.TextStyle;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextHeader extends RelativeLayout {
@@ -30,14 +32,15 @@ public class TextHeader extends RelativeLayout {
 
     private void init(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_header_text, this);
-        TextView TvTitle = view.findViewById(R.id.tv_title);
+        TextView tvTitle = view.findViewById(R.id.tv_title);
         FrameLayout layoutBackground = view.findViewById(R.id.layout);
 
         // set text style
-        TvTitle.setText(mConfig.getTitleText());
-        TvTitle.setTextSize(mConfig.getTitleTextSize());
-        TvTitle.setTextColor(getResources().getColor(mConfig.getTitleTextColor()));
-        TvTitle.setLayoutParams(setLayoutGravity(mConfig.getGravityWay()));
+        tvTitle.setTypeface(Typeface.DEFAULT, setTextStyle(mConfig.getTextStyle()));
+        tvTitle.setText(mConfig.getTitleText());
+        tvTitle.setTextSize(mConfig.getTitleTextSize());
+        tvTitle.setTextColor(getResources().getColor(mConfig.getTitleTextColor()));
+        tvTitle.setLayoutParams(setLayoutGravity(mConfig.getGravityWay()));
 
         // set background
         float radius = mConfig.getCornerRadius();
@@ -81,4 +84,18 @@ public class TextHeader extends RelativeLayout {
         }
     }
 
+    private int setTextStyle(TextStyle textStyle) {
+        switch (textStyle) {
+            case BOLD:
+                return Typeface.BOLD;
+            case ITALIC:
+                return Typeface.ITALIC;
+            case NORMAL:
+                return Typeface.NORMAL;
+            case BOLD_ITALIC:
+                return Typeface.BOLD_ITALIC;
+            default:
+                return Typeface.NORMAL;
+        }
+    }
 }

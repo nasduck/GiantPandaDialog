@@ -14,6 +14,7 @@ import com.nasduck.dialoglib.builder.dialog.header.TextHeaderBuilder;
 import com.nasduck.dialoglib.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.enums.DialogType;
 import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.enums.TextStyle;
 import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
@@ -90,12 +91,23 @@ public class DuckDialog {
     public static void showTitleTipDialog(FragmentActivity activity, String title, String content,
                                           String buttonText, OnNormalClickListener listener) {
         DialogController.createTextDialog(activity)
+                .setTextStyle(TextStyle.BOLD)
                 .setTitle(title)
+                .setTitleSize(16)
+                .setTitleColor(R.color.text_black_light)
+                .setTitlePadding(0, 20, 0, 0)
+                .setTitleGravity(GravityWay.CENTER_HORIZONTAL)
                 .setContent(content)
+                .setContentSize(14)
+                .setContentColor(R.color.text_black_light)
+                .setContentPadding(26, 20, 26, 20)
                 .setButtonNumber(DialogButtonNumber.ONE)
                 .setNormalButtonText(buttonText)
+                .setNormalButtonTextColor(R.color.text_blue)
+                .setNormalButtonTextSize(16)
                 .setNormalClickListener(listener)
                 .setTag(DialogType.TITLE_TIP_DIALOG.getDialogTag())
+                .setCornerRadius(10)
                 .show();
     }
 
@@ -104,14 +116,27 @@ public class DuckDialog {
                                              OnPositiveClickListener positiveClickListener,
                                              OnNegativeClickListener negativeClickListener) {
         DialogController.createTextDialog(activity)
+                .setTextStyle(TextStyle.BOLD)
                 .setTitle(title)
+                .setTitleSize(16)
+                .setTitleColor(R.color.text_black_light)
+                .setTitlePadding(0, 20, 0, 0)
+                .setTitleGravity(GravityWay.CENTER_HORIZONTAL)
                 .setContent(content)
+                .setContentSize(14)
+                .setContentColor(R.color.text_black_light)
+                .setContentPadding(26, 20, 26, 20)
                 .setButtonNumber(DialogButtonNumber.TWO)
                 .setPositiveButtonText(positiveButtonText)
+                .setPositiveButtonTextSize(16)
+                .setPositiveButtonTextColor(R.color.text_blue)
                 .setPositiveClickListener(positiveClickListener)
                 .setNegativeButtonText(negativeButtonText)
+                .setNegativeButtonTextSize(16)
+                .setNegativeButtonTextColor(R.color.text_gray)
                 .setNegativeClickListener(negativeClickListener)
                 .setTag(DialogType.TITLE_SELECT_DIALOG.getDialogTag())
+                .setCornerRadius(10)
                 .show();
     }
 
@@ -119,10 +144,16 @@ public class DuckDialog {
                                             String buttonText, OnNormalClickListener listener) {
         DialogController.createTextDialog(activity)
                 .setContent(content)
+                .setContentSize(14)
+                .setContentColor(R.color.text_black_light)
+                .setContentPadding(26, 20, 26, 20)
                 .setButtonNumber(DialogButtonNumber.ONE)
                 .setNormalButtonText(buttonText)
+                .setNormalButtonTextColor(R.color.text_blue)
+                .setNormalButtonTextSize(16)
                 .setNormalClickListener(listener)
                 .setTag(DialogType.NO_TITLE_TIP_DIALOG.getDialogTag())
+                .setCornerRadius(10)
                 .show();
     }
 
@@ -132,12 +163,20 @@ public class DuckDialog {
                                                OnNegativeClickListener negativeClickListener) {
         DialogController.createTextDialog(activity)
                 .setContent(content)
+                .setContentSize(14)
+                .setContentColor(R.color.text_black_light)
+                .setContentPadding(26, 20, 26, 20)
                 .setButtonNumber(DialogButtonNumber.TWO)
                 .setPositiveButtonText(positiveButtonText)
+                .setPositiveButtonTextSize(16)
+                .setPositiveButtonTextColor(R.color.text_blue)
                 .setPositiveClickListener(positiveClickListener)
                 .setNegativeButtonText(negativeButtonText)
+                .setNegativeButtonTextSize(16)
+                .setNegativeButtonTextColor(R.color.text_gray)
                 .setNegativeClickListener(negativeClickListener)
                 .setTag(DialogType.NO_TITLE_SELECT_DIALOG.getDialogTag())
+                .setCornerRadius(10)
                 .show();
     }
 }

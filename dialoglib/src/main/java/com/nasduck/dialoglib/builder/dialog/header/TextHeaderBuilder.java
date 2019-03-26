@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.enums.TextStyle;
 import com.nasduck.dialoglib.interfaces.IDialogHeader;
 import com.nasduck.dialoglib.config.DialogConfig;
 import com.nasduck.dialoglib.dialog.composition.header.TextHeader;
@@ -12,8 +13,9 @@ import com.nasduck.dialoglib.enums.GravityWay;
 public class TextHeaderBuilder implements IDialogHeader {
 
     private int backgroundColor;
-    private float cornerRadius;
+    private int cornerRadius;
 
+    private TextStyle textStyle;
     private String title;
     private int titleColor;
     private int titleSize;
@@ -26,12 +28,13 @@ public class TextHeaderBuilder implements IDialogHeader {
 
     public TextHeaderBuilder() {
         backgroundColor = R.color.white;
-        cornerRadius = 0f;
+        cornerRadius = 0;
+        textStyle = TextStyle.BOLD;
         title = "This is a title";
         titleSize = 16;
-        titleColor = R.color.text_black;
+        titleColor = R.color.text_black_light;
         gravityWay = GravityWay.CENTER;
-        paddingTop = 0;
+        paddingTop = 20;
         paddingBottom = 0;
         paddingLeft = 0;
         paddingRight = 0;
@@ -43,7 +46,7 @@ public class TextHeaderBuilder implements IDialogHeader {
     }
 
     @Override
-    public void getCornerRadius(float cornerRadius) {
+    public void getCornerRadius(int cornerRadius) {
         this.cornerRadius = cornerRadius;
     }
 
@@ -52,6 +55,13 @@ public class TextHeaderBuilder implements IDialogHeader {
     public TextHeaderBuilder setBackgroundColor(Integer backgroundColor) {
         if (backgroundColor != null) {
             this.backgroundColor = backgroundColor;
+        }
+        return this;
+    }
+
+    public TextHeaderBuilder setTextStyle(TextStyle textStyle) {
+        if (textStyle != null) {
+            this.textStyle = textStyle;
         }
         return this;
     }
@@ -118,8 +128,12 @@ public class TextHeaderBuilder implements IDialogHeader {
         return backgroundColor;
     }
 
-    public float getCornerRadius() {
+    public int getCornerRadius() {
         return cornerRadius;
+    }
+
+    public TextStyle getTextStyle() {
+        return textStyle;
     }
 
     public String getTitle() {
