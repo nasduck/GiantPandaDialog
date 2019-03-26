@@ -28,7 +28,7 @@ public class DialogConfig {
     /****  Dialog Header Config *******************************************************************/
 
     // title
-    private TextStyle textStyle;
+    private TextStyle titleTextStyle;
     private String titleText;
     private int titleTextColor;
     private int titleTextSize;
@@ -64,7 +64,7 @@ public class DialogConfig {
     public DialogConfig(TextHeaderBuilder builder) {
         this.backgroundColor = builder.getBackgroundColor();
         this.cornerRadius = builder.getCornerRadius();
-        this.textStyle = builder.getTextStyle();
+        this.titleTextStyle = builder.getTitleTextStyle();
         this.titleText = builder.getTitle();
         this.titleTextSize = builder.getTitleSize();
         this.titleTextColor = builder.getTitleColor();
@@ -154,8 +154,8 @@ public class DialogConfig {
         return cornerRadius;
     }
 
-    public TextStyle getTextStyle() {
-        return textStyle;
+    public TextStyle getTitleTextStyle() {
+        return titleTextStyle;
     }
 
     public String getTitleText() {

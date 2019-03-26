@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.controller.DialogController;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
-
-import butterknife.OnClick;
 
 public class DialogActivity extends AppCompatActivity {
 
@@ -74,7 +73,8 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onCustomDialog(View view) {
         DialogController.createTextDialog(this)
-//                .setTitle("1111")
+                .setTitleTextStyle(TextStyle.BOLD)
+                .setTitle("1111")
                 .show();
     }
 }

@@ -36,7 +36,7 @@ public class TextHeader extends RelativeLayout {
         FrameLayout layoutBackground = view.findViewById(R.id.layout);
 
         // set text style
-        tvTitle.setTypeface(Typeface.DEFAULT, setTextStyle(mConfig.getTextStyle()));
+        tvTitle.setTypeface(Typeface.DEFAULT, setTextStyle(mConfig.getTitleTextStyle()));
         tvTitle.setText(mConfig.getTitleText());
         tvTitle.setTextSize(mConfig.getTitleTextSize());
         tvTitle.setTextColor(getResources().getColor(mConfig.getTitleTextColor()));

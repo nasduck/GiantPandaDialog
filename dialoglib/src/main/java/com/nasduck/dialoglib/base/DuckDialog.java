@@ -109,7 +109,7 @@ public class DuckDialog {
     public static void showTitleTipDialog(FragmentActivity activity, String title, String content,
                                           String buttonText, OnNormalClickListener listener) {
         DialogController.createTextDialog(activity)
-                .setTextStyle(TextStyle.BOLD)
+                .setTitleTextStyle(TextStyle.BOLD)
                 .setTitle(title)
                 .setTitleSize(16)
                 .setTitleColor(R.color.text_black_light)
@@ -134,7 +134,7 @@ public class DuckDialog {
                                              OnPositiveClickListener positiveClickListener,
                                              OnNegativeClickListener negativeClickListener) {
         DialogController.createTextDialog(activity)
-                .setTextStyle(TextStyle.BOLD)
+                .setTitleTextStyle(TextStyle.BOLD)
                 .setTitle(title)
                 .setTitleSize(16)
                 .setTitleColor(R.color.text_black_light)

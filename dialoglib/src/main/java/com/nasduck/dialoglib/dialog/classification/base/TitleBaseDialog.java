@@ -66,7 +66,7 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         } else {
             headerBuilder = new TextHeaderBuilder();
             headerBuilder.setTitle(title)
-                    .setTextStyle(textStyle)
+                    .setTitleTextStyle(textStyle)
                     .setTitleSize(titleSize)
                     .setTitleColor(titleColor)
                     .setGravityWay(gravityWay)
@@ -165,7 +165,7 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         return (T)this;
     }
 
-    public T setTextStyle(TextStyle textStyle) {
+    public T setTitleTextStyle(TextStyle textStyle) {
         this.textStyle = textStyle;
         return (T)this;
     }

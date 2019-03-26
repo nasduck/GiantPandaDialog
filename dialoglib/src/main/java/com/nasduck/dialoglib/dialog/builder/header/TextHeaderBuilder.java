@@ -15,7 +15,7 @@ public class TextHeaderBuilder implements IDialogHeader {
     private int backgroundColor;
     private int cornerRadius;
 
-    private TextStyle textStyle;
+    private TextStyle titleTextStyle;
     private String title;
     private int titleColor;
     private int titleSize;
@@ -29,7 +29,7 @@ public class TextHeaderBuilder implements IDialogHeader {
     public TextHeaderBuilder() {
         backgroundColor = R.color.white;
         cornerRadius = 0;
-        textStyle = TextStyle.BOLD;
+        titleTextStyle = TextStyle.BOLD;
         title = "This is a title";
         titleSize = 16;
         titleColor = R.color.text_black_light;
@@ -59,9 +59,9 @@ public class TextHeaderBuilder implements IDialogHeader {
         return this;
     }
 
-    public TextHeaderBuilder setTextStyle(TextStyle textStyle) {
+    public TextHeaderBuilder setTitleTextStyle(TextStyle textStyle) {
         if (textStyle != null) {
-            this.textStyle = textStyle;
+            this.titleTextStyle = textStyle;
         }
         return this;
     }
@@ -132,8 +132,8 @@ public class TextHeaderBuilder implements IDialogHeader {
         return cornerRadius;
     }
 
-    public TextStyle getTextStyle() {
-        return textStyle;
+    public TextStyle getTitleTextStyle() {
+        return titleTextStyle;
     }
 
     public String getTitle() {
