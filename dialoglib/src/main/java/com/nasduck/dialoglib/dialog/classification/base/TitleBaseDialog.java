@@ -2,19 +2,17 @@ package com.nasduck.dialoglib.dialog.classification.base;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.builder.dialog.DialogBuilder;
-import com.nasduck.dialoglib.builder.dialog.footer.OneButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.footer.ThreeButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.footer.TwoButtonFooterBuilder;
-import com.nasduck.dialoglib.builder.dialog.header.TextHeaderBuilder;
-import com.nasduck.dialoglib.dialog.classification.TextDialog;
-import com.nasduck.dialoglib.dialog.classification.base.ITitleBaseDialog;
-import com.nasduck.dialoglib.enums.DialogButtonNumber;
-import com.nasduck.dialoglib.enums.GravityWay;
-import com.nasduck.dialoglib.enums.TextStyle;
-import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
-import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
-import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
+import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
+import com.nasduck.dialoglib.dialog.builder.footer.OneButtonFooterBuilder;
+import com.nasduck.dialoglib.dialog.builder.footer.ThreeButtonFooterBuilder;
+import com.nasduck.dialoglib.dialog.builder.footer.TwoButtonFooterBuilder;
+import com.nasduck.dialoglib.dialog.builder.header.TextHeaderBuilder;
+import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
+import com.nasduck.dialoglib.base.enums.GravityWay;
+import com.nasduck.dialoglib.base.enums.TextStyle;
+import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
+import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
+import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 
 public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
 

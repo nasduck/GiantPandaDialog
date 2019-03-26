@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.enums.GravityWay;
-import com.nasduck.dialoglib.utils.DensityUtils;
+import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.base.enums.GravityWay;
+import com.nasduck.dialoglib.base.utils.DensityUtils;
 
 public class TextBody extends RelativeLayout {
 

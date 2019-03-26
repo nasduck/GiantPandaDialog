@@ -1,6 +1,6 @@
 package com.nasduck.dialoglib.dialog.classification.base;
 
-import com.nasduck.dialoglib.builder.dialog.DialogBuilder;
+import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 
 public interface ITitleBaseDialog {
 

@@ -2,10 +2,10 @@ package com.nasduck.dialoglib.dialog.classification;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.builder.dialog.DialogBuilder;
-import com.nasduck.dialoglib.builder.dialog.body.TextBodyBuilder;
+import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
+import com.nasduck.dialoglib.dialog.builder.body.TextBodyBuilder;
 import com.nasduck.dialoglib.dialog.classification.base.TitleBaseDialog;
-import com.nasduck.dialoglib.enums.GravityWay;
+import com.nasduck.dialoglib.base.enums.GravityWay;
 
 public class TextDialog extends TitleBaseDialog<TextDialog> {
     

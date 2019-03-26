@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.config.DialogConfig;
-import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.utils.DensityUtils;
+import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.base.utils.DensityUtils;
 
 public class TwoButtonFooter extends RelativeLayout {
 

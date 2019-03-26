@@ -5,8 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.controller.ToastController;
+import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.toast.controller.ToastController;
 
 public class ToastActivity extends AppCompatActivity {
 

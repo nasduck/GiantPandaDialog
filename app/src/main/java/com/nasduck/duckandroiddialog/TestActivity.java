@@ -3,13 +3,12 @@ package com.nasduck.duckandroiddialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-import com.nasduck.dialoglib.controller.DialogController;
-import com.nasduck.dialoglib.controller.DuckDialog;
-import com.nasduck.dialoglib.interfaces.OnNegativeClickListener;
-import com.nasduck.dialoglib.interfaces.OnNormalClickListener;
-import com.nasduck.dialoglib.interfaces.OnPositiveClickListener;
+import com.nasduck.dialoglib.dialog.controller.DialogController;
+import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
+import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
+import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
