@@ -3,14 +3,16 @@ package com.nasduck.dialoglib.toast.builder;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.enums.ToastType;
 import com.nasduck.dialoglib.toast.base.BaseToastBuilder;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
-import com.nasduck.dialoglib.base.enums.ToastType;
 
-public class TextToastBuilder extends BaseToastBuilder {
+public class LoadingToastBuilder extends BaseToastBuilder {
 
-    private FragmentActivity mActivity;
+    private FragmentActivity activity;
 
+    private Integer image;
+    private Integer animation;
     private String text;
     private Integer textColor;
     private Integer textSize;
@@ -19,74 +21,91 @@ public class TextToastBuilder extends BaseToastBuilder {
     private Integer paddingHorizontal;
     private Integer paddingVertical;
 
-    public TextToastBuilder(FragmentActivity activity) {
+    public LoadingToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 2000;
-        this.mActivity = activity;
-
+        this.activity = activity;
+        this.image = 0;
+        this.animation = 0;
         this.text = "";
         this.textColor = R.color.text_white;
         this.textSize = 14;
         this.bgColor = R.color.black_alpha_50;
         this.cornerRadius = 4;
-        this.paddingHorizontal = 20;
-        this.paddingVertical = 8;
-    }
-
-    @Override
-    public ToastType getType() {
-        return ToastType.TEXT_TOAST;
+        this.paddingHorizontal = 15;
+        this.paddingVertical = 12;
     }
 
     @Override
     public FragmentActivity getActivity() {
-        return mActivity;
+        return activity;
     }
 
     @Override
     public ToastConfig build() {
-        return new ToastConfig(TextToastBuilder.this);
+        return new ToastConfig(LoadingToastBuilder.this);
+    }
+
+    @Override
+    public ToastType getType() {
+        return ToastType.LOADING_TOAST;
     }
 
     /**********************************************************************************************/
 
-    public TextToastBuilder setBackgroundColor(int backgroundColor) {
-        this.bgColor = backgroundColor;
+    public LoadingToastBuilder setAnimation(Integer animation) {
+        this.animation = animation;
         return this;
     }
 
-    public TextToastBuilder setText(String text) {
+    public LoadingToastBuilder setImage(Integer image) {
+        this.image = image;
+        return this;
+    }
+
+    public LoadingToastBuilder setText(String text) {
         this.text = text;
         return this;
     }
 
-    public TextToastBuilder setTextSize(int textSize) {
-        this.textSize = textSize;
-        return this;
-    }
-
-    public TextToastBuilder setTextColor(int textColor) {
+    public LoadingToastBuilder setTextColor(Integer textColor) {
         this.textColor = textColor;
         return this;
     }
 
+    public LoadingToastBuilder setTextSize(Integer textSize) {
+        this.textSize = textSize;
+        return this;
+    }
 
-    public TextToastBuilder setCornerRadius(Integer cornerRadius) {
+    public LoadingToastBuilder setBgColor(Integer bgColor) {
+        this.bgColor = bgColor;
+        return this;
+    }
+
+    public LoadingToastBuilder setCornerRadius(Integer cornerRadius) {
         this.cornerRadius = cornerRadius;
         return this;
     }
 
-    public TextToastBuilder setPaddingHorizontal(Integer paddingHorizontal) {
+    public LoadingToastBuilder setPaddingHorizontal(Integer paddingHorizontal) {
         this.paddingHorizontal = paddingHorizontal;
         return this;
     }
 
-    public TextToastBuilder setPaddingVertical(Integer paddingVertical) {
+    public LoadingToastBuilder setPaddingVertical(Integer paddingVertical) {
         this.paddingVertical = paddingVertical;
         return this;
     }
 
     /**********************************************************************************************/
+
+    public Integer getImage() {
+        return image;
+    }
+
+    public Integer getAnimation() {
+        return animation;
+    }
 
     public String getText() {
         return text;

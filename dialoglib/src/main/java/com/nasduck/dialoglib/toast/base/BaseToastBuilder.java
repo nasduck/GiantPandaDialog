@@ -7,6 +7,7 @@ import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.base.enums.ToastType;
 import com.nasduck.dialoglib.toast.classification.ImageAndTextToast;
 import com.nasduck.dialoglib.toast.classification.ImageToast;
+import com.nasduck.dialoglib.toast.classification.LoadingToast;
 import com.nasduck.dialoglib.toast.classification.TextToast;
 
 public abstract class BaseToastBuilder implements IToastBuilder {
@@ -58,6 +59,17 @@ public abstract class BaseToastBuilder implements IToastBuilder {
                     ImageAndTextToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
                 }
                 break;
+            case LOADING_TOAST:
+                if (fragment != null) {
+                    // Update Toast existing
+                    ((LoadingToast) fragment).updateUI(build());
+                } else {
+                    // hide other toast
+                    hideOtherFragment(getType(), manager);
+                    // Show Toast
+                    LoadingToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
+                }
+                return;
         }
         mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, delay);
     }

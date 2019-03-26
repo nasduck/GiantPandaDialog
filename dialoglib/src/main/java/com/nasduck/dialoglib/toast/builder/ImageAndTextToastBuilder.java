@@ -9,7 +9,7 @@ import com.nasduck.dialoglib.base.enums.ToastType;
 
 public class ImageAndTextToastBuilder extends BaseToastBuilder {
 
-    private FragmentActivity mActivity;
+    private FragmentActivity activity;
 
     private Integer image;
     private String text;
@@ -23,21 +23,20 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
     public ImageAndTextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
         delay = 2000;
-        mActivity = activity;
-
-        image = 0;
-        text = "";
-        textColor = R.color.text_white;
-        textSize = 14;
-        bgColor = R.color.black_alpha_50;
-        cornerRadius = 4;
-        paddingHorizontal = 15;
-        paddingVertical = 12;
+        this.activity = activity;
+        this.image = 0;
+        this.text = "";
+        this.textColor = R.color.text_white;
+        this.textSize = 14;
+        this.bgColor = R.color.black_alpha_50;
+        this.cornerRadius = 4;
+        this.paddingHorizontal = 15;
+        this.paddingVertical = 12;
     }
 
     @Override
     public FragmentActivity getActivity() {
-        return mActivity;
+        return activity;
     }
 
     @Override

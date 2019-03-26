@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.enums.ToastType;
 import com.nasduck.dialoglib.dialog.controller.DialogController;
 import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.DialogType;
@@ -81,6 +82,26 @@ public class DuckDialog {
                 .setImage(R.drawable.ic_failure)
                 .setText(text)
                 .show();
+    }
+
+    public static void showLoadingToast(FragmentActivity activity, String text) {
+        ToastController.createLoadingToast(activity)
+                .setImage(R.drawable.ic_loading)
+                .setAnimation(R.anim.anim_loading_rotate)
+                .setText(text)
+                .show();
+    }
+
+    public static void showLoadingToast(FragmentActivity activity) {
+        ToastController.createLoadingToast(activity)
+                .setImage(R.drawable.ic_loading)
+                .setAnimation(R.anim.anim_loading_rotate)
+                .setText("正在加载")
+                .show();
+    }
+
+    public static void hideLoadingToast(FragmentActivity activity) {
+        hide(activity, ToastType.LOADING_TOAST.getToastTag());
     }
 
     /** dialog ************************************************************************************/
