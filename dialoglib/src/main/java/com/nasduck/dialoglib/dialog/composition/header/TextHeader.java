@@ -45,10 +45,10 @@ public class TextHeader extends RelativeLayout {
         // set background
         float radius = mConfig.getCornerRadius();
         GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius), 0, 0, 0, 0});
+        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
         drawable.setColor(getResources().getColor(mConfig.getBackgroundColor()));
         layoutBackground.setBackground(drawable);
 

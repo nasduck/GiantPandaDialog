@@ -41,18 +41,18 @@ public class OneButtonFooter extends RelativeLayout {
 
         GradientDrawable drawablePressed = new GradientDrawable();
         drawablePressed.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius)});
         drawablePressed.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
 
         GradientDrawable drawableNormal = new GradientDrawable();
         drawableNormal.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius)});
         drawableNormal.setColor(getResources().getColor(mConfig.getBackgroundColor()));
 
         StateListDrawable drawableList = new StateListDrawable();

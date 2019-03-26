@@ -44,14 +44,14 @@ public class ThreeButtonFooter extends RelativeLayout {
         // button click effect
         GradientDrawable drawablePressedNegative = new GradientDrawable();
         drawablePressedNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius), 0, 0});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius), 0, 0});
         drawablePressedNegative.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
 
         GradientDrawable drawableNormalNegative = new GradientDrawable();
         drawableNormalNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius), 0, 0});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius), 0, 0});
         drawableNormalNegative.setColor(getResources().getColor(mConfig.getBackgroundColor()));
 
         StateListDrawable drawableListNegative = new StateListDrawable();
@@ -110,14 +110,14 @@ public class ThreeButtonFooter extends RelativeLayout {
         // button click effect
         GradientDrawable drawablePressedPositive = new GradientDrawable();
         drawablePressedPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius)});
         drawablePressedPositive.setColor(getResources().getColor(mConfig.getClickBackgroundColor()));
 
         GradientDrawable drawableNormalPositive = new GradientDrawable();
         drawableNormalPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
-                DensityUtils.dp2px(getContext(), radius),
-                DensityUtils.dp2px(getContext(), radius)});
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius)});
         drawableNormalPositive.setColor(getResources().getColor(mConfig.getBackgroundColor()));
 
         StateListDrawable drawableListPositive = new StateListDrawable();
