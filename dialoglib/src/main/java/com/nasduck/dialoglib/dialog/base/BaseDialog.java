@@ -18,11 +18,14 @@ import android.widget.LinearLayout;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.base.utils.DensityUtils;
 
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+
 public class BaseDialog extends DialogFragment {
 
     private IDialogView mDialogView;
     private int mBackgroundColorId;
     private int mCornerRadius;
+    private int mDialogWidth;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
@@ -86,6 +89,12 @@ public class BaseDialog extends DialogFragment {
         return viewLayout;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        getDialog().getWindow().setLayout(DensityUtils.dp2px(getContext(), mDialogWidth), WRAP_CONTENT);
+    }
+
     public BaseDialog setDialogView(IDialogView dialogView) {
         this.mDialogView = dialogView;
         return this;
@@ -93,6 +102,11 @@ public class BaseDialog extends DialogFragment {
 
     public BaseDialog setBackgroundColor(int colorId) {
         this.mBackgroundColorId = colorId;
+        return this;
+    }
+
+    public BaseDialog setDialogWidth(int width) {
+        this.mDialogWidth = width;
         return this;
     }
 
