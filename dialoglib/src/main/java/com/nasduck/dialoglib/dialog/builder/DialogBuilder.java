@@ -1,6 +1,7 @@
 package com.nasduck.dialoglib.dialog.builder;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
@@ -21,6 +22,7 @@ public class DialogBuilder {
 
     private int mBackgroundColorId;
     private int mCornerRadius;
+    private int mDialogWidth;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
@@ -29,16 +31,13 @@ public class DialogBuilder {
 
     public DialogBuilder(FragmentActivity activity) {
         mActivity = activity;
+        mDialogWidth = 260;
         mBackgroundColorId = R.color.white;
         mCornerRadius = 0;
         mDialogTag = "dialog";
         mTouchOutsideCancelable = false;
         mTouchBackCancelable = false;
         mHasShade = true;
-    }
-
-    public static DialogBuilder create(FragmentActivity activity) {
-        return new DialogBuilder(activity);
     }
 
     public DialogBuilder setHeader(IDialogHeader builder) {
@@ -98,6 +97,13 @@ public class DialogBuilder {
         return this;
     }
 
+    public DialogBuilder setDialogWidth(Integer width) {
+        if (width != null) {
+            this.mDialogWidth = width;
+        }
+        return this;
+    }
+
     public void show() {
         BaseDialog.create()
                 .setDialogView(new IDialogView() {
@@ -138,6 +144,7 @@ public class DialogBuilder {
                 .setCanceledOnTouchOutside(mTouchOutsideCancelable)
                 .setCancelOnTouchBack(mTouchBackCancelable)
                 .setHasShade(mHasShade)
+                .setDialogWidth(mDialogWidth)
                 .show(mActivity.getSupportFragmentManager(), mDialogTag);
     }
 
