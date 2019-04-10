@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.DuckDialog;
 import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.controller.DialogController;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
@@ -24,7 +24,7 @@ public class DialogActivity extends AppCompatActivity {
                 new OnNormalClickListener() {
                     @Override
                     public void onNormalClick() {
-                        DuckDialog.showToast(DialogActivity.this, "我被点击了");
+                        DuckDialog.show(DialogActivity.this, "我被点击了");
                     }
                 });
     }
@@ -34,7 +34,7 @@ public class DialogActivity extends AppCompatActivity {
                 new OnNormalClickListener() {
                     @Override
                     public void onNormalClick() {
-                        DuckDialog.showToast(DialogActivity.this, "我被点击了");
+                        DuckDialog.show(DialogActivity.this, "我被点击了");
                     }
                 });
     }
@@ -45,12 +45,12 @@ public class DialogActivity extends AppCompatActivity {
                 , new OnPositiveClickListener() {
                     @Override
                     public void onPositiveClick() {
-                        DuckDialog.showToast(DialogActivity.this, "确定");
+                        DuckDialog.show(DialogActivity.this, "确定");
                     }
                 }, new OnNegativeClickListener() {
                     @Override
                     public void onNegativeClick() {
-                        DuckDialog.showToast(DialogActivity.this, "取消");
+                        DuckDialog.show(DialogActivity.this, "取消");
                     }
                 });
     }
@@ -61,12 +61,12 @@ public class DialogActivity extends AppCompatActivity {
                 , new OnPositiveClickListener() {
                     @Override
                     public void onPositiveClick() {
-                        DuckDialog.showToast(DialogActivity.this, "确定");
+                        DuckDialog.show(DialogActivity.this, "确定");
                     }
                 }, new OnNegativeClickListener() {
                     @Override
                     public void onNegativeClick() {
-                        DuckDialog.showToast(DialogActivity.this, "取消");
+                        DuckDialog.show(DialogActivity.this, "取消");
                     }
                 });
     }

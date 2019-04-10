@@ -16,7 +16,7 @@ import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -65,7 +65,7 @@ public class BaseDialog extends DialogFragment {
                 return false;
             }
         });
-        // set dialog view
+        // set dialog mView
         if (mDialogView != null) {
             // judge does it contain a title
             if (mDialogView.getHeaderLayout(viewLayout.getContext()) != null) {

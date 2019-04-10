@@ -1,12 +1,10 @@
 package com.nasduck.duckandroiddialog;
 
-import android.os.Handler;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nasduck.dialoglib.base.DuckDialog;
+import com.nasduck.dialoglib.DuckDialog;
 import com.nasduck.dialoglib.toast.controller.ToastController;
 
 public class ToastActivity extends AppCompatActivity {
@@ -18,39 +16,39 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onToastDefaultClick(View view) {
-        DuckDialog.showToast(this, "Toast Default");
+        DuckDialog.show(this, "Toast Default");
     }
 
     public void onImageToastSuccessClick(View view) {
-        DuckDialog.showSuccessToast(this);
+        DuckDialog.showSuccess(this);
     }
 
     public void onImageToastFailureClick(View view) {
-        DuckDialog.showFailureToast(this);
+        DuckDialog.showFailure(this);
     }
 
     public void onImageToastWarningClick(View view) {
-        DuckDialog.showWarningToast(this);
+        DuckDialog.showWarning(this);
     }
 
     public void onTextAndImageToastSuccessClick(View view) {
-        DuckDialog.showSuccessTextToast(this, "success");
+        DuckDialog.showSuccess(this, "success");
     }
 
     public void onTextAndImageToastFailureClick(View view) {
-        DuckDialog.showFailureTextToast(this, "failure");
+        DuckDialog.showFailure(this, "failure");
     }
 
     public void onTextAndImageToastWarningClick(View view) {
-        DuckDialog.showWarningTextToast(this, "warning");
+        DuckDialog.showWarning(this, "warning");
     }
 
     public void onTextAndImageToastLoadingClick(View view) {
-        DuckDialog.showLoadingToast(this);
+        DuckDialog.showLoading(this);
     }
 
     public void onHideLoadingToastClick(View view) {
-        DuckDialog.hideLoadingToast(ToastActivity.this);
+        // todo
     }
 
     public void onToastCustomClick(View view) {

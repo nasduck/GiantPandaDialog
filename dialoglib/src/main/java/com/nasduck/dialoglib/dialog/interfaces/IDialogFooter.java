@@ -7,7 +7,7 @@ import android.view.View;
 public interface IDialogFooter {
 
     /**
-     * get dialog footer view
+     * get dialog footer mView
      * @param activity
      * @param context
      * @param tag

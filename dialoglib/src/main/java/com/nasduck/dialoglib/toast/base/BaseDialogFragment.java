@@ -16,19 +16,19 @@ import com.nasduck.dialoglib.dialog.base.IDialogFragment;
 public abstract class BaseDialogFragment extends DialogFragment implements IDialogFragment {
 
     protected Context mContext;
-    protected View view;
+    protected View mView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         // bind view
-        view = inflater.inflate(initView(savedInstanceState), container);
+        mView = inflater.inflate(initView(savedInstanceState), container);
 
         // Removes the dialog box's default title bar
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        return view;
+        return mView;
     }
 
     @Override
@@ -44,21 +44,12 @@ public abstract class BaseDialogFragment extends DialogFragment implements IDial
         super.onAttach(context);
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     /**
      * set shade
-     * @param hasShade
+     * @param dim
      */
-    public void setShade(boolean hasShade) {
-        if (hasShade) {
-            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        } else {
-            getDialog().getWindow().setDimAmount(0f);
-        }
+    public void setDim(float dim) {
+        getDialog().getWindow().setDimAmount(dim);
     }
 
 }

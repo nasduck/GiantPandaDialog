@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 public interface IDialogFragment {
 
     /**
-     * Init view with dialog layout
+     * Init mView with dialog layout
      *
      * @param savedInstanceState
      * @return

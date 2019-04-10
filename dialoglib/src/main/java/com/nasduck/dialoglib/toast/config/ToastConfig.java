@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import com.nasduck.dialoglib.toast.builder.ImageAndTextToastBuilder;
 import com.nasduck.dialoglib.toast.builder.ImageToastBuilder;
-import com.nasduck.dialoglib.toast.builder.LoadingToastBuilder;
 import com.nasduck.dialoglib.toast.builder.TextToastBuilder;
 
 public class ToastConfig implements Parcelable {
@@ -21,18 +20,6 @@ public class ToastConfig implements Parcelable {
     private Integer paddingHorizontal;
     private Integer paddingVertical;
 
-    public ToastConfig(LoadingToastBuilder builder) {
-        this.image = builder.getImage();
-        this.anim = builder.getAnimation();
-        this.text = builder.getText();
-        this.textColor = builder.getTextColor();
-        this.textSize = builder.getTextSize();
-        this.bgColor = builder.getBgColor();
-        this.cornerRadius = builder.getCornerRadius();
-        this.paddingHorizontal = builder.getPaddingHorizontal();
-        this.paddingVertical = builder.getPaddingVertical();
-    }
-
     public ToastConfig(TextToastBuilder builder) {
         this.text = builder.getText();
         this.textColor = builder.getTextColor();
@@ -45,6 +32,7 @@ public class ToastConfig implements Parcelable {
 
     public ToastConfig(ImageToastBuilder builder) {
         this.image = builder.getImage();
+        this.anim = builder.getAnimation();
         this.bgColor = builder.getBgColor();
         this.cornerRadius = builder.getCornerRadius();
         this.paddingHorizontal = builder.getPaddingHorizontal();
@@ -53,6 +41,7 @@ public class ToastConfig implements Parcelable {
 
     public ToastConfig(ImageAndTextToastBuilder builder) {
         this.image = builder.getImage();
+        this.anim = builder.getAnimation();
         this.text = builder.getText();
         this.textColor = builder.getTextColor();
         this.textSize = builder.getTextSize();

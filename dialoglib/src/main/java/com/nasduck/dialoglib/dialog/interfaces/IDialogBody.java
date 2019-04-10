@@ -6,7 +6,7 @@ import android.view.View;
 public interface IDialogBody {
 
     /**
-     * get dialog body view
+     * get dialog body mView
      * @param context
      * @return
      */

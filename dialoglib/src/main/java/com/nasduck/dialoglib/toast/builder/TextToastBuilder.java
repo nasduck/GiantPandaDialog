@@ -21,7 +21,7 @@ public class TextToastBuilder extends BaseToastBuilder {
 
     public TextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 2000;
+
         this.mActivity = activity;
 
         this.text = "";

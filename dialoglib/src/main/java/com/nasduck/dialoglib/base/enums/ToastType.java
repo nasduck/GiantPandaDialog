@@ -4,8 +4,7 @@ public enum ToastType {
 
     TEXT_TOAST(0, "TEXT_TOAST"),
     IMAGE_TOAST(1, "IMAGE_TOAST"),
-    TEXT_AND_IMAGE_TOAST(2, "TEXT_AND_IMAGE_TOAST"),
-    LOADING_TOAST(3, "LOADING_TOAST");
+    TEXT_AND_IMAGE_TOAST(2, "TEXT_AND_IMAGE_TOAST");
 
     private int type;
     private String toastTag;

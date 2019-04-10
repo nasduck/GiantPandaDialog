@@ -1,12 +1,7 @@
-package com.nasduck.dialoglib.base;
+package com.nasduck.dialoglib;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
-import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.enums.ToastType;
 import com.nasduck.dialoglib.dialog.controller.DialogController;
 import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.DialogType;
@@ -16,6 +11,7 @@ import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 import com.nasduck.dialoglib.toast.controller.ToastController;
+import com.nasduck.dialoglib.utils.FragmentUtils;
 
 /**
  * default config
@@ -28,80 +24,69 @@ public class DuckDialog {
      * @param tag
      */
     public static void hide(FragmentActivity activity, String tag) {
-        FragmentManager manager = activity.getSupportFragmentManager();
-        Fragment fragment = manager.findFragmentByTag(tag);
-        if (fragment != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.remove(fragment);
-            transaction.commitAllowingStateLoss();
-        }
+        FragmentUtils.hide(activity, tag);
     }
 
     /** toast *************************************************************************************/
 
-    public static void showToast(FragmentActivity activity, String contentText) {
+    public static void show(FragmentActivity activity, String text) {
         ToastController.createTextToast(activity)
-                .setText(contentText)
+                .setText(text)
                 .show();
     }
 
-    public static void showSuccessToast(FragmentActivity activity) {
+    public static void showSuccess(FragmentActivity activity) {
         ToastController.createImageToast(activity)
                 .setImage(R.drawable.ic_success)
                 .show();
     }
 
-    public static void showWarningToast(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
-                .setImage(R.drawable.ic_warning)
-                .show();
-    }
-
-    public static void showFailureToast(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
-                .setImage(R.drawable.ic_failure)
-                .show();
-    }
-
-    public static void showSuccessTextToast(FragmentActivity activity, String text) {
+    public static void showSuccess(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_success)
                 .setText(text)
                 .show();
     }
 
-    public static void showWarningTextToast(FragmentActivity activity, String text) {
+    public static void showWarning(FragmentActivity activity) {
+        ToastController.createImageToast(activity)
+                .setImage(R.drawable.ic_warning)
+                .show();
+    }
+
+    public static void showWarning(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_warning)
                 .setText(text)
                 .show();
     }
 
-    public static void showFailureTextToast(FragmentActivity activity, String text) {
+    public static void showFailure(FragmentActivity activity) {
+        ToastController.createImageToast(activity)
+                .setImage(R.drawable.ic_failure)
+                .show();
+    }
+
+    public static void showFailure(FragmentActivity activity, String text) {
         ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_failure)
                 .setText(text)
                 .show();
     }
 
-    public static void showLoadingToast(FragmentActivity activity, String text) {
-        ToastController.createLoadingToast(activity)
+    public static void showLoading(FragmentActivity activity) {
+        ToastController.createImageToast(activity)
+                .setImage(R.drawable.ic_loading)
+                .setAnimation(R.anim.anim_loading_rotate)
+                .show();
+    }
+
+    public static void showLoading(FragmentActivity activity, String text) {
+        ToastController.createImageAndTextToast(activity)
                 .setImage(R.drawable.ic_loading)
                 .setAnimation(R.anim.anim_loading_rotate)
                 .setText(text)
                 .show();
-    }
-
-    public static void showLoadingToast(FragmentActivity activity) {
-        ToastController.createLoadingToast(activity)
-                .setImage(R.drawable.ic_loading)
-                .setAnimation(R.anim.anim_loading_rotate)
-                .setText("正在加载")
-                .show();
-    }
-
-    public static void hideLoadingToast(FragmentActivity activity) {
-        hide(activity, ToastType.LOADING_TOAST.getToastTag());
     }
 
     /** dialog ************************************************************************************/

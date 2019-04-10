@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.config.DialogConfig;
-import com.nasduck.dialoglib.base.DuckDialog;
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.DuckDialog;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class OneButtonFooter extends RelativeLayout {
 

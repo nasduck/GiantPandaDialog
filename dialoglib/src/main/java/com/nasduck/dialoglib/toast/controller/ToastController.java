@@ -4,9 +4,7 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.toast.builder.ImageAndTextToastBuilder;
 import com.nasduck.dialoglib.toast.builder.ImageToastBuilder;
-import com.nasduck.dialoglib.toast.builder.LoadingToastBuilder;
 import com.nasduck.dialoglib.toast.builder.TextToastBuilder;
-import com.nasduck.dialoglib.toast.classification.LoadingToast;
 
 public class ToastController {
 
@@ -21,9 +19,4 @@ public class ToastController {
     public static ImageAndTextToastBuilder createImageAndTextToast(FragmentActivity activity) {
         return new ImageAndTextToastBuilder(activity);
     }
-
-    public static LoadingToastBuilder createLoadingToast(FragmentActivity activity) {
-        return new LoadingToastBuilder(activity);
-    }
-
 }

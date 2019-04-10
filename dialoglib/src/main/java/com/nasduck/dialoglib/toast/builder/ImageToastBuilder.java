@@ -16,10 +16,11 @@ public class ImageToastBuilder extends BaseToastBuilder {
     private Integer cornerRadius;
     private Integer paddingHorizontal;
     private Integer paddingVertical;
+    private Integer animation;
 
     public ImageToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 2000;
+
         mActivity = activity;
         
         image = 0;
@@ -71,6 +72,11 @@ public class ImageToastBuilder extends BaseToastBuilder {
         return this;
     }
 
+    public ImageToastBuilder setAnimation(Integer animation) {
+        this.animation = animation;
+        return this;
+    }
+
     /**********************************************************************************************/
 
     public Integer getImage() {
@@ -91,5 +97,9 @@ public class ImageToastBuilder extends BaseToastBuilder {
 
     public Integer getPaddingVertical() {
         return paddingVertical;
+    }
+
+    public Integer getAnimation() {
+        return animation;
     }
 }

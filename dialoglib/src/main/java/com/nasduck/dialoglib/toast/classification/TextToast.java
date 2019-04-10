@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.utils.DensityUtils;
 import com.nasduck.dialoglib.toast.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
@@ -21,11 +21,11 @@ public class TextToast extends BaseToast {
     public TextToast() {}
 
     public static TextToast create(ToastConfig config) {
-        TextToast fragment = new TextToast();
+        TextToast toast = new TextToast();
         Bundle args = new Bundle();
         args.putParcelable("textToastConfig", config);
-        fragment.setArguments(args);
-        return fragment;
+        toast.setArguments(args);
+        return toast;
     }
 
     @Override
@@ -44,8 +44,8 @@ public class TextToast extends BaseToast {
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
 
-        mTvContent = view.findViewById(R.id.tv_content);
-        mLayoutBackground = view.findViewById(R.id.background);
+        mTvContent = mView.findViewById(R.id.tv_title);
+        mLayoutBackground = mView.findViewById(R.id.container);
 
         updateUI(this.mConfig);
     }
@@ -59,11 +59,7 @@ public class TextToast extends BaseToast {
 
         // Text
         mTvContent.setText(config.getText());
-
-        // Text Size
         mTvContent.setTextSize(config.getTextSize());
-
-        // Text Color
         mTvContent.setTextColor(getResources().getColor(config.getTextColor()));
 
         // Padding

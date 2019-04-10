@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.base.utils;
+package com.nasduck.dialoglib.utils;
 
 import android.content.Context;
 

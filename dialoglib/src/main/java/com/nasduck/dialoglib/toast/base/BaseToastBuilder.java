@@ -3,33 +3,29 @@ package com.nasduck.dialoglib.toast.base;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import com.nasduck.dialoglib.base.DuckDialog;
 import com.nasduck.dialoglib.base.enums.ToastType;
 import com.nasduck.dialoglib.toast.classification.ImageAndTextToast;
 import com.nasduck.dialoglib.toast.classification.ImageToast;
-import com.nasduck.dialoglib.toast.classification.LoadingToast;
 import com.nasduck.dialoglib.toast.classification.TextToast;
+import com.nasduck.dialoglib.utils.FragmentUtils;
 
 public abstract class BaseToastBuilder implements IToastBuilder {
 
-    protected Integer delay;
-
     protected static ToastHandler mHandler = new ToastHandler();
 
-    public void show(int delay) {
-        this.delay = delay;
+    public void show(long delay) {
         show();
+        mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_HIDE, delay);
     }
 
     public void show() {
-        mHandler.removeMessages(ToastHandler.MSG_SHOW);
+        mHandler.removeMessages(ToastHandler.MSG_HIDE);
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        Fragment fragment = manager.findFragmentByTag(getType().getToastTag());
+        Fragment frag = manager.findFragmentByTag(getType().getToastTag());
         switch (getType()) {
             case TEXT_TOAST:
-                if (fragment != null) {
-                    // Update Toast existing
-                    ((TextToast) fragment).updateUI(build());
+                if (frag != null) { // Update Toast existing
+                    ((TextToast) frag).updateUI(build());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
@@ -38,9 +34,9 @@ public abstract class BaseToastBuilder implements IToastBuilder {
                 }
                 break;
             case IMAGE_TOAST:
-                if (fragment != null) {
+                if (frag != null) {
                     // Update Toast existing
-                    ((ImageToast) fragment).updateUI(build());
+                    ((ImageToast) frag).updateUI(build());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
@@ -49,9 +45,9 @@ public abstract class BaseToastBuilder implements IToastBuilder {
                 }
                 break;
             case TEXT_AND_IMAGE_TOAST:
-                if (fragment != null) {
+                if (frag != null) {
                     // Update Toast existing
-                    ((ImageAndTextToast) fragment).updateUI(build());
+                    ((ImageAndTextToast) frag).updateUI(build());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
@@ -59,32 +55,25 @@ public abstract class BaseToastBuilder implements IToastBuilder {
                     ImageAndTextToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
                 }
                 break;
-            case LOADING_TOAST:
-                if (fragment != null) {
-                    // Update Toast existing
-                    ((LoadingToast) fragment).updateUI(build());
-                } else {
-                    // hide other toast
-                    hideOtherFragment(getType(), manager);
-                    // Show Toast
-                    LoadingToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
-                }
-                return;
         }
-        mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_SHOW, delay);
     }
 
     @Override
     public void hide() {
-        DuckDialog.hide(getActivity(), getType().getToastTag());
+        FragmentUtils.hide(getActivity(), getType().getToastTag());
     }
 
-    // hide other toast
+    /**
+     * Hide other toast
+     *
+     * @param type
+     * @param manager
+     */
     private void hideOtherFragment(ToastType type, FragmentManager manager) {
         for (ToastType toastType : ToastType.values()) {
             if (type.getType() != toastType.getType()) {
                 if (manager.findFragmentByTag(toastType.getToastTag()) != null) {
-                    DuckDialog.hide(getActivity(), toastType.getToastTag());
+                    FragmentUtils.hide(getActivity(), toastType.getToastTag());
                 }
             }
         }

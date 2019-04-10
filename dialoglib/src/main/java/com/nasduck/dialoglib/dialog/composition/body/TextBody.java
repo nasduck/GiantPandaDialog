@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.config.DialogConfig;
 import com.nasduck.dialoglib.base.enums.GravityWay;
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextBody extends RelativeLayout {
 
@@ -29,7 +29,7 @@ public class TextBody extends RelativeLayout {
 
     private void init(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_body_text, this);
-        TextView tvContent = view.findViewById(R.id.tv_content);
+        TextView tvContent = view.findViewById(R.id.tv_title);
         FrameLayout layoutBackground = view.findViewById(R.id.layout);
 
         tvContent.setText(mConfig.getContentText());

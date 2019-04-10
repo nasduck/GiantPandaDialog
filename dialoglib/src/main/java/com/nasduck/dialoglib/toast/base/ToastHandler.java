@@ -7,7 +7,7 @@ import java.lang.ref.WeakReference;
 
 public class ToastHandler extends Handler {
 
-    public static final int MSG_SHOW = 999;
+    public static final int MSG_HIDE = 999;
 
     private WeakReference<IToastBuilder> mBuilderRef;
 
@@ -20,8 +20,8 @@ public class ToastHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
         switch (msg.what) {
-            case MSG_SHOW:
-                this.removeMessages(MSG_SHOW);
+            case MSG_HIDE:
+                this.removeMessages(MSG_HIDE);
                 if (mBuilderRef.get() != null) mBuilderRef.get().hide();
                 break;
         }

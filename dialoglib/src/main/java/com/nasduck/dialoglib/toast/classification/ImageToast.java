@@ -3,10 +3,12 @@ package com.nasduck.dialoglib.toast.classification;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.utils.DensityUtils;
 import com.nasduck.dialoglib.toast.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
@@ -23,11 +25,11 @@ public class ImageToast extends BaseToast {
     }
 
     public static ImageToast create(ToastConfig config){
-        ImageToast fragment = new ImageToast();
+        ImageToast toast = new ImageToast();
         Bundle args = new Bundle();
         args.putParcelable("imageToastConfig", config);
-        fragment.setArguments(args);
-        return fragment;
+        toast.setArguments(args);
+        return toast;
     }
 
     @Override
@@ -45,8 +47,8 @@ public class ImageToast extends BaseToast {
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
-        mLayoutBackground = view.findViewById(R.id.background);
-        mIvImage = view.findViewById(R.id.iv_image);
+        mLayoutBackground = mView.findViewById(R.id.container);
+        mIvImage = mView.findViewById(R.id.iv_image);
 
         updateUI(this.mConfig);
     }
@@ -59,7 +61,12 @@ public class ImageToast extends BaseToast {
         mLayoutBackground.setBackground(drawable);
 
         // Image
+        mIvImage.clearAnimation();
         mIvImage.setImageResource(config.getImage());
+        if (config.getAnim() != null) { // Set Animation
+            Animation animation = AnimationUtils.loadAnimation(getContext(), config.getAnim());
+            mIvImage.setAnimation(animation);
+        }
 
         // Padding
         mLayoutBackground.setPadding(DensityUtils.dp2px(getContext(), config.getPaddingHorizontal()),

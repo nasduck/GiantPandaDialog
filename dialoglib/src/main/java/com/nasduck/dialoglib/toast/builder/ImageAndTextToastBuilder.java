@@ -11,8 +11,9 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
 
     private FragmentActivity activity;
 
-    private Integer image;
     private String text;
+    private Integer image;
+    private Integer animation;
     private Integer textColor;
     private Integer textSize;
     private Integer bgColor ;
@@ -22,7 +23,7 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
 
     public ImageAndTextToastBuilder(FragmentActivity activity) {
         mHandler.set(this);
-        delay = 2000;
+
         this.activity = activity;
         this.image = 0;
         this.text = "";
@@ -91,6 +92,11 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
         return this;
     }
 
+    public ImageAndTextToastBuilder setAnimation(Integer animation) {
+        this.animation = animation;
+        return this;
+    }
+
     /**********************************************************************************************/
 
     public Integer getImage() {
@@ -123,5 +129,9 @@ public class ImageAndTextToastBuilder extends BaseToastBuilder {
 
     public Integer getPaddingVertical() {
         return paddingVertical;
+    }
+
+    public Integer getAnimation() {
+        return animation;
     }
 }

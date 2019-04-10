@@ -6,7 +6,7 @@ import android.view.View;
 public interface IDialogHeader {
 
     /**
-     * get dialog header view
+     * get dialog header mView
      * @param context
      * @return
      */

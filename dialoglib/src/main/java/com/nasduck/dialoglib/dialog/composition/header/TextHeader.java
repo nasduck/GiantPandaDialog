@@ -14,7 +14,7 @@ import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.config.DialogConfig;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
-import com.nasduck.dialoglib.base.utils.DensityUtils;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextHeader extends RelativeLayout {
 
