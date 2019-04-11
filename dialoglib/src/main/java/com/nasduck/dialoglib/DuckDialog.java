@@ -10,7 +10,7 @@ import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
-import com.nasduck.dialoglib.toast.controller.ToastController;
+import com.nasduck.dialoglib.toast.builder.ToastBuilder;
 import com.nasduck.dialoglib.utils.FragmentUtils;
 
 /**
@@ -30,59 +30,59 @@ public class DuckDialog {
     /** toast *************************************************************************************/
 
     public static void show(FragmentActivity activity, String text) {
-        ToastController.createTextToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setText(text)
                 .show();
     }
 
     public static void showSuccess(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_success)
                 .show();
     }
 
     public static void showSuccess(FragmentActivity activity, String text) {
-        ToastController.createImageAndTextToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_success)
                 .setText(text)
                 .show();
     }
 
     public static void showWarning(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_warning)
                 .show();
     }
 
     public static void showWarning(FragmentActivity activity, String text) {
-        ToastController.createImageAndTextToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_warning)
                 .setText(text)
                 .show();
     }
 
     public static void showFailure(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_failure)
                 .show();
     }
 
     public static void showFailure(FragmentActivity activity, String text) {
-        ToastController.createImageAndTextToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_failure)
                 .setText(text)
                 .show();
     }
 
     public static void showLoading(FragmentActivity activity) {
-        ToastController.createImageToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_loading)
                 .setAnimation(R.anim.anim_loading_rotate)
                 .show();
     }
 
     public static void showLoading(FragmentActivity activity, String text) {
-        ToastController.createImageAndTextToast(activity)
+        ToastBuilder.getInstance(activity)
                 .setImage(R.drawable.ic_loading)
                 .setAnimation(R.anim.anim_loading_rotate)
                 .setText(text)

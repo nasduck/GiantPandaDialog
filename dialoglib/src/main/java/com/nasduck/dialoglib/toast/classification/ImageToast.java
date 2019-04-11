@@ -20,14 +20,12 @@ public class ImageToast extends BaseToast {
 
     private ToastConfig mConfig;
 
-    public ImageToast() {
+    public ImageToast() {}
 
-    }
-
-    public static ImageToast create(ToastConfig config){
+    public static ImageToast newInstance(ToastConfig config){
         ImageToast toast = new ImageToast();
         Bundle args = new Bundle();
-        args.putParcelable("imageToastConfig", config);
+        args.putParcelable("config", config);
         toast.setArguments(args);
         return toast;
     }
@@ -36,7 +34,7 @@ public class ImageToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mConfig = getArguments().getParcelable("imageToastConfig");
+            mConfig = getArguments().getParcelable("config");
         }
     }
 

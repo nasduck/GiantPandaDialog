@@ -3,6 +3,9 @@ package com.nasduck.dialoglib.toast.classification;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -24,10 +27,10 @@ public class ImageAndTextToast extends BaseToast {
 
     public ImageAndTextToast() {}
 
-    public static ImageAndTextToast create(ToastConfig config){
+    public static ImageAndTextToast newInstance(ToastConfig config){
         ImageAndTextToast toast = new ImageAndTextToast();
         Bundle args = new Bundle();
-        args.putParcelable("textAndImageToastConfig", config);
+        args.putParcelable("config", config);
         toast.setArguments(args);
         return toast;
     }
@@ -36,7 +39,7 @@ public class ImageAndTextToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mConfig = getArguments().getParcelable("textAndImageToastConfig");
+            mConfig = getArguments().getParcelable("config");
         }
     }
 
@@ -47,6 +50,7 @@ public class ImageAndTextToast extends BaseToast {
 
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
+
         mLayoutContainer = mView.findViewById(R.id.container);
         mIvImage = mView.findViewById(R.id.iv_image);
         mTvTitle = mView.findViewById(R.id.tv_title);
@@ -57,13 +61,30 @@ public class ImageAndTextToast extends BaseToast {
     public void updateUI(ToastConfig config) {
 
         // Title
-        mTvTitle.setText(config.getText());
-        mTvTitle.setTextSize(config.getTextSize());
-        mTvTitle.setTextColor(getResources().getColor(config.getTextColor()));
+        if (TextUtils.isEmpty(config.getText())) {
+            mTvTitle.setText("");
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
+            lp.topMargin = 0;
+            mTvTitle.setVisibility(View.GONE);
+        } else {
+            mTvTitle.setText(config.getText());
+            mTvTitle.setTextSize(config.getTextSize());
+            mTvTitle.setTextColor(getResources().getColor(config.getTextColor()));
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
+            lp.topMargin = 6;
+            mTvTitle.setVisibility(View.VISIBLE);
+        }
 
         // Image
         mIvImage.clearAnimation();
-        mIvImage.setImageResource(config.getImage());
+        if (config.getImage() != null) {
+            mIvImage.setVisibility(View.VISIBLE);
+            mIvImage.setImageResource(config.getImage());
+        } else {
+            mIvImage.setVisibility(View.GONE);
+            mIvImage.setImageDrawable(null);
+        }
+
         if (config.getAnim() != null) { // Set Animation
             Animation animation = AnimationUtils.loadAnimation(getContext(), config.getAnim());
             mIvImage.setAnimation(animation);

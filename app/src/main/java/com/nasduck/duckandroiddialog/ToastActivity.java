@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.DuckDialog;
-import com.nasduck.dialoglib.toast.controller.ToastController;
+import com.nasduck.dialoglib.toast.builder.ToastBuilder;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -52,9 +52,8 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onToastCustomClick(View view) {
-        ToastController.createTextToast(this)
+        ToastBuilder.getInstance(this)
                 .setText("hello world!")
-                .show(5000);
-
+                .show(3000);
     }
 }

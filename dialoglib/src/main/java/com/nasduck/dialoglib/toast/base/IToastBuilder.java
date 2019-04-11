@@ -9,7 +9,7 @@ public interface IToastBuilder {
 
     FragmentActivity getActivity();
 
-    ToastConfig build();
+    ToastConfig getConfig();
 
     void hide();
 

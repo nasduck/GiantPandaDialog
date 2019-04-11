@@ -25,34 +25,35 @@ public abstract class BaseToastBuilder implements IToastBuilder {
         switch (getType()) {
             case TEXT_TOAST:
                 if (frag != null) { // Update Toast existing
-                    ((TextToast) frag).updateUI(build());
+                    ((TextToast) frag).updateUI(getConfig());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
                     // Show Toast
-                    TextToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
+                    TextToast.newInstance(getConfig())
+                            .show(getActivity().getSupportFragmentManager(), getType().getToastTag());
                 }
                 break;
             case IMAGE_TOAST:
                 if (frag != null) {
                     // Update Toast existing
-                    ((ImageToast) frag).updateUI(build());
+                    ((ImageToast) frag).updateUI(getConfig());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
                     // Show Toast
-                    ImageToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
+                    ImageToast.newInstance(getConfig()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
                 }
                 break;
             case TEXT_AND_IMAGE_TOAST:
                 if (frag != null) {
                     // Update Toast existing
-                    ((ImageAndTextToast) frag).updateUI(build());
+                    ((ImageAndTextToast) frag).updateUI(getConfig());
                 } else {
                     // hide other toast
                     hideOtherFragment(getType(), manager);
                     // Show Toast
-                    ImageAndTextToast.create(build()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
+                    ImageAndTextToast.newInstance(getConfig()).show(getActivity().getSupportFragmentManager(), getType().getToastTag());
                 }
                 break;
         }

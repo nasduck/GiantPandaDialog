@@ -20,10 +20,10 @@ public class TextToast extends BaseToast {
 
     public TextToast() {}
 
-    public static TextToast create(ToastConfig config) {
+    public static TextToast newInstance(ToastConfig config) {
         TextToast toast = new TextToast();
         Bundle args = new Bundle();
-        args.putParcelable("textToastConfig", config);
+        args.putParcelable("config", config);
         toast.setArguments(args);
         return toast;
     }
@@ -32,7 +32,7 @@ public class TextToast extends BaseToast {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mConfig = getArguments().getParcelable("textToastConfig");
+            mConfig = getArguments().getParcelable("config");
         }
     }
 
