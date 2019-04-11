@@ -66,13 +66,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onHideToastClick"
-            android:text="Hide Toast Loading"/>
+            android:text="Hide Toast"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="onToastCustomClick"
-            android:text="Customized Toast"/>
+            android:text="Customized Toast dismiss in 1.5s"/>
 
     </LinearLayout>
 
