@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.toast.Toast.impl;
+package com.nasduck.dialoglib.toast.toast.impl;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nasduck.dialoglib.toast.Toast.BaseToast;
+import com.nasduck.dialoglib.toast.toast.BaseToast;
 import com.nasduck.dialoglib.utils.DensityUtils;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.config.ToastConfig;

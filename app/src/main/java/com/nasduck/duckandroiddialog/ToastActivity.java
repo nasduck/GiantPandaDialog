@@ -51,7 +51,7 @@ public class ToastActivity extends AppCompatActivity {
         DuckDialog.showLoading(this, "loading");
     }
 
-    public void onHideLoadingToastClick(View view) {
+    public void onHideToastClick(View view) {
         // todo
     }
 
@@ -64,6 +64,7 @@ public class ToastActivity extends AppCompatActivity {
                 .setCornerRadius(10)
                 .setPaddingHorizontal(22)
                 .setPaddingVertical(22)
-                .show(1500);
+                .show();
+        ToastBuilder.dismiss(1500);
     }
 }

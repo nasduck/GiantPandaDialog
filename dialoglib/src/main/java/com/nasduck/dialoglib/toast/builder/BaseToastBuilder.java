@@ -6,44 +6,45 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.nasduck.dialoglib.toast.handler.ToastHandler;
-import com.nasduck.dialoglib.toast.Toast.impl.Toast;
+import com.nasduck.dialoglib.toast.toast.impl.Toast;
 
 public abstract class BaseToastBuilder implements IToastBuilder {
 
-    protected static ToastHandler mHandler = new ToastHandler();
-    protected final static String ToastTag = "toast_tag";
+    private final static String TOAST_TAG = "toast_tag";
 
-    @Override
+    protected static ToastHandler mHandler = new ToastHandler();
+
     public void show() {
         mHandler.removeMessages(ToastHandler.MSG_HIDE);
         FragmentManager manager = getActivity().getSupportFragmentManager();
-        Fragment frag = manager.findFragmentByTag(ToastTag);
+        Fragment frag = manager.findFragmentByTag(TOAST_TAG);
         if (frag != null) {
             ((Toast) frag).updateUI(getConfig());
         } else {
             // Show Toast
             Toast.newInstance(getConfig())
-                    .show(manager, ToastTag);
+                    .show(manager, TOAST_TAG);
         }
     }
 
-    public void show(long delay) {
-        show();
+    public static void dismiss() {
+        mHandler.removeMessages(ToastHandler.MSG_HIDE);
+        mHandler.sendEmptyMessage(ToastHandler.MSG_HIDE);
+    }
+
+    public static void dismiss(long delay) {
+        mHandler.removeMessages(ToastHandler.MSG_HIDE);
         mHandler.sendEmptyMessageDelayed(ToastHandler.MSG_HIDE, delay);
     }
 
-    @Override
     public void hide() {
-        hide(getActivity(), ToastTag);
-    }
-
-    private void hide(FragmentActivity activity, String tag) {
-        FragmentManager manager = activity.getSupportFragmentManager();
-        Fragment frag = manager.findFragmentByTag(tag);
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        Fragment frag = manager.findFragmentByTag(TOAST_TAG);
         if (frag != null) {
             FragmentTransaction t = manager.beginTransaction();
             t.remove(frag);
             t.commitAllowingStateLoss();
         }
     }
+
 }

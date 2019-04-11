@@ -65,7 +65,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onHideLoadingToastClick"
+            android:onClick="onHideToastClick"
             android:text="Hide Toast Loading"/>
 
         <Button

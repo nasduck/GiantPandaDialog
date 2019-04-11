@@ -12,5 +12,4 @@ public interface IToastBuilder {
 
     void hide();
 
-    void show();
 }
