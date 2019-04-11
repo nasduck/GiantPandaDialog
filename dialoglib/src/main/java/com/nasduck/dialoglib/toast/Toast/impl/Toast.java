@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.toast.classification;
+package com.nasduck.dialoglib.toast.Toast.impl;
 
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -12,12 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nasduck.dialoglib.toast.Toast.BaseToast;
 import com.nasduck.dialoglib.utils.DensityUtils;
-import com.nasduck.dialoglib.toast.base.BaseToast;
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
 
-public class ImageAndTextToast extends BaseToast {
+public class Toast extends BaseToast {
 
     private LinearLayout mLayoutContainer;
     private ImageView mIvImage;
@@ -25,10 +25,10 @@ public class ImageAndTextToast extends BaseToast {
 
     private ToastConfig mConfig;
 
-    public ImageAndTextToast() {}
+    public Toast() {}
 
-    public static ImageAndTextToast newInstance(ToastConfig config){
-        ImageAndTextToast toast = new ImageAndTextToast();
+    public static Toast newInstance(ToastConfig config){
+        Toast toast = new Toast();
         Bundle args = new Bundle();
         args.putParcelable("config", config);
         toast.setArguments(args);
@@ -63,15 +63,11 @@ public class ImageAndTextToast extends BaseToast {
         // Title
         if (TextUtils.isEmpty(config.getText())) {
             mTvTitle.setText("");
-            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
-            lp.topMargin = 0;
             mTvTitle.setVisibility(View.GONE);
         } else {
             mTvTitle.setText(config.getText());
             mTvTitle.setTextSize(config.getTextSize());
             mTvTitle.setTextColor(getResources().getColor(config.getTextColor()));
-            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
-            lp.topMargin = 6;
             mTvTitle.setVisibility(View.VISIBLE);
         }
 
@@ -83,6 +79,16 @@ public class ImageAndTextToast extends BaseToast {
         } else {
             mIvImage.setVisibility(View.GONE);
             mIvImage.setImageDrawable(null);
+        }
+
+        if (config.getImage() != null && !TextUtils.isEmpty(config.getText())) {
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
+            lp.topMargin = DensityUtils.dp2px(getContext(), 6);
+            mTvTitle.setLayoutParams(lp);
+        } else {
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mTvTitle.getLayoutParams();
+            lp.topMargin = 0;
+            mTvTitle.setLayoutParams(lp);
         }
 
         if (config.getAnim() != null) { // Set Animation

@@ -1,7 +1,9 @@
-package com.nasduck.dialoglib.toast.base;
+package com.nasduck.dialoglib.toast.handler;
 
 import android.os.Handler;
 import android.os.Message;
+
+import com.nasduck.dialoglib.toast.builder.IToastBuilder;
 
 import java.lang.ref.WeakReference;
 

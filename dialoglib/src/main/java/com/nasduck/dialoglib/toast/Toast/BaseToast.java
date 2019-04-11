@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.toast.base;
+package com.nasduck.dialoglib.toast.Toast;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,12 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.base.IDialogFragment;
 
-public abstract class BaseDialogFragment extends DialogFragment implements IDialogFragment {
+public abstract class BaseToast extends DialogFragment implements IDialogFragment {
 
     protected Context mContext;
     protected View mView;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setStyle(DialogFragment.STYLE_NO_INPUT, R.style.fragment_dialog_toast_style);
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -42,14 +49,6 @@ public abstract class BaseDialogFragment extends DialogFragment implements IDial
     public void onAttach(Context context) {
         this.mContext = context;
         super.onAttach(context);
-    }
-
-    /**
-     * set shade
-     * @param dim
-     */
-    public void setDim(float dim) {
-        getDialog().getWindow().setDimAmount(dim);
     }
 
 }

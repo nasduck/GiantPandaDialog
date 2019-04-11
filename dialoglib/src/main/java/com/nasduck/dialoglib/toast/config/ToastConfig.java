@@ -22,8 +22,8 @@ public final class ToastConfig implements Parcelable {
         this.textColor = android.R.color.white;
         this.textSize = 14;
         this.bgColor = R.color.black_alpha_50;
-        this.cornerRadius = 4;
-        this.paddingHorizontal = 15;
+        this.cornerRadius = 6;
+        this.paddingHorizontal = 18;
         this.paddingVertical = 12;
     }
 

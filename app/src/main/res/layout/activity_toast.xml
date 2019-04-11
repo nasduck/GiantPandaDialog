@@ -1,67 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onToastDefaultClick"
-        android:text="Toast Default"/>
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onImageToastSuccessClick"
-        android:text="Image Toast Success"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onDefaultClick"
+            android:text="Default Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onImageToastFailureClick"
-        android:text="Image Toast Failure"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSuccessClick"
+            android:text="Success Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onImageToastWarningClick"
-        android:text="Image Toast Warning"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onFailureClick"
+            android:text="Failure Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onTextAndImageToastSuccessClick"
-        android:text="Text And Image Toast Success"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onWarningClick"
+            android:text="Warning Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onTextAndImageToastFailureClick"
-        android:text="Text And Image Toast Failure"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onLoadingClick"
+            android:text="Loading Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onTextAndImageToastWarningClick"
-        android:text="Text And Image Toast Warning"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onSuccessTextClick"
+            android:text="Success Text Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onTextAndImageToastLoadingClick"
-        android:text="Text And Image Toast Loading"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onFailureTextClick"
+            android:text="Failure Text Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onHideLoadingToastClick"
-        android:text="Hide Toast Loading"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onWarningTextClick"
+            android:text="Warning Text Toast"/>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onToastCustomClick"
-        android:text="Toast Customized"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onLoadingTextClick"
+            android:text="Loading Text Toast"/>
 
-</LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onHideLoadingToastClick"
+            android:text="Hide Toast Loading"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onToastCustomClick"
+            android:text="Customized Toast"/>
+
+    </LinearLayout>
+
+</ScrollView>

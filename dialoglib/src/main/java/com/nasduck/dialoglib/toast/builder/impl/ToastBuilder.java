@@ -1,10 +1,9 @@
-package com.nasduck.dialoglib.toast.builder;
+package com.nasduck.dialoglib.toast.builder.impl;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.toast.base.BaseToastBuilder;
+import com.nasduck.dialoglib.toast.builder.BaseToastBuilder;
 import com.nasduck.dialoglib.toast.config.ToastConfig;
-import com.nasduck.dialoglib.base.enums.ToastType;
 
 public class ToastBuilder extends BaseToastBuilder {
 
@@ -35,11 +34,6 @@ public class ToastBuilder extends BaseToastBuilder {
     @Override
     public ToastConfig getConfig() {
         return this.config;
-    }
-
-    @Override
-    public ToastType getType() {
-        return ToastType.TEXT_AND_IMAGE_TOAST;
     }
 
     //* Setter & Getter **************************************************************************//

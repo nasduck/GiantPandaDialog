@@ -10,8 +10,7 @@ import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
-import com.nasduck.dialoglib.toast.builder.ToastBuilder;
-import com.nasduck.dialoglib.utils.FragmentUtils;
+import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
 
 /**
  * default config
@@ -24,7 +23,8 @@ public class DuckDialog {
      * @param tag
      */
     public static void hide(FragmentActivity activity, String tag) {
-        FragmentUtils.hide(activity, tag);
+        // todo
+        //FragmentUtils.hide(activity, tag);
     }
 
     /** toast *************************************************************************************/

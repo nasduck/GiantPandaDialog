@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.DuckDialog;
-import com.nasduck.dialoglib.toast.builder.ToastBuilder;
+import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -15,36 +15,40 @@ public class ToastActivity extends AppCompatActivity {
         setContentView(R.layout.activity_toast);
     }
 
-    public void onToastDefaultClick(View view) {
+    public void onDefaultClick(View view) {
         DuckDialog.show(this, "Toast Default");
     }
 
-    public void onImageToastSuccessClick(View view) {
+    public void onSuccessClick(View view) {
         DuckDialog.showSuccess(this);
     }
 
-    public void onImageToastFailureClick(View view) {
+    public void onFailureClick(View view) {
         DuckDialog.showFailure(this);
     }
 
-    public void onImageToastWarningClick(View view) {
+    public void onWarningClick(View view) {
         DuckDialog.showWarning(this);
     }
 
-    public void onTextAndImageToastSuccessClick(View view) {
+    public void onLoadingClick(View view) {
+        DuckDialog.showLoading(this);
+    }
+
+    public void onSuccessTextClick(View view) {
         DuckDialog.showSuccess(this, "success");
     }
 
-    public void onTextAndImageToastFailureClick(View view) {
+    public void onFailureTextClick(View view) {
         DuckDialog.showFailure(this, "failure");
     }
 
-    public void onTextAndImageToastWarningClick(View view) {
+    public void onWarningTextClick(View view) {
         DuckDialog.showWarning(this, "warning");
     }
 
-    public void onTextAndImageToastLoadingClick(View view) {
-        DuckDialog.showLoading(this);
+    public void onLoadingTextClick(View view) {
+        DuckDialog.showLoading(this, "loading");
     }
 
     public void onHideLoadingToastClick(View view) {
@@ -54,6 +58,12 @@ public class ToastActivity extends AppCompatActivity {
     public void onToastCustomClick(View view) {
         ToastBuilder.getInstance(this)
                 .setText("hello world!")
-                .show(3000);
+                .setTextSize(20)
+                .setTextColor(android.R.color.holo_red_light)
+                .setBgColor(android.R.color.holo_green_light)
+                .setCornerRadius(10)
+                .setPaddingHorizontal(22)
+                .setPaddingVertical(22)
+                .show(1500);
     }
 }
