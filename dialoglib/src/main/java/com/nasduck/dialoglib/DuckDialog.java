@@ -96,7 +96,6 @@ public class DuckDialog {
     /** dialog ************************************************************************************/
 
     public static void show(FragmentActivity activity, String title, String content) {
-
         DialogButton btn = new DialogButton(activity);
         btn.setText("Test");
 

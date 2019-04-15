@@ -20,7 +20,7 @@ public class DialogButton extends AppCompatTextView {
     private void init() {
 
         this.setText(config.getText());
-        this.setTextColor(config.getTextColor());
+        this.setTextColor(getResources().getColor(config.getTextColor()));
         this.setTextSize(config.getTextSize());
         this.setClickable(true);
         this.setGravity(config.getGravity());
