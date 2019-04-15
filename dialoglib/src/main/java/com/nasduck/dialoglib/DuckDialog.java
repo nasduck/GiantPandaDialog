@@ -2,11 +2,15 @@ package com.nasduck.dialoglib;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.dialog.controller.DialogController;
+import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
+import com.nasduck.dialoglib.dialog.builder.body.DialogBodyBuilder;
+import com.nasduck.dialoglib.dialog.builder.header.DialogHeaderBuilder;
+import com.nasduck.dialoglib.dialog.classification.TextDialog;
 import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.DialogType;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
+import com.nasduck.dialoglib.dialog.composition.footer.DialogButton;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
@@ -91,9 +95,21 @@ public class DuckDialog {
 
     /** dialog ************************************************************************************/
 
+    public static void show(FragmentActivity activity, String title, String content) {
+
+        DialogButton btn = new DialogButton(activity);
+        btn.setText("Test");
+
+        DialogBuilder.getInstance(activity)
+                .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
+                .setBody(DialogBodyBuilder.getInstance().setContent(content))
+                .addButton(btn)
+                .show();
+    }
+
     public static void showTitleTipDialog(FragmentActivity activity, String title, String content,
                                           String buttonText, OnNormalClickListener listener) {
-        DialogController.createTextDialog(activity)
+        new TextDialog(activity)
                 .setTitleTextStyle(TextStyle.BOLD)
                 .setTitle(title)
                 .setTitleSize(16)
@@ -104,7 +120,6 @@ public class DuckDialog {
                 .setContentSize(14)
                 .setContentColor(R.color.text_black_light)
                 .setContentPadding(26, 20, 26, 20)
-                .setButtonNumber(DialogButtonNumber.ONE)
                 .setNormalButtonText(buttonText)
                 .setNormalButtonTextColor(R.color.text_blue)
                 .setNormalButtonTextSize(16)
@@ -118,7 +133,7 @@ public class DuckDialog {
                                              String positiveButtonText, String negativeButtonText,
                                              OnPositiveClickListener positiveClickListener,
                                              OnNegativeClickListener negativeClickListener) {
-        DialogController.createTextDialog(activity)
+        new TextDialog(activity)
                 .setTitleTextStyle(TextStyle.BOLD)
                 .setTitle(title)
                 .setTitleSize(16)
@@ -129,7 +144,6 @@ public class DuckDialog {
                 .setContentSize(14)
                 .setContentColor(R.color.text_black_light)
                 .setContentPadding(26, 20, 26, 20)
-                .setButtonNumber(DialogButtonNumber.TWO)
                 .setPositiveButtonText(positiveButtonText)
                 .setPositiveButtonTextSize(16)
                 .setPositiveButtonTextColor(R.color.text_blue)
@@ -145,12 +159,11 @@ public class DuckDialog {
 
     public static void showNoTitleTipDialog(FragmentActivity activity, String content,
                                             String buttonText, OnNormalClickListener listener) {
-        DialogController.createTextDialog(activity)
+        new TextDialog(activity)
                 .setContent(content)
                 .setContentSize(14)
                 .setContentColor(R.color.text_black_light)
                 .setContentPadding(26, 20, 26, 20)
-                .setButtonNumber(DialogButtonNumber.ONE)
                 .setNormalButtonText(buttonText)
                 .setNormalButtonTextColor(R.color.text_blue)
                 .setNormalButtonTextSize(16)
@@ -164,12 +177,11 @@ public class DuckDialog {
                                                String positiveButtonText, String negativeButtonText,
                                                OnPositiveClickListener positiveClickListener,
                                                OnNegativeClickListener negativeClickListener) {
-        DialogController.createTextDialog(activity)
+        new TextDialog(activity)
                 .setContent(content)
                 .setContentSize(14)
                 .setContentColor(R.color.text_black_light)
                 .setContentPadding(26, 20, 26, 20)
-                .setButtonNumber(DialogButtonNumber.TWO)
                 .setPositiveButtonText(positiveButtonText)
                 .setPositiveButtonTextSize(16)
                 .setPositiveButtonTextColor(R.color.text_blue)

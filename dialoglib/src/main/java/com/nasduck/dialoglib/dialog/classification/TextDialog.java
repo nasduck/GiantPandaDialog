@@ -3,7 +3,7 @@ package com.nasduck.dialoglib.dialog.classification;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
-import com.nasduck.dialoglib.dialog.builder.body.TextBodyBuilder;
+import com.nasduck.dialoglib.dialog.builder.body.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.classification.base.TitleBaseDialog;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 
@@ -18,7 +18,7 @@ public class TextDialog extends TitleBaseDialog<TextDialog> {
     private Integer paddingRight;
     private Integer paddingBottom;
 
-    public static TextDialog create(FragmentActivity activity) {
+    public static TextDialog getInstance(FragmentActivity activity) {
         return new TextDialog(activity);
     }
 
@@ -28,7 +28,8 @@ public class TextDialog extends TitleBaseDialog<TextDialog> {
 
     @Override
     public void setBodyBuilderConfig(DialogBuilder builder) {
-        TextBodyBuilder bodyBuilder = new TextBodyBuilder();
+        /**
+        DialogBodyBuilder bodyBuilder = new DialogBodyBuilder();
         bodyBuilder.setContentText(content)
                 .setContentTextSize(contentSize)
                 .setContentTextColor(contentColor)
@@ -39,6 +40,7 @@ public class TextDialog extends TitleBaseDialog<TextDialog> {
                 .setPaddingBottom(paddingBottom);
 
         builder.setBody(bodyBuilder);
+         **/
     }
 
     public TextDialog setContent(String content) {

@@ -10,17 +10,18 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.DuckDialog;
+import com.nasduck.dialoglib.dialog.config.FooterConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TwoButtonFooter extends RelativeLayout {
 
     private static FragmentActivity mActivity;
-    private static DialogConfig mConfig;
+    private static FooterConfig mConfig;
     private static String mTag;
 
-    public static TwoButtonFooter create(FragmentActivity activity, Context context, DialogConfig config, String tag) {
+    public static TwoButtonFooter create(FragmentActivity activity, Context context, FooterConfig config, String tag) {
         mActivity = activity;
         mConfig = config;
         mTag = tag;
@@ -36,10 +37,11 @@ public class TwoButtonFooter extends RelativeLayout {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_footer_button_two, this);
         Button btnNegative = view.findViewById(R.id.btn_negative);
         Button btnPositive = view.findViewById(R.id.btn_positive);
-        float radius = mConfig.getCornerRadius();
+        //float radius = mConfig.getCornerRadius();
 
         /** btnNegative ***************************************************************************/
         // button click effect
+        /**
         GradientDrawable drawablePressedNegative = new GradientDrawable();
         drawablePressedNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(context, radius),
@@ -50,13 +52,14 @@ public class TwoButtonFooter extends RelativeLayout {
         drawableNormalNegative.setCornerRadii(new float[]{0f, 0f, 0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius)});
-        drawableNormalNegative.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+        drawableNormalNegative.setColor(getResources().getColor(mConfig.getBgColor()));
 
         StateListDrawable drawableListNegative = new StateListDrawable();
         drawableListNegative.addState(new int[]{android.R.attr.state_pressed}, drawablePressedNegative);
         drawableListNegative.addState(new int[]{}, drawableNormalNegative);
 
         btnNegative.setBackground(drawableListNegative);
+         **/
 
         // button text style
         btnNegative.setText(mConfig.getNegativeButtonText());
@@ -76,6 +79,7 @@ public class TwoButtonFooter extends RelativeLayout {
 
         /** btnPositive ***************************************************************************/
         // button click effect
+        /**
         GradientDrawable drawablePressedPositive = new GradientDrawable();
         drawablePressedPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(context, radius),
@@ -86,13 +90,14 @@ public class TwoButtonFooter extends RelativeLayout {
         drawableNormalPositive.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius), 0f, 0f});
-        drawableNormalPositive.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+        drawableNormalPositive.setColor(getResources().getColor(mConfig.getBgColor()));
 
         StateListDrawable drawableListPositive = new StateListDrawable();
         drawableListPositive.addState(new int[]{android.R.attr.state_pressed}, drawablePressedPositive);
         drawableListPositive.addState(new int[]{}, drawableNormalPositive);
 
         btnPositive.setBackground(drawableListPositive);
+         **/
 
         // button text style
         btnPositive.setText(mConfig.getPositiveButtonText());

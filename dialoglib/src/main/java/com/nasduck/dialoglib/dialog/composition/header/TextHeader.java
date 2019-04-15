@@ -11,16 +11,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.config.DialogConfig;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
+import com.nasduck.dialoglib.dialog.config.HeaderConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class TextHeader extends RelativeLayout {
 
-    private static DialogConfig mConfig;
+    private static HeaderConfig mConfig;
 
-    public static TextHeader create(Context context, DialogConfig config) {
+    public static TextHeader create(Context context, HeaderConfig config) {
         mConfig = config;
         return new TextHeader(context);
     }
@@ -33,30 +33,34 @@ public class TextHeader extends RelativeLayout {
     private void init(Context context) {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_header_text, this);
         TextView tvTitle = view.findViewById(R.id.tv_title);
-        FrameLayout layoutBackground = view.findViewById(R.id.layout);
+        FrameLayout layoutBackground = view.findViewById(R.id.container);
 
         // set text style
-        tvTitle.setTypeface(Typeface.DEFAULT, setTextStyle(mConfig.getTitleTextStyle()));
-        tvTitle.setText(mConfig.getTitleText());
+        tvTitle.setTypeface(Typeface.DEFAULT, setTextStyle(mConfig.getTitleStyle()));
+        tvTitle.setText(mConfig.getTitle());
         tvTitle.setTextSize(mConfig.getTitleTextSize());
-        tvTitle.setTextColor(getResources().getColor(mConfig.getTitleTextColor()));
-        tvTitle.setLayoutParams(setLayoutGravity(mConfig.getGravityWay()));
+        tvTitle.setTextColor(getResources().getColor(mConfig.getTitleColor()));
+        //tvTitle.setLayoutParams(setLayoutGravity(mConfig.));
 
         // set background
+        /**
         float radius = mConfig.getCornerRadius();
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
-        drawable.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
         layoutBackground.setBackground(drawable);
+         **/
 
         // set text location
+        /**
         layoutBackground.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
                 DensityUtils.dp2px(context, mConfig.getPaddingTop()),
                 DensityUtils.dp2px(context, mConfig.getPaddingRight()),
                 DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
+         **/
 
     }
 

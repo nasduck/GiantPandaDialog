@@ -23,35 +23,41 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 public class BaseDialog extends DialogFragment {
 
     private IDialogView mDialogView;
-    private int mBackgroundColorId;
+    private int mBgColor;
     private int mCornerRadius;
     private int mDialogWidth;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
 
-    public static BaseDialog create() {
-        BaseDialog dialog = new BaseDialog();
-        return dialog;
+    public static BaseDialog newInstance() {
+        return new BaseDialog();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        View viewLayout = inflater.inflate(R.layout.dialog_custom, container, false);
-        LinearLayout layout = viewLayout.findViewById(R.id.layout);
-        // set dialog background
+
+        View rootView = inflater.inflate(R.layout.dialog_custom, container, false);
+        LinearLayout layout = rootView.findViewById(R.id.container);
+
+        // BgColor & CornerRadius
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(DensityUtils.dp2px(getContext(), mCornerRadius));
-        drawable.setColor(getResources().getColor(mBackgroundColorId));
+        drawable.setColor(getResources().getColor(mBgColor));
         layout.setBackground(drawable);
+
         if (!mHasShade) {
             getDialog().getWindow().setDimAmount(0f);
         }
-        // set dialog cancel
+
+        // Outside Touch Cancelable
         getDialog().setCanceledOnTouchOutside(mTouchOutsideCancelable);
+
+        // Back Key Cancelable
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
@@ -65,28 +71,25 @@ public class BaseDialog extends DialogFragment {
                 return false;
             }
         });
+
+        int index = 0;
         // set dialog mView
         if (mDialogView != null) {
-            // judge does it contain a title
-            if (mDialogView.getHeaderLayout(viewLayout.getContext()) != null) {
-                layout.addView(mDialogView.getHeaderLayout(viewLayout.getContext()), 0);
-                if (mDialogView.getBodyLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getBodyLayout(viewLayout.getContext()), 1);
-                }
-                if (mDialogView.getFooterLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getFooterLayout(viewLayout.getContext()), 2);
-                }
-            } else {
-                if (mDialogView.getBodyLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getBodyLayout(viewLayout.getContext()), 0);
-                }
-                if (mDialogView.getFooterLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getFooterLayout(viewLayout.getContext()), 1);
-                }
+            // Add header
+            if (mDialogView.getHeaderLayout(getContext()) != null) {
+                layout.addView(mDialogView.getHeaderLayout(rootView.getContext()), index++);
+            }
+
+            // Add Body
+            layout.addView(mDialogView.getBodyLayout(getContext()), index++);
+
+            // Add footer
+            if (mDialogView.getFooterLayout(getContext()) != null) {
+                layout.addView(mDialogView.getFooterLayout(rootView.getContext()), index);
             }
 
         }
-        return viewLayout;
+        return rootView;
     }
 
     @Override
@@ -101,7 +104,7 @@ public class BaseDialog extends DialogFragment {
     }
 
     public BaseDialog setBackgroundColor(int colorId) {
-        this.mBackgroundColorId = colorId;
+        this.mBgColor = colorId;
         return this;
     }
 

@@ -10,17 +10,18 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.DuckDialog;
+import com.nasduck.dialoglib.dialog.config.FooterConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class OneButtonFooter extends RelativeLayout {
 
     private static FragmentActivity mActivity;
-    private static DialogConfig mConfig;
+    private static FooterConfig mConfig;
     private static String mTag;
 
-    public static OneButtonFooter create(FragmentActivity activity, Context context, DialogConfig config, String tag) {
+    public static OneButtonFooter create(FragmentActivity activity, Context context, FooterConfig config, String tag) {
         mActivity = activity;
         mConfig = config;
         mTag = tag;
@@ -37,8 +38,9 @@ public class OneButtonFooter extends RelativeLayout {
         Button btnNormal = view.findViewById(R.id.btn_normal);
 
         // button click effect
-        float radius = mConfig.getCornerRadius();
+        //float radius = mConfig.getCornerRadius();
 
+        /*
         GradientDrawable drawablePressed = new GradientDrawable();
         drawablePressed.setCornerRadii(new float[]{0f, 0f, 0f, 0f,
                 DensityUtils.dp2px(context, radius),
@@ -53,13 +55,14 @@ public class OneButtonFooter extends RelativeLayout {
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius),
                 DensityUtils.dp2px(context, radius)});
-        drawableNormal.setColor(getResources().getColor(mConfig.getBackgroundColor()));
+        drawableNormal.setColor(getResources().getColor(mConfig.getBgColor()));
+        */
 
-        StateListDrawable drawableList = new StateListDrawable();
-        drawableList.addState(new int[]{android.R.attr.state_pressed}, drawablePressed);
-        drawableList.addState(new int[]{}, drawableNormal);
+        //StateListDrawable drawableList = new StateListDrawable();
+        //drawableList.addState(new int[]{android.R.attr.state_pressed}, drawablePressed);
+        //drawableList.addState(new int[]{}, drawableNormal);
 
-        btnNormal.setBackground(drawableList);
+        //btnNormal.setBackground(drawableList);
 
         // button text style
         btnNormal.setText(mConfig.getNormalButtonText());

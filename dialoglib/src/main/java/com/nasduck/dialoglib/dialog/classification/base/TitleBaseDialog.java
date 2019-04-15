@@ -6,7 +6,7 @@ import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.footer.OneButtonFooterBuilder;
 import com.nasduck.dialoglib.dialog.builder.footer.ThreeButtonFooterBuilder;
 import com.nasduck.dialoglib.dialog.builder.footer.TwoButtonFooterBuilder;
-import com.nasduck.dialoglib.dialog.builder.header.TextHeaderBuilder;
+import com.nasduck.dialoglib.dialog.builder.header.DialogHeaderBuilder;
 import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
@@ -36,8 +36,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
     private Integer paddingRight;
     private Integer paddingBottom;
 
-    private DialogButtonNumber buttonNumber = DialogButtonNumber.ONE;
-
     private OnNormalClickListener normalClickListener;
     private OnPositiveClickListener positiveClickListener;
     private OnNegativeClickListener negativeClickListener;
@@ -59,67 +57,23 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
     }
 
     public void show() {
-        DialogBuilder builder = new DialogBuilder(activity);
+
+        DialogBuilder builder = DialogBuilder.getInstance(activity);
         // set header config
-        TextHeaderBuilder headerBuilder;
+        DialogHeaderBuilder headerBuilder;
         if (title == null) {
             headerBuilder = null;
         } else {
-            headerBuilder = new TextHeaderBuilder();
+            headerBuilder = DialogHeaderBuilder.getInstance();
             headerBuilder.setTitle(title)
                     .setTitleTextStyle(textStyle)
                     .setTitleSize(titleSize)
-                    .setTitleColor(titleColor)
-                    .setGravityWay(gravityWay)
-                    .setPaddingTop(paddingTop)
-                    .setPaddingBottom(paddingBottom)
-                    .setPaddingLeft(paddingLeft)
-                    .setPaddingRight(paddingRight);
+                    .setTitleColor(titleColor);
         }
         builder.setHeader(headerBuilder);
 
         // set body config
         setBodyBuilderConfig(builder);
-
-        // set footer config
-        switch (buttonNumber) {
-            case ONE:
-                OneButtonFooterBuilder oneFooterBuilder = new OneButtonFooterBuilder();
-                oneFooterBuilder.setNormalButtonText(normalButtonText)
-                        .setNormalButtonTextSize(normalButtonTextSize)
-                        .setNormalButtonTextColor(normalButtonTextColor)
-                        .setNormalClickListener(normalClickListener);
-                builder.setFooter(oneFooterBuilder);
-                break;
-            case TWO:
-                TwoButtonFooterBuilder twoFooterBuilder = new TwoButtonFooterBuilder();
-                twoFooterBuilder.setPositiveButtonText(positiveButtonText)
-                        .setPositiveButtonTextSize(positiveButtonTextSize)
-                        .setPositiveButtonTextColor(positiveButtonTextColor)
-                        .setPositiveClickListener(positiveClickListener)
-                        .setNegativeButtonText(negativeButtonText)
-                        .setNegativeButtonTextSize(negativeButtonTextSize)
-                        .setNegativeButtonTextColor(negativeButtonTextColor)
-                        .setNegativeClickListener(negativeClickListener);
-                builder.setFooter(twoFooterBuilder);
-                break;
-            case THREE:
-                ThreeButtonFooterBuilder threeFooterBuilder = new ThreeButtonFooterBuilder();
-                threeFooterBuilder.setNormalButtonText(normalButtonText)
-                        .setNormalButtonTextSize(normalButtonTextSize)
-                        .setNormalButtonTextColor(normalButtonTextColor)
-                        .setNormalClickListener(normalClickListener)
-                        .setPositiveButtonText(positiveButtonText)
-                        .setPositiveButtonTextSize(positiveButtonTextSize)
-                        .setPositiveButtonTextColor(positiveButtonTextColor)
-                        .setPositiveClickListener(positiveClickListener)
-                        .setNegativeButtonText(negativeButtonText)
-                        .setNegativeButtonTextSize(negativeButtonTextSize)
-                        .setNegativeButtonTextColor(negativeButtonTextColor)
-                        .setNegativeClickListener(negativeClickListener);
-                builder.setFooter(threeFooterBuilder);
-                break;
-        }
 
         // set dialog config
         builder.setDialogTag(tag)
@@ -197,11 +151,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         this.paddingTop = top;
         this.paddingRight = right;
         this.paddingBottom = bottom;
-        return (T)this;
-    }
-
-    public T setButtonNumber(DialogButtonNumber number) {
-        buttonNumber = number;
         return (T)this;
     }
 

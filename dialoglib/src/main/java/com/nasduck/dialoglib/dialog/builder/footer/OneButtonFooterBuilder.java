@@ -5,115 +5,65 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.interfaces.IDialogFooter;
-import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.dialog.config.FooterConfig;
+import com.nasduck.dialoglib.dialog.interfaces.IDialogFooterBuilder;
+import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.dialog.composition.footer.OneButtonFooter;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 
-public class OneButtonFooterBuilder implements IDialogFooter {
+public class OneButtonFooterBuilder implements IDialogFooterBuilder {
 
-    private OnNormalClickListener normalClickListener;
+    private FooterConfig config;
 
-    private int cornerRadius;
-    private int backgroundColor;
-    private int clickBackgroundColor;
-
-    private String normalButtonText;
-    private int normalButtonTextColor;
-    private int normalButtonTextSize;
-
-    public OneButtonFooterBuilder() {
-        cornerRadius = 0;
-        clickBackgroundColor = R.color.gray_light;
-        normalButtonText = "confirm";
-        normalButtonTextColor = R.color.text_blue;
-        normalButtonTextSize = 16;
-        normalClickListener = null;
+    private OneButtonFooterBuilder(FooterConfig config) {
+        this.config = config;
     }
 
-    public static OneButtonFooterBuilder create() {
-        return new OneButtonFooterBuilder();
+    public static OneButtonFooterBuilder getInstance() {
+        return create(FooterConfig.newInstance());
+    }
+
+    public static OneButtonFooterBuilder create(FooterConfig config) {
+        return new OneButtonFooterBuilder(config);
     }
 
     @Override
     public View getView(FragmentActivity activity, Context context, String tag) {
-        return OneButtonFooter.create(activity, context, new DialogConfig(OneButtonFooterBuilder.this), tag);
+        return OneButtonFooter.create(activity, context, FooterConfig.newInstance(), tag);
     }
 
     @Override
     public void getCornerRadius(int cornerRadius) {
-        this.cornerRadius = cornerRadius;
+        //this.config.;
     }
 
     @Override
     public void getNormalStatusColor(int color) {
-        this.backgroundColor = color;
+        //this.backgroundColor = color;
     }
 
-    /**********************************************************************************************/
-
     public OneButtonFooterBuilder setClickBackgroundColor(Integer clickBackgroundColor) {
-        if (clickBackgroundColor != null) {
-            this.clickBackgroundColor = clickBackgroundColor;
-        }
+        this.config.setClickBackgroundColor(clickBackgroundColor);
         return this;
     }
 
     public OneButtonFooterBuilder setNormalClickListener(OnNormalClickListener normalClickListener) {
-        if (normalClickListener != null) {
-            this.normalClickListener = normalClickListener;
-        }
+        this.config.setNormalClickListener(normalClickListener);
         return this;
     }
 
     public OneButtonFooterBuilder setNormalButtonText(String normalButtonText) {
-        if (normalButtonText != null) {
-            this.normalButtonText = normalButtonText;
-        }
+        this.config.setNormalButtonText(normalButtonText);
         return this;
     }
 
     public OneButtonFooterBuilder setNormalButtonTextColor(Integer normalButtonTextColor) {
-        if (normalButtonTextColor != null) {
-            this.normalButtonTextColor = normalButtonTextColor;
-        }
+        this.config.setNormalButtonTextColor(normalButtonTextColor);
         return this;
     }
 
     public OneButtonFooterBuilder setNormalButtonTextSize(Integer normalButtonTextSize) {
-        if (normalButtonTextSize != null) {
-            this.normalButtonTextSize = normalButtonTextSize;
-        }
+        this.config.setNormalButtonTextSize(normalButtonTextSize);
         return this;
-    }
-
-    /**********************************************************************************************/
-
-    public int getCornerRadius() {
-        return cornerRadius;
-    }
-
-    public int getClickBackgroundColor() {
-        return clickBackgroundColor;
-    }
-
-    public int getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    public OnNormalClickListener getNormalClickListener() {
-        return normalClickListener;
-    }
-
-    public String getNormalButtonText() {
-        return normalButtonText;
-    }
-
-    public int getNormalButtonTextColor() {
-        return normalButtonTextColor;
-    }
-
-    public int getNormalButtonTextSize() {
-        return normalButtonTextSize;
     }
 }

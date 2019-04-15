@@ -3,10 +3,10 @@ package com.nasduck.dialoglib.dialog.interfaces;
 import android.content.Context;
 import android.view.View;
 
-public interface IDialogBody {
+public interface IDialogHeaderBuilder {
 
     /**
-     * get dialog body mView
+     * get dialog header mView
      * @param context
      * @return
      */

@@ -5,13 +5,14 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.interfaces.IDialogFooter;
-import com.nasduck.dialoglib.dialog.config.DialogConfig;
+import com.nasduck.dialoglib.dialog.config.FooterConfig;
+import com.nasduck.dialoglib.dialog.interfaces.IDialogFooterBuilder;
+import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.dialog.composition.footer.TwoButtonFooter;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 
-public class TwoButtonFooterBuilder implements IDialogFooter {
+public class TwoButtonFooterBuilder implements IDialogFooterBuilder {
 
     private OnPositiveClickListener positiveClickListener;
     private OnNegativeClickListener negativeClickListener;
@@ -49,7 +50,7 @@ public class TwoButtonFooterBuilder implements IDialogFooter {
 
     @Override
     public View getView(FragmentActivity activity, Context context, String tag) {
-        return TwoButtonFooter.create(activity, context, new DialogConfig(TwoButtonFooterBuilder.this), tag);
+        return TwoButtonFooter.create(activity, context, FooterConfig.newInstance(), tag);
     }
 
     @Override
