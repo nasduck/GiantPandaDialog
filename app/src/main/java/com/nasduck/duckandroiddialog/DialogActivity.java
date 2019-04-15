@@ -81,7 +81,7 @@ public class DialogActivity extends AppCompatActivity {
     public void onCustomDialog(View view) {
         /**
         DialogController.createTextDialog(this)
-                .setTitleTextStyle(TextStyle.BOLD)
+                .setTitleTypeface(TextStyle.BOLD)
                 .setTitle("1111")
                 .show();
          **/

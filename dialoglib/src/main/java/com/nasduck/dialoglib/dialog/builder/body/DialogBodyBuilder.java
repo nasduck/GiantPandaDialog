@@ -6,7 +6,6 @@ import android.view.View;
 import com.nasduck.dialoglib.dialog.interfaces.IDialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.dialog.composition.body.DialogBody;
-import com.nasduck.dialoglib.base.enums.GravityWay;
 
 public class DialogBodyBuilder implements IDialogBodyBuilder {
 
@@ -26,7 +25,7 @@ public class DialogBodyBuilder implements IDialogBodyBuilder {
 
     @Override
     public View getView(Context context) {
-        return DialogBody.create(context, BodyConfig.newInstance());
+        return DialogBody.create(context, config);
     }
 
     public DialogBodyBuilder setContent(String content) {
@@ -35,7 +34,7 @@ public class DialogBodyBuilder implements IDialogBodyBuilder {
     }
 
     public DialogBodyBuilder setContentColor(Integer contentColor) {
-        this.config.setContentColor(contentColor);
+        this.config.setContentTextColor(contentColor);
         return this;
     }
 
@@ -44,8 +43,13 @@ public class DialogBodyBuilder implements IDialogBodyBuilder {
         return this;
     }
 
-    public DialogBodyBuilder setGravity(GravityWay gravity) {
+    public DialogBodyBuilder setGravity(int gravity) {
         this.config.setGravity(gravity);
+        return this;
+    }
+
+    public DialogBodyBuilder setLayoutGravity(int gravity) {
+        this.config.setLayoutGravity(gravity);
         return this;
     }
 

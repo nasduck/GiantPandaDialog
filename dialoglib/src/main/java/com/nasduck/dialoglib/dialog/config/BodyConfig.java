@@ -1,11 +1,13 @@
 package com.nasduck.dialoglib.dialog.config;
 
+import android.view.Gravity;
+
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.enums.GravityWay;
 
 public class BodyConfig {
 
-    private GravityWay gravity;
+    private int gravity;
+    private int layoutGravity;
     private int paddingTop;
     private int paddingBottom;
     private int paddingLeft;
@@ -16,7 +18,7 @@ public class BodyConfig {
 
     // Content
     private String content;
-    private int contentColor;
+    private int contentTextColor;
     private int contentTextSize;
 
     public static BodyConfig newInstance() {
@@ -25,7 +27,8 @@ public class BodyConfig {
 
     private BodyConfig() {
 
-        this.gravity = GravityWay.CENTER;
+        this.gravity = Gravity.CENTER;
+        this.layoutGravity = Gravity.CENTER;
         this.paddingTop = this.paddingBottom = 20;
         this.paddingLeft = this.paddingRight = 26;
 
@@ -34,18 +37,18 @@ public class BodyConfig {
 
         // Content
         this.content = "";
-        this.contentColor = R.color.text_black_light;
+        this.contentTextColor = R.color.text_black_light;
         this.contentTextSize = 14;
     }
 
     //* Getter & Setter **************************************************************************//
 
 
-    public GravityWay getGravity() {
+    public int getGravity() {
         return gravity;
     }
 
-    public void setGravity(GravityWay gravity) {
+    public void setGravity(int gravity) {
         this.gravity = gravity;
     }
 
@@ -105,12 +108,12 @@ public class BodyConfig {
         this.content = content;
     }
 
-    public int getContentColor() {
-        return contentColor;
+    public int getContentTextColor() {
+        return contentTextColor;
     }
 
-    public void setContentColor(int contentColor) {
-        this.contentColor = contentColor;
+    public void setContentTextColor(int contentTextColor) {
+        this.contentTextColor = contentTextColor;
     }
 
     public int getContentTextSize() {
@@ -119,5 +122,13 @@ public class BodyConfig {
 
     public void setContentTextSize(int contentTextSize) {
         this.contentTextSize = contentTextSize;
+    }
+
+    public int getLayoutGravity() {
+        return layoutGravity;
+    }
+
+    public void setLayoutGravity(int layoutGravity) {
+        this.layoutGravity = layoutGravity;
     }
 }

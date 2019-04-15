@@ -3,11 +3,7 @@ package com.nasduck.dialoglib.dialog.classification.base;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
-import com.nasduck.dialoglib.dialog.builder.footer.OneButtonFooterBuilder;
-import com.nasduck.dialoglib.dialog.builder.footer.ThreeButtonFooterBuilder;
-import com.nasduck.dialoglib.dialog.builder.footer.TwoButtonFooterBuilder;
 import com.nasduck.dialoglib.dialog.builder.header.DialogHeaderBuilder;
-import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
@@ -66,7 +62,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         } else {
             headerBuilder = DialogHeaderBuilder.getInstance();
             headerBuilder.setTitle(title)
-                    .setTitleTextStyle(textStyle)
                     .setTitleSize(titleSize)
                     .setTitleColor(titleColor);
         }

@@ -3,10 +3,9 @@ package com.nasduck.dialoglib.dialog.builder.header;
 import android.content.Context;
 import android.view.View;
 
-import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.config.HeaderConfig;
 import com.nasduck.dialoglib.dialog.interfaces.IDialogHeaderBuilder;
-import com.nasduck.dialoglib.dialog.composition.header.TextHeader;
+import com.nasduck.dialoglib.dialog.composition.header.DialogHeader;
 
 public class DialogHeaderBuilder implements IDialogHeaderBuilder {
 
@@ -26,11 +25,11 @@ public class DialogHeaderBuilder implements IDialogHeaderBuilder {
 
     @Override
     public View getView(Context context) {
-        return TextHeader.create(context, HeaderConfig.newInstance());
+        return DialogHeader.create(context, mConfig);
     }
 
-    public DialogHeaderBuilder setTitleTextStyle(TextStyle textStyle) {
-        mConfig.setTitleStyle(textStyle);
+    public DialogHeaderBuilder setTitleTypeface(int typeface) {
+        mConfig.setTypeface(typeface);
         return this;
     }
 
