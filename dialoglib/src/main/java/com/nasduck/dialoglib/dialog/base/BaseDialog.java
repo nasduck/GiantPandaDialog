@@ -72,8 +72,9 @@ public class BaseDialog extends DialogFragment {
                 return false;
             }
         });
+
         int index = 0;
-        // set dialog mView
+        // Set dialog view
         if (mDialogView != null) {
             DialogHeader header = (DialogHeader) mDialogView.getHeaderLayout(getContext());
             DialogBody body = (DialogBody) mDialogView.getBodyLayout(getContext());

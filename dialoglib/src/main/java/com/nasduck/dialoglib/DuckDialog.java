@@ -5,14 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
-import com.nasduck.dialoglib.dialog.classification.TextDialog;
-import com.nasduck.dialoglib.base.enums.DialogType;
-import com.nasduck.dialoglib.base.enums.GravityWay;
-import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.composition.DialogButton;
-import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
-import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
-import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
 
 /**
@@ -126,94 +119,6 @@ public class DuckDialog {
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btnSetting)
                 .addButton(btnCancel)
-                .show();
-    }
-
-    public static void showTitleTipDialog(FragmentActivity activity, String title, String content,
-                                          String buttonText, OnNormalClickListener listener) {
-        new TextDialog(activity)
-                .setTitleTextStyle(TextStyle.BOLD)
-                .setTitle(title)
-                .setTitleSize(16)
-                .setTitleColor(R.color.text_black_light)
-                .setTitlePadding(0, 20, 0, 0)
-                .setTitleGravity(GravityWay.CENTER_HORIZONTAL)
-                .setContent(content)
-                .setContentSize(14)
-                .setContentColor(R.color.text_black_light)
-                .setContentPadding(26, 20, 26, 20)
-                .setNormalButtonText(buttonText)
-                .setNormalButtonTextColor(R.color.text_blue)
-                .setNormalButtonTextSize(16)
-                .setNormalClickListener(listener)
-                .setTag(DialogType.TITLE_TIP_DIALOG.getDialogTag())
-                .setCornerRadius(10)
-                .show();
-    }
-
-    public static void showTitleSelectDialog(FragmentActivity activity, String title, String content,
-                                             String positiveButtonText, String negativeButtonText,
-                                             OnPositiveClickListener positiveClickListener,
-                                             OnNegativeClickListener negativeClickListener) {
-        new TextDialog(activity)
-                .setTitleTextStyle(TextStyle.BOLD)
-                .setTitle(title)
-                .setTitleSize(16)
-                .setTitleColor(R.color.text_black_light)
-                .setTitlePadding(0, 20, 0, 0)
-                .setTitleGravity(GravityWay.CENTER_HORIZONTAL)
-                .setContent(content)
-                .setContentSize(14)
-                .setContentColor(R.color.text_black_light)
-                .setContentPadding(26, 20, 26, 20)
-                .setPositiveButtonText(positiveButtonText)
-                .setPositiveButtonTextSize(16)
-                .setPositiveButtonTextColor(R.color.text_blue)
-                .setPositiveClickListener(positiveClickListener)
-                .setNegativeButtonText(negativeButtonText)
-                .setNegativeButtonTextSize(16)
-                .setNegativeButtonTextColor(R.color.text_gray)
-                .setNegativeClickListener(negativeClickListener)
-                .setTag(DialogType.TITLE_SELECT_DIALOG.getDialogTag())
-                .setCornerRadius(10)
-                .show();
-    }
-
-    public static void showNoTitleTipDialog(FragmentActivity activity, String content,
-                                            String buttonText, OnNormalClickListener listener) {
-        new TextDialog(activity)
-                .setContent(content)
-                .setContentSize(14)
-                .setContentColor(R.color.text_black_light)
-                .setContentPadding(26, 20, 26, 20)
-                .setNormalButtonText(buttonText)
-                .setNormalButtonTextColor(R.color.text_blue)
-                .setNormalButtonTextSize(16)
-                .setNormalClickListener(listener)
-                .setTag(DialogType.NO_TITLE_TIP_DIALOG.getDialogTag())
-                .setCornerRadius(10)
-                .show();
-    }
-
-    public static void showNoTitleSelectDialog(FragmentActivity activity, String content,
-                                               String positiveButtonText, String negativeButtonText,
-                                               OnPositiveClickListener positiveClickListener,
-                                               OnNegativeClickListener negativeClickListener) {
-        new TextDialog(activity)
-                .setContent(content)
-                .setContentSize(14)
-                .setContentColor(R.color.text_black_light)
-                .setContentPadding(26, 20, 26, 20)
-                .setPositiveButtonText(positiveButtonText)
-                .setPositiveButtonTextSize(16)
-                .setPositiveButtonTextColor(R.color.text_blue)
-                .setPositiveClickListener(positiveClickListener)
-                .setNegativeButtonText(negativeButtonText)
-                .setNegativeButtonTextSize(16)
-                .setNegativeButtonTextColor(R.color.text_gray)
-                .setNegativeClickListener(negativeClickListener)
-                .setTag(DialogType.NO_TITLE_SELECT_DIALOG.getDialogTag())
-                .setCornerRadius(10)
                 .show();
     }
 }

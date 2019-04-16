@@ -4,10 +4,9 @@ import android.content.Context;
 import android.view.View;
 
 import com.nasduck.dialoglib.dialog.config.HeaderConfig;
-import com.nasduck.dialoglib.dialog.interfaces.IDialogHeaderBuilder;
 import com.nasduck.dialoglib.dialog.composition.DialogHeader;
 
-public class DialogHeaderBuilder implements IDialogHeaderBuilder {
+public class DialogHeaderBuilder implements IBuilder {
 
     private HeaderConfig mConfig;
 

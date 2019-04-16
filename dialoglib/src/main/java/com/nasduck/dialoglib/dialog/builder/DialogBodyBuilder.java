@@ -3,11 +3,10 @@ package com.nasduck.dialoglib.dialog.builder;
 import android.content.Context;
 import android.view.View;
 
-import com.nasduck.dialoglib.dialog.interfaces.IDialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.dialog.composition.DialogBody;
 
-public class DialogBodyBuilder implements IDialogBodyBuilder {
+public class DialogBodyBuilder implements IBuilder {
 
     private BodyConfig config;
 

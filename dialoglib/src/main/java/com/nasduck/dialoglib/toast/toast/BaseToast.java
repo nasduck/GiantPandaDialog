@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.base.IDialogFragment;
 
 public abstract class BaseToast extends DialogFragment implements IDialogFragment {
 

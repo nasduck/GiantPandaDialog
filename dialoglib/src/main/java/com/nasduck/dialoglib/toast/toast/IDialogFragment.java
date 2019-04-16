@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.base;
+package com.nasduck.dialoglib.toast.toast;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
