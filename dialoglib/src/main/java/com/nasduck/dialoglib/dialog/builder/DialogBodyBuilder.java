@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.nasduck.dialoglib.dialog.config.BodyConfig;
-import com.nasduck.dialoglib.dialog.composition.DialogBody;
+import com.nasduck.dialoglib.dialog.view.DialogBody;
 
 public class DialogBodyBuilder implements IBuilder {
 

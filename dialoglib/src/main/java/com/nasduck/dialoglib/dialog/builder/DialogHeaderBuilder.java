@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 
 import com.nasduck.dialoglib.dialog.config.HeaderConfig;
-import com.nasduck.dialoglib.dialog.composition.DialogHeader;
+import com.nasduck.dialoglib.dialog.view.DialogHeader;
 
 public class DialogHeaderBuilder implements IBuilder {
 

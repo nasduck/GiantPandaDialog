@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
-import com.nasduck.dialoglib.dialog.composition.DialogButton;
+import com.nasduck.dialoglib.dialog.view.DialogButton;
 import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
 
 /**

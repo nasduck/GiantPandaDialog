@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.composition;
+package com.nasduck.dialoglib.dialog.view;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;

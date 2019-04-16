@@ -1,48 +1,40 @@
-package com.nasduck.dialoglib.dialog.composition;
+package com.nasduck.dialoglib.dialog.view;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.config.BodyConfig;
+import com.nasduck.dialoglib.dialog.config.HeaderConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+public class DialogHeader extends FrameLayout {
 
-public class DialogBody extends FrameLayout {
-
-    private BodyConfig mConfig;
+    private static HeaderConfig mConfig;
     private Context mContext;
 
-    public static DialogBody create(Context context, BodyConfig config) {
-        return new DialogBody(context, config);
+    public static DialogHeader create(Context context, HeaderConfig config) {
+        mConfig = config;
+        return new DialogHeader(context);
     }
 
-    public DialogBody(Context context, BodyConfig config) {
+    public DialogHeader(Context context) {
         super(context);
-        mConfig = config;
         mContext = context;
         init(context);
     }
 
     private void init(Context context) {
-
-        this.setBackgroundResource(mConfig.getBgColor());
-
         TextView tv = new TextView(context);
-        tv.setText(mConfig.getContent());
-        tv.setTextSize(mConfig.getContentTextSize());
-        tv.setTextColor(getResources().getColor(mConfig.getContentTextColor()));
-        tv.setGravity(mConfig.getGravity());
+        tv.setText(mConfig.getTitle());
+        tv.setTextSize(mConfig.getTitleTextSize());
+        tv.setTextColor(getResources().getColor(mConfig.getTitleColor()));
+        tv.setTypeface(Typeface.DEFAULT, mConfig.getTypeface());
 
-        // LayoutGravity
+        // Gravity
         LayoutParams lp = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-        lp.gravity = mConfig.getLayoutGravity();
+        lp.gravity = mConfig.getGravity();
         tv.setLayoutParams(lp);
 
         // Padding
@@ -53,7 +45,7 @@ public class DialogBody extends FrameLayout {
 
         this.addView(tv);
 
-        this.addBottomDivider();
+        this.setBackgroundResource(mConfig.getBgColor());
     }
 
     public void setCornerRadius(int cornerRadius) {
@@ -65,15 +57,5 @@ public class DialogBody extends FrameLayout {
                 0, 0});
         drawable.setColor(getResources().getColor(mConfig.getBgColor()));
         this.setBackground(drawable);
-    }
-
-    public void addBottomDivider() {
-        View divider = new View(mContext);
-        divider.setBackgroundColor(getResources().getColor(R.color.gray_line));
-        LayoutParams lp =
-                new LayoutParams(MATCH_PARENT, DensityUtils.dp2px(mContext, 0.5f));
-        lp.gravity = Gravity.BOTTOM;
-        divider.setLayoutParams(lp);
-        this.addView(divider);
     }
 }

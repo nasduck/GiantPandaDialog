@@ -13,10 +13,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.dialog.composition.DialogBody;
-import com.nasduck.dialoglib.dialog.composition.DialogButton;
-import com.nasduck.dialoglib.dialog.composition.DialogFooter;
-import com.nasduck.dialoglib.dialog.composition.DialogHeader;
+import com.nasduck.dialoglib.dialog.view.DialogBody;
+import com.nasduck.dialoglib.dialog.view.DialogButton;
+import com.nasduck.dialoglib.dialog.view.DialogFooter;
+import com.nasduck.dialoglib.dialog.view.DialogHeader;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
 import java.util.List;
