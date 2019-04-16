@@ -2,11 +2,17 @@ package com.nasduck.dialoglib.dialog.composition;
 
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.config.BodyConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class DialogBody extends FrameLayout {
 
@@ -46,6 +52,8 @@ public class DialogBody extends FrameLayout {
                 DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
 
         this.addView(tv);
+
+        this.addBottomDivider();
     }
 
     public void setCornerRadius(int cornerRadius) {
@@ -57,5 +65,15 @@ public class DialogBody extends FrameLayout {
                 0, 0});
         drawable.setColor(getResources().getColor(mConfig.getBgColor()));
         this.setBackground(drawable);
+    }
+
+    public void addBottomDivider() {
+        View divider = new View(mContext);
+        divider.setBackgroundColor(getResources().getColor(R.color.gray_line));
+        LayoutParams lp =
+                new LayoutParams(MATCH_PARENT, DensityUtils.dp2px(mContext, 0.5f));
+        lp.gravity = Gravity.BOTTOM;
+        divider.setLayoutParams(lp);
+        this.addView(divider);
     }
 }
