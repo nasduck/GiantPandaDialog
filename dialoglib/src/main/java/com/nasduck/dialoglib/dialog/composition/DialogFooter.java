@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.composition.footer;
+package com.nasduck.dialoglib.dialog.composition;
 
 import android.content.Context;
 import android.view.ViewGroup;

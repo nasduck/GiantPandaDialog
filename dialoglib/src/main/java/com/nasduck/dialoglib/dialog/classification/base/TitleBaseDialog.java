@@ -3,7 +3,7 @@ package com.nasduck.dialoglib.dialog.classification.base;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
-import com.nasduck.dialoglib.dialog.builder.header.DialogHeaderBuilder;
+import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;

@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.nasduck.dialoglib.dialog.builder.body.DialogBodyBuilder;
-import com.nasduck.dialoglib.dialog.composition.footer.DialogButton;
-import com.nasduck.dialoglib.dialog.composition.footer.DialogFooter;
+import com.nasduck.dialoglib.dialog.composition.DialogButton;
+import com.nasduck.dialoglib.dialog.composition.DialogFooter;
 import com.nasduck.dialoglib.dialog.interfaces.IDialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.interfaces.IDialogHeaderBuilder;
 import com.nasduck.dialoglib.dialog.base.IDialogView;

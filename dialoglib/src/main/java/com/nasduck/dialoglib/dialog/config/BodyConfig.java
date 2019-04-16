@@ -29,7 +29,8 @@ public class BodyConfig {
 
         this.gravity = Gravity.CENTER;
         this.layoutGravity = Gravity.CENTER;
-        this.paddingTop = this.paddingBottom = 20;
+        this.paddingTop = 16;
+        this.paddingBottom = 16;
         this.paddingLeft = this.paddingRight = 26;
 
         this.bgColor = android.R.color.white;

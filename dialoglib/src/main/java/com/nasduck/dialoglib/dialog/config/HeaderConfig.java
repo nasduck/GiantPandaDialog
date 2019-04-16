@@ -12,6 +12,10 @@ public class HeaderConfig {
     private int titleTextSize;
     private int typeface;
     private int gravity;
+    private int paddingTop;
+    private int paddingBottom;
+    private int paddingLeft;
+    private int paddingRight;
 
     public static HeaderConfig newInstance() {
         return new HeaderConfig();
@@ -23,6 +27,10 @@ public class HeaderConfig {
         this.titleColor = R.color.text_black_light;
         this.titleTextSize = 16;
         this.gravity = Gravity.CENTER;
+        this.paddingTop = 18;
+        this.paddingBottom = 0;
+        this.paddingLeft = 0;
+        this.paddingRight = 0;
     }
 
     //* Getter & Setter **************************************************************************//
@@ -65,5 +73,37 @@ public class HeaderConfig {
 
     public void setGravity(int gravity) {
         this.gravity = gravity;
+    }
+
+    public int getPaddingTop() {
+        return paddingTop;
+    }
+
+    public void setPaddingTop(int paddingTop) {
+        this.paddingTop = paddingTop;
+    }
+
+    public int getPaddingBottom() {
+        return paddingBottom;
+    }
+
+    public void setPaddingBottom(int paddingBottom) {
+        this.paddingBottom = paddingBottom;
+    }
+
+    public int getPaddingLeft() {
+        return paddingLeft;
+    }
+
+    public void setPaddingLeft(int paddingLeft) {
+        this.paddingLeft = paddingLeft;
+    }
+
+    public int getPaddingRight() {
+        return paddingRight;
+    }
+
+    public void setPaddingRight(int paddingRight) {
+        this.paddingRight = paddingRight;
     }
 }

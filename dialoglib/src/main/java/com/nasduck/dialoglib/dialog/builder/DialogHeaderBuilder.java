@@ -1,11 +1,11 @@
-package com.nasduck.dialoglib.dialog.builder.header;
+package com.nasduck.dialoglib.dialog.builder;
 
 import android.content.Context;
 import android.view.View;
 
 import com.nasduck.dialoglib.dialog.config.HeaderConfig;
 import com.nasduck.dialoglib.dialog.interfaces.IDialogHeaderBuilder;
-import com.nasduck.dialoglib.dialog.composition.header.DialogHeader;
+import com.nasduck.dialoglib.dialog.composition.DialogHeader;
 
 public class DialogHeaderBuilder implements IDialogHeaderBuilder {
 
@@ -45,6 +45,26 @@ public class DialogHeaderBuilder implements IDialogHeaderBuilder {
 
     public DialogHeaderBuilder setTitleSize(Integer titleSize) {
         mConfig.setTitleTextSize(titleSize);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPaddingTop(int paddingTop) {
+        mConfig.setPaddingTop(paddingTop);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPaddingBottom(int paddingBottom) {
+        mConfig.setPaddingBottom(paddingBottom);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPaddingLeft(int paddingLeft) {
+        mConfig.setPaddingLeft(paddingLeft);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPaddingRight(int paddingRight) {
+        mConfig.setPaddingRight(paddingRight);
         return this;
     }
 }

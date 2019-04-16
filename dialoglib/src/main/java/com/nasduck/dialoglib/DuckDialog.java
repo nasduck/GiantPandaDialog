@@ -4,13 +4,12 @@ import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.body.DialogBodyBuilder;
-import com.nasduck.dialoglib.dialog.builder.header.DialogHeaderBuilder;
+import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
 import com.nasduck.dialoglib.dialog.classification.TextDialog;
-import com.nasduck.dialoglib.base.enums.DialogButtonNumber;
 import com.nasduck.dialoglib.base.enums.DialogType;
 import com.nasduck.dialoglib.base.enums.GravityWay;
 import com.nasduck.dialoglib.base.enums.TextStyle;
-import com.nasduck.dialoglib.dialog.composition.footer.DialogButton;
+import com.nasduck.dialoglib.dialog.composition.DialogButton;
 import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
 import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;

@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.nasduck.dialoglib.dialog.interfaces.IDialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.config.BodyConfig;
-import com.nasduck.dialoglib.dialog.composition.body.DialogBody;
+import com.nasduck.dialoglib.dialog.composition.DialogBody;
 
 public class DialogBodyBuilder implements IDialogBodyBuilder {
 
