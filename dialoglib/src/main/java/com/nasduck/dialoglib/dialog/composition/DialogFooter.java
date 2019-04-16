@@ -34,4 +34,13 @@ public class DialogFooter extends LinearLayout {
     public List<DialogButton> getBtnList() {
         return btnList;
     }
+
+    public void setCornerRadius(int cornerRadius) {
+        if (btnList.size() == 1) {
+            btnList.get(0).setCornerRadiusOnly(cornerRadius);
+        } else {
+            btnList.get(0).setCornerRadiusFirst(cornerRadius);
+            btnList.get(btnList.size() - 1).setCornerRadiusLast(cornerRadius);
+        }
+    }
 }

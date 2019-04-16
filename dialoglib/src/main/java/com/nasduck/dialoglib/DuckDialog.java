@@ -115,6 +115,20 @@ public class DuckDialog {
                 .show();
     }
 
+    public static void showClickDialog(FragmentActivity activity, String title, String content) {
+        DialogButton btnSetting = new DialogButton(activity);
+        btnSetting.setText("Setting");
+        DialogButton btnCancel = new DialogButton(activity);
+        btnCancel.setText("Cancel");
+
+        DialogBuilder.getInstance(activity)
+                .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
+                .setBody(DialogBodyBuilder.getInstance().setContent(content))
+                .addButton(btnSetting)
+                .addButton(btnCancel)
+                .show();
+    }
+
     public static void showTitleTipDialog(FragmentActivity activity, String title, String content,
                                           String buttonText, OnNormalClickListener listener) {
         new TextDialog(activity)

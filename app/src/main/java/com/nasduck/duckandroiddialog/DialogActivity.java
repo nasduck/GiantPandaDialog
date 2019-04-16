@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.DuckDialog;
-import com.nasduck.dialoglib.dialog.interfaces.OnNegativeClickListener;
-import com.nasduck.dialoglib.dialog.interfaces.OnNormalClickListener;
-import com.nasduck.dialoglib.dialog.interfaces.OnPositiveClickListener;
 
 public class DialogActivity extends AppCompatActivity {
 
@@ -26,19 +23,7 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onSelectDialog(View view) {
-        DuckDialog.showNoTitleSelectDialog(this,
-                "content", "确定", "取消"
-                , new OnPositiveClickListener() {
-                    @Override
-                    public void onPositiveClick() {
-                        DuckDialog.show(DialogActivity.this, "确定");
-                    }
-                }, new OnNegativeClickListener() {
-                    @Override
-                    public void onNegativeClick() {
-                        DuckDialog.show(DialogActivity.this, "取消");
-                    }
-                });
+        DuckDialog.showClickDialog(this, "Button Test", "Button Test Content");
     }
 
     public void onTitleSelectDialog(View view) {

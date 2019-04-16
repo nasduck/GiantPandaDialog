@@ -11,10 +11,12 @@ import com.nasduck.dialoglib.utils.DensityUtils;
 public class DialogButton extends AppCompatTextView {
 
     private DialogBtnConfig mConfig;
+    private Context mContext;
 
     public DialogButton(Context context) {
         super(context);
         mConfig = DialogBtnConfig.newInstance();
+        mContext = context;
         init(context);
     }
 
@@ -43,5 +45,38 @@ public class DialogButton extends AppCompatTextView {
                 DensityUtils.dp2px(context, mConfig.getPaddingTop()),
                 DensityUtils.dp2px(context, mConfig.getPaddingRight()),
                 DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
+    }
+
+    public void setCornerRadiusLast(int cornerRadius) {
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{
+                0, 0,
+                0, 0,
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                0, 0});
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
+        this.setBackground(drawable);
+    }
+
+    public void setCornerRadiusOnly(int cornerRadius) {
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{
+                0, 0,
+                0, 0,
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)});
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
+        this.setBackground(drawable);
+    }
+
+    public void setCornerRadiusFirst(int cornerRadius) {
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{
+                0, 0,
+                0, 0,
+                0, 0,
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)});
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
+        this.setBackground(drawable);
     }
 }

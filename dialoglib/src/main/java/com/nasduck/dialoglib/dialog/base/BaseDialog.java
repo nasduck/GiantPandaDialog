@@ -83,9 +83,9 @@ public class BaseDialog extends DialogFragment {
             if (header != null) {
                 // Add Header
                 layout.addView(header, index++);
-                header.setCornerRadius(getContext(), mCornerRadius);
+                header.setCornerRadius(mCornerRadius);
             } else {
-                body.setCornerRadius(getContext(), mCornerRadius);
+                body.setCornerRadius(mCornerRadius);
             }
 
             // Add Body
@@ -104,6 +104,7 @@ public class BaseDialog extends DialogFragment {
                         });
                     }
                 }
+                footer.setCornerRadius(mCornerRadius);
                 layout.addView(footer, index);
             }
 

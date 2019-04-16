@@ -11,6 +11,7 @@ import com.nasduck.dialoglib.utils.DensityUtils;
 public class DialogBody extends FrameLayout {
 
     private BodyConfig mConfig;
+    private Context mContext;
 
     public static DialogBody create(Context context, BodyConfig config) {
         return new DialogBody(context, config);
@@ -19,6 +20,7 @@ public class DialogBody extends FrameLayout {
     public DialogBody(Context context, BodyConfig config) {
         super(context);
         mConfig = config;
+        mContext = context;
         init(context);
     }
 
@@ -46,13 +48,13 @@ public class DialogBody extends FrameLayout {
         this.addView(tv);
     }
 
-    public void setCornerRadius(Context context, int cornerRadius) {
-        float radius =cornerRadius;
+    public void setCornerRadius(int cornerRadius) {
         GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
+        drawable.setCornerRadii(new float[]{
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                0, 0,
+                0, 0});
         drawable.setColor(getResources().getColor(mConfig.getBgColor()));
         this.setBackground(drawable);
     }

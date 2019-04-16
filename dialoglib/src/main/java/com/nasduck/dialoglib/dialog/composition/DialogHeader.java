@@ -12,6 +12,7 @@ import com.nasduck.dialoglib.utils.DensityUtils;
 public class DialogHeader extends FrameLayout {
 
     private static HeaderConfig mConfig;
+    private Context mContext;
 
     public static DialogHeader create(Context context, HeaderConfig config) {
         mConfig = config;
@@ -20,6 +21,7 @@ public class DialogHeader extends FrameLayout {
 
     public DialogHeader(Context context) {
         super(context);
+        mContext = context;
         init(context);
     }
 
@@ -46,13 +48,13 @@ public class DialogHeader extends FrameLayout {
         this.setBackgroundResource(mConfig.getBgColor());
     }
 
-    public void setCornerRadius(Context context, int cornerRadius) {
-        float radius =cornerRadius;
+    public void setCornerRadius(int cornerRadius) {
         GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
+        drawable.setCornerRadii(new float[]{
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
+                0, 0,
+                0, 0});
         drawable.setColor(getResources().getColor(mConfig.getBgColor()));
         this.setBackground(drawable);
     }
