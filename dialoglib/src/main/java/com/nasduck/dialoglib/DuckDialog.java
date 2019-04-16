@@ -94,12 +94,22 @@ public class DuckDialog {
 
     /** dialog ************************************************************************************/
 
-    public static void show(FragmentActivity activity, String title, String content) {
+    public static void showDialog(FragmentActivity activity, String title, String content) {
         DialogButton btn = new DialogButton(activity);
-        btn.setText("Test");
+        btn.setText("OK");
 
         DialogBuilder.getInstance(activity)
                 .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
+                .setBody(DialogBodyBuilder.getInstance().setContent(content))
+                .addButton(btn)
+                .show();
+    }
+
+    public static void showDialog(FragmentActivity activity, String content) {
+        DialogButton btn = new DialogButton(activity);
+        btn.setText("OK");
+
+        DialogBuilder.getInstance(activity)
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btn)
                 .show();

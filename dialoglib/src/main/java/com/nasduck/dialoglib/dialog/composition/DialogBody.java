@@ -1,6 +1,7 @@
 package com.nasduck.dialoglib.dialog.composition;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -43,5 +44,16 @@ public class DialogBody extends FrameLayout {
                 DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
 
         this.addView(tv);
+    }
+
+    public void setCornerRadius(Context context, int cornerRadius) {
+        float radius =cornerRadius;
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
+        this.setBackground(drawable);
     }
 }

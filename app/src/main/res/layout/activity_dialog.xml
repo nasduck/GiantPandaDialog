@@ -8,14 +8,14 @@
         android:id="@+id/btn_tip_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTipDialog"
+        android:onClick="onDialogClick"
         android:text="Tip Dialog"/>
 
     <Button
         android:id="@+id/btn_title_tip_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTitleTipDialog"
+        android:onClick="onDialogNoTitleClick"
         android:text="Title Tip Dialog"/>
 
     <Button

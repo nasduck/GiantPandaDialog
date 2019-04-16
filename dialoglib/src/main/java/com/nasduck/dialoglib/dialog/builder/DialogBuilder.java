@@ -44,8 +44,8 @@ public class DialogBuilder {
         mDialogWidth = 260;
         mCornerRadius = 10;
         mDialogTag = "dialog";
-        mTouchOutsideCancelable = false;
-        mTouchBackCancelable = false;
+        mTouchOutsideCancelable = true;
+        mTouchBackCancelable = true;
         mHasShade = true;
 
         mFooterBtnList = new ArrayList<>();

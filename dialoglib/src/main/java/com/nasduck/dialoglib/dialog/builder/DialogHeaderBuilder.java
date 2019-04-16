@@ -73,10 +73,4 @@ public class DialogHeaderBuilder implements IDialogHeaderBuilder {
         return this;
     }
 
-    public DialogHeaderBuilder setCornerRadius(int corner) {
-        mConfig.setCornerRadius(corner);
-        return this;
-    }
-
-
 }

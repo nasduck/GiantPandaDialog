@@ -45,4 +45,15 @@ public class DialogHeader extends FrameLayout {
 
         this.setBackgroundResource(mConfig.getBgColor());
     }
+
+    public void setCornerRadius(Context context, int cornerRadius) {
+        float radius =cornerRadius;
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius),
+                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
+        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
+        this.setBackground(drawable);
+    }
 }

@@ -17,27 +17,21 @@ public class DialogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dialog);
     }
 
-    public void onTipDialog(View view) {
-        DuckDialog.show(this, "Title Test", "Content Test");
+    public void onDialogClick(View view) {
+        DuckDialog.showDialog(this, "Title Test", "Content Test");
         /**
         DuckDialog.showNoTitleTipDialog(this, "content", "确定",
                 new OnNormalClickListener() {
                     @Override
                     public void onNormalClick() {
-                        DuckDialog.show(DialogActivity.this, "我被点击了");
+                        DuckDialog.showDialog(DialogActivity.this, "我被点击了");
                     }
                 });
          **/
     }
 
-    public void onTitleTipDialog(View view) {
-        DuckDialog.showTitleTipDialog(this, "title", "content", "确定",
-                new OnNormalClickListener() {
-                    @Override
-                    public void onNormalClick() {
-                        DuckDialog.show(DialogActivity.this, "我被点击了");
-                    }
-                });
+    public void onDialogNoTitleClick(View view) {
+        DuckDialog.showDialog(this, "Only content without title");
     }
 
     public void onSelectDialog(View view) {
@@ -59,20 +53,20 @@ public class DialogActivity extends AppCompatActivity {
     public void onTitleSelectDialog(View view) {
 
         /**
-        DuckDialog.show(title, content);
-        DuckDialog.show(content);
+        DuckDialog.showDialog(title, content);
+        DuckDialog.showDialog(content);
 
         DuckDialog.showTitleSelectDialog(this,
                 "title", "content", "确定", "取消"
                 , new OnPositiveClickListener() {
                     @Override
                     public void onPositiveClick() {
-                        DuckDialog.show(DialogActivity.this, "确定");
+                        DuckDialog.showDialog(DialogActivity.this, "确定");
                     }
                 }, new OnNegativeClickListener() {
                     @Override
                     public void onNegativeClick() {
-                        DuckDialog.show(DialogActivity.this, "取消");
+                        DuckDialog.showDialog(DialogActivity.this, "取消");
                     }
                 });
          **/
@@ -83,7 +77,7 @@ public class DialogActivity extends AppCompatActivity {
         DialogController.createTextDialog(this)
                 .setTitleTypeface(TextStyle.BOLD)
                 .setTitle("1111")
-                .show();
+                .showDialog();
          **/
     }
 }

@@ -78,8 +78,4 @@ public class DialogBodyBuilder implements IDialogBodyBuilder {
         return this;
     }
 
-    public DialogBodyBuilder setCornerRadius(Integer cornerRadius) {
-        this.config.setCornerRadius(cornerRadius);
-        return this;
-    }
 }
