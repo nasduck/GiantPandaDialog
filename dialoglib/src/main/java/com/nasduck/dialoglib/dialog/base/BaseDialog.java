@@ -1,19 +1,16 @@
 package com.nasduck.dialoglib.dialog.base;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.widget.DialogTitle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.nasduck.dialoglib.R;
@@ -28,8 +25,8 @@ public class BaseDialog extends DialogFragment {
     private IDialogView mDialogView;
     private int mCornerRadius;
     private int mDialogWidth;
-    private boolean mTouchOutsideCancelable;
-    private boolean mTouchBackCancelable;
+    private boolean mCanceledOnTouchOutside;
+    private boolean mCancelOnTouchBack;
     private boolean mHasShade;
 
     public static BaseDialog newInstance() {
@@ -57,9 +54,21 @@ public class BaseDialog extends DialogFragment {
             getDialog().getWindow().setDimAmount(0f);
         }
 
-        // Outside Touch Cancelable
-        this.setCanceledOnTouchOutside(mTouchOutsideCancelable);
-        this.setCancelOnTouchBack(mTouchBackCancelable);
+        // Touch Cancelable
+        getDialog().setCanceledOnTouchOutside(mCanceledOnTouchOutside);
+        getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (mCancelOnTouchBack) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         int index = 0;
         // set dialog mView
@@ -110,12 +119,12 @@ public class BaseDialog extends DialogFragment {
     }
 
     public BaseDialog setCanceledOnTouchOutside(boolean cancelable) {
-        this.mTouchOutsideCancelable = cancelable;
+        this.mCanceledOnTouchOutside = cancelable;
         return this;
     }
 
     public BaseDialog setCancelOnTouchBack(boolean cancelable) {
-        this.mTouchBackCancelable = cancelable;
+        this.mCancelOnTouchBack = cancelable;
         return this;
     }
 
