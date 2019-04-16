@@ -13,6 +13,10 @@ public class DialogButton extends AppCompatTextView {
     private DialogBtnConfig mConfig;
     private Context mContext;
 
+    private GradientDrawable drawablePressed;
+    private GradientDrawable drawableNormal;
+    private StateListDrawable stateListDrawable;
+
     public DialogButton(Context context) {
         super(context);
         mConfig = DialogBtnConfig.newInstance();
@@ -28,14 +32,15 @@ public class DialogButton extends AppCompatTextView {
         this.setClickable(true);
         this.setGravity(mConfig.getGravity());
 
-        GradientDrawable drawablePressed = new GradientDrawable();
+        drawablePressed = new GradientDrawable();
         drawablePressed.setColor(getResources().getColor(mConfig.getBgColorPressed()));
 
-        GradientDrawable drawableNormal = new GradientDrawable();
+        drawableNormal = new GradientDrawable();
         drawableNormal.setColor(getResources().getColor(mConfig.getBgColor()));
 
-        StateListDrawable stateListDrawable = new StateListDrawable();
+        stateListDrawable = new StateListDrawable();
         stateListDrawable.addState(new int[]{android.R.attr.state_pressed}, drawablePressed);
+        stateListDrawable.addState(new int[]{android.R.attr.state_selected}, drawablePressed);
         stateListDrawable.addState(new int[]{}, drawableNormal);
 
         this.setBackground(stateListDrawable);
@@ -48,35 +53,35 @@ public class DialogButton extends AppCompatTextView {
     }
 
     public void setCornerRadiusLast(int cornerRadius) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{
+        float[] corners = new float[]{
                 0, 0,
                 0, 0,
                 DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
-                0, 0});
-        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
-        this.setBackground(drawable);
+                0, 0};
+        drawableNormal.setCornerRadii(corners);
+        drawablePressed.setCornerRadii(corners);
+        this.setBackground(stateListDrawable);
     }
 
     public void setCornerRadiusOnly(int cornerRadius) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{
+        float[] corners = new float[]{
                 0, 0,
                 0, 0,
                 DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius),
-                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)});
-        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
-        this.setBackground(drawable);
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)};
+        drawableNormal.setCornerRadii(corners);
+        drawablePressed.setCornerRadii(corners);
+        this.setBackground(stateListDrawable);
     }
 
     public void setCornerRadiusFirst(int cornerRadius) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{
+        float[] corners = new float[]{
                 0, 0,
                 0, 0,
                 0, 0,
-                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)});
-        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
-        this.setBackground(drawable);
+                DensityUtils.dp2px(mContext, cornerRadius), DensityUtils.dp2px(mContext, cornerRadius)};
+        drawableNormal.setCornerRadii(corners);
+        drawablePressed.setCornerRadii(corners);
+        this.setBackground(stateListDrawable);
     }
 }
