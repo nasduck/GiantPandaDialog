@@ -2,6 +2,7 @@ package com.nasduck.dialoglib.dialog.composition;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -23,9 +24,6 @@ public class DialogHeader extends FrameLayout {
     }
 
     private void init(Context context) {
-
-        //this.setBackgroundResource(mConfig.getBgColor());
-
         TextView tv = new TextView(context);
         tv.setText(mConfig.getTitle());
         tv.setTextSize(mConfig.getTitleTextSize());
@@ -45,25 +43,6 @@ public class DialogHeader extends FrameLayout {
 
         this.addView(tv);
 
-        // set background
-        /**
-        float radius = mConfig.getCornerRadius();
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setCornerRadii(new float[]{DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius),
-                DensityUtils.dp2px(context, radius), 0, 0, 0, 0});
-        drawable.setColor(getResources().getColor(mConfig.getBgColor()));
-        layoutBackground.setBackground(drawable);
-         **/
-
-        // set text location
-        /**
-        layoutBackground.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
-                DensityUtils.dp2px(context, mConfig.getPaddingTop()),
-                DensityUtils.dp2px(context, mConfig.getPaddingRight()),
-                DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
-         **/
-
+        this.setBackgroundResource(mConfig.getBgColor());
     }
 }

@@ -15,7 +15,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
     private FragmentActivity activity;
 
     private String tag;
-    private Integer backgroundColorId;
     private Integer cornerRadius;
     private Integer dialogWidth;
     private Boolean touchOutsideCancelable;
@@ -74,7 +73,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
         builder.setDialogTag(tag)
                 .setCornerRadius(cornerRadius)
                 .setDialogWidth(dialogWidth)
-                .setBackgroundColor(backgroundColorId)
                 .setCancelOnTouchBack(touchBackCancelable)
                 .setTouchOutsideCancelable(touchOutsideCancelable)
                 .setHasShade(hasShade)
@@ -83,11 +81,6 @@ public abstract class TitleBaseDialog<T> implements ITitleBaseDialog {
 
     public T setTag(String tag) {
         this.tag = tag;
-        return (T)this;
-    }
-
-    public T setBackgroundColor(Integer colorId) {
-        this.backgroundColorId = colorId;
         return (T)this;
     }
 

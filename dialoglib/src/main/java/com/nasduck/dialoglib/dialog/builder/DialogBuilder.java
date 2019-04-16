@@ -23,7 +23,6 @@ public class DialogBuilder {
     private IDialogBodyBuilder mBodyBuilder;
     private List<DialogButton> mFooterBtnList;
 
-    private int mBgColorId;
     private int mCornerRadius;
     private int mDialogWidth;
     private boolean mTouchOutsideCancelable;
@@ -43,8 +42,7 @@ public class DialogBuilder {
     private DialogBuilder(FragmentActivity activity) {
         mActivity = activity;
         mDialogWidth = 260;
-        mBgColorId = android.R.color.white;
-        mCornerRadius = 0;
+        mCornerRadius = 10;
         mDialogTag = "dialog";
         mTouchOutsideCancelable = false;
         mTouchBackCancelable = false;
@@ -77,11 +75,6 @@ public class DialogBuilder {
         if (tag != null) {
             this.mDialogTag = tag;
         }
-        return this;
-    }
-
-    public DialogBuilder setBackgroundColor(int colorId) {
-        this.mBgColorId = colorId;
         return this;
     }
 
@@ -128,7 +121,6 @@ public class DialogBuilder {
                         return mFooterBtnList.size() == 0 ? null : DialogFooter.newInstance(context, mFooterBtnList);
                     }
                 })
-                .setBackgroundColor(mBgColorId)
                 .setCornerRadius(mCornerRadius)
                 .setCanceledOnTouchOutside(mTouchOutsideCancelable)
                 .setCancelOnTouchBack(mTouchBackCancelable)

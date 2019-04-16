@@ -23,7 +23,6 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 public class BaseDialog extends DialogFragment {
 
     private IDialogView mDialogView;
-    private int mBgColor;
     private int mCornerRadius;
     private int mDialogWidth;
     private boolean mTouchOutsideCancelable;
@@ -47,7 +46,7 @@ public class BaseDialog extends DialogFragment {
         // BgColor & CornerRadius
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(DensityUtils.dp2px(getContext(), mCornerRadius));
-        drawable.setColor(getResources().getColor(mBgColor));
+        drawable.setColor(getResources().getColor(android.R.color.transparent));
         layout.setBackground(drawable);
 
         if (!mHasShade) {
@@ -100,11 +99,6 @@ public class BaseDialog extends DialogFragment {
 
     public BaseDialog setDialogView(IDialogView dialogView) {
         this.mDialogView = dialogView;
-        return this;
-    }
-
-    public BaseDialog setBackgroundColor(int colorId) {
-        this.mBgColor = colorId;
         return this;
     }
 

@@ -67,4 +67,16 @@ public class DialogHeaderBuilder implements IDialogHeaderBuilder {
         mConfig.setPaddingRight(paddingRight);
         return this;
     }
+
+    public DialogHeaderBuilder setBgColor(int color) {
+        mConfig.setBgColor(color);
+        return this;
+    }
+
+    public DialogHeaderBuilder setCornerRadius(int corner) {
+        mConfig.setCornerRadius(corner);
+        return this;
+    }
+
+
 }

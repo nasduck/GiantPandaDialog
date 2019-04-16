@@ -12,6 +12,7 @@ public class HeaderConfig {
     private int titleTextSize;
     private int typeface;
     private int gravity;
+    private int bgColor;
     private int paddingTop;
     private int paddingBottom;
     private int paddingLeft;
@@ -26,6 +27,7 @@ public class HeaderConfig {
         this.title = "";
         this.titleColor = R.color.text_black_light;
         this.titleTextSize = 16;
+        this.bgColor = android.R.color.white;
         this.gravity = Gravity.CENTER;
         this.paddingTop = 18;
         this.paddingBottom = 0;
@@ -105,5 +107,13 @@ public class HeaderConfig {
 
     public void setPaddingRight(int paddingRight) {
         this.paddingRight = paddingRight;
+    }
+
+    public int getBgColor() {
+        return bgColor;
+    }
+
+    public void setBgColor(int bgColor) {
+        this.bgColor = bgColor;
     }
 }

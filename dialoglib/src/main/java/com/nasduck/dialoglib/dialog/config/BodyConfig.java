@@ -14,7 +14,6 @@ public class BodyConfig {
     private int paddingRight;
 
     private int bgColor;
-    private int cornerRadius;
 
     // Content
     private String content;
@@ -34,7 +33,6 @@ public class BodyConfig {
         this.paddingLeft = this.paddingRight = 26;
 
         this.bgColor = android.R.color.white;
-        this.cornerRadius = 10;
 
         // Content
         this.content = "";
@@ -91,14 +89,6 @@ public class BodyConfig {
 
     public void setBgColor(int bgColor) {
         this.bgColor = bgColor;
-    }
-
-    public int getCornerRadius() {
-        return cornerRadius;
-    }
-
-    public void setCornerRadius(int cornerRadius) {
-        this.cornerRadius = cornerRadius;
     }
 
     public String getContent() {
