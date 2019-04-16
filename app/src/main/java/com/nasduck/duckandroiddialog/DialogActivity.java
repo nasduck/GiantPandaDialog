@@ -19,15 +19,6 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onDialogClick(View view) {
         DuckDialog.showDialog(this, "Title Test", "Content Test");
-        /**
-        DuckDialog.showNoTitleTipDialog(this, "content", "确定",
-                new OnNormalClickListener() {
-                    @Override
-                    public void onNormalClick() {
-                        DuckDialog.showDialog(DialogActivity.this, "我被点击了");
-                    }
-                });
-         **/
     }
 
     public void onDialogNoTitleClick(View view) {

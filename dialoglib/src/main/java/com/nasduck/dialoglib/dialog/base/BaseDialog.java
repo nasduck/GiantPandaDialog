@@ -15,8 +15,12 @@ import android.widget.LinearLayout;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.composition.DialogBody;
+import com.nasduck.dialoglib.dialog.composition.DialogButton;
+import com.nasduck.dialoglib.dialog.composition.DialogFooter;
 import com.nasduck.dialoglib.dialog.composition.DialogHeader;
 import com.nasduck.dialoglib.utils.DensityUtils;
+
+import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -69,13 +73,12 @@ public class BaseDialog extends DialogFragment {
                 return false;
             }
         });
-
         int index = 0;
         // set dialog mView
         if (mDialogView != null) {
-
             DialogHeader header = (DialogHeader) mDialogView.getHeaderLayout(getContext());
             DialogBody body = (DialogBody) mDialogView.getBodyLayout(getContext());
+            DialogFooter footer = (DialogFooter) mDialogView.getFooterLayout(getContext());
 
             if (header != null) {
                 // Add Header
@@ -89,8 +92,19 @@ public class BaseDialog extends DialogFragment {
             layout.addView(body, index++);
 
             // Add footer
-            if (mDialogView.getFooterLayout(getContext()) != null) {
-                layout.addView(mDialogView.getFooterLayout(rootView.getContext()), index);
+            if (footer != null) {
+                List<DialogButton> btnList = footer.getBtnList();
+                for (DialogButton btn : btnList) {
+                    if (!btn.hasOnClickListeners()) {
+                        btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                BaseDialog.this.dismiss();
+                            }
+                        });
+                    }
+                }
+                layout.addView(footer, index);
             }
 
         }

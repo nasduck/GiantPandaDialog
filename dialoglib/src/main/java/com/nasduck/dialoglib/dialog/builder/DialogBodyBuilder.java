@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.dialog.builder.body;
+package com.nasduck.dialoglib.dialog.builder;
 
 import android.content.Context;
 import android.view.View;

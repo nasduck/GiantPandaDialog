@@ -10,12 +10,16 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class DialogFooter extends LinearLayout {
 
+    private List<DialogButton> btnList;
+
     public static DialogFooter newInstance(Context context, List<DialogButton> btnList) {
         return new DialogFooter(context, btnList);
     }
 
     private DialogFooter(Context context, List<DialogButton> btnList) {
         super(context);
+
+        this.btnList = btnList;
 
         LayoutParams lp = new LayoutParams(0, WRAP_CONTENT, 1);
         for (DialogButton btn : btnList) {
@@ -25,5 +29,9 @@ public class DialogFooter extends LinearLayout {
             }
             this.addView(btn, lp);
         }
+    }
+
+    public List<DialogButton> getBtnList() {
+        return btnList;
     }
 }

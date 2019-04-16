@@ -3,7 +3,7 @@ package com.nasduck.dialoglib;
 import android.support.v4.app.FragmentActivity;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
-import com.nasduck.dialoglib.dialog.builder.body.DialogBodyBuilder;
+import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
 import com.nasduck.dialoglib.dialog.classification.TextDialog;
 import com.nasduck.dialoglib.base.enums.DialogType;
