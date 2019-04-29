@@ -16,6 +16,11 @@ public class DialogBtnConfig {
     private int paddingBottom;
     private int paddingLeft;
     private int paddingRight;
+    private OnButtonClickListener listener;
+
+    public interface OnButtonClickListener {
+        void onButtonClick();
+    }
 
     public static DialogBtnConfig newInstance() {
         return new DialogBtnConfig();
@@ -29,6 +34,7 @@ public class DialogBtnConfig {
         this.gravity = Gravity.CENTER;
         this.paddingTop = this.paddingBottom = 14;
         this.paddingLeft = this.paddingRight = 0;
+        this.listener = null;
     }
 
     public String getText() {
@@ -109,5 +115,13 @@ public class DialogBtnConfig {
 
     public void setPaddingRight(int paddingRight) {
         this.paddingRight = paddingRight;
+    }
+
+    public OnButtonClickListener getListener() {
+        return listener;
+    }
+
+    public void setListener(OnButtonClickListener listener) {
+        this.listener = listener;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.AppCompatTextView;
+import android.view.View;
 
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
@@ -83,5 +84,13 @@ public class DialogButton extends AppCompatTextView {
         drawableNormal.setCornerRadii(corners);
         drawablePressed.setCornerRadii(corners);
         this.setBackground(stateListDrawable);
+    }
+
+    public void setListener(DialogBtnConfig.OnButtonClickListener listener) {
+        mConfig.setListener(listener);
+    }
+
+    public DialogBtnConfig getConfig() {
+        return mConfig;
     }
 }

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.nasduck.dialoglib.R;
 import com.nasduck.dialoglib.dialog.view.DialogBody;
@@ -94,11 +95,14 @@ public class BaseDialog extends DialogFragment {
             // Add footer
             if (footer != null) {
                 List<DialogButton> btnList = footer.getBtnList();
-                for (DialogButton btn : btnList) {
+                for (final DialogButton btn : btnList) {
                     if (!btn.hasOnClickListeners()) {
                         btn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                if (btn.getConfig().getListener() != null) {
+                                    btn.getConfig().getListener().onButtonClick();
+                                }
                                 BaseDialog.this.dismiss();
                             }
                         });
@@ -107,7 +111,6 @@ public class BaseDialog extends DialogFragment {
                 footer.setCornerRadius(mCornerRadius);
                 layout.addView(footer, index);
             }
-
         }
         return rootView;
     }

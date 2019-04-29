@@ -18,7 +18,7 @@ public abstract class BaseToast extends DialogFragment implements IDialogFragmen
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        setStyle(DialogFragment.STYLE_NO_INPUT, R.style.fragment_dialog_toast_style);
+        setStyle(DialogFragment.STYLE_NO_INPUT, R.style.base_toast);
         super.onCreate(savedInstanceState);
     }
 

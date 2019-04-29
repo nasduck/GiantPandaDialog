@@ -1,10 +1,12 @@
 package com.nasduck.dialoglib;
 
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
+import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
 import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
 
@@ -91,6 +93,7 @@ public class DuckDialog {
         DialogButton btn = new DialogButton(activity);
         btn.setText("OK");
 
+
         DialogBuilder.getInstance(activity)
                 .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
@@ -121,7 +124,7 @@ public class DuckDialog {
                 .show();
     }
 
-    public static void showClickDialog(FragmentActivity activity, String title, String content) {
+    public static void showClickDialog(final FragmentActivity activity, String title, String content) {
         DialogButton btnSetting = new DialogButton(activity);
         btnSetting.setText("Setting");
         DialogButton btnCancel = new DialogButton(activity);
@@ -133,5 +136,24 @@ public class DuckDialog {
                 .addButton(btnSetting)
                 .addButton(btnCancel)
                 .show();
+    }
+
+    public static void showDialog(FragmentActivity activity, String title, String content, DialogButton...buttons) {
+        DialogBuilder builder = DialogBuilder.create(activity);
+        builder.setHeader(DialogHeaderBuilder.getInstance().setTitle(title));
+        builder.setBody(DialogBodyBuilder.getInstance().setContent(content));
+        for (DialogButton button : buttons) {
+            builder.addButton(button);
+        }
+        builder.show();
+    }
+
+    public static void showDialog(FragmentActivity activity, String content, DialogButton...buttons) {
+        DialogBuilder builder = DialogBuilder.create(activity);
+        builder.setBody(DialogBodyBuilder.getInstance().setContent(content));
+        for (DialogButton button : buttons) {
+            builder.addButton(button);
+        }
+        builder.show();
     }
 }
