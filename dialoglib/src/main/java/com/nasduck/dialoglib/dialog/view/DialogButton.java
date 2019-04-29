@@ -28,13 +28,39 @@ public class DialogButton extends AppCompatTextView {
         init(context);
     }
 
+    public DialogButton(Context context, DialogBtnConfig config) {
+        super(context);
+        mConfig = config;
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text, ButtonStyle style) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setStyle(style);
+        mContext = context;
+        init(context);
+    }
+
     private void init(Context context) {
 
+        this.setHeight(DensityUtils.dp2px(context, mConfig.getButtonHeight()));
         this.setText(mConfig.getText());
         this.setTextColor(getResources().getColor(mConfig.getTextColor()));
         this.setTextSize(mConfig.getTextSize());
         this.setClickable(true);
         this.setGravity(mConfig.getGravity());
+        this.setStyle(mConfig.getStyle());
 
         drawablePressed = new GradientDrawable();
         drawablePressed.setColor(getResources().getColor(mConfig.getBgColorPressed()));

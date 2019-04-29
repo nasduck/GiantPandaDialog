@@ -3,10 +3,14 @@ package com.nasduck.dialoglib.dialog.config;
 import android.view.Gravity;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.enums.ButtonStyle;
+import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class DialogBtnConfig {
 
+    private ButtonStyle style;
     private String text;
+    private int buttonHeight;
     private int textColor;
     private int textSize;
     private int bgColor;
@@ -23,12 +27,30 @@ public class DialogBtnConfig {
     }
 
     private DialogBtnConfig() {
+        this.style = ButtonStyle.DEFAULT;
+        this.buttonHeight = 44;
         this.bgColor = android.R.color.white;
         this.bgColorPressed = R.color.gray_light;
         this.textSize = 16;
         this.textColor = R.color.text_blue;
         this.gravity = Gravity.CENTER;
         this.listener = null;
+    }
+
+    public ButtonStyle getStyle() {
+        return style;
+    }
+
+    public void setStyle(ButtonStyle style) {
+        this.style = style;
+    }
+
+    public int getButtonHeight() {
+        return buttonHeight;
+    }
+
+    public void setButtonHeight(int buttonHeight) {
+        this.buttonHeight = buttonHeight;
     }
 
     public String getText() {

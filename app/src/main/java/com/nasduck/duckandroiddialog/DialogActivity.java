@@ -27,9 +27,7 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onSelectDialog(View view) {
-        DialogButton btnNegative = new DialogButton(this);
-        btnNegative.setText(R.string.negative_button_text);
-        btnNegative.setStyle(ButtonStyle.CANCEL);
+        DialogButton btnNegative = new DialogButton(this, getResources().getString(R.string.negative_button_text), ButtonStyle.CANCEL);
         btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {

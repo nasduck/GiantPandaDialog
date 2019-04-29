@@ -11,7 +11,7 @@ public class ToastActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedgInstanceState);
         setContentView(R.layout.activity_toast);
     }
 
