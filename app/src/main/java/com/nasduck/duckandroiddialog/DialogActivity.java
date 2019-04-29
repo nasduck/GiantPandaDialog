@@ -23,10 +23,12 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onSelectDialog(View view) {
-        DuckDialog.showClickDialog(this, "Button Test", "Button Test Content");
+        DuckDialog.showClickDialog(this, "Button Test Content");
     }
 
     public void onTitleSelectDialog(View view) {
+        DuckDialog.showClickDialog(this, "Button Test", "Button Test Content");
+
 
         /**
         DuckDialog.showDialog(title, content);
