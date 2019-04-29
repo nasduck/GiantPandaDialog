@@ -48,12 +48,6 @@ public class DialogButton extends AppCompatTextView {
         stateListDrawable.addState(new int[]{}, drawableNormal);
 
         this.setBackground(stateListDrawable);
-
-        // Padding
-        this.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
-                DensityUtils.dp2px(context, mConfig.getPaddingTop()),
-                DensityUtils.dp2px(context, mConfig.getPaddingRight()),
-                DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
     }
 
     public void setCornerRadiusLast(int cornerRadius) {
@@ -108,8 +102,8 @@ public class DialogButton extends AppCompatTextView {
                 this.setTypeface(Typeface.DEFAULT);
                 break;
             case CANCEL:
-                this.setTextColor(getResources().getColor(mConfig.getTextColor()));
-                this.setTypeface(Typeface.DEFAULT_BOLD);
+                this.setTextColor(getResources().getColor(R.color.text_gray));
+                this.setTypeface(Typeface.DEFAULT);
                 break;
         }
     }

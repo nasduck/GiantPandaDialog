@@ -28,7 +28,7 @@ public class DialogFooter extends LinearLayout {
         this.mBtnList = btnList;
         this.mContext = context;
 
-        LayoutParams lp = new LayoutParams(0, WRAP_CONTENT, 1);
+        LayoutParams lp = new LayoutParams(0, DensityUtils.dp2px(context, 44), 1);
 
         int index = 0;
         for (DialogButton btn : btnList) {

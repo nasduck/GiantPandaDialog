@@ -12,10 +12,6 @@ public class DialogBtnConfig {
     private int bgColor;
     private int bgColorPressed;
     private int gravity;
-    private int paddingTop;
-    private int paddingBottom;
-    private int paddingLeft;
-    private int paddingRight;
     private OnButtonClickListener listener;
 
     public interface OnButtonClickListener {
@@ -32,8 +28,6 @@ public class DialogBtnConfig {
         this.textSize = 16;
         this.textColor = R.color.text_blue;
         this.gravity = Gravity.CENTER;
-        this.paddingTop = this.paddingBottom = 14;
-        this.paddingLeft = this.paddingRight = 0;
         this.listener = null;
     }
 
@@ -83,38 +77,6 @@ public class DialogBtnConfig {
 
     public void setGravity(int gravity) {
         this.gravity = gravity;
-    }
-
-    public int getPaddingTop() {
-        return paddingTop;
-    }
-
-    public void setPaddingTop(int paddingTop) {
-        this.paddingTop = paddingTop;
-    }
-
-    public int getPaddingBottom() {
-        return paddingBottom;
-    }
-
-    public void setPaddingBottom(int paddingBottom) {
-        this.paddingBottom = paddingBottom;
-    }
-
-    public int getPaddingLeft() {
-        return paddingLeft;
-    }
-
-    public void setPaddingLeft(int paddingLeft) {
-        this.paddingLeft = paddingLeft;
-    }
-
-    public int getPaddingRight() {
-        return paddingRight;
-    }
-
-    public void setPaddingRight(int paddingRight) {
-        this.paddingRight = paddingRight;
     }
 
     public OnButtonClickListener getListener() {

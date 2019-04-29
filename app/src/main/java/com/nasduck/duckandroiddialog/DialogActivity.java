@@ -28,7 +28,7 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onSelectDialog(View view) {
         DialogButton btnNegative = new DialogButton(this);
-        btnNegative.setText("cancel");
+        btnNegative.setText(R.string.negative_button_text);
         btnNegative.setStyle(ButtonStyle.CANCEL);
         btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
@@ -38,7 +38,7 @@ public class DialogActivity extends AppCompatActivity {
             }
         });
         DialogButton btnPositive = new DialogButton(this);
-        btnPositive.setText("sure");
+        btnPositive.setText(R.string.positive_button_text);
         btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
@@ -51,7 +51,8 @@ public class DialogActivity extends AppCompatActivity {
 
     public void onTitleSelectDialog(View view) {
         DialogButton btnNegative = new DialogButton(this);
-        btnNegative.setText("cancel");
+        btnNegative.setText(R.string.negative_button_text);
+        btnNegative.setStyle(ButtonStyle.CANCEL);
         btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
@@ -60,7 +61,7 @@ public class DialogActivity extends AppCompatActivity {
             }
         });
         DialogButton btnPositive = new DialogButton(this);
-        btnPositive.setText("sure");
+        btnPositive.setText(R.string.positive_button_text);
         btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
@@ -72,6 +73,6 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onCustomDialog(View view) {
-        
+
     }
 }
