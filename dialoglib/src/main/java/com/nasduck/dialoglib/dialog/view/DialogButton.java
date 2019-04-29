@@ -1,11 +1,14 @@
 package com.nasduck.dialoglib.dialog.view;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
+import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
@@ -88,6 +91,27 @@ public class DialogButton extends AppCompatTextView {
 
     public void setListener(DialogBtnConfig.OnButtonClickListener listener) {
         mConfig.setListener(listener);
+    }
+
+    /**
+     * set button text style
+     * @param style
+     */
+    public void setStyle(ButtonStyle style) {
+        switch (style) {
+            case DEFAULT:
+                this.setTextColor(getResources().getColor(mConfig.getTextColor()));
+                this.setTypeface(Typeface.DEFAULT);
+                break;
+            case DESTRUCTIVE:
+                this.setTextColor(getResources().getColor(R.color.text_red));
+                this.setTypeface(Typeface.DEFAULT);
+                break;
+            case CANCEL:
+                this.setTextColor(getResources().getColor(mConfig.getTextColor()));
+                this.setTypeface(Typeface.DEFAULT_BOLD);
+                break;
+        }
     }
 
     public DialogBtnConfig getConfig() {

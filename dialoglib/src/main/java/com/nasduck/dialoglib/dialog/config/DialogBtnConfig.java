@@ -30,7 +30,7 @@ public class DialogBtnConfig {
         this.bgColor = android.R.color.white;
         this.bgColorPressed = R.color.gray_light;
         this.textSize = 16;
-        this.textColor = R.color.text_gray;
+        this.textColor = R.color.text_blue;
         this.gravity = Gravity.CENTER;
         this.paddingTop = this.paddingBottom = 14;
         this.paddingLeft = this.paddingRight = 0;

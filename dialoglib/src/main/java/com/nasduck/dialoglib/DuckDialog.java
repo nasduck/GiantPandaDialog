@@ -3,6 +3,7 @@ package com.nasduck.dialoglib;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
+import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
@@ -89,52 +90,30 @@ public class DuckDialog {
 
     /** dialog ************************************************************************************/
 
-    public static void showDialog(FragmentActivity activity, String title, String content) {
+    public static void showDialog(FragmentActivity activity, String title, String content, ButtonStyle style) {
         DialogButton btn = new DialogButton(activity);
-        btn.setText("OK");
-
+        btn.setText(R.string.positive_button_text);
+        btn.setStyle(style);
 
         DialogBuilder.getInstance(activity)
                 .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btn)
+                .setCancelOnTouchBack(false)
+                .setTouchOutsideCancelable(false)
                 .show();
     }
 
-    public static void showDialog(FragmentActivity activity, String content) {
+    public static void showDialog(FragmentActivity activity, String content, ButtonStyle style) {
         DialogButton btn = new DialogButton(activity);
-        btn.setText("OK");
+        btn.setText(R.string.positive_button_text);
+        btn.setStyle(style);
 
         DialogBuilder.getInstance(activity)
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btn)
-                .show();
-    }
-
-    public static void showClickDialog(FragmentActivity activity, String content) {
-        DialogButton btnSetting = new DialogButton(activity);
-        btnSetting.setText("Setting");
-        DialogButton btnCancel = new DialogButton(activity);
-        btnCancel.setText("Cancel");
-
-        DialogBuilder.getInstance(activity)
-                .setBody(DialogBodyBuilder.getInstance().setContent(content))
-                .addButton(btnSetting)
-                .addButton(btnCancel)
-                .show();
-    }
-
-    public static void showClickDialog(final FragmentActivity activity, String title, String content) {
-        DialogButton btnSetting = new DialogButton(activity);
-        btnSetting.setText("Setting");
-        DialogButton btnCancel = new DialogButton(activity);
-        btnCancel.setText("Cancel");
-
-        DialogBuilder.getInstance(activity)
-                .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
-                .setBody(DialogBodyBuilder.getInstance().setContent(content))
-                .addButton(btnSetting)
-                .addButton(btnCancel)
+                .setCancelOnTouchBack(false)
+                .setTouchOutsideCancelable(false)
                 .show();
     }
 

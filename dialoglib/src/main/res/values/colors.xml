@@ -9,5 +9,6 @@
     <color name="text_black">#1A1A1A</color>
     <color name="text_black_light">#4D4D4D</color>
     <color name="text_blue">#4BB1FF</color>
+    <color name="text_red">#FF4433</color>
     <color name="text_gray">#999999</color>
 </resources>
