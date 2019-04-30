@@ -1,10 +1,14 @@
 package com.nasduck.dialoglib.dialog.view;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.AppCompatTextView;
+import android.view.View;
 
+import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 
@@ -24,13 +28,58 @@ public class DialogButton extends AppCompatTextView {
         init(context);
     }
 
+    public DialogButton(Context context, DialogBtnConfig config) {
+        super(context);
+        mConfig = config;
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text, ButtonStyle style) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setStyle(style);
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text, DialogBtnConfig.OnButtonClickListener listener) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setListener(listener);
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text, ButtonStyle style, DialogBtnConfig.OnButtonClickListener listener) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setStyle(style);
+        mConfig.setListener(listener);
+        mContext = context;
+        init(context);
+    }
+
     private void init(Context context) {
 
+        this.setHeight(DensityUtils.dp2px(context, mConfig.getButtonHeight()));
         this.setText(mConfig.getText());
         this.setTextColor(getResources().getColor(mConfig.getTextColor()));
         this.setTextSize(mConfig.getTextSize());
         this.setClickable(true);
         this.setGravity(mConfig.getGravity());
+        this.setStyle(mConfig.getStyle());
 
         drawablePressed = new GradientDrawable();
         drawablePressed.setColor(getResources().getColor(mConfig.getBgColorPressed()));
@@ -44,12 +93,6 @@ public class DialogButton extends AppCompatTextView {
         stateListDrawable.addState(new int[]{}, drawableNormal);
 
         this.setBackground(stateListDrawable);
-
-        // Padding
-        this.setPadding(DensityUtils.dp2px(context, mConfig.getPaddingLeft()),
-                DensityUtils.dp2px(context, mConfig.getPaddingTop()),
-                DensityUtils.dp2px(context, mConfig.getPaddingRight()),
-                DensityUtils.dp2px(context, mConfig.getPaddingBottom()));
     }
 
     public void setCornerRadiusLast(int cornerRadius) {
@@ -83,5 +126,34 @@ public class DialogButton extends AppCompatTextView {
         drawableNormal.setCornerRadii(corners);
         drawablePressed.setCornerRadii(corners);
         this.setBackground(stateListDrawable);
+    }
+
+    public void setListener(DialogBtnConfig.OnButtonClickListener listener) {
+        mConfig.setListener(listener);
+    }
+
+    /**
+     * set button text style
+     * @param style
+     */
+    public void setStyle(ButtonStyle style) {
+        switch (style) {
+            case DEFAULT:
+                this.setTextColor(getResources().getColor(mConfig.getTextColor()));
+                this.setTypeface(Typeface.DEFAULT);
+                break;
+            case DESTRUCTIVE:
+                this.setTextColor(getResources().getColor(R.color.text_red));
+                this.setTypeface(Typeface.DEFAULT);
+                break;
+            case CANCEL:
+                this.setTextColor(getResources().getColor(R.color.text_gray));
+                this.setTypeface(Typeface.DEFAULT);
+                break;
+        }
+    }
+
+    public DialogBtnConfig getConfig() {
+        return mConfig;
     }
 }

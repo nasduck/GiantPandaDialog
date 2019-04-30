@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.nasduck.dialoglib.DuckDialog;
-import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
+import com.nasduck.toastlib.DuckToast;
+import com.nasduck.toastlib.builder.impl.ToastBuilder;
 
 public class ToastActivity extends AppCompatActivity {
 
@@ -16,39 +16,39 @@ public class ToastActivity extends AppCompatActivity {
     }
 
     public void onDefaultClick(View view) {
-        DuckDialog.show(this, "Toast Default");
+        DuckToast.show(this, "Toast Default");
     }
 
     public void onSuccessClick(View view) {
-        DuckDialog.showSuccess(this);
+        DuckToast.showSuccess(this);
     }
 
     public void onFailureClick(View view) {
-        DuckDialog.showFailure(this);
+        DuckToast.showFailure(this);
     }
 
     public void onWarningClick(View view) {
-        DuckDialog.showWarning(this);
+        DuckToast.showWarning(this);
     }
 
     public void onLoadingClick(View view) {
-        DuckDialog.showLoading(this);
+        DuckToast.showLoading(this);
     }
 
     public void onSuccessTextClick(View view) {
-        DuckDialog.showSuccess(this, "success");
+        DuckToast.showSuccess(this, "success");
     }
 
     public void onFailureTextClick(View view) {
-        DuckDialog.showFailure(this, "failure");
+        DuckToast.showFailure(this, "failure");
     }
 
     public void onWarningTextClick(View view) {
-        DuckDialog.showWarning(this, "warning");
+        DuckToast.showWarning(this, "warning");
     }
 
     public void onLoadingTextClick(View view) {
-        DuckDialog.showLoading(this, "loading");
+        DuckToast.showLoading(this, "loading");
     }
 
     public void onHideToastClick(View view) {

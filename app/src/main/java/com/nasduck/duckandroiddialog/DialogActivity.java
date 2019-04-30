@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.nasduck.dialoglib.DuckDialog;
+import com.nasduck.dialoglib.base.enums.ButtonStyle;
+import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
+import com.nasduck.dialoglib.dialog.view.DialogButton;
+import com.nasduck.toastlib.builder.impl.ToastBuilder;
 
 public class DialogActivity extends AppCompatActivity {
 
@@ -15,45 +19,60 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onDialogClick(View view) {
-        DuckDialog.showDialog(this, "Title Test", "Content Test");
+        DuckDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DEFAULT);
     }
 
     public void onDialogNoTitleClick(View view) {
-        DuckDialog.showDialog(this, "Only content without title");
+        DuckDialog.showDialog(this, "Only content without title", ButtonStyle.DEFAULT);
     }
 
     public void onSelectDialog(View view) {
-        DuckDialog.showClickDialog(this, "Button Test", "Button Test Content");
+        DialogButton btnNegative = new DialogButton(this,
+                getResources().getString(R.string.negative_button_text),
+                ButtonStyle.CANCEL,
+                new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onButtonClick() {
+                ToastBuilder.getInstance(DialogActivity.this).setText("cancel").show();
+                ToastBuilder.dismiss(1500);
+            }
+        });
+        DialogButton btnPositive = new DialogButton(this,
+                getResources().getString(R.string.positive_button_text),
+                new DialogBtnConfig.OnButtonClickListener() {
+                    @Override
+                    public void onButtonClick() {
+                        ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
+                        ToastBuilder.dismiss(1500);
+                    }
+                });
+        DuckDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
     }
 
     public void onTitleSelectDialog(View view) {
-
-        /**
-        DuckDialog.showDialog(title, content);
-        DuckDialog.showDialog(content);
-
-        DuckDialog.showTitleSelectDialog(this,
-                "title", "content", "确定", "取消"
-                , new OnPositiveClickListener() {
-                    @Override
-                    public void onPositiveClick() {
-                        DuckDialog.showDialog(DialogActivity.this, "确定");
-                    }
-                }, new OnNegativeClickListener() {
-                    @Override
-                    public void onNegativeClick() {
-                        DuckDialog.showDialog(DialogActivity.this, "取消");
-                    }
-                });
-         **/
+        DialogButton btnNegative = new DialogButton(this);
+        btnNegative.setText(R.string.negative_button_text);
+        btnNegative.setStyle(ButtonStyle.CANCEL);
+        btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onButtonClick() {
+                ToastBuilder.getInstance(DialogActivity.this).setText("cancel").show();
+                ToastBuilder.dismiss(1500);
+            }
+        });
+        DialogButton btnPositive = new DialogButton(this);
+        btnPositive.setText(R.string.positive_button_text);
+        btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onButtonClick() {
+                ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
+                ToastBuilder.dismiss(1500);
+            }
+        });
+        DuckDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
     }
 
     public void onCustomDialog(View view) {
-        /**
-        DialogController.createTextDialog(this)
-                .setTitleTypeface(TextStyle.BOLD)
-                .setTitle("1111")
-                .showDialog();
-         **/
+
     }
 }

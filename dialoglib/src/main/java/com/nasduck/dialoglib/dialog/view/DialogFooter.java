@@ -22,16 +22,16 @@ public class DialogFooter extends LinearLayout {
         return new DialogFooter(context, btnList);
     }
 
-    private DialogFooter(Context context, List<DialogButton> mBtnList) {
+    private DialogFooter(Context context, List<DialogButton> btnList) {
         super(context);
 
-        this.mBtnList = mBtnList;
+        this.mBtnList = btnList;
         this.mContext = context;
 
         LayoutParams lp = new LayoutParams(0, WRAP_CONTENT, 1);
 
         int index = 0;
-        for (DialogButton btn : mBtnList) {
+        for (DialogButton btn : btnList) {
             ViewGroup parentViewGroup = (ViewGroup) btn.getParent();
             if (parentViewGroup != null ) {
                 parentViewGroup.removeView(btn);
