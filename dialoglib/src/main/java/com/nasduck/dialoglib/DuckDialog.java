@@ -124,7 +124,9 @@ public class DuckDialog {
         for (DialogButton button : buttons) {
             builder.addButton(button);
         }
-        builder.show();
+        builder.setCancelOnTouchBack(false)
+                .setTouchOutsideCancelable(false)
+                .show();
     }
 
     public static void showDialog(FragmentActivity activity, String content, DialogButton...buttons) {
@@ -133,6 +135,8 @@ public class DuckDialog {
         for (DialogButton button : buttons) {
             builder.addButton(button);
         }
-        builder.show();
+        builder.setCancelOnTouchBack(false)
+                .setTouchOutsideCancelable(false)
+                .show();
     }
 }
