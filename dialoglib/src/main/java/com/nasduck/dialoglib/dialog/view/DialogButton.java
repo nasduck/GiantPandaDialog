@@ -52,6 +52,25 @@ public class DialogButton extends AppCompatTextView {
         init(context);
     }
 
+    public DialogButton(Context context, String text, DialogBtnConfig.OnButtonClickListener listener) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setListener(listener);
+        mContext = context;
+        init(context);
+    }
+
+    public DialogButton(Context context, String text, ButtonStyle style, DialogBtnConfig.OnButtonClickListener listener) {
+        super(context);
+        mConfig = DialogBtnConfig.newInstance();
+        mConfig.setText(text);
+        mConfig.setStyle(style);
+        mConfig.setListener(listener);
+        mContext = context;
+        init(context);
+    }
+
     private void init(Context context) {
 
         this.setHeight(DensityUtils.dp2px(context, mConfig.getButtonHeight()));

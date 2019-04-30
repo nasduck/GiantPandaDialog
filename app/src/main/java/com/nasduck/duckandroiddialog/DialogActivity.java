@@ -27,23 +27,25 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onSelectDialog(View view) {
-        DialogButton btnNegative = new DialogButton(this, getResources().getString(R.string.negative_button_text), ButtonStyle.CANCEL);
-        btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
+        DialogButton btnNegative = new DialogButton(this,
+                getResources().getString(R.string.negative_button_text),
+                ButtonStyle.CANCEL,
+                new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
                 ToastBuilder.getInstance(DialogActivity.this).setText("cancel").show();
                 ToastBuilder.dismiss(1500);
             }
         });
-        DialogButton btnPositive = new DialogButton(this);
-        btnPositive.setText(R.string.positive_button_text);
-        btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
-            @Override
-            public void onButtonClick() {
-                ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
-                ToastBuilder.dismiss(1500);
-            }
-        });
+        DialogButton btnPositive = new DialogButton(this,
+                getResources().getString(R.string.positive_button_text),
+                new DialogBtnConfig.OnButtonClickListener() {
+                    @Override
+                    public void onButtonClick() {
+                        ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
+                        ToastBuilder.dismiss(1500);
+                    }
+                });
         DuckDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
     }
 
