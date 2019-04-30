@@ -3,12 +3,13 @@ package com.nasduck.duckandroiddialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.nasduck.dialoglib.DuckDialog;
 import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
-import com.nasduck.toastlib.builder.impl.ToastBuilder;
+
 
 public class DialogActivity extends AppCompatActivity {
 
@@ -31,19 +32,17 @@ public class DialogActivity extends AppCompatActivity {
                 getResources().getString(R.string.negative_button_text),
                 ButtonStyle.CANCEL,
                 new DialogBtnConfig.OnButtonClickListener() {
-            @Override
-            public void onButtonClick() {
-                ToastBuilder.getInstance(DialogActivity.this).setText("cancel").show();
-                ToastBuilder.dismiss(1500);
-            }
+                    @Override
+                    public void onButtonClick() {
+                        Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
+                    }
         });
         DialogButton btnPositive = new DialogButton(this,
                 getResources().getString(R.string.positive_button_text),
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
                     public void onButtonClick() {
-                        ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
-                        ToastBuilder.dismiss(1500);
+                        Toast.makeText(DialogActivity.this, "sure", Toast.LENGTH_SHORT).show();
                     }
                 });
         DuckDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
@@ -56,8 +55,7 @@ public class DialogActivity extends AppCompatActivity {
         btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
-                ToastBuilder.getInstance(DialogActivity.this).setText("cancel").show();
-                ToastBuilder.dismiss(1500);
+                Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
         DialogButton btnPositive = new DialogButton(this);
@@ -65,8 +63,7 @@ public class DialogActivity extends AppCompatActivity {
         btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
-                ToastBuilder.getInstance(DialogActivity.this).setText("sure").show();
-                ToastBuilder.dismiss(1500);
+                Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
         DuckDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
