@@ -16,7 +16,6 @@ public final class ToastConfig implements Parcelable {
     private Integer cornerRadius;
     private Integer paddingHorizontal;
     private Integer paddingVertical;
-    private Long delay;
 
     private ToastConfig() {
         this.textColor = android.R.color.white;
@@ -87,14 +86,6 @@ public final class ToastConfig implements Parcelable {
         this.cornerRadius = cornerRadius;
     }
 
-    public Long getDelay() {
-        return delay;
-    }
-
-    public void setDelay(Long delay) {
-        this.delay = delay;
-    }
-
     public Integer getPaddingHorizontal() {
         return paddingHorizontal;
     }
@@ -128,7 +119,6 @@ public final class ToastConfig implements Parcelable {
         dest.writeValue(this.cornerRadius);
         dest.writeValue(this.paddingHorizontal);
         dest.writeValue(this.paddingVertical);
-        dest.writeValue(this.delay);
     }
 
     protected ToastConfig(Parcel in) {
@@ -141,7 +131,6 @@ public final class ToastConfig implements Parcelable {
         this.cornerRadius = (Integer) in.readValue(Integer.class.getClassLoader());
         this.paddingHorizontal = (Integer) in.readValue(Integer.class.getClassLoader());
         this.paddingVertical = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.delay = (Long) in.readValue(Long.class.getClassLoader());
     }
 
     public static final Parcelable.Creator<ToastConfig> CREATOR = new Parcelable.Creator<ToastConfig>() {

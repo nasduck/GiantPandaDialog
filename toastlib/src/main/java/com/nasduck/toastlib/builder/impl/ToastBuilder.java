@@ -82,9 +82,4 @@ public class ToastBuilder extends BaseToastBuilder {
         this.config.setAnim(animation);
         return this;
     }
-
-    public ToastBuilder setDelay(Long delay) {
-        this.config.setDelay(delay);
-        return this;
-    }
 }
