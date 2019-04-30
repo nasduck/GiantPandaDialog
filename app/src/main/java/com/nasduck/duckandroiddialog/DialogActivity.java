@@ -8,7 +8,7 @@ import com.nasduck.dialoglib.DuckDialog;
 import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
-import com.nasduck.dialoglib.toast.builder.impl.ToastBuilder;
+import com.nasduck.toastlib.builder.impl.ToastBuilder;
 
 public class DialogActivity extends AppCompatActivity {
 
