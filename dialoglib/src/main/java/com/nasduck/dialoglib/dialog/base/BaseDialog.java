@@ -1,8 +1,6 @@
 package com.nasduck.dialoglib.dialog.base;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,51 +10,61 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.nasduck.dialoglib.R;
+import com.nasduck.dialoglib.dialog.view.DialogBody;
+import com.nasduck.dialoglib.dialog.view.DialogButton;
+import com.nasduck.dialoglib.dialog.view.DialogFooter;
+import com.nasduck.dialoglib.dialog.view.DialogHeader;
 import com.nasduck.dialoglib.utils.DensityUtils;
+
+import java.util.List;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 public class BaseDialog extends DialogFragment {
 
     private IDialogView mDialogView;
-    private int mBackgroundColorId;
     private int mCornerRadius;
     private int mDialogWidth;
-    private boolean mTouchOutsideCancelable;
-    private boolean mTouchBackCancelable;
+    private boolean mCanceledOnTouchOutside;
+    private boolean mCancelOnTouchBack;
     private boolean mHasShade;
 
-    public static BaseDialog create() {
-        BaseDialog dialog = new BaseDialog();
-        return dialog;
+    public static BaseDialog newInstance() {
+        return new BaseDialog();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.base_dialog);
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        getDialog().requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        View viewLayout = inflater.inflate(R.layout.dialog_custom, container, false);
-        LinearLayout layout = viewLayout.findViewById(R.id.layout);
-        // set dialog background
+        View rootView = inflater.inflate(R.layout.dialog_custom, container, false);
+        LinearLayout layout = rootView.findViewById(R.id.container);
+
+        // CornerRadius
         GradientDrawable drawable = new GradientDrawable();
         drawable.setCornerRadius(DensityUtils.dp2px(getContext(), mCornerRadius));
-        drawable.setColor(getResources().getColor(mBackgroundColorId));
         layout.setBackground(drawable);
+
         if (!mHasShade) {
             getDialog().getWindow().setDimAmount(0f);
         }
-        // set dialog cancel
-        getDialog().setCanceledOnTouchOutside(mTouchOutsideCancelable);
+
+        // Touch Cancelable
+        getDialog().setCanceledOnTouchOutside(mCanceledOnTouchOutside);
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_BACK) {
-                    if (mTouchBackCancelable) {
+                    if (mCancelOnTouchBack) {
                         return false;
                     } else {
                         return true;
@@ -65,28 +73,46 @@ public class BaseDialog extends DialogFragment {
                 return false;
             }
         });
-        // set dialog mView
+
+        int index = 0;
+        // Set dialog view
         if (mDialogView != null) {
-            // judge does it contain a title
-            if (mDialogView.getHeaderLayout(viewLayout.getContext()) != null) {
-                layout.addView(mDialogView.getHeaderLayout(viewLayout.getContext()), 0);
-                if (mDialogView.getBodyLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getBodyLayout(viewLayout.getContext()), 1);
-                }
-                if (mDialogView.getFooterLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getFooterLayout(viewLayout.getContext()), 2);
-                }
+            DialogHeader header = (DialogHeader) mDialogView.getHeaderLayout(getContext());
+            DialogBody body = (DialogBody) mDialogView.getBodyLayout(getContext());
+            DialogFooter footer = (DialogFooter) mDialogView.getFooterLayout(getContext());
+
+            if (header != null) {
+                // Add Header
+                layout.addView(header, index++);
+                header.setCornerRadius(mCornerRadius);
             } else {
-                if (mDialogView.getBodyLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getBodyLayout(viewLayout.getContext()), 0);
-                }
-                if (mDialogView.getFooterLayout(viewLayout.getContext()) != null) {
-                    layout.addView(mDialogView.getFooterLayout(viewLayout.getContext()), 1);
-                }
+                body.setCornerRadius(mCornerRadius);
             }
 
+            // Add Body
+            layout.addView(body, index++);
+
+            // Add footer
+            if (footer != null) {
+                List<DialogButton> btnList = footer.getBtnList();
+                for (final DialogButton btn : btnList) {
+                    if (!btn.hasOnClickListeners()) {
+                        btn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (btn.getConfig().getListener() != null) {
+                                    btn.getConfig().getListener().onButtonClick();
+                                }
+                                BaseDialog.this.dismiss();
+                            }
+                        });
+                    }
+                }
+                footer.setCornerRadius(mCornerRadius);
+                layout.addView(footer, index);
+            }
         }
-        return viewLayout;
+        return rootView;
     }
 
     @Override
@@ -97,11 +123,6 @@ public class BaseDialog extends DialogFragment {
 
     public BaseDialog setDialogView(IDialogView dialogView) {
         this.mDialogView = dialogView;
-        return this;
-    }
-
-    public BaseDialog setBackgroundColor(int colorId) {
-        this.mBackgroundColorId = colorId;
         return this;
     }
 
@@ -116,12 +137,12 @@ public class BaseDialog extends DialogFragment {
     }
 
     public BaseDialog setCanceledOnTouchOutside(boolean cancelable) {
-        this.mTouchOutsideCancelable = cancelable;
+        this.mCanceledOnTouchOutside = cancelable;
         return this;
     }
 
     public BaseDialog setCancelOnTouchBack(boolean cancelable) {
-        this.mTouchBackCancelable = cancelable;
+        this.mCancelOnTouchBack = cancelable;
         return this;
     }
 

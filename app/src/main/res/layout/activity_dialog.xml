@@ -8,35 +8,35 @@
         android:id="@+id/btn_tip_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTipDialog"
+        android:onClick="onTipDialogClick"
         android:text="Tip Dialog"/>
 
     <Button
         android:id="@+id/btn_title_tip_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTitleTipDialog"
+        android:onClick="onTitleTipDialogClick"
         android:text="Title Tip Dialog"/>
 
     <Button
         android:id="@+id/btn_select_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSelectDialog"
+        android:onClick="onSelectDialogClick"
         android:text="Select Dialog"/>
 
     <Button
         android:id="@+id/btn_title_select_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onTitleSelectDialog"
+        android:onClick="onTitleSelectDialogClick"
         android:text="Title Select Dialog"/>
 
     <Button
         android:id="@+id/btn_custom_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onCustomDialog"
+        android:onClick="onCustomDialogClick"
         android:text="Custom Dialog"/>
 
 </LinearLayout>
