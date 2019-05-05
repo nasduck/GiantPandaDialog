@@ -8,10 +8,10 @@ import com.nasduck.dialoglib.dialog.view.DialogHeader;
 
 public class DialogHeaderBuilder implements IBuilder {
 
-    private HeaderConfig mConfig;
+    private HeaderConfig config;
 
     private DialogHeaderBuilder(HeaderConfig config) {
-        this.mConfig = config;
+        this.config = config;
     }
 
     public static DialogHeaderBuilder getInstance() {
@@ -24,51 +24,56 @@ public class DialogHeaderBuilder implements IBuilder {
 
     @Override
     public View getView(Context context) {
-        return DialogHeader.create(context, mConfig);
+        return DialogHeader.create(context, config);
     }
 
     public DialogHeaderBuilder setTitleTypeface(int typeface) {
-        mConfig.setTypeface(typeface);
+        this.config.setTypeface(typeface);
+        return this;
+    }
+    
+    public DialogHeaderBuilder setGravity(int gravity) {
+        this.config.setGravity(gravity);
         return this;
     }
 
     public DialogHeaderBuilder setTitle(String title) {
-        mConfig.setTitle(title);
+        this.config.setTitle(title);
         return this;
     }
 
-    public DialogHeaderBuilder setTitleColor(Integer titleColor) {
-        mConfig.setTitleColor(titleColor);
+    public DialogHeaderBuilder setTitleColor(int titleColor) {
+        this.config.setTitleColor(titleColor);
         return this;
     }
 
-    public DialogHeaderBuilder setTitleSize(Integer titleSize) {
-        mConfig.setTitleTextSize(titleSize);
+    public DialogHeaderBuilder setTitleSize(int titleSize) {
+        this.config.setTitleTextSize(titleSize);
         return this;
     }
 
     public DialogHeaderBuilder setPaddingTop(int paddingTop) {
-        mConfig.setPaddingTop(paddingTop);
+        this.config.setPaddingTop(paddingTop);
         return this;
     }
 
     public DialogHeaderBuilder setPaddingBottom(int paddingBottom) {
-        mConfig.setPaddingBottom(paddingBottom);
+        this.config.setPaddingBottom(paddingBottom);
         return this;
     }
 
     public DialogHeaderBuilder setPaddingLeft(int paddingLeft) {
-        mConfig.setPaddingLeft(paddingLeft);
+        this.config.setPaddingLeft(paddingLeft);
         return this;
     }
 
     public DialogHeaderBuilder setPaddingRight(int paddingRight) {
-        mConfig.setPaddingRight(paddingRight);
+        this.config.setPaddingRight(paddingRight);
         return this;
     }
 
     public DialogHeaderBuilder setBgColor(int color) {
-        mConfig.setBgColor(color);
+        this.config.setBgColor(color);
         return this;
     }
 

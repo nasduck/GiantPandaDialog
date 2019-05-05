@@ -32,12 +32,12 @@ public class DialogBodyBuilder implements IBuilder {
         return this;
     }
 
-    public DialogBodyBuilder setContentColor(Integer contentColor) {
+    public DialogBodyBuilder setContentColor(int contentColor) {
         this.config.setContentTextColor(contentColor);
         return this;
     }
 
-    public DialogBodyBuilder setContentSize(Integer contentSize) {
+    public DialogBodyBuilder setContentSize(int contentSize) {
         this.config.setContentTextSize(contentSize);
         return this;
     }
@@ -52,27 +52,27 @@ public class DialogBodyBuilder implements IBuilder {
         return this;
     }
 
-    public DialogBodyBuilder setPaddingTop(Integer paddingTop) {
+    public DialogBodyBuilder setPaddingTop(int paddingTop) {
         this.config.setPaddingTop(paddingTop);
         return this;
     }
 
-    public DialogBodyBuilder setPaddingBottom(Integer paddingBottom) {
+    public DialogBodyBuilder setPaddingBottom(int paddingBottom) {
         this.config.setPaddingBottom(paddingBottom);
         return this;
     }
 
-    public DialogBodyBuilder setPaddingLeft(Integer paddingLeft) {
+    public DialogBodyBuilder setPaddingLeft(int paddingLeft) {
         this.config.setPaddingLeft(paddingLeft);
         return this;
     }
 
-    public DialogBodyBuilder setPaddingRight(Integer paddingRight) {
+    public DialogBodyBuilder setPaddingRight(int paddingRight) {
         this.config.setPaddingRight(paddingRight);
         return this;
     }
 
-    public DialogBodyBuilder setBgColor(Integer color) {
+    public DialogBodyBuilder setBgColor(int color) {
         this.config.setBgColor(color);
         return this;
     }
