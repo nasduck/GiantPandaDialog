@@ -94,9 +94,25 @@ DialogBuilder.getInstance(this)
         .setTouchOutsideCancelable(boolean cancelable)  // 设置点击对话框外部是否使对话框消失
         .show();                                        // 显示对话框
 ```
+## 贡献
 
+* [Lihao Zhou](https://github.com/redrain39)
+* [Chuan DONG](https://github.com/DONGChuan)
+* [Si Cheng](1103990937@qq.com)(设计师)
 
+## LICENSE
+```
+   Copyright (2019) Chuan Dong, Lihao Zhou
 
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
+       http://www.apache.org/licenses/LICENSE-2.0
 
-
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+```
