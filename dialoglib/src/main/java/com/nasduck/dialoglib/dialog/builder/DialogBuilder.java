@@ -85,7 +85,7 @@ public class DialogBuilder {
         return this;
     }
 
-    public DialogBuilder setCancelOnTouchBack(Boolean cancelable) {
+    public DialogBuilder setCancelOnTouchBack(boolean cancelable) {
         this.mTouchBackCancelable = cancelable;
         return this;
     }
