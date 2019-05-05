@@ -19,15 +19,15 @@ public class DialogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dialog);
     }
 
-    public void onDialogClick(View view) {
+    public void onTipDialogClick(View view) {
         DuckDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DEFAULT);
     }
 
-    public void onDialogNoTitleClick(View view) {
+    public void onTitleTipDialogClick(View view) {
         DuckDialog.showDialog(this, "Only content without title", ButtonStyle.DEFAULT);
     }
 
-    public void onSelectDialog(View view) {
+    public void onSelectDialogClick(View view) {
         DialogButton btnNegative = new DialogButton(this,
                 getResources().getString(R.string.negative_button_text),
                 ButtonStyle.CANCEL,
@@ -48,7 +48,7 @@ public class DialogActivity extends AppCompatActivity {
         DuckDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
     }
 
-    public void onTitleSelectDialog(View view) {
+    public void onTitleSelectDialogClick(View view) {
         DialogButton btnNegative = new DialogButton(this);
         btnNegative.setText(R.string.negative_button_text);
         btnNegative.setStyle(ButtonStyle.CANCEL);
@@ -69,7 +69,7 @@ public class DialogActivity extends AppCompatActivity {
         DuckDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
     }
 
-    public void onCustomDialog(View view) {
+    public void onCustomDialogClick(View view) {
 
     }
 }
