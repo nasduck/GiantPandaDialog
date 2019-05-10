@@ -44,8 +44,15 @@ public class DuckDialog {
         DialogBuilder builder = DialogBuilder.create(activity);
         builder.setHeader(DialogHeaderBuilder.getInstance().setTitle(title));
         builder.setBody(DialogBodyBuilder.getInstance().setContent(content));
-        for (DialogButton button : buttons) {
-            builder.addButton(button);
+        if (buttons.length == 0) {
+            DialogButton btn = new DialogButton(activity);
+            btn.setText(R.string.positive_button_text);
+            btn.setStyle(ButtonStyle.DEFAULT);
+            builder.addButton(btn);
+        } else {
+            for (DialogButton button : buttons) {
+                builder.addButton(button);
+            }
         }
         builder.setCancelOnTouchBack(false)
                 .setTouchOutsideCancelable(false)
@@ -55,8 +62,15 @@ public class DuckDialog {
     public static void showDialog(FragmentActivity activity, String content, DialogButton...buttons) {
         DialogBuilder builder = DialogBuilder.create(activity);
         builder.setBody(DialogBodyBuilder.getInstance().setContent(content));
-        for (DialogButton button : buttons) {
-            builder.addButton(button);
+        if (buttons.length == 0) {
+            DialogButton btn = new DialogButton(activity);
+            btn.setText(R.string.positive_button_text);
+            btn.setStyle(ButtonStyle.DEFAULT);
+            builder.addButton(btn);
+        } else {
+            for (DialogButton button : buttons) {
+                builder.addButton(button);
+            }
         }
         builder.setCancelOnTouchBack(false)
                 .setTouchOutsideCancelable(false)

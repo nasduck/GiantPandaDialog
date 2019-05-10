@@ -19,12 +19,16 @@ public class DialogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dialog);
     }
 
+    public void onDefaultButtonStyleClick(View view) {
+        DuckDialog.showDialog(this, "Title Test", "Content Test");
+    }
+
     public void onTipDialogClick(View view) {
-        DuckDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DEFAULT);
+        DuckDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DESTRUCTIVE);
     }
 
     public void onTitleTipDialogClick(View view) {
-        DuckDialog.showDialog(this, "Only content without title", ButtonStyle.DEFAULT);
+        DuckDialog.showDialog(this, "Only content without title", ButtonStyle.CANCEL);
     }
 
     public void onSelectDialogClick(View view) {
