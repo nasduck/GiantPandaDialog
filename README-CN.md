@@ -14,7 +14,7 @@ allprojects {
 步骤二：添加依赖项
 ```
 dependencies {
-    implementation 
+    implementation 'com.github.nasduck:DuckAndroidDiolog:1.2.2'
 }
 ```
 ## 使用方式
