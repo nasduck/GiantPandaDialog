@@ -38,7 +38,7 @@ public class DialogActivity extends AppCompatActivity {
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
                     public void onButtonClick() {
-                        Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
                     }
         });
         DialogButton btnPositive = new DialogButton(this,
@@ -46,7 +46,7 @@ public class DialogActivity extends AppCompatActivity {
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
                     public void onButtonClick() {
-                        Toast.makeText(DialogActivity.this, "sure", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "sure", Toast.LENGTH_SHORT).show();
                     }
                 });
         GiantPandaDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
@@ -56,7 +56,7 @@ public class DialogActivity extends AppCompatActivity {
         DialogButton btnNegative = new DialogButton(this);
         btnNegative.setText(R.string.negative_button_text);
         btnNegative.setStyle(ButtonStyle.CANCEL);
-        btnNegative.setListener(new DialogBtnConfig.OnButtonClickListener() {
+        btnNegative.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
                 Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
@@ -64,7 +64,7 @@ public class DialogActivity extends AppCompatActivity {
         });
         DialogButton btnPositive = new DialogButton(this);
         btnPositive.setText(R.string.positive_button_text);
-        btnPositive.setListener(new DialogBtnConfig.OnButtonClickListener() {
+        btnPositive.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onButtonClick() {
                 Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();

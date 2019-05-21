@@ -95,6 +95,10 @@ public class DialogButton extends AppCompatTextView {
         this.setBackground(stateListDrawable);
     }
 
+    /**
+     * set last button corner radius
+     * @param cornerRadius
+     */
     public void setCornerRadiusLast(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
@@ -106,6 +110,10 @@ public class DialogButton extends AppCompatTextView {
         this.setBackground(stateListDrawable);
     }
 
+    /**
+     * set normal button corner radius
+     * @param cornerRadius
+     */
     public void setCornerRadiusOnly(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
@@ -117,6 +125,10 @@ public class DialogButton extends AppCompatTextView {
         this.setBackground(stateListDrawable);
     }
 
+    /**
+     * set first button corner radius
+     * @param cornerRadius
+     */
     public void setCornerRadiusFirst(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
@@ -128,7 +140,11 @@ public class DialogButton extends AppCompatTextView {
         this.setBackground(stateListDrawable);
     }
 
-    public void setListener(DialogBtnConfig.OnButtonClickListener listener) {
+    /**
+     * set button click listener
+     * @param listener
+     */
+    public void setClickListener(DialogBtnConfig.OnButtonClickListener listener) {
         mConfig.setListener(listener);
     }
 

@@ -47,10 +47,6 @@ public class DialogBuilder {
 
         mFooterBtnList = new ArrayList<>();
         mBodyBuilder = DialogBodyBuilder.getInstance();
-
-        // 不一定有 header 和 footer
-        // todo mHeaderBuilder = DialogHeaderBuilder.getInstance();
-        // todo mFooterBuilder =
     }
 
     public DialogBuilder setHeader(IBuilder builder) {
