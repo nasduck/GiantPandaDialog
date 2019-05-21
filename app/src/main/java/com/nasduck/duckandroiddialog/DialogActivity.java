@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.nasduck.dialoglib.DuckDialog;
+import com.nasduck.dialoglib.GiantPandaDialog;
 import com.nasduck.dialoglib.base.enums.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
@@ -20,15 +20,15 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onDefaultButtonStyleClick(View view) {
-        DuckDialog.showDialog(this, "Title Test", "Content Test");
+        GiantPandaDialog.showDialog(this, "Title Test", "Content Test");
     }
 
     public void onTipDialogClick(View view) {
-        DuckDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DESTRUCTIVE);
+        GiantPandaDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DESTRUCTIVE);
     }
 
     public void onTitleTipDialogClick(View view) {
-        DuckDialog.showDialog(this, "Only content without title", ButtonStyle.CANCEL);
+        GiantPandaDialog.showDialog(this, "Only content without title", ButtonStyle.CANCEL);
     }
 
     public void onSelectDialogClick(View view) {
@@ -49,7 +49,7 @@ public class DialogActivity extends AppCompatActivity {
                         Toast.makeText(DialogActivity.this, "sure", Toast.LENGTH_SHORT).show();
                     }
                 });
-        DuckDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
+        GiantPandaDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
     }
 
     public void onTitleSelectDialogClick(View view) {
@@ -70,7 +70,7 @@ public class DialogActivity extends AppCompatActivity {
                 Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
-        DuckDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
+        GiantPandaDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
     }
 
     public void onCustomDialogClick(View view) {

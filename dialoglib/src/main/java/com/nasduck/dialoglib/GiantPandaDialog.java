@@ -11,7 +11,7 @@ import com.nasduck.dialoglib.dialog.view.DialogButton;
 /**
  * default config
  */
-public class DuckDialog {
+public class GiantPandaDialog {
 
     public static void showDialog(FragmentActivity activity, String title, String content, ButtonStyle style) {
         DialogButton btn = new DialogButton(activity);
