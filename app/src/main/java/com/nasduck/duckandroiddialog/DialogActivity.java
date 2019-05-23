@@ -37,7 +37,7 @@ public class DialogActivity extends AppCompatActivity {
                 ButtonStyle.CANCEL,
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
-                    public void onButtonClick() {
+                    public void onClick() {
                         Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
                     }
         });
@@ -45,7 +45,7 @@ public class DialogActivity extends AppCompatActivity {
                 getResources().getString(R.string.positive_button_text),
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
-                    public void onButtonClick() {
+                    public void onClick() {
                         Toast.makeText(getApplicationContext(), "sure", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -58,7 +58,7 @@ public class DialogActivity extends AppCompatActivity {
         btnNegative.setStyle(ButtonStyle.CANCEL);
         btnNegative.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
-            public void onButtonClick() {
+            public void onClick() {
                 Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });
@@ -66,7 +66,7 @@ public class DialogActivity extends AppCompatActivity {
         btnPositive.setText(R.string.positive_button_text);
         btnPositive.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
-            public void onButtonClick() {
+            public void onClick() {
                 Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
             }
         });

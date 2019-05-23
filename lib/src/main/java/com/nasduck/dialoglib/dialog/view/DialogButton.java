@@ -98,7 +98,7 @@ public class DialogButton extends AppCompatTextView {
      * set last button corner radius
      * @param cornerRadius
      */
-    public void setCornerRadiusLast(int cornerRadius) {
+    private void setCornerRadiusLast(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
                 0, 0,
@@ -113,7 +113,7 @@ public class DialogButton extends AppCompatTextView {
      * set normal button corner radius
      * @param cornerRadius
      */
-    public void setCornerRadiusOnly(int cornerRadius) {
+    private void setCornerRadiusOnly(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
                 0, 0,
@@ -128,7 +128,7 @@ public class DialogButton extends AppCompatTextView {
      * set first button corner radius
      * @param cornerRadius
      */
-    public void setCornerRadiusFirst(int cornerRadius) {
+    private void setCornerRadiusFirst(int cornerRadius) {
         float[] corners = new float[]{
                 0, 0,
                 0, 0,

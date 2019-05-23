@@ -17,7 +17,7 @@ public class DialogBtnConfig {
     private OnButtonClickListener listener;
 
     public interface OnButtonClickListener {
-        void onButtonClick();
+        void onClick();
     }
 
     public static DialogBtnConfig newInstance() {

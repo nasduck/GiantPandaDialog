@@ -6,6 +6,7 @@ import com.nasduck.dialoglib.dialog.config.ButtonStyle;
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;
+import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
 
 /**
