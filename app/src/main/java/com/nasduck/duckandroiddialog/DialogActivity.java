@@ -24,11 +24,11 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onTipDialogClick(View view) {
-        GiantPandaDialog.showDialog(this, "Title Test", "Content Test", ButtonStyle.DESTRUCTIVE);
+        GiantPandaDialog.showDialog(this, "Title Test", "Content Test");
     }
 
     public void onTitleTipDialogClick(View view) {
-        GiantPandaDialog.showDialog(this, "Only content without title", ButtonStyle.CANCEL);
+        GiantPandaDialog.showDialog(this, "Only content without title");
     }
 
     public void onSelectDialogClick(View view) {

@@ -13,10 +13,9 @@ import com.nasduck.dialoglib.dialog.view.DialogButton;
  */
 public class GiantPandaDialog {
 
-    public static void showDialog(FragmentActivity activity, String title, String content, ButtonStyle style) {
+    public static void showDialog(FragmentActivity activity, String title, String content) {
         DialogButton btn = new DialogButton(activity);
         btn.setText(R.string.positive_button_text);
-        btn.setStyle(style);
 
         DialogBuilder.getInstance(activity)
                 .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
@@ -27,10 +26,9 @@ public class GiantPandaDialog {
                 .show();
     }
 
-    public static void showDialog(FragmentActivity activity, String content, ButtonStyle style) {
+    public static void showDialog(FragmentActivity activity, String content) {
         DialogButton btn = new DialogButton(activity);
         btn.setText(R.string.positive_button_text);
-        btn.setStyle(style);
 
         DialogBuilder.getInstance(activity)
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
