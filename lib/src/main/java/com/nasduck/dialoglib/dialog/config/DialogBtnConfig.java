@@ -3,8 +3,6 @@ package com.nasduck.dialoglib.dialog.config;
 import android.view.Gravity;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.enums.ButtonStyle;
-import com.nasduck.dialoglib.utils.DensityUtils;
 
 public class DialogBtnConfig {
 

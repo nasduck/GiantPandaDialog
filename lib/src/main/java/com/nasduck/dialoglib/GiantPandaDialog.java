@@ -2,7 +2,7 @@ package com.nasduck.dialoglib;
 
 import android.support.v4.app.FragmentActivity;
 
-import com.nasduck.dialoglib.base.enums.ButtonStyle;
+import com.nasduck.dialoglib.dialog.config.ButtonStyle;
 import com.nasduck.dialoglib.dialog.builder.DialogBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogBodyBuilder;
 import com.nasduck.dialoglib.dialog.builder.DialogHeaderBuilder;

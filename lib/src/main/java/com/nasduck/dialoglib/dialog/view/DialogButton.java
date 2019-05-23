@@ -5,10 +5,9 @@ import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.AppCompatTextView;
-import android.view.View;
 
 import com.nasduck.dialoglib.R;
-import com.nasduck.dialoglib.base.enums.ButtonStyle;
+import com.nasduck.dialoglib.dialog.config.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.utils.DensityUtils;
 

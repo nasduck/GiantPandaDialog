@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.nasduck.dialoglib.GiantPandaDialog;
-import com.nasduck.dialoglib.base.enums.ButtonStyle;
+import com.nasduck.dialoglib.dialog.config.ButtonStyle;
 import com.nasduck.dialoglib.dialog.config.DialogBtnConfig;
 import com.nasduck.dialoglib.dialog.view.DialogButton;
 

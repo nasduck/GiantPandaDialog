@@ -1,4 +1,4 @@
-package com.nasduck.dialoglib.base.enums;
+package com.nasduck.dialoglib.dialog.config;
 
 public enum ButtonStyle {
 
