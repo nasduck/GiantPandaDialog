@@ -1,23 +1,32 @@
-# DuckAndroidDialog
-dialog提供简单的方法对dialog进行调用，同时给出较为自由的自定义方式来满足不同的需求。
+[![API](https://img.shields.io/badge/GiantPandaDialog-v1.2.0-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
+[![API](https://img.shields.io/badge/License-Apche2.0-brightgreen.svg?style=flat)](https://github.com/nasduck/GiantPandaDialog/blob/master/LICENSE)
+
+GiantPandaDialog 是为了简化 Android Dialog 的调用, 同时借鉴 iOS Dialog/Alert 的创建模式来提供简洁直观的弹窗创建方式. 整个基类完全继承自 DialogFragment 来代替 Dialog 以及 AlertDialog. 如果你对 Toast 或者说是 Hud 感兴趣. 欢迎移步另外一个配套的开源项目 [LesserPandaToast](https://github.com/nasduck/LesserPandaToast). 大熊猫和小熊猫总是搭配使用 :D
 
 ## 依赖
+
 步骤一：在项目的build.gradle中添加jitpack
+
 ```
 allprojects {
-	repositories {
-		...
-		maven { url 'https://www.jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://www.jitpack.io' }
+    }
 }
 ```
+
 步骤二：添加依赖项
+
 ```
 dependencies {
-    implementation 'com.github.nasduck:DuckAndroidDiolog:1.2.2'
+    implementation 'com.github.nasduck:GiantPandaDialog:1.2.3'
 }
 ```
+
 ## 使用方式
+
 dialog组件将在结构上将dialog分为三部分：
 - header——dialog的顶部内容，与dialog的标题相关
 - body——dialog的主体部分，可以在这部分进行dialog内容以及样式的设置
