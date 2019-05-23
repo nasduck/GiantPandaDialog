@@ -2,16 +2,18 @@
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
 [![API](https://img.shields.io/badge/License-Apche2.0-brightgreen.svg?style=flat)](https://github.com/nasduck/GiantPandaDialog/blob/master/LICENSE)
 
-GiantPandaDialog 是为了简化 Android Dialog 的调用, 同时借鉴 iOS Dialog/Alert 的创建模式来提供简洁直观的弹窗创建方式. 整个基类完全继承自 DialogFragment 来代替 Dialog 以及 AlertDialog.
+GiantPandaDialog 是为了简化 Android Dialog 的调用, 同时借鉴 iOS Dialog/Alert 的创建模式来提供简洁直观的弹窗创建方式. 整个基类完全继承自 DialogFragment 来代替 Dialog 以及 AlertDialog. 如果你对 Toast 或者说是 Hud 感兴趣. 欢迎移步另外一个配套的开源项目 [LesserPandaToast](https://github.com/nasduck/LesserPandaToast). 大熊猫和小熊猫总是搭配使用 :D
 
 ## 依赖
+
 步骤一：在项目的build.gradle中添加jitpack
+
 ```
 allprojects {
-	repositories {
-		...
-		maven { url 'https://www.jitpack.io' }
-	}
+    repositories {
+        ...
+        maven { url 'https://www.jitpack.io' }
+    }
 }
 ```
 
