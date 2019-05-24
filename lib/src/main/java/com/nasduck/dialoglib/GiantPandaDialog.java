@@ -14,12 +14,12 @@ import com.nasduck.dialoglib.dialog.view.DialogButton;
  */
 public class GiantPandaDialog {
 
-    public static void showDialog(FragmentActivity activity, String title, String content) {
+
+    public static void showDialog(FragmentActivity activity, String content) {
         DialogButton btn = new DialogButton(activity);
         btn.setText(R.string.positive_button_text);
 
         DialogBuilder.getInstance(activity)
-                .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btn)
                 .setCancelOnTouchBack(false)
@@ -27,11 +27,12 @@ public class GiantPandaDialog {
                 .show();
     }
 
-    public static void showDialog(FragmentActivity activity, String content) {
+    public static void showDialog(FragmentActivity activity, String title, String content) {
         DialogButton btn = new DialogButton(activity);
         btn.setText(R.string.positive_button_text);
 
         DialogBuilder.getInstance(activity)
+                .setHeader(DialogHeaderBuilder.getInstance().setTitle(title))
                 .setBody(DialogBodyBuilder.getInstance().setContent(content))
                 .addButton(btn)
                 .setCancelOnTouchBack(false)
