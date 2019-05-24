@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">DuckAndroidDialog</string>
+    <string name="app_name">GiantPandaDialog</string>
 
     <string name="positive_button_text">确定</string>
     <string name="negative_button_text">取消</string>
