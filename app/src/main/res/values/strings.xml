@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DuckAndroidDialog</string>
+    <string name="app_name">GiantPandaDialog</string>
 
     <string name="positive_button_text">OK</string>
     <string name="negative_button_text">CANCEL</string>
