@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">DialogLib</string>
-
-    <string name="positive_button_text">OK</string>
-    <string name="negative_button_text">CANCEL</string>
-</resources>
