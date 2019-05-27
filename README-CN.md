@@ -47,7 +47,7 @@ GiantPandaDialog.showDialog(activity, title, content)
 GiantPandaDialog.showDialog(activity, title, content, ...buttons)
 ```
 
-// todo 三张图
+<img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E4%B8%8D%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%8D%95%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" > <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%8D%95%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" > <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%A4%9A%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" >
 
 #### 自定义按钮
 
@@ -78,7 +78,7 @@ GiantPandaDialog.showDialog(activity, "title", "content", btn, secondBtn, anothe
 
 #### 按钮默认样式
 
-// todo 三张图
+<img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />  <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E5%8F%96%E6%B6%88%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />  <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E8%AD%A6%E5%91%8A%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />   
 
 ## 自定义 Dialog
 
@@ -88,7 +88,7 @@ GiantPandaDialog.showDialog(activity, "title", "content", btn, secondBtn, anothe
 * Body — 主体部分，与弹窗内容相关
 * Footer — 底部按钮组(依次添加按钮)
 
-```
+```java
 // 自定义 Header
 DialogHeaderBuilder headerBuilder = DialogHeaderBuilder.getInstance()
         .setBgColor(int color)                  // 设置背景颜色, 默认白色
