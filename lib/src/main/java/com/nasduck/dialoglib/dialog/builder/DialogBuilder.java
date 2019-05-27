@@ -40,7 +40,7 @@ public class DialogBuilder {
         mActivity = activity;
         mDialogWidth = 260;
         mCornerRadius = 10;
-        mDialogTag = "dialog";
+        mDialogTag = "giant_panda_dialog";
         mTouchOutsideCancelable = true;
         mTouchBackCancelable = true;
         mHasShade = true;
