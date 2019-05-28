@@ -41,7 +41,7 @@ There are two ways to build a dialog:
 
 Three constructors are provided:
 
-```
+```java
 // No title, a confirm button at the bottom by default
 GiantPandaDialog.showDialog(activity, content)
 
