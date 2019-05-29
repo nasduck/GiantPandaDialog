@@ -1,4 +1,6 @@
-[![API](https://img.shields.io/badge/GiantPandaDialog-v1.2.0-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
+![banner](https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%A4%A7%E7%86%8A%E7%8C%ABbanner.png?raw=true)
+
+[![API](https://img.shields.io/badge/GiantPandaDialog-v1.2.3-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
 [![API](https://img.shields.io/badge/License-Apche2.0-brightgreen.svg?style=flat)](https://github.com/nasduck/GiantPandaDialog/blob/master/LICENSE)
 
@@ -27,82 +29,106 @@ dependencies {
 
 ## 使用方式
 
-dialog组件将在结构上将dialog分为三部分：
-- header——dialog的顶部内容，与dialog的标题相关
-- body——dialog的主体部分，可以在这部分进行dialog内容以及样式的设置
-- footer——dialog的底部内容，可以在这部分进行按钮的添加
+有两种使用方式:
 
-### 简单调用
-#### 提示性对话框
-提示性对话框，按钮不包含点击事件，点击按钮dialog消失
-```java
-// 带标题的提示性对话框
-showDialog(FragmentActivity activity, String title, String content, ButtonStyle style)
+1. 直接使用 GiantPandaDialog.showDialog() 方法, 一行命令即可.
+2. 完全自定义 Dialog 的 Header, Body 和 Footer (按钮组)
 
-// 不带标题的提示性对话框
-showDialog(FragmentActivity activity, String content, ButtonStyle style)
+## GiantPandaDialog.showDialog()
+
+提供了三种快捷的构造方法
+
+```
+// 不带标题, 默认底部一个确定按钮
+GiantPandaDialog.showDialog(activity, content)
+
+// 带标题和内容, 默认底部一个确定按钮
+GiantPandaDialog.showDialog(activity, title, content)
+
+// 带标题和内容, 自定义底部按钮组
+GiantPandaDialog.showDialog(activity, title, content, ...buttons)
 ```
 
-<img src="https://github.com/nasduck/DuckAndroidDiolog/blob/develop/art/%E4%B8%8D%E5%B8%A6%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" width="25%" height="25%" />  <img src="https://github.com/nasduck/DuckAndroidDiolog/blob/develop/art/%E5%B8%A6%E6%A0%87%E9%A2%98%E6%8F%90%E7%A4%BA%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" width="25%" height="25%" />   
+<img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E4%B8%8D%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%8D%95%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" > <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%8D%95%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" > <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%B8%A6%E6%A0%87%E9%A2%98%E7%9A%84%E5%A4%9A%E6%8C%89%E9%92%AE%E5%AF%B9%E8%AF%9D%E6%A1%86.png?raw=true" height="400" >
 
-#### 自定义按钮对话框
-自定义按钮对话框，需要将对应的按钮一一设置好后传入方法中。
-按钮的设置方法：
+#### 自定义按钮
+
 ```java
 DialogButton btn = new DialogButton(activity);
-btn.setText(String text);           // 设置按钮文字，DialogButton继承于AppCompatTextView，因此其它的DialogButton继承于AppCompatTextView也可使用
-btn.setStyle(ButtonStyle style);    // 设置按钮风格样式，按钮风格：DEFAULT、CANCEL、DESTRUCTIVE
-btn.setListener(DialogBtnConfig.OnButtonClickListener listener);    // 设置按钮点击事件
-...
-```
-按钮的不同风格示意图：   
-<img src="https://github.com/nasduck/DuckAndroidDiolog/blob/develop/art/%E6%8C%89%E9%92%AE%E4%B8%80%E8%88%AC%E6%A0%B7%E5%BC%8F.png?raw=true" width="25%" height="25%" />  <img src="https://github.com/nasduck/DuckAndroidDiolog/blob/develop/art/%E6%8C%89%E9%92%AE%E5%8F%96%E6%B6%88%E6%A0%B7%E5%BC%8F.png?raw=true" width="25%" height="25%" />  <img src="https://github.com/nasduck/DuckAndroidDiolog/blob/develop/art/%E6%8C%89%E9%92%AE%E8%AD%A6%E5%91%8A%E6%A0%B7%E5%BC%8F.png?raw=true" width="25%" height="25%" />   
-```java
-// 带标题的对话框
-showDialog(FragmentActivity activity, String title, String content, DialogButton...buttons)
 
-// 不带标题的对话框
-showDialog(FragmentActivity activity, String content, DialogButton...buttons)
+// 设置按钮文本.
+btn.setText("取消");
+
+// 设置样式, 同 iOS , 默认提供了三种样式 DEFAULT、CANCEL、DESTRUCTIVE 
+btn.setStyle(ButtonStyle.CANCEL); 
+
+// 设置点击事件
+btn.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
+    @Override
+    public void onClick() {
+        // todo
+    }
+});
+
+// DialogButton 继承于 AppCompatTextView, 其余设置方法同 AppCompatTextView. setTextColor, setTextSize 等.
+
+// 设置按钮 (理论上, 未设按钮上限, 但正常不要超过三个按钮)
+GiantPandaDialog.showDialog(activity, "title", "content", btn, secondBtn, anotherBtn)
 ```
-### 自定义对话框
-在创建自定义对话框时，建议进行进一步封装方便调用
+
+> 如未设置按钮的点击事件. 默认点击关闭 Dialog.
+
+#### 按钮默认样式
+
+<img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />  <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E5%8F%96%E6%B6%88%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />  <img src="https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E6%8C%89%E9%92%AE%E8%AD%A6%E5%91%8A%E6%A0%B7%E5%BC%8F.png?raw=true" height="100" />   
+
+## 自定义 Dialog
+
+在结构上 Dialog 被分为三个可以独立自定义的部分:
+
+* Header — 顶部内容，与标题相关
+* Body — 主体部分，与弹窗内容相关
+* Footer — 底部按钮组(依次添加按钮)
+
 ```java
+// 自定义 Header
 DialogHeaderBuilder headerBuilder = DialogHeaderBuilder.getInstance()
-        .setBgColor(int color)                  // 设置背景颜色
-        .setPaddingTop(int paddingTop)          // 设置与顶部间距
-        .setPaddingBottom(int paddingBottom)    // 设置与底部间距
-        .setPaddingLeft(int paddingLeft)        // 设置与左侧间距
-        .setPaddingRight(int paddingRight)      // 设置与右侧间距
-        .setTitle(String title)                 // 设置标题文字内容
-        .setTitleColor(int titleColor)          // 设置标题文字颜色
-        .setTitleSize(int titleSize)            // 设置标题文字大小
-        .setTitleTypeface(int typeface);        // 设置标题文字样式
+        .setBgColor(int color)                  // 设置背景颜色, 默认白色
+        .setPaddingTop(int paddingTop)          // 设置与顶部间距, 默认18dp
+        .setPaddingBottom(int paddingBottom)    // 设置与底部间距, 默认0dp
+        .setPaddingLeft(int paddingLeft)        // 设置与左侧间距, 默认0dp
+        .setPaddingRight(int paddingRight)      // 设置与右侧间距, 默认0dp
+        .setTitle(String title)                 // 设置标题文字内容, 默认空字符
+        .setTitleColor(int titleColor)          // 设置标题文字颜色, 默认#4D4D4D
+        .setTitleSize(int titleSize)            // 设置标题文字大小, 默认16sp
+        .setTitleTypeface(int typeface);        // 设置标题文字样式, 默认粗体
 
+// 自定义 Body
 DialogBodyBuilder bodyBuilder = DialogBodyBuilder.getInstance()
-        .setBgColor(int color)                  // 设置背景颜色
-        .setLayoutGravity(int gravity)          // 设置内容的位置
-        .setPaddingTop(int paddingTop)          // 设置与顶部间距
-        .setPaddingBottom(int paddingBottom)    // 设置与底部间距
-        .setPaddingLeft(int paddingLeft)        // 设置与左侧间距
-        .setPaddingRight(int paddingRight)      // 设置与右侧间距
-        .setContent(String content)             // 设置内容文字内容
-        .setContentColor(int contentColor)      // 设置内容文字颜色
-        .setContentSize(int contentSize)        // 设置内容文字大小
-        .setGravity(int gravity);               // 设置内容文字位置
-
-
+        .setBgColor(int color)                  // 设置背景颜色, 默认白色
+        .setLayoutGravity(int gravity)          // 设置内容的位置, 默认居中
+        .setPaddingTop(int paddingTop)          // 设置与顶部间距, 默认16dp
+        .setPaddingBottom(int paddingBottom)    // 设置与底部间距, 默认16dp
+        .setPaddingLeft(int paddingLeft)        // 设置与左侧间距, 默认26dp
+        .setPaddingRight(int paddingRight)      // 设置与右侧间距, 默认26dp
+        .setContent(String content)             // 设置内容文字内容, 默认空字符
+        .setContentColor(int contentColor)      // 设置内容文字颜色, 默认#4D4D4D
+        .setContentSize(int contentSize)        // 设置内容文字大小, 默认14sp
+        .setGravity(int gravity);               // 设置内容文字位置, 默认居中
+        
 DialogBuilder.getInstance(this)
         .setHeader(headerBuilder)                       // 设置header
         .setBody(bodyBuilder)                           // 设置body
         .addButton(DialogButton btn)                    // 添加底部按钮，可多次添加
-        .setCancelOnTouchBack(boolean cancelable)       // 设置点击虚拟回退键是否使对话框消失
-        .setCornerRadius(int radius)                    // 设置对话框圆角
-        .setDialogTag(String tag)                       // 设置对话框的标签
-        .setDialogWidth(int width)                      // 设置对话框的宽度
-        .setHasShade(boolean hasShade)                  // 设置对话框是否有遮罩
-        .setTouchOutsideCancelable(boolean cancelable)  // 设置点击对话框外部是否使对话框消失
-        .show();                                        // 显示对话框
+        .setCornerRadius(int radius)                    // 设置对话框圆角, 默认10dp
+        .setDialogTag(String tag)                       // 设置对话框标签, 默认giant_panda_dialog
+        .setDialogWidth(int width)                      // 设置对话框宽度, 默认260dp
+        .setHasShade(boolean hasShade)                  // 设置对话框是否有遮罩, 默认true
+        .setCancelOnTouchBack(boolean cancelable)       // 设置点击虚拟回退键是否使对话框消失, 默认true
+        .setTouchOutsideCancelable(boolean cancelable)  // 设置点击对话框外部是否使对话框消失, 默认true
+        .show();                                        // 显示对话框        
 ```
+
 ## 贡献
 
 * [Lihao Zhou](https://github.com/redrain39)

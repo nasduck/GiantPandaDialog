@@ -5,13 +5,6 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_default_button_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onDefaultButtonStyleClick"
-        android:text="Default Button Style"/>
-
-    <Button
         android:id="@+id/btn_tip_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
