@@ -1,3 +1,5 @@
+![banner](https://github.com/nasduck/GiantPandaDialog/blob/develop/art/%E5%A4%A7%E7%86%8A%E7%8C%ABbanner.png?raw=true)
+
 [![API](https://img.shields.io/badge/GiantPandaDialog-v1.2.3-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
 [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)&ensp;
 [![API](https://img.shields.io/badge/License-Apche2.0-brightgreen.svg?style=flat)](https://github.com/nasduck/GiantPandaDialog/blob/master/LICENSE)
