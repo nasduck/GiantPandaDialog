@@ -4,4 +4,19 @@
 
     <string name="positive_button_text">确定</string>
     <string name="negative_button_text">取消</string>
+
+    <string name="tip_dialog">提示对话框</string>
+    <string name="title_tip_dialog">带标题的提示对话框</string>
+    <string name="select_dialog">选择对话框</string>
+    <string name="title_select_dialog">带标题的选择对话框</string>
+    <string name="custom_dialog">自定义对话框</string>
+
+    <string name="dialog_title">对话框标题</string>
+    <string name="dialog_content">这是一段对话框的内容</string>
+    <string name="dialog_custom_title">自定义对话框标题</string>
+    <string name="dialog_custom_content">这是一段自定义对话框的内容</string>
+
+    <string name="dialog_button_left">按钮左</string>
+    <string name="dialog_button_middle">按钮中</string>
+    <string name="dialog_button_right">按钮右</string>
 </resources>

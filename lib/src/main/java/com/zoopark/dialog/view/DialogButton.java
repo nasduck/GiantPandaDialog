@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
 
 import com.zoopark.dialog.R;
 import com.zoopark.dialog.config.ButtonStyle;
@@ -79,6 +80,7 @@ public class DialogButton extends AppCompatTextView {
         this.setClickable(true);
         this.setGravity(mConfig.getGravity());
         this.setStyle(mConfig.getStyle());
+        this.setMaxLines(1);
 
         drawablePressed = new GradientDrawable();
         drawablePressed.setColor(getResources().getColor(mConfig.getBgColorPressed()));

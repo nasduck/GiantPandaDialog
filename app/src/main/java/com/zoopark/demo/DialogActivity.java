@@ -18,6 +18,8 @@ import com.zoopark.dialog.view.DialogButton;
 
 public class DialogActivity extends AppCompatActivity {
 
+    private static final String DIALOG_TAG = "custom dialog";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +27,12 @@ public class DialogActivity extends AppCompatActivity {
     }
 
     public void onTipDialogClick(View view) {
-        GiantPandaDialog.showDialog(this, "Only content without title");
+        GiantPandaDialog.showDialog(this, getResources().getString(R.string.dialog_content));
     }
 
     public void onTitleTipDialogClick(View view) {
-        GiantPandaDialog.showDialog(this, "Title Test", "Content Test");
+        GiantPandaDialog.showDialog(this, getResources().getString(R.string.dialog_title),
+                getResources().getString(R.string.dialog_content));
     }
 
     public void onSelectDialogClick(View view) {
@@ -39,7 +42,9 @@ public class DialogActivity extends AppCompatActivity {
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
                     public void onClick() {
-                        Toast.makeText(getApplicationContext(), "cancel", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),
+                                getResources().getText(R.string.negative_button_text),
+                                Toast.LENGTH_SHORT).show();
                     }
         });
         DialogButton btnPositive = new DialogButton(this,
@@ -47,10 +52,13 @@ public class DialogActivity extends AppCompatActivity {
                 new DialogBtnConfig.OnButtonClickListener() {
                     @Override
                     public void onClick() {
-                        Toast.makeText(getApplicationContext(), "ok", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),
+                                getResources().getText(R.string.positive_button_text),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
-        GiantPandaDialog.showDialog(this, "Button Test Content", btnNegative, btnPositive);
+        GiantPandaDialog.showDialog(this, getResources().getString(R.string.dialog_content),
+                btnNegative, btnPositive);
     }
 
     public void onTitleSelectDialogClick(View view) {
@@ -60,7 +68,9 @@ public class DialogActivity extends AppCompatActivity {
         btnNegative.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(DialogActivity.this, "cancel", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.negative_button_text),
+                        Toast.LENGTH_SHORT).show();
             }
         });
         DialogButton btnPositive = new DialogButton(this);
@@ -68,10 +78,13 @@ public class DialogActivity extends AppCompatActivity {
         btnPositive.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(DialogActivity.this, "ok", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.positive_button_text),
+                        Toast.LENGTH_SHORT).show();
             }
         });
-        GiantPandaDialog.showDialog(this, "Title Test", "Button Test Content", btnNegative, btnPositive);
+        GiantPandaDialog.showDialog(this, getResources().getString(R.string.dialog_title),
+                getResources().getString(R.string.dialog_content), btnNegative, btnPositive);
     }
 
     public void onCustomDialogClick(View view) {
@@ -81,7 +94,7 @@ public class DialogActivity extends AppCompatActivity {
         .setPaddingBottom(16)
         .setPaddingLeft(16)
         .setPaddingRight(16)
-        .setTitle("custom title")
+        .setTitle(String.valueOf(getResources().getText(R.string.dialog_custom_title)))
         .setTitleColor(android.R.color.white)
         .setTitleSize(18)
         .setTitleTypeface(Typeface.BOLD);
@@ -93,38 +106,41 @@ public class DialogActivity extends AppCompatActivity {
         .setPaddingBottom(48)
         .setPaddingLeft(16)
         .setPaddingRight(16)
-        .setContent("custom content")
+        .setContent(String.valueOf(getResources().getText(R.string.dialog_custom_content)))
         .setContentColor(android.R.color.black)
         .setContentSize(14)
         .setGravity(Gravity.LEFT);
 
         DialogButton btnLeft = new DialogButton(this);
-        btnLeft.setText("left");
+        btnLeft.setText(getResources().getText(R.string.dialog_button_left));
         btnLeft.setStyle(ButtonStyle.CANCEL);
         btnLeft.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(DialogActivity.this, "left button", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DialogActivity.this,
+                        getResources().getText(R.string.dialog_button_left), Toast.LENGTH_SHORT).show();
             }
         });
 
         DialogButton btnMiddle = new DialogButton(this);
-        btnMiddle.setText("middle");
+        btnMiddle.setText(getResources().getText(R.string.dialog_button_middle));
         btnMiddle.setStyle(ButtonStyle.DEFAULT);
         btnMiddle.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(DialogActivity.this, "middle button", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DialogActivity.this,
+                        getResources().getText(R.string.dialog_button_middle), Toast.LENGTH_SHORT).show();
             }
         });
 
         DialogButton btnRight = new DialogButton(this);
-        btnRight.setText("right");
+        btnRight.setText(getResources().getText(R.string.dialog_button_right));
         btnRight.setStyle(ButtonStyle.DESTRUCTIVE);
         btnRight.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
             @Override
             public void onClick() {
-                Toast.makeText(DialogActivity.this, "right button", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DialogActivity.this,
+                        getResources().getText(R.string.dialog_button_right), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -136,7 +152,7 @@ public class DialogActivity extends AppCompatActivity {
                 .addButton(btnRight)
                 .setCancelOnTouchBack(false)
                 .setCornerRadius(24)
-                .setDialogTag("custom dialog")
+                .setDialogTag(DIALOG_TAG)
                 .setDialogWidth(300)
                 .setHasShade(true)
                 .setTouchOutsideCancelable(false)

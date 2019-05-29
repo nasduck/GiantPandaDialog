@@ -3,4 +3,20 @@
 
     <string name="positive_button_text">OK</string>
     <string name="negative_button_text">CANCEL</string>
+
+    <string name="tip_dialog">Tip Dialog</string>
+    <string name="title_tip_dialog">Title Tip Dialog</string>
+    <string name="select_dialog">Select Dialog</string>
+    <string name="title_select_dialog">Title Select Dialog</string>
+    <string name="custom_dialog">Custom Dialog</string>
+
+    <string name="dialog_title">Dialog Title</string>
+    <string name="dialog_content">This is the content of a dialog</string>
+    <string name="dialog_custom_title">Custom Dialog Title</string>
+    <string name="dialog_custom_content">This is the content of the custom dialog</string>
+
+    <string name="dialog_button_left">Left Button</string>
+    <string name="dialog_button_middle">Middle Button</string>
+    <string name="dialog_button_right">Right Button</string>
+
 </resources>

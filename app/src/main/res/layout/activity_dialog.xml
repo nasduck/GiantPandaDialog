@@ -4,39 +4,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_tip_dialog"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:text="@string/app_name"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <Button
+        style="@style/ButtonStyle"
         android:onClick="onTipDialogClick"
-        android:text="Tip Dialog"/>
+        android:text="@string/tip_dialog"/>
 
     <Button
-        android:id="@+id/btn_title_tip_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:onClick="onTitleTipDialogClick"
-        android:text="Title Tip Dialog"/>
+        android:text="@string/title_tip_dialog"/>
 
     <Button
-        android:id="@+id/btn_select_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:onClick="onSelectDialogClick"
-        android:text="Select Dialog"/>
+        android:text="@string/select_dialog"/>
 
     <Button
-        android:id="@+id/btn_title_select_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:onClick="onTitleSelectDialogClick"
-        android:text="Title Select Dialog"/>
+        android:text="@string/title_select_dialog"/>
 
     <Button
-        android:id="@+id/btn_custom_dialog"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/ButtonStyle"
         android:onClick="onCustomDialogClick"
-        android:text="Custom Dialog"/>
+        android:text="@string/custom_dialog"/>
 
 </LinearLayout>
