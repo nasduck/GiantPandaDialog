@@ -6,6 +6,17 @@
 
 GiantPandaDialog 是为了简化 Android Dialog 的调用, 同时借鉴 iOS Dialog/Alert 的创建模式来提供简洁直观的弹窗创建方式. 整个基类完全继承自 DialogFragment 来代替 Dialog 以及 AlertDialog. 如果你对 Toast 或者说是 Hud 感兴趣. 欢迎移步另外一个配套的开源项目 [LesserPandaToast](https://github.com/nasduck/LesserPandaToast). 大熊猫和小熊猫总是搭配使用 :D
 
+## 目录
+
+* [依赖](#依赖)
+* [使用方式](#使用方式)
+    * [GiantPandaDialog.showDialog()](#giantpandadialogshowdialog)
+        * [自定义按钮](#自定义按钮)
+        * [按钮默认样式](#按钮默认样式)
+    * [自定义 Dialog](#自定义-dialog)
+* [贡献](#贡献)
+* [LICENSE](#license)
+
 ## 依赖
 
 步骤一：在项目的build.gradle中添加jitpack
