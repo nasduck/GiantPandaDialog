@@ -7,7 +7,18 @@
 GiantPandaDialog is to simplify the usage of Android Dialog. We could build a general dialog with just one line of code. The usage is similar to iOS UIAlertController and it is based on DialogFragment.
 
 If you are also interested at Toast or Hud. Please take a look at another library [LesserPandaToast](https://github.com/nasduck/LesserPandaToast). From these libraries' names, 
-you will find they are together. Please enjoy them :D
+you will find they are used together. Please enjoy them :D
+
+## Content
+
+* [Setup](#setup)
+* [Usage](#usage)
+    * [GiantPandaDialog.showDialog()](#giantpandadialogshowdialog)
+        * [Custom button](#custom-button)
+        * [Button Styles by default](#button-styles-by-default)
+    * [Custom Dialog](#custom-dialog)
+* [Contributer](#contributer)
+* [LICENSE](#license)
 
 ## Setup
 
