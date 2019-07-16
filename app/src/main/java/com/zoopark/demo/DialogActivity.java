@@ -1,9 +1,9 @@
 package com.zoopark.demo;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +13,7 @@ import com.zoopark.dialog.builder.DialogBuilder;
 import com.zoopark.dialog.builder.DialogHeaderBuilder;
 import com.zoopark.dialog.config.ButtonStyle;
 import com.zoopark.dialog.config.DialogBtnConfig;
+import com.zoopark.dialog.view.DialogBody;
 import com.zoopark.dialog.view.DialogButton;
 
 
@@ -100,16 +101,17 @@ public class DialogActivity extends AppCompatActivity {
         .setTitleTypeface(Typeface.BOLD);
 
         DialogBodyBuilder bodyBuilder = DialogBodyBuilder.getInstance()
-                .setBgColor(android.R.color.holo_blue_light)
-        .setLayoutGravity(Gravity.CENTER)
-        .setPaddingTop(48)
-        .setPaddingBottom(48)
-        .setPaddingLeft(16)
-        .setPaddingRight(16)
-        .setContent(String.valueOf(getResources().getText(R.string.dialog_custom_content)))
-        .setContentColor(android.R.color.black)
-        .setContentSize(14)
-        .setGravity(Gravity.LEFT);
+                .setDialogBody(new DialogBody(DialogActivity.this) {
+                    @Override
+                    public int initLayout() {
+                        return R.layout.layout_custom;
+                    }
+
+                    @Override
+                    public void initUI(View view) {
+
+                    }
+                });
 
         DialogButton btnLeft = new DialogButton(this);
         btnLeft.setText(getResources().getText(R.string.dialog_button_left));
@@ -153,6 +155,7 @@ public class DialogActivity extends AppCompatActivity {
                 .setCancelOnTouchBack(false)
                 .setCornerRadius(24)
                 .setDialogTag(DIALOG_TAG)
+                .setBodyBackgroundColor(R.color.text_black)
                 .setDialogWidth(300)
                 .setHasShade(true)
                 .setTouchOutsideCancelable(false)

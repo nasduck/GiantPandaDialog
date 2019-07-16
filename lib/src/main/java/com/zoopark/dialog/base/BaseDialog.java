@@ -28,6 +28,8 @@ public class BaseDialog extends DialogFragment {
     private IDialogView mDialogView;
     private int mCornerRadius;
     private int mDialogWidth;
+    private int mBodyBackgroundColor;
+    private boolean isBottomDividerVisible;
     private boolean mCanceledOnTouchOutside;
     private boolean mCancelOnTouchBack;
     private boolean mHasShade;
@@ -84,8 +86,11 @@ public class BaseDialog extends DialogFragment {
                 // Add Header
                 layout.addView(header, index++);
                 header.setCornerRadius(mCornerRadius);
+                body.setBackgroundResource(mBodyBackgroundColor);
+                body.addBottomDivider(isBottomDividerVisible);
             } else {
-                body.setCornerRadius(mCornerRadius);
+                body.setCornerRadius(mBodyBackgroundColor, mCornerRadius);
+                body.addBottomDivider(isBottomDividerVisible);
             }
 
             // Add Body
@@ -132,6 +137,16 @@ public class BaseDialog extends DialogFragment {
 
     public BaseDialog setCornerRadius(int cornerRadius) {
         this.mCornerRadius = cornerRadius;
+        return this;
+    }
+
+    public BaseDialog setBodyBackgroundColor(int bgColor) {
+        this.mBodyBackgroundColor = bgColor;
+        return this;
+    }
+
+    public BaseDialog setBottomDivideVisible(boolean isVisible) {
+        this.isBottomDividerVisible = isVisible;
         return this;
     }
 

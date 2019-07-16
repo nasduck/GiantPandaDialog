@@ -22,6 +22,8 @@ public class DialogBuilder {
 
     private int mCornerRadius;
     private int mDialogWidth;
+    private int mBodyBackgroundColor;
+    private boolean isBottomDividerVisible;
     private boolean mTouchOutsideCancelable;
     private boolean mTouchBackCancelable;
     private boolean mHasShade;
@@ -40,7 +42,9 @@ public class DialogBuilder {
         mActivity = activity;
         mDialogWidth = 260;
         mCornerRadius = 10;
+        mBodyBackgroundColor = android.R.color.white;
         mDialogTag = "giant_panda_dialog";
+        isBottomDividerVisible = true;
         mTouchOutsideCancelable = true;
         mTouchBackCancelable = true;
         mHasShade = true;
@@ -68,6 +72,16 @@ public class DialogBuilder {
         if (tag != null) {
             this.mDialogTag = tag;
         }
+        return this;
+    }
+
+    public DialogBuilder setBodyBackgroundColor(int bgColor) {
+        this.mBodyBackgroundColor = bgColor;
+        return this;
+    }
+
+    public DialogBuilder setBottomDivideVisible(boolean isVisible) {
+        this.isBottomDividerVisible = isVisible;
         return this;
     }
 
@@ -114,7 +128,9 @@ public class DialogBuilder {
                         return mFooterBtnList.size() == 0 ? null : DialogFooter.newInstance(context, mFooterBtnList);
                     }
                 })
+                .setBodyBackgroundColor(mBodyBackgroundColor)
                 .setCornerRadius(mCornerRadius)
+                .setBottomDivideVisible(isBottomDividerVisible)
                 .setCanceledOnTouchOutside(mTouchOutsideCancelable)
                 .setCancelOnTouchBack(mTouchBackCancelable)
                 .setHasShade(mHasShade)
