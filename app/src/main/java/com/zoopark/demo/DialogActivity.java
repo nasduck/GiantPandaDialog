@@ -91,27 +91,14 @@ public class DialogActivity extends AppCompatActivity {
     public void onCustomDialogClick(View view) {
         DialogHeaderBuilder headerBuilder = DialogHeaderBuilder.getInstance()
                 .setBgColor(android.R.color.holo_red_dark)
-        .setPaddingTop(16)
-        .setPaddingBottom(16)
-        .setPaddingLeft(16)
-        .setPaddingRight(16)
+        .setPadding(16)
         .setTitle(String.valueOf(getResources().getText(R.string.dialog_custom_title)))
         .setTitleColor(android.R.color.white)
         .setTitleSize(18)
         .setTitleTypeface(Typeface.BOLD);
 
         DialogBodyBuilder bodyBuilder = DialogBodyBuilder.getInstance()
-                .setDialogBody(new DialogBody(DialogActivity.this) {
-                    @Override
-                    public int initLayout() {
-                        return R.layout.layout_custom;
-                    }
-
-                    @Override
-                    public void initUI(View view) {
-
-                    }
-                });
+                .setDialogBody(new CustomDialogBody(this));
 
         DialogButton btnLeft = new DialogButton(this);
         btnLeft.setText(getResources().getText(R.string.dialog_button_left));
@@ -155,7 +142,6 @@ public class DialogActivity extends AppCompatActivity {
                 .setCancelOnTouchBack(false)
                 .setCornerRadius(24)
                 .setDialogTag(DIALOG_TAG)
-                .setBodyBackgroundColor(R.color.text_black)
                 .setDialogWidth(300)
                 .setHasShade(true)
                 .setTouchOutsideCancelable(false)

@@ -19,4 +19,6 @@
     <string name="dialog_button_middle">Middle Button</string>
     <string name="dialog_button_right">Right Button</string>
 
+    <string name="custom_dialog_content">Custom Dialog Content</string>
+
 </resources>

@@ -19,4 +19,6 @@
     <string name="dialog_button_left">按钮左</string>
     <string name="dialog_button_middle">按钮中</string>
     <string name="dialog_button_right">按钮右</string>
+
+    <string name="custom_dialog_content">自定义对话框内容文字</string>
 </resources>
