@@ -43,6 +43,11 @@
 
     <Button
         style="@style/ButtonStyle"
+        android:onClick="onHtmlDialogClick"
+        android:text="@string/html_dialog"/>
+
+    <Button
+        style="@style/ButtonStyle"
         android:onClick="onCustomDialogClick"
         android:text="@string/custom_dialog"/>
 

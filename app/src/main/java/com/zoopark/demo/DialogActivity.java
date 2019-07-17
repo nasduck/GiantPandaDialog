@@ -88,6 +88,35 @@ public class DialogActivity extends AppCompatActivity {
                 getResources().getString(R.string.dialog_content), btnNegative, btnPositive);
     }
 
+    public void onHtmlDialogClick(View view) {
+        DialogButton btnNegative = new DialogButton(this);
+        btnNegative.setText(R.string.negative_button_text);
+        btnNegative.setStyle(ButtonStyle.CANCEL);
+        btnNegative.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onClick() {
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.negative_button_text),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        DialogButton btnPositive = new DialogButton(this);
+        btnPositive.setText(R.string.positive_button_text);
+        btnPositive.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onClick() {
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.positive_button_text),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        String content = "<p>" + getResources().getString(R.string.html_dialog_title) +"</p>" +
+                "<p>" + getResources().getString(R.string.html_dialog_content_first) + "</p>" +
+                "<p>" + getResources().getString(R.string.html_dialog_content_second) + "</p>";
+
+        GiantPandaDialog.showDialog(this, content, R.drawable.image_top, btnNegative, btnPositive);
+    }
+
     public void onCustomDialogClick(View view) {
         DialogHeaderBuilder headerBuilder = DialogHeaderBuilder.getInstance()
                 .setBgColor(android.R.color.holo_red_dark)

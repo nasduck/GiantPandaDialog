@@ -12,9 +12,37 @@ import com.zoopark.dialog.builder.DialogHeaderBuilder;
 import com.zoopark.dialog.utils.DensityUtils;
 import com.zoopark.dialog.view.DialogBody;
 import com.zoopark.dialog.view.DialogButton;
+import com.zoopark.dialog.view.DialogHtmlBody;
 import com.zoopark.dialog.view.DialogTextBody;
 
 public class GiantPandaDialog {
+
+    public static void showDialog(FragmentActivity activity, String htmlContent, int imageId, DialogButton...buttons) {
+        DialogBuilder builder = DialogBuilder.create(activity);
+
+        DialogBodyBuilder bodyBuilder = DialogBodyBuilder.getInstance()
+                .setDialogBody(DialogHtmlBody.create(activity)
+                        .setHtmlContent(htmlContent)
+                        .setTopImage(imageId)
+                        .setTextPadding(26, 16, 26, 16)
+                        .setTextBackgroundColor(R.color.white));
+        builder.setBody(bodyBuilder);
+
+        if (buttons.length == 0) {
+            DialogButton btn = new DialogButton(activity);
+            btn.setText(R.string.positive_button_text);
+            btn.setStyle(ButtonStyle.DEFAULT);
+            builder.addButton(btn);
+        } else {
+            for (DialogButton button : buttons) {
+                builder.addButton(button);
+            }
+        }
+        builder.setCancelOnTouchBack(false)
+                .setTouchOutsideCancelable(false)
+                .setBodyBackgroundColor(R.color.white_alpha_0)
+                .show();
+    }
 
 
     public static void showDialog(FragmentActivity activity, String content) {
