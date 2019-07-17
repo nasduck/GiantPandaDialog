@@ -114,7 +114,7 @@ public class DialogActivity extends AppCompatActivity {
                 "<p>" + getResources().getString(R.string.html_dialog_content_first) + "</p>" +
                 "<p>" + getResources().getString(R.string.html_dialog_content_second) + "</p>";
 
-        GiantPandaDialog.showDialog(this, content, R.drawable.image_top, btnNegative, btnPositive);
+        GiantPandaDialog.showHtmlDialog(this, content, btnNegative, btnPositive);
     }
 
     public void onCustomDialogClick(View view) {
