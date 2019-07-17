@@ -4,4 +4,6 @@
 
     <string name="positive_button_text">确定</string>
     <string name="negative_button_text">取消</string>
+
+    <string name="forget_body_hint">忘记设置body部分了</string>
 </resources>

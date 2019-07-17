@@ -3,7 +3,9 @@ package com.zoopark.dialog.builder;
 import android.content.Context;
 import android.view.View;
 
+import com.zoopark.dialog.R;
 import com.zoopark.dialog.view.DialogBody;
+import com.zoopark.dialog.view.DialogTextBody;
 
 public class DialogBodyBuilder implements IBuilder {
 
@@ -19,7 +21,8 @@ public class DialogBodyBuilder implements IBuilder {
 
     @Override
     public View getView(Context context) {
-        return mDialogBody;
+        return mDialogBody == null ? DialogTextBody.create(context)
+                .setContent(context.getResources().getString(R.string.forget_body_hint)) : mDialogBody;
     }
 
     public DialogBodyBuilder setDialogBody(DialogBody body) {
