@@ -8,6 +8,7 @@
     <string name="title_tip_dialog">Title Tip Dialog</string>
     <string name="select_dialog">Select Dialog</string>
     <string name="title_select_dialog">Title Select Dialog</string>
+    <string name="html_dialog">Html dialog</string>
     <string name="custom_dialog">Custom Dialog</string>
 
     <string name="dialog_title">Dialog Title</string>
@@ -18,5 +19,11 @@
     <string name="dialog_button_left">Left Button</string>
     <string name="dialog_button_middle">Middle Button</string>
     <string name="dialog_button_right">Right Button</string>
+
+    <string name="custom_dialog_content">Custom Dialog Content</string>
+    
+    <string name="html_dialog_title">GiantPandaDialog Introduction:</string>
+    <string name="html_dialog_content_first">1.to simplify the usage of Android Dialog.</string>
+    <string name="html_dialog_content_second">2.The usage is similar to iOS UIAlertController and it is based on DialogFragment.</string>
 
 </resources>
