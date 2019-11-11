@@ -9,6 +9,7 @@
     <string name="title_tip_dialog">带标题的提示对话框</string>
     <string name="select_dialog">选择对话框</string>
     <string name="title_select_dialog">带标题的选择对话框</string>
+    <string name="html_dialog">显示html内容的对话框</string>
     <string name="custom_dialog">自定义对话框</string>
 
     <string name="dialog_title">对话框标题</string>
@@ -19,4 +20,10 @@
     <string name="dialog_button_left">按钮左</string>
     <string name="dialog_button_middle">按钮中</string>
     <string name="dialog_button_right">按钮右</string>
+
+    <string name="custom_dialog_content">自定义对话框内容文字</string>
+
+    <string name="html_dialog_title">GiantPandaDialog简介：</string>
+    <string name="html_dialog_content_first">1.为了简化 Android Dialog 的调用！</string>
+    <string name="html_dialog_content_second">2.整个基类完全继承自 DialogFragment 来代替 Dialog 以及 AlertDialog。</string>
 </resources>

@@ -3,4 +3,6 @@
 
     <string name="positive_button_text">OK</string>
     <string name="negative_button_text">CANCEL</string>
+    
+    <string name="forget_body_hint">forget body hint</string>
 </resources>

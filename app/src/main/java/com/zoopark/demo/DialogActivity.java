@@ -1,9 +1,9 @@
 package com.zoopark.demo;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,6 +13,7 @@ import com.zoopark.dialog.builder.DialogBuilder;
 import com.zoopark.dialog.builder.DialogHeaderBuilder;
 import com.zoopark.dialog.config.ButtonStyle;
 import com.zoopark.dialog.config.DialogBtnConfig;
+import com.zoopark.dialog.view.DialogBody;
 import com.zoopark.dialog.view.DialogButton;
 
 
@@ -87,29 +88,46 @@ public class DialogActivity extends AppCompatActivity {
                 getResources().getString(R.string.dialog_content), btnNegative, btnPositive);
     }
 
+    public void onHtmlDialogClick(View view) {
+        DialogButton btnNegative = new DialogButton(this);
+        btnNegative.setText(R.string.negative_button_text);
+        btnNegative.setStyle(ButtonStyle.CANCEL);
+        btnNegative.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onClick() {
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.negative_button_text),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        DialogButton btnPositive = new DialogButton(this);
+        btnPositive.setText(R.string.positive_button_text);
+        btnPositive.setClickListener(new DialogBtnConfig.OnButtonClickListener() {
+            @Override
+            public void onClick() {
+                Toast.makeText(getApplicationContext(),
+                        getResources().getText(R.string.positive_button_text),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+        String content = "<p>" + getResources().getString(R.string.html_dialog_title) +"</p>" +
+                "<p>" + getResources().getString(R.string.html_dialog_content_first) + "</p>" +
+                "<p>" + getResources().getString(R.string.html_dialog_content_second) + "</p>";
+
+        GiantPandaDialog.showHtmlDialog(this, content, btnNegative, btnPositive);
+    }
+
     public void onCustomDialogClick(View view) {
         DialogHeaderBuilder headerBuilder = DialogHeaderBuilder.getInstance()
                 .setBgColor(android.R.color.holo_red_dark)
-        .setPaddingTop(16)
-        .setPaddingBottom(16)
-        .setPaddingLeft(16)
-        .setPaddingRight(16)
+        .setPadding(16)
         .setTitle(String.valueOf(getResources().getText(R.string.dialog_custom_title)))
         .setTitleColor(android.R.color.white)
         .setTitleSize(18)
         .setTitleTypeface(Typeface.BOLD);
 
         DialogBodyBuilder bodyBuilder = DialogBodyBuilder.getInstance()
-                .setBgColor(android.R.color.holo_blue_light)
-        .setLayoutGravity(Gravity.CENTER)
-        .setPaddingTop(48)
-        .setPaddingBottom(48)
-        .setPaddingLeft(16)
-        .setPaddingRight(16)
-        .setContent(String.valueOf(getResources().getText(R.string.dialog_custom_content)))
-        .setContentColor(android.R.color.black)
-        .setContentSize(14)
-        .setGravity(Gravity.LEFT);
+                .setDialogBody(new CustomDialogBody(this));
 
         DialogButton btnLeft = new DialogButton(this);
         btnLeft.setText(getResources().getText(R.string.dialog_button_left));

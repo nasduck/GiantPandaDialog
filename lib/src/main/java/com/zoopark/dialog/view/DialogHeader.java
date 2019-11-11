@@ -11,17 +11,17 @@ import com.zoopark.dialog.utils.DensityUtils;
 
 public class DialogHeader extends FrameLayout {
 
-    private static HeaderConfig mConfig;
+    private HeaderConfig mConfig;
     private Context mContext;
 
     public static DialogHeader create(Context context, HeaderConfig config) {
-        mConfig = config;
-        return new DialogHeader(context);
+        return new DialogHeader(context, config);
     }
 
-    public DialogHeader(Context context) {
+    public DialogHeader(Context context, HeaderConfig config) {
         super(context);
         mContext = context;
+        mConfig = config;
         init(context);
     }
 

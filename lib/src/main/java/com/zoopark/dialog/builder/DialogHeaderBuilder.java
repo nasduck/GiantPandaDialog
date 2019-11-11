@@ -72,6 +72,26 @@ public class DialogHeaderBuilder implements IBuilder {
         return this;
     }
 
+    public DialogHeaderBuilder setPaddingHorizontal(int padding) {
+        this.config.setPaddingLeft(padding);
+        this.config.setPaddingRight(padding);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPaddingVertical(int padding) {
+        this.config.setPaddingTop(padding);
+        this.config.setPaddingBottom(padding);
+        return this;
+    }
+
+    public DialogHeaderBuilder setPadding(int padding) {
+        this.config.setPaddingLeft(padding);
+        this.config.setPaddingTop(padding);
+        this.config.setPaddingRight(padding);
+        this.config.setPaddingBottom(padding);
+        return this;
+    }
+
     public DialogHeaderBuilder setBgColor(int color) {
         this.config.setBgColor(color);
         return this;
