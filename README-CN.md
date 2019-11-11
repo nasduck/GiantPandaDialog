@@ -34,7 +34,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.nasduck:GiantPandaDialog:1.2.3'
+    implementation 'com.github.nasduck:GiantPandaDialog:1.2.4'
 }
 ```
 
