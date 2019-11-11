@@ -39,7 +39,7 @@ Adding the following dependency to app `build.gradle` file:
 
 ```
 dependencies {
-    implementation 'com.github.nasduck:GiantPandaDialog:1.2.3'
+    implementation 'com.github.nasduck:GiantPandaDialog:1.2.4'
 }
 ```
 
